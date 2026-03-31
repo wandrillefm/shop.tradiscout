@@ -334,7 +334,7 @@
   const PRODUCTS = [];
   DESIGNS.forEach(d => {
     TYPES.forEach(t => {
-      PRODUCTS.push({ uid: `${t.id}-${d.key}`, type: t.id, design: d.key });
+      PRODUCTS.push({ uid: `${t.id}-${d.key}`, type: t.id, design: d.key, designId: d.id });
     });
   });
 
