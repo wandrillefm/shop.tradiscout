@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verso L'Alto — Boutique</title>
   <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  
   <style>
     :root {
       --primary: #2C3776;   /* Ton bleu */
       --bg: #F8F2E7;        /* Ton beige */
-      --accent: #c9a84c;    /* Or pour les détails */
+      --accent: #c9a84c;
       --gris: #6b6b6b;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background: var(--bg);
       color: var(--primary);
@@ -40,16 +38,12 @@
       font-family: 'Uncial Antiqua', serif;
       font-size: 1.6rem;
       color: var(--primary);
-      text-transform: lowercase;
     }
-
     .cart-btn {
       background: var(--primary);
       border: none;
       color: var(--bg);
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
       padding: 0.6rem 1.2rem;
       cursor: pointer;
       display: flex;
@@ -57,66 +51,54 @@
       gap: 0.6rem;
     }
 
-    /* LAYOUT PRINCIPAL */
+    /* LAYOUT SHOP */
     .shop-container {
       display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 2rem;
-      max-width: 1300px;
+      grid-template-columns: 350px 1fr; /* Colonne image à gauche */
+      gap: 3rem;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 3rem;
     }
 
-    /* COLONNE GAUCHE : GALERIE */
-    .product-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* GALERIE GAUCHE */
+    .product-list {
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
     }
     .product-card {
       background: white;
-      border: 1px solid rgba(44, 55, 118, 0.05);
-      padding: 1rem;
+      border: 1px solid rgba(44, 55, 118, 0.1);
+      padding: 10px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
+      transition: 0.3s;
     }
-    .product-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-    .product-card.active { border: 2px solid var(--primary); }
-    
+    .product-card:hover, .product-card.active {
+      border-color: var(--primary);
+      box-shadow: 0 4px 15px rgba(44, 55, 118, 0.1);
+    }
     .product-card img {
       width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
-      margin-bottom: 1rem;
+      display: block;
     }
-    .product-card h3 {
-      font-family: 'Uncial Antiqua', serif;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
+    .product-card-info {
+      margin-top: 10px;
+      text-align: center;
     }
-    .product-card .price { font-size: 0.8rem; color: var(--gris); }
+    .product-card-info h3 { font-family: 'Uncial Antiqua', serif; font-size: 0.8rem; }
 
-    /* COLONNE DROITE : CONFIG */
+    /* CONFIG DROITE */
     .config-panel {
       position: sticky;
       top: 7rem;
       height: fit-content;
-      background: white;
-      padding: 2rem;
-      border: 1px solid rgba(44, 55, 118, 0.1);
     }
-    .config-title {
-      font-family: 'Uncial Antiqua', serif;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-    .config-price {
-      font-size: 1.8rem;
-      color: var(--accent);
-      margin-bottom: 2rem;
-    }
-
+    .config-title { font-family: 'Uncial Antiqua', serif; font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .config-price { font-size: 2rem; color: var(--accent); margin-bottom: 2rem; }
+    
     .section-label {
       font-size: 0.6rem;
       text-transform: uppercase;
@@ -124,49 +106,46 @@
       margin-bottom: 0.8rem;
       display: block;
       color: var(--gris);
+      border-bottom: 1px solid rgba(44, 55, 118, 0.1);
+      padding-bottom: 4px;
     }
 
-    .options-row { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .options-row { display: flex; gap: 0.6rem; margin-bottom: 2rem; flex-wrap: wrap; }
     .opt-btn {
-      border: 1px solid #ddd;
-      background: none;
-      padding: 0.5rem 1rem;
+      border: 1px solid rgba(44, 55, 118, 0.2);
+      background: transparent;
+      padding: 0.8rem 1.2rem;
       cursor: pointer;
       font-family: inherit;
       color: var(--primary);
+      transition: 0.2s;
     }
-    .opt-btn.selected {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
+    .opt-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
 
     .add-btn {
       width: 100%;
-      padding: 1rem;
+      padding: 1.2rem;
       background: var(--primary);
       color: white;
       border: none;
       font-family: 'Uncial Antiqua', serif;
+      font-size: 1.1rem;
       cursor: pointer;
-      margin-top: 1rem;
+      transition: opacity 0.3s;
     }
-    .add-btn:disabled { background: #ccc; cursor: not-allowed; }
+    .add-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
-    /* DRAWER PANIER (Style simplifié) */
+    /* PANIER */
     .cart-drawer {
-      position: fixed; top: 0; right: 0; width: 350px; height: 100%;
+      position: fixed; top: 0; right: 0; width: 400px; height: 100%;
       background: white; z-index: 200; transform: translateX(100%);
-      transition: 0.3s; padding: 2rem; border-left: 1px solid var(--primary);
+      transition: 0.3s; padding: 2rem; display: flex; flex-direction: column;
     }
     .cart-drawer.open { transform: translateX(0); }
-    .cart-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
-      display: none; z-index: 150;
-    }
+    .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; z-index: 150; }
 
     @media (max-width: 900px) {
-      .shop-container { grid-template-columns: 1fr; padding: 1.5rem; }
+      .shop-container { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -180,58 +159,55 @@
 </header>
 
 <main class="shop-container">
-  <div class="product-gallery" id="productGallery"></div>
+  <div class="product-list" id="productList"></div>
 
   <aside class="config-panel" id="configPanel">
     <div id="configContent">
-      <p style="color:var(--gris)">Sélectionnez un article à gauche</p>
+      <h2 style="font-family:'Uncial Antiqua'">Sélectionnez un article</h2>
     </div>
   </aside>
 </main>
 
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart(false)"></div>
 <div class="cart-drawer" id="cartDrawer">
-  <h2 style="font-family:'Uncial Antiqua'">Mon Panier</h2>
-  <div id="cartItems" style="margin: 2rem 0;"></div>
-  <hr>
-  <div style="display:flex; justify-content:space-between; margin-top:1rem">
-    <span>Total</span>
-    <b id="cartTotal">0 €</b>
+  <h2 style="font-family:'Uncial Antiqua'; margin-bottom: 2rem;">Mon Panier</h2>
+  <div id="cartItems" style="flex:1; overflow-y:auto;"></div>
+  <div style="padding-top:1rem; border-top:1px solid #eee">
+    <div style="display:flex; justify-content:space-between; margin-bottom:1rem; font-size:1.2rem">
+      <span>Total</span><b id="cartTotal">0 €</b>
+    </div>
+    <button class="add-btn" id="checkoutBtn" onclick="goToCheckout()">Payer →</button>
   </div>
-  <button class="add-btn" onclick="alert('Redirection Stripe...')">Payer</button>
 </div>
 
 <script>
   /* ══════════════════════════════════════════════
-     LISTE DES PRODUITS (Facile à modifier)
+     LISTE DES PRODUITS (Configurations & Images)
      ══════════════════════════════════════════════ */
   const PRODUCTS = [
     {
-      id: 1,
-      name: "T-Shirt 'Laisse Dieu agir'",
+      id: "tshirt",
+      name: "T-Shirt Scout",
       price: 17,
-      image: "https://via.placeholder.com/300/2C3776/F8F2E7?text=T-Shirt+01", // Remplace par tes liens FINAL.png etc
-      description: "Coupe classique, coton bio.",
+      image: "FINAL.png", // Remplace par tes vrais fichiers
       sizes: ["S", "M", "L", "XL"],
       colors: ["Blanc", "Marine"]
     },
     {
-      id: 2,
-      name: "Sweat 'Toujours Prêt'",
+      id: "sweat",
+      name: "Sweat Col Rond",
       price: 33,
-      image: "https://via.placeholder.com/300/2C3776/F8F2E7?text=Sweat+02",
-      description: "Épais et confortable pour l'hiver.",
+      image: "FINAL.png",
       sizes: ["M", "L", "XL"],
       colors: ["Marine", "Gris"]
     },
     {
-      id: 3,
-      name: "Hoodie 'Verso L'Alto'",
+      id: "hoodie",
+      name: "Hoodie Verso L'Alto",
       price: 37,
-      image: "https://via.placeholder.com/300/2C3776/F8F2E7?text=Hoodie+03",
-      description: "Le grand classique de la boutique.",
+      image: "FINAL.png",
       sizes: ["S", "M", "L"],
-      colors: ["Blanc", "Noir", "Marine"]
+      colors: ["Blanc", "Marine"]
     }
   ];
 
@@ -240,28 +216,26 @@
   let selectedSize = null;
   let selectedColor = null;
 
-  /* ─── INITIALISATION ─── */
   function init() {
-    const gallery = document.getElementById('productGallery');
-    gallery.innerHTML = PRODUCTS.map(p => `
-      <div class="product-card" onclick="selectProduct(${p.id})" id="card-${p.id}">
+    const list = document.getElementById('productList');
+    list.innerHTML = PRODUCTS.map(p => `
+      <div class="product-card" onclick="selectProduct('${p.id}')" id="card-${p.id}">
         <img src="${p.image}" alt="${p.name}">
-        <h3>${p.name}</h3>
-        <div class="price">${p.price} €</div>
+        <div class="product-card-info">
+          <h3>${p.name}</h3>
+          <p>${p.price} €</p>
+        </div>
       </div>
     `).join('');
   }
 
-  /* ─── SELECTION ─── */
   function selectProduct(id) {
     selectedProduct = PRODUCTS.find(p => p.id === id);
     selectedSize = null;
     selectedColor = null;
 
-    // Update UI active state
     document.querySelectorAll('.product-card').forEach(c => c.classList.remove('active'));
     document.getElementById(`card-${id}`).classList.add('active');
-
     renderConfig();
   }
 
@@ -272,24 +246,23 @@
     panel.innerHTML = `
       <h2 class="config-title">${selectedProduct.name}</h2>
       <div class="config-price">${selectedProduct.price} €</div>
-      <p style="font-size:0.8rem; margin-bottom:1.5rem">${selectedProduct.description}</p>
 
-      <span class="section-label">Taille</span>
+      <span class="section-label">01 — Taille</span>
       <div class="options-row">
         ${selectedProduct.sizes.map(s => `
           <button class="opt-btn ${selectedSize === s ? 'selected' : ''}" onclick="setSize('${s}')">${s}</button>
         `).join('')}
       </div>
 
-      <span class="section-label">Couleur</span>
+      <span class="section-label">02 — Couleur</span>
       <div class="options-row">
         ${selectedProduct.colors.map(c => `
           <button class="opt-btn ${selectedColor === c ? 'selected' : ''}" onclick="setColor('${c}')">${c}</button>
         `).join('')}
       </div>
 
-      <button class="add-btn" id="addBtn" ${!(selectedSize && selectedColor) ? 'disabled' : ''} onclick="addToCart()">
-        Ajouter au panier
+      <button class="add-btn" ${!(selectedSize && selectedColor) ? 'disabled' : ''} onclick="addToCart()">
+        + Ajouter au panier
       </button>
     `;
   }
@@ -299,43 +272,60 @@
 
   /* ─── PANIER ─── */
   function addToCart() {
-    const item = {
-      cartId: Date.now(),
-      ...selectedProduct,
-      chosenSize: selectedSize,
-      chosenColor: selectedColor
-    };
-    cart.push(item);
-    updateCartUI();
+    cart.push({
+      id: Date.now(),
+      type: selectedProduct.id,
+      label: selectedProduct.name,
+      price: selectedProduct.price,
+      size: selectedSize,
+      color: selectedColor
+    });
+    updateCart();
     toggleCart(true);
   }
 
-  function updateCartUI() {
+  function updateCart() {
     document.getElementById('cartCount').textContent = cart.length;
     const itemsDiv = document.getElementById('cartItems');
-    const totalDiv = document.getElementById('cartTotal');
-
-    if (cart.length === 0) {
-      itemsDiv.innerHTML = "<p>Votre panier est vide.</p>";
-    } else {
-      itemsDiv.innerHTML = cart.map(item => `
-        <div style="margin-bottom:1rem; font-size:0.8rem; display:flex; justify-content:space-between">
-          <div>
-            <b>${item.name}</b><br>
-            Taille: ${item.chosenSize} | ${item.chosenColor}
-          </div>
-          <span>${item.price} €</span>
+    itemsDiv.innerHTML = cart.map(i => `
+      <div style="margin-bottom:1.5rem; border-bottom:1px solid #eee; padding-bottom:10px;">
+        <div style="display:flex; justify-content:space-between; font-weight:bold">
+          <span>${i.label}</span><span>${i.price} €</span>
         </div>
-      `).join('');
-    }
-
-    const total = cart.reduce((sum, i) => sum + i.price, 0);
-    totalDiv.textContent = total + " €";
+        <div style="font-size:0.7rem; color:var(--gris)">${i.size} — ${i.color}</div>
+      </div>
+    `).join('');
+    document.getElementById('cartTotal').textContent = cart.reduce((a, b) => a + b.price, 0) + " €";
   }
 
   function toggleCart(show) {
     document.getElementById('cartDrawer').classList.toggle('open', show);
     document.getElementById('cartOverlay').style.display = show ? 'block' : 'none';
+  }
+
+  /* ─── CHECKOUT (RESTAURÉ) ─── */
+  async function goToCheckout() {
+    if (cart.length === 0) return;
+    const btn = document.getElementById('checkoutBtn');
+    btn.innerText = "Redirection...";
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: cart })
+      });
+
+      if (!res.ok) throw new Error('Erreur serveur');
+
+      const { url } = await res.json();
+      window.location.href = url; // Redirection réelle Stripe
+    } catch (e) {
+      alert('Erreur : ' + e.message);
+      btn.innerText = "Payer →";
+      btn.disabled = false;
+    }
   }
 
   init();
