@@ -14,9 +14,7 @@
       --or-clair: #e8d5a3;
       --gris: #6b6b6b;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background: var(--noir);
       color: var(--blanc);
@@ -24,8 +22,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-    /* GRAIN OVERLAY */
     body::before {
       content: '';
       position: fixed;
@@ -38,82 +34,88 @@
 
     /* HEADER */
     header {
-      padding: 2.5rem 3rem;
+      padding: 2rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid rgba(201,168,76,0.2);
-      animation: fadeDown 0.8s ease both;
+      position: sticky;
+      top: 0;
+      background: rgba(14,14,14,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 50;
     }
-
     .logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
       letter-spacing: 0.15em;
       color: var(--or);
       text-transform: uppercase;
     }
+    .logo span { font-style: italic; font-weight: 400; color: var(--blanc); }
 
-    .logo span {
-      font-style: italic;
-      font-weight: 400;
+    /* PANIER BOUTON */
+    .cart-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.3);
       color: var(--blanc);
-    }
-
-    .tagline {
+      font-family: 'DM Mono', monospace;
       font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      color: var(--gris);
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .cart-btn:hover { border-color: var(--or); color: var(--or); }
+    .cart-count {
+      background: var(--or);
+      color: var(--noir);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.55rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
     }
 
     /* HERO */
     .hero {
-      padding: 5rem 3rem 3rem;
-      animation: fadeUp 0.9s ease 0.2s both;
+      padding: 4rem 3rem 2rem;
     }
-
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 8vw, 7rem);
+      font-size: clamp(2.5rem, 7vw, 6rem);
       font-weight: 400;
       line-height: 0.9;
-      color: var(--blanc);
     }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--or);
-    }
-
+    .hero h1 em { font-style: italic; color: var(--or); }
     .hero p {
-      margin-top: 1.5rem;
-      font-size: 0.75rem;
+      margin-top: 1rem;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       color: var(--gris);
       text-transform: uppercase;
-      max-width: 400px;
     }
 
-    /* CONFIGURATEUR */
+    /* SHOP LAYOUT */
     .shop {
-      padding: 3rem;
+      padding: 2rem 3rem 4rem;
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1fr 360px;
       gap: 4rem;
       max-width: 1200px;
       margin: 0 auto;
-      animation: fadeUp 1s ease 0.4s both;
     }
 
-    /* PRÉVIEW VÊTEMENT */
-    .preview-zone {
-      position: sticky;
-      top: 2rem;
-      height: fit-content;
-    }
-
+    /* PREVIEW */
+    .preview-zone { position: sticky; top: 5rem; height: fit-content; }
     .garment-visual {
       aspect-ratio: 3/4;
       border: 1px solid rgba(201,168,76,0.15);
@@ -124,27 +126,15 @@
       gap: 1.5rem;
       position: relative;
       overflow: hidden;
-      transition: background 0.4s ease;
       background: #111;
+      transition: background 0.4s ease;
     }
-
     .garment-visual.blanc { background: #e8e4d9; }
     .garment-visual.marine { background: var(--marine); }
-
-    .garment-shape {
-      width: 55%;
-      transition: all 0.3s ease;
-    }
-
-    /* SVG formes vêtements */
-    .garment-shape svg {
-      width: 100%;
-      height: auto;
-    }
-
+    .garment-shape { width: 55%; transition: all 0.3s ease; }
+    .garment-shape svg { width: 100%; height: auto; }
     .shape-fill-blanc .garment-path { fill: #f5f2eb; stroke: #ccc; }
     .shape-fill-marine .garment-path { fill: #1a2744; stroke: #2a3a5e; }
-
     .design-preview {
       position: absolute;
       bottom: 18%;
@@ -160,165 +150,66 @@
       opacity: 0.85;
       transition: all 0.4s ease;
     }
-
     .garment-visual.blanc .design-preview { color: #1a2744; }
     .garment-visual.marine .design-preview { color: #f5f2eb; }
+    .garment-label { position: absolute; bottom: 1.2rem; left: 1.2rem; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--or); }
+    .price-display { position: absolute; top: 1.2rem; right: 1.2rem; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--or); }
 
-    .garment-label {
-      position: absolute;
-      bottom: 1.2rem;
-      left: 1.2rem;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--or);
-    }
-
-    .price-display {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--or);
-    }
-
-    /* PANNEAU CONFIG */
-    .config-panel { display: flex; flex-direction: column; gap: 2.5rem; }
-
-    .config-section { display: flex; flex-direction: column; gap: 0.8rem; }
-
+    /* CONFIG PANEL */
+    .config-panel { display: flex; flex-direction: column; gap: 2rem; }
+    .config-section { display: flex; flex-direction: column; gap: 0.7rem; }
     .config-label {
       font-size: 0.6rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--or);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.4rem;
       border-bottom: 1px solid rgba(201,168,76,0.15);
     }
-
-    /* OPTIONS VÊTEMENT */
-    .options-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.6rem;
-    }
-
-    .opt-btn {
+    .options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .opt-btn, .size-btn, .color-btn, .design-btn {
       background: transparent;
       border: 1px solid rgba(245,242,235,0.15);
       color: var(--blanc);
       font-family: 'DM Mono', monospace;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .opt-btn {
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 0.8rem 0.4rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.3rem;
     }
-
-    .opt-btn:hover {
-      border-color: rgba(201,168,76,0.5);
-      color: var(--or-clair);
-    }
-
-    .opt-btn.selected {
-      border-color: var(--or);
-      background: rgba(201,168,76,0.08);
-      color: var(--or);
-    }
-
-    .opt-btn .opt-price {
-      font-size: 0.55rem;
-      color: var(--gris);
-    }
-
-    .opt-btn.selected .opt-price { color: var(--or-clair); }
-
-    /* TAILLE */
-    .sizes-row {
-      display: flex;
-      gap: 0.6rem;
-    }
-
-    .size-btn {
-      flex: 1;
-      background: transparent;
-      border: 1px solid rgba(245,242,235,0.15);
-      color: var(--blanc);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      padding: 0.7rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .size-btn:hover { border-color: rgba(201,168,76,0.5); color: var(--or-clair); }
-    .size-btn.selected { border-color: var(--or); background: rgba(201,168,76,0.08); color: var(--or); }
-
-    /* COULEUR */
-    .colors-row { display: flex; gap: 0.6rem; }
-
+    .opt-btn .opt-price { font-size: 0.55rem; color: var(--gris); }
+    .sizes-row, .colors-row { display: flex; gap: 0.5rem; }
+    .size-btn { flex: 1; font-size: 0.8rem; letter-spacing: 0.1em; padding: 0.7rem; }
     .color-btn {
       flex: 1;
-      background: transparent;
-      border: 1px solid rgba(245,242,235,0.15);
-      color: var(--blanc);
-      font-family: 'DM Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
-
-    .color-btn:hover { border-color: rgba(201,168,76,0.5); }
-    .color-btn.selected { border-color: var(--or); background: rgba(201,168,76,0.08); color: var(--or); }
-
-    .color-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
+    .color-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
     .color-dot.blanc { background: #f5f2eb; border: 1px solid #ccc; }
     .color-dot.marine { background: #1a2744; border: 1px solid #2a3a5e; }
-
-    /* DESIGNS */
-    .designs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.6rem;
-    }
-
+    .designs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
     .design-btn {
-      background: transparent;
-      border: 1px solid rgba(245,242,235,0.12);
-      color: var(--blanc);
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 0.75rem;
       line-height: 1.5;
-      padding: 1rem 0.8rem;
-      cursor: pointer;
-      transition: all 0.25s ease;
+      padding: 0.9rem 0.8rem;
       text-align: center;
     }
-
-    .design-btn:hover { border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.04); }
-    .design-btn.selected { border-color: var(--or); background: rgba(201,168,76,0.08); color: var(--or-clair); }
-
     .design-btn .design-num {
       display: block;
       font-family: 'DM Mono', monospace;
@@ -326,43 +217,176 @@
       font-size: 0.5rem;
       letter-spacing: 0.2em;
       color: var(--or);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       text-transform: uppercase;
     }
-
-    /* RÉSUMÉ + CTA */
-    .order-summary {
-      border: 1px solid rgba(201,168,76,0.2);
-      padding: 1.2rem;
-      background: rgba(201,168,76,0.03);
+    .opt-btn:hover, .size-btn:hover, .color-btn:hover, .design-btn:hover {
+      border-color: rgba(201,168,76,0.5);
+      color: var(--or-clair);
     }
+    .opt-btn.selected, .size-btn.selected, .color-btn.selected, .design-btn.selected {
+      border-color: var(--or);
+      background: rgba(201,168,76,0.08);
+      color: var(--or);
+    }
+    .opt-btn.selected .opt-price { color: var(--or-clair); }
 
-    .summary-row {
+    /* BOUTON AJOUTER AU PANIER */
+    .add-btn {
+      width: 100%;
+      padding: 1rem;
+      background: transparent;
+      border: 1px solid var(--or);
+      color: var(--or);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .add-btn:hover { background: rgba(201,168,76,0.1); }
+    .add-btn:disabled { border-color: #333; color: #555; cursor: not-allowed; }
+    .add-btn:disabled:hover { background: transparent; }
+    .missing-msg { font-size: 0.58rem; color: var(--gris); letter-spacing: 0.08em; text-align: center; margin-top: 0.4rem; min-height: 1rem; }
+
+    /* ═══ DRAWER PANIER ═══ */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 420px;
+      max-width: 100vw;
+      height: 100vh;
+      background: #111;
+      border-left: 1px solid rgba(201,168,76,0.2);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
       display: flex;
       justify-content: space-between;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gris);
-      padding: 0.3rem 0;
+      align-items: center;
     }
-
-    .summary-row.total {
-      color: var(--blanc);
-      border-top: 1px solid rgba(201,168,76,0.15);
-      margin-top: 0.5rem;
-      padding-top: 0.7rem;
-      font-size: 0.75rem;
-    }
-
-    .summary-row.total span:last-child {
+    .cart-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--or);
     }
+    .cart-close {
+      background: transparent;
+      border: none;
+      color: var(--gris);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.3rem;
+      transition: color 0.2s;
+    }
+    .cart-close:hover { color: var(--blanc); }
 
-    .cta-btn {
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .cart-empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 0.65rem;
+      color: var(--gris);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .cart-item {
+      border: 1px solid rgba(245,242,235,0.1);
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+      align-items: start;
+      animation: slideIn 0.25s ease both;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blanc);
+    }
+    .item-details {
+      font-size: 0.58rem;
+      color: var(--gris);
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+      line-height: 1.7;
+    }
+    .item-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--or);
+    }
+    .item-remove {
+      background: transparent;
+      border: none;
+      color: #444;
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: color 0.2s;
+      padding: 0;
+      display: block;
+      text-align: right;
+      margin-top: 0.3rem;
+    }
+    .item-remove:hover { color: #888; }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .cart-total-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gris); }
+    .cart-total-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--or);
+    }
+    .checkout-btn {
       width: 100%;
       padding: 1.1rem;
       background: var(--or);
@@ -374,49 +398,36 @@
       text-transform: uppercase;
       cursor: pointer;
       transition: all 0.25s ease;
-      margin-top: 1rem;
-      position: relative;
-      overflow: hidden;
     }
+    .checkout-btn:hover { background: var(--or-clair); }
+    .checkout-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+    .checkout-loading { display: none; }
+    .checkout-btn.loading .checkout-text { display: none; }
+    .checkout-btn.loading .checkout-loading { display: inline; }
 
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #fff;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-      opacity: 0.15;
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--or);
+      color: var(--noir);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      padding: 0.7rem 1.4rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 300;
+      pointer-events: none;
+      white-space: nowrap;
     }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    .cta-btn:hover::before { transform: translateX(0); }
-    .cta-btn:hover { background: var(--or-clair); }
-
-    .cta-btn:disabled {
-      background: #333;
-      color: #666;
-      cursor: not-allowed;
-    }
-
-    .cta-btn:disabled::before { display: none; }
-
-    .cta-loading { display: none; }
-    .cta-btn.loading .cta-text { display: none; }
-    .cta-btn.loading .cta-loading { display: inline; }
-
-    .missing-msg {
-      font-size: 0.58rem;
-      color: var(--gris);
-      letter-spacing: 0.08em;
-      text-align: center;
-      margin-top: 0.5rem;
-      min-height: 1rem;
-    }
-
-    /* FOOTER */
     footer {
       text-align: center;
-      padding: 3rem;
+      padding: 2rem;
       font-size: 0.55rem;
       letter-spacing: 0.15em;
       color: #444;
@@ -424,25 +435,12 @@
       border-top: 1px solid rgba(201,168,76,0.1);
     }
 
-    /* ANIMATIONS */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       .shop { grid-template-columns: 1fr; }
       .preview-zone { position: static; }
       .garment-visual { aspect-ratio: 4/3; }
-      header { padding: 1.5rem; }
-      .hero { padding: 3rem 1.5rem 2rem; }
-      .shop { padding: 1.5rem; }
+      header, .hero, .shop { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .cart-drawer { width: 100vw; }
     }
   </style>
 </head>
@@ -450,53 +448,47 @@
 
 <header>
   <div class="logo">Verso <span>L'Alto</span></div>
-  <div class="tagline">Collection Tradiscout — 2026</div>
+  <button class="cart-btn" onclick="openCart()">
+    Panier
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
 </header>
 
 <section class="hero">
   <h1>La <em>boutique</em><br>scout.</h1>
-  <p>Choisissez votre vêtement, votre taille, votre couleur et votre citation.</p>
+  <p>Configurez votre article puis ajoutez-le au panier.</p>
 </section>
 
 <main class="shop">
 
-  <!-- PRÉVISUALISATION -->
+  <!-- PREVIEW -->
   <div class="preview-zone">
     <div class="garment-visual" id="garmentVisual">
-      <div class="garment-shape" id="garmentShape">
-        <!-- SVG injecté dynamiquement -->
-      </div>
-      <div class="design-preview" id="designPreview">
-        Sélectionnez<br>un design
-      </div>
+      <div class="garment-shape" id="garmentShape"></div>
+      <div class="design-preview" id="designPreview">Sélectionnez<br>un design</div>
       <div class="garment-label" id="garmentLabel">—</div>
       <div class="price-display" id="priceDisplay">—</div>
     </div>
   </div>
 
-  <!-- CONFIGURATEUR -->
+  <!-- CONFIG -->
   <div class="config-panel">
 
-    <!-- VÊTEMENT -->
     <div class="config-section">
       <div class="config-label">01 — Vêtement</div>
       <div class="options-grid">
         <button class="opt-btn" data-type="tshirt" data-price="17" onclick="selectOption('type', this)">
-          T-Shirt
-          <span class="opt-price">17 €</span>
+          T-Shirt<span class="opt-price">17 €</span>
         </button>
         <button class="opt-btn" data-type="sweat" data-price="33" onclick="selectOption('type', this)">
-          Sweat
-          <span class="opt-price">33 €</span>
+          Sweat<span class="opt-price">33 €</span>
         </button>
         <button class="opt-btn" data-type="hoodie" data-price="37" onclick="selectOption('type', this)">
-          Hoodie
-          <span class="opt-price">37 €</span>
+          Hoodie<span class="opt-price">37 €</span>
         </button>
       </div>
     </div>
 
-    <!-- TAILLE -->
     <div class="config-section">
       <div class="config-label">02 — Taille</div>
       <div class="sizes-row">
@@ -506,22 +498,18 @@
       </div>
     </div>
 
-    <!-- COULEUR -->
     <div class="config-section">
       <div class="config-label">03 — Couleur</div>
       <div class="colors-row">
         <button class="color-btn" onclick="selectOption('color', this)" data-color="blanc">
-          <span class="color-dot blanc"></span>
-          Blanc
+          <span class="color-dot blanc"></span>Blanc
         </button>
         <button class="color-btn" onclick="selectOption('color', this)" data-color="marine">
-          <span class="color-dot marine"></span>
-          Marine
+          <span class="color-dot marine"></span>Marine
         </button>
       </div>
     </div>
 
-    <!-- DESIGN / CITATION -->
     <div class="config-section">
       <div class="config-label">04 — Citation</div>
       <div class="designs-grid">
@@ -544,102 +532,78 @@
       </div>
     </div>
 
-    <!-- RÉSUMÉ COMMANDE -->
-    <div class="order-summary">
-      <div class="summary-row">
-        <span>Vêtement</span>
-        <span id="sumType">—</span>
-      </div>
-      <div class="summary-row">
-        <span>Taille</span>
-        <span id="sumSize">—</span>
-      </div>
-      <div class="summary-row">
-        <span>Couleur</span>
-        <span id="sumColor">—</span>
-      </div>
-      <div class="summary-row">
-        <span>Design</span>
-        <span id="sumDesign">—</span>
-      </div>
-      <div class="summary-row total">
-        <span>Total</span>
-        <span id="sumTotal">—</span>
-      </div>
-    </div>
-
     <div>
-      <button class="cta-btn" id="ctaBtn" disabled onclick="goToCheckout()">
-        <span class="cta-text">Commander →</span>
-        <span class="cta-loading">Redirection...</span>
+      <button class="add-btn" id="addBtn" disabled onclick="addToCart()">
+        + Ajouter au panier
       </button>
-      <div class="missing-msg" id="missingMsg">Complétez tous les choix pour commander</div>
+      <div class="missing-msg" id="missingMsg">Complétez tous les choix</div>
     </div>
 
   </div>
 </main>
 
-<footer>
-  © 2026 Verso L'Alto — Tradiscout · Paiement sécurisé par Stripe
-</footer>
+<!-- DRAWER PANIER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div class="cart-title">Mon panier</div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Panier vide</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-amount" id="cartTotal">0 €</span>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn" disabled onclick="goToCheckout()">
+      <span class="checkout-text">Payer →</span>
+      <span class="checkout-loading">Redirection...</span>
+    </button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>© 2026 Verso L'Alto — Tradiscout · Paiement sécurisé par Stripe</footer>
 
 <script>
-  // ─── ÉTAT ───────────────────────────────────────────────────────────
+  // ─── ÉTAT ────────────────────────────────────────────────────────────
   const state = { type: null, size: null, color: null, design: null, price: null };
+  let cart = [];
 
   const DESIGNS = {
-    1: "« Laisse Dieu agir,\net agis avec Dieu. »",
-    2: "« Toujours prêt,\ntoujours debout. »",
-    3: "« Per aspera\nad astra. »",
-    4: "« Verso l'Alto —\ntoujours plus haut. »"
+    '1': "« Laisse Dieu agir,\net agis avec Dieu. »",
+    '2': "« Toujours prêt,\ntoujours debout. »",
+    '3': "« Per aspera\nad astra. »",
+    '4': "« Verso l'Alto —\ntoujours plus haut. »"
   };
-
+  const DESIGN_SHORT = {
+    '1': 'Laisse Dieu agir...',
+    '2': 'Toujours prêt...',
+    '3': 'Per aspera ad astra',
+    '4': "Verso l'Alto"
+  };
   const LABELS = { tshirt: 'T-Shirt', sweat: 'Sweat', hoodie: 'Hoodie' };
 
-  // SVG formes
-  const SVG_TSHIRT = `<svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path class="garment-path" d="M60 20 L20 60 L50 75 L50 200 L150 200 L150 75 L180 60 L140 20 L115 40 C110 50 90 50 85 40 Z" stroke-width="1.5"/>
-  </svg>`;
-
-  const SVG_SWEAT = `<svg viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path class="garment-path" d="M60 25 L15 70 L45 82 L45 210 L155 210 L155 82 L185 70 L140 25 L118 45 C113 56 87 56 82 45 Z" stroke-width="1.5"/>
-    <path class="garment-path" d="M45 210 L45 220 L65 220 L65 210" stroke-width="1"/>
-    <path class="garment-path" d="M155 210 L155 220 L135 220 L135 210" stroke-width="1"/>
-  </svg>`;
-
-  const SVG_HOODIE = `<svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path class="garment-path" d="M60 30 L15 75 L45 88 L45 215 L155 215 L155 88 L185 75 L140 30 C130 20 115 15 100 15 C85 15 70 20 60 30 Z" stroke-width="1.5"/>
-    <path class="garment-path" d="M85 30 Q100 55 115 30" stroke-width="1" fill="none"/>
-    <path class="garment-path" d="M80 215 L80 230 L120 230 L120 215" stroke-width="1"/>
-    <path class="garment-path" d="M45 215 L45 225 L65 225 L65 215" stroke-width="1"/>
-    <path class="garment-path" d="M155 215 L155 225 L135 225 L135 215" stroke-width="1"/>
-  </svg>`;
-
+  const SVG_TSHIRT = `<svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="garment-path" d="M60 20 L20 60 L50 75 L50 200 L150 200 L150 75 L180 60 L140 20 L115 40 C110 50 90 50 85 40 Z" stroke-width="1.5"/></svg>`;
+  const SVG_SWEAT = `<svg viewBox="0 0 200 230" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="garment-path" d="M60 25 L15 70 L45 82 L45 210 L155 210 L155 82 L185 70 L140 25 L118 45 C113 56 87 56 82 45 Z" stroke-width="1.5"/><path class="garment-path" d="M45 210 L45 220 L65 220 L65 210" stroke-width="1"/><path class="garment-path" d="M155 210 L155 220 L135 220 L135 210" stroke-width="1"/></svg>`;
+  const SVG_HOODIE = `<svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="garment-path" d="M60 30 L15 75 L45 88 L45 215 L155 215 L155 88 L185 75 L140 30 C130 20 115 15 100 15 C85 15 70 20 60 30 Z" stroke-width="1.5"/><path class="garment-path" d="M85 30 Q100 55 115 30" stroke-width="1" fill="none"/><path class="garment-path" d="M80 215 L80 230 L120 230 L120 215" stroke-width="1"/><path class="garment-path" d="M45 215 L45 225 L65 225 L65 215" stroke-width="1"/><path class="garment-path" d="M155 215 L155 225 L135 225 L135 215" stroke-width="1"/></svg>`;
   const SVGS = { tshirt: SVG_TSHIRT, sweat: SVG_SWEAT, hoodie: SVG_HOODIE };
 
-  // ─── SÉLECTION OPTIONS ───────────────────────────────────────────────
+  // ─── SÉLECTION ───────────────────────────────────────────────────────
   function selectOption(category, btn) {
-    // Deselect siblings
     btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
-
-    if (category === 'type') {
-      state.type = btn.dataset.type;
-      state.price = parseInt(btn.dataset.price);
-    } else if (category === 'size') {
-      state.size = btn.dataset.size;
-    } else if (category === 'color') {
-      state.color = btn.dataset.color;
-    } else if (category === 'design') {
-      state.design = btn.dataset.design;
-    }
-
+    if (category === 'type') { state.type = btn.dataset.type; state.price = parseInt(btn.dataset.price); }
+    else if (category === 'size') state.size = btn.dataset.size;
+    else if (category === 'color') state.color = btn.dataset.color;
+    else if (category === 'design') state.design = btn.dataset.design;
     updatePreview();
-    updateSummary();
     updateCTA();
   }
 
-  // ─── PREVIEW ─────────────────────────────────────────────────────────
   function updatePreview() {
     const visual = document.getElementById('garmentVisual');
     const shape = document.getElementById('garmentShape');
@@ -647,62 +611,106 @@
     const label = document.getElementById('garmentLabel');
     const priceDisp = document.getElementById('priceDisplay');
 
-    // Couleur
-    visual.className = 'garment-visual';
-    if (state.color) visual.classList.add(state.color);
-
-    // Forme vêtement
+    visual.className = 'garment-visual' + (state.color ? ' ' + state.color : '');
     if (state.type) {
       shape.innerHTML = SVGS[state.type];
-      const colorClass = state.color ? `shape-fill-${state.color}` : '';
-      shape.className = `garment-shape ${colorClass}`;
+      shape.className = 'garment-shape' + (state.color ? ' shape-fill-' + state.color : '');
       label.textContent = LABELS[state.type];
       priceDisp.textContent = state.price + ' €';
     } else {
       label.textContent = '—';
       priceDisp.textContent = '—';
     }
-
-    // Design
-    if (state.design) {
-      designPrev.innerHTML = DESIGNS[state.design].replace('\n', '<br>');
-    } else {
-      designPrev.innerHTML = 'Sélectionnez<br>un design';
-    }
+    designPrev.innerHTML = state.design ? DESIGNS[state.design].replace('\n', '<br>') : 'Sélectionnez<br>un design';
   }
 
-  // ─── RÉSUMÉ ──────────────────────────────────────────────────────────
-  function updateSummary() {
-    document.getElementById('sumType').textContent = state.type ? LABELS[state.type] : '—';
-    document.getElementById('sumSize').textContent = state.size || '—';
-    document.getElementById('sumColor').textContent = state.color ? (state.color.charAt(0).toUpperCase() + state.color.slice(1)) : '—';
-    document.getElementById('sumDesign').textContent = state.design ? `Design 0${state.design}` : '—';
-    document.getElementById('sumTotal').textContent = state.price ? state.price + ' €' : '—';
-  }
-
-  // ─── CTA ─────────────────────────────────────────────────────────────
   function updateCTA() {
-    const btn = document.getElementById('ctaBtn');
+    const btn = document.getElementById('addBtn');
     const msg = document.getElementById('missingMsg');
-    const allSelected = state.type && state.size && state.color && state.design;
-
-    btn.disabled = !allSelected;
-
-    if (allSelected) {
+    const ok = state.type && state.size && state.color && state.design;
+    btn.disabled = !ok;
+    if (ok) {
       msg.textContent = '';
     } else {
-      const missing = [];
-      if (!state.type) missing.push('vêtement');
-      if (!state.size) missing.push('taille');
-      if (!state.color) missing.push('couleur');
-      if (!state.design) missing.push('design');
-      msg.textContent = 'Manque : ' + missing.join(', ');
+      const missing = ['type','size','color','design'].filter(k => !state[k]);
+      const labels = { type: 'vêtement', size: 'taille', color: 'couleur', design: 'design' };
+      msg.textContent = 'Manque : ' + missing.map(k => labels[k]).join(', ');
     }
+  }
+
+  // ─── PANIER ──────────────────────────────────────────────────────────
+  function addToCart() {
+    const item = {
+      id: Date.now(),
+      type: state.type,
+      size: state.size,
+      color: state.color,
+      design: state.design,
+      price: state.price,
+      label: LABELS[state.type],
+      designShort: DESIGN_SHORT[state.design]
+    };
+    cart.push(item);
+    renderCart();
+    showToast(`${item.label} ajouté au panier`);
+  }
+
+  function removeFromCart(id) {
+    cart = cart.filter(i => i.id !== id);
+    renderCart();
+  }
+
+  function renderCart() {
+    const container = document.getElementById('cartItems');
+    const total = cart.reduce((s, i) => s + i.price, 0);
+
+    document.getElementById('cartCount').textContent = cart.length;
+    document.getElementById('cartTotal').textContent = total + ' €';
+    document.getElementById('checkoutBtn').disabled = cart.length === 0;
+
+    if (cart.length === 0) {
+      container.innerHTML = '<div class="cart-empty">Panier vide</div>';
+      return;
+    }
+
+    container.innerHTML = cart.map(item => `
+      <div class="cart-item">
+        <div>
+          <div class="item-name">${item.label}</div>
+          <div class="item-details">
+            Taille : ${item.size}<br>
+            Couleur : ${item.color.charAt(0).toUpperCase() + item.color.slice(1)}<br>
+            Design : ${item.designShort}
+          </div>
+        </div>
+        <div>
+          <div class="item-price">${item.price} €</div>
+          <button class="item-remove" onclick="removeFromCart(${item.id})">✕ retirer</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function openCart() {
+    document.getElementById('cartOverlay').classList.add('open');
+    document.getElementById('cartDrawer').classList.add('open');
+  }
+  function closeCart() {
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.getElementById('cartDrawer').classList.remove('open');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
   }
 
   // ─── CHECKOUT ────────────────────────────────────────────────────────
   async function goToCheckout() {
-    const btn = document.getElementById('ctaBtn');
+    if (cart.length === 0) return;
+    const btn = document.getElementById('checkoutBtn');
     btn.classList.add('loading');
     btn.disabled = true;
 
@@ -710,13 +718,7 @@
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: state.type,
-          size: state.size,
-          color: state.color,
-          design: state.design,
-          price: state.price
-        })
+        body: JSON.stringify({ items: cart })
       });
 
       if (!res.ok) {
@@ -726,7 +728,6 @@
 
       const { url } = await res.json();
       window.location.href = url;
-
     } catch (e) {
       alert('Erreur : ' + e.message);
       btn.classList.remove('loading');
