@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   // ── Validation ──────────────────────────────────────────────────────
   const validTypes = ['tshirt', 'sweat', 'hoodie'];
   const validSizes = ['S', 'M', 'L'];
-  const validColors = ['blanc', 'marine'];
+  const validColors = ['blanc', 'bleu'];
   const validDesigns = ['1', '2', '3', '4'];
   const validPrices = { tshirt: 17, sweat: 33, hoodie: 37 };
 
