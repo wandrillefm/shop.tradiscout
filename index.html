@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boutique Tradiscout</title>
   <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="FINAL (1).png">
   <style>
     :root {
       --navy: #2C3776;
@@ -189,6 +188,37 @@
       font-family: 'Uncial Antiqua', serif; font-size: 0.95rem; cursor: pointer;
     }
 
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(44,55,118,0.12);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.7rem;
+      background: rgba(248,242,231,0.6);
+    }
+    .footer-copy {
+      font-size: 0.58rem;
+      color: var(--gris);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.58rem;
+      color: var(--navy);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.55;
+      transition: opacity 0.15s;
+    }
+    .footer-links a:hover { opacity: 1; }
+
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 650px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
@@ -263,6 +293,15 @@
   </div>
 </div>
 
+<footer>
+  <div class="footer-copy">© Tradiscout 2026</div>
+  <div class="footer-links">
+    <a href="details.pdf" target="_blank">Détails</a>
+    <a href="livraison.pdf" target="_blank">Livraison</a>
+    <a href="termes.pdf" target="_blank">Termes</a>
+  </div>
+</footer>
+
 <script>
   // ── CATALOGUE ──
   const TYPES = [
@@ -279,7 +318,7 @@
   const SIZES  = ['S', 'M', 'L'];
   const COLORS = [
     { key: 'blanc',  label: 'Blanc' },
-    { key: 'bleu', label: 'Marine' },
+    { key: 'marine', label: 'Marine' },
   ];
 
   // image par combinaison : type-couleur-motif.png
@@ -303,7 +342,7 @@
     grid.innerHTML = PRODUCTS.map(p => {
       const t = TYPES.find(x => x.id === p.type);
       const d = DESIGNS.find(x => x.key === p.design);
-      const defaultImg = imgSrc(p.type, 'bleu', p.design);
+      const defaultImg = imgSrc(p.type, 'blanc', p.design);
       return `
         <div class="grid-card" onclick="openLb('${p.type}', '${p.design}')">
           <img src="${defaultImg}" alt="${t.label} ${d.label}" onerror="this.style.background='#ddd';this.src=''" />
