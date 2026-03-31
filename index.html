@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boutique — Tradiscout</title>
+  <title>Boutique Tradiscout — Verso L'Alto</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Sanchez&family=Uncial+Antiqua&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
 
@@ -23,59 +23,61 @@
       background-attachment: fixed;
       color: var(--navy);
       font-family: 'Sanchez', serif;
+      min-height: 100vh;
       padding: 2rem;
     }
 
-    header { 
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
-      margin-bottom: 3rem;
-      position: relative;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto 3rem auto;
     }
-    h1 { font-family: 'Uncial Antiqua'; font-size: 3rem; text-transform: lowercase; }
 
-    /* ─── BOUTON PANIER ─── */
+    .logo { font-family: 'Uncial Antiqua'; font-size: 2.5rem; }
+
+    /* BOUTON PANIER */
     .cart-trigger {
-      position: absolute; right: 0;
       background: var(--navy); color: var(--bg);
-      border: none; padding: 10px 20px;
+      border: none; padding: 12px 20px;
       font-family: 'Uncial Antiqua'; cursor: pointer;
       display: flex; gap: 10px; align-items: center;
+      transition: 0.3s;
     }
-    .cart-count { background: var(--bg); color: var(--navy); padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; }
+    .cart-trigger:hover { opacity: 0.9; }
 
-    /* ─── GRILLE PRODUITS (6 large PC / 3 large TEL) ─── */
+    /* GRILLE 6 SUR PC / 3 SUR TEL */
     .product-grid {
       display: grid;
       max-width: 1400px;
       margin: 0 auto;
       grid-template-columns: repeat(6, 1fr);
-      gap: 20px;
+      gap: 15px;
     }
 
     .product-card {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
       border: 1px solid var(--navy);
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-    .product-card:hover { transform: translateY(-5px); }
+    .product-card:hover { transform: translateY(-5px); border-width: 2px; }
 
     .product-img {
       width: 100%; aspect-ratio: 1 / 1;
       object-fit: cover; border-bottom: 1px solid var(--navy);
-      display: block; background: #fff; /* Pour simuler tes photos */
+      display: block;
     }
 
-    .product-info { padding: 10px; text-align: center; }
-    .product-info h3 { font-family: 'Uncial Antiqua'; font-size: 0.9rem; }
-    .product-info p { font-size: 0.8rem; opacity: 0.8; }
+    .product-info { padding: 12px; text-align: center; }
+    .product-info h3 { font-family: 'Uncial Antiqua'; font-size: 0.9rem; margin-bottom: 4px; }
+    .product-info p { font-size: 0.85rem; }
 
-    /* ─── LIGHTBOX ─── */
+    /* LIGHTBOX */
     .modal {
       position: fixed; inset: 0;
-      background: rgba(10, 29, 55, 0.8);
+      background: rgba(10, 29, 55, 0.9);
       display: none; align-items: center; justify-content: center;
       z-index: 1000; padding: 20px;
     }
@@ -87,179 +89,139 @@
       grid-template-columns: 1fr 1fr; position: relative;
     }
 
-    .modal-close { position: absolute; top: 10px; right: 15px; font-size: 2rem; cursor: pointer; z-index: 10; }
+    .modal-close { position: absolute; top: 10px; right: 15px; font-size: 2.5rem; cursor: pointer; z-index: 10; color: var(--navy); }
 
-    .modal-image-side img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .modal-left img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .modal-config-side { padding: 30px; display: flex; flex-direction: column; gap: 15px; }
-    .modal-config-side h2 { font-family: 'Uncial Antiqua'; }
+    .modal-right { padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+    .modal-right h2 { font-family: 'Uncial Antiqua'; font-size: 2rem; }
+    .price-tag { font-family: 'Uncial Antiqua'; font-size: 1.6rem; color: var(--navy); }
 
-    .selector-label { font-size: 0.7rem; font-weight: bold; text-transform: uppercase; margin-top: 10px; }
+    .label-title { font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
     .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
     .btn-opt {
-      padding: 6px 12px; border: 1px solid var(--navy);
-      background: transparent; font-family: 'Sanchez'; cursor: pointer; font-size: 0.8rem;
+      padding: 8px 15px; border: 1px solid var(--navy);
+      background: transparent; font-family: 'Sanchez'; cursor: pointer; font-size: 0.85rem;
     }
     .btn-opt.active { background: var(--navy); color: var(--bg); }
 
     .add-btn {
-      margin-top: 20px; padding: 15px;
+      margin-top: auto; padding: 18px;
       background: var(--navy); color: var(--bg);
-      border: none; font-family: 'Uncial Antiqua'; cursor: pointer;
+      border: none; font-family: 'Uncial Antiqua'; cursor: pointer; font-size: 1.1rem;
     }
 
-    /* ─── PANIER (DRAWER) ─── */
-    .drawer {
-      position: fixed; top: 0; right: 0; width: 350px; height: 100%;
-      background: var(--bg); border-left: 2px solid var(--navy);
-      z-index: 2000; transform: translateX(100%); transition: 0.3s;
-      padding: 20px; display: flex; flex-direction: column;
-    }
-    .drawer.open { transform: translateX(0); }
-    .cart-item { border-bottom: 1px solid rgba(10,29,55,0.1); padding: 10px 0; font-size: 0.8rem; }
+    /* PANIER (On utilise tes classes de boutique.css) */
+    @import url('css/boutique.css');
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 1100px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 768px) {
       .modal-content { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
-      header { flex-direction: column; gap: 1rem; }
-      .cart-trigger { position: static; }
+      header { flex-direction: column; gap: 1.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>la boutique</h1>
-  <button class="cart-trigger" onclick="toggleCart()">
-    Panier <span class="cart-count" id="cartCount">0</span>
+  <div class="logo">tradiscout shop</div>
+  <button class="cart-trigger" onclick="openCart()">
+    Panier (<span id="cart-count">0</span>)
   </button>
 </header>
 
-<div class="product-grid" id="grid"></div>
+<div class="product-grid">
+  <div class="product-card" onclick="openQuickView('tshirt', 17, 'IMG_5189.jpeg')">
+    <img src="IMG_5189.jpeg" class="product-img">
+    <div class="product-info"><h3>T-Shirt</h3><p>17 €</p></div>
+  </div>
+  <div class="product-card" onclick="openQuickView('sweat', 33, 'IMG_5189.jpeg')">
+    <img src="IMG_5189.jpeg" class="product-img">
+    <div class="product-info"><h3>Sweat</h3><p>33 €</p></div>
+  </div>
+  <div class="product-card" onclick="openQuickView('hoodie', 37, 'IMG_5189.jpeg')">
+    <img src="IMG_5189.jpeg" class="product-img">
+    <div class="product-info"><h3>Hoodie</h3><p>37 €</p></div>
+  </div>
+</div>
 
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="modal-close" onclick="closeModal()">×</span>
-    <div class="modal-image-side">
-      <img src="" id="modalImg">
-    </div>
-    <div class="modal-config-side">
-      <h2 id="modalTitle">Produit</h2>
-      <p id="modalPrice" style="font-family: 'Uncial Antiqua'; font-size: 1.5rem;">0 €</p>
+    <div class="modal-left"><img src="" id="modalImg"></div>
+    <div class="modal-right">
+      <h2 id="modalTitle">PRODUIT</h2>
+      <p id="modalPrice" class="price-tag">0 €</p>
       
-      <p class="selector-label">Taille</p>
-      <div class="btn-group" id="sizes">
-        <button class="btn-opt" onclick="select(this, 'size')">S</button>
-        <button class="btn-opt active" onclick="select(this, 'size')">M</button>
-        <button class="btn-opt" onclick="select(this, 'size')">L</button>
-        <button class="btn-opt" onclick="select(this, 'size')">XL</button>
+      <div>
+        <p class="label-title">Taille</p>
+        <div class="btn-group" id="sizes">
+          <button class="btn-opt active" onclick="select(this, 'size')">S</button>
+          <button class="btn-opt" onclick="select(this, 'size')">M</button>
+          <button class="btn-opt" onclick="select(this, 'size')">L</button>
+          <button class="btn-opt" onclick="select(this, 'size')">XL</button>
+        </div>
       </div>
 
-      <p class="selector-label">Couleur</p>
-      <div class="btn-group" id="colors">
-        <button class="btn-opt active" onclick="select(this, 'color')">Marine</button>
-        <button class="btn-opt" onclick="select(this, 'color')">Coton</button>
+      <div>
+        <p class="label-title">Couleur</p>
+        <div class="btn-group" id="colors">
+          <button class="btn-opt active" onclick="select(this, 'color')">Marine</button>
+          <button class="btn-opt" onclick="select(this, 'color')">Coton</button>
+        </div>
       </div>
 
-      <p class="selector-label">Citation</p>
-      <div class="btn-group" id="designs">
-        <button class="btn-opt active" onclick="select(this, 'design')">Design 1</button>
-        <button class="btn-opt" onclick="select(this, 'design')">Design 2</button>
-        <button class="btn-opt" onclick="select(this, 'design')">Design 3</button>
-        <button class="btn-opt" onclick="select(this, 'design')">Design 4</button>
+      <div>
+        <p class="label-title">Citation</p>
+        <div class="btn-group" id="designs">
+          <button class="btn-opt active" onclick="select(this, 'design')">1</button>
+          <button class="btn-opt" onclick="select(this, 'design')">2</button>
+          <button class="btn-opt" onclick="select(this, 'design')">3</button>
+          <button class="btn-opt" onclick="select(this, 'design')">4</button>
+        </div>
       </div>
 
-      <button class="add-btn" onclick="addToCart()">Ajouter au panier</button>
+      <button class="add-btn" onclick="confirmAdd()">Ajouter au panier</button>
     </div>
   </div>
 </div>
 
-<div class="drawer" id="cartDrawer">
-  <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom: 20px;">
-    <h2 style="font-family: 'Uncial Antiqua';">Ton Panier</h2>
-    <span style="cursor:pointer" onclick="toggleCart()">✕</span>
-  </div>
-  <div id="cartContent" style="flex:1; overflow-y: auto;"></div>
-  <div style="border-top: 1px solid var(--navy); padding-top: 15px;">
-    <p style="font-family: 'Uncial Antiqua'; font-size: 1.2rem;">Total: <span id="totalPrice">0</span> €</p>
-    <button class="add-btn" style="width:100%" onclick="alert('Redirection Stripe...')">Payer</button>
-  </div>
-</div>
+<script src="js/boutique.js"></script>
 
 <script>
-  const DESIGNS_TEXT = {
-    "Design 1": "Laisse Dieu agir, et agis avec Dieu.",
-    "Design 2": "Toujours prêt, toujours debout.",
-    "Design 3": "Per aspera ad astra.",
-    "Design 4": "Verso l'Alto — toujours plus haut."
-  };
+  let currentSelection = { type: '', price: 0, size: 'S', color: 'marine', design: '1' };
 
-  const products = [
-    { name: "T-Shirt", price: 17, img: "tshirt.jpg" },
-    { name: "Sweat", price: 33, img: "sweat.jpg" },
-    { name: "Hoodie", price: 37, img: "hoodie.jpg" }
-  ];
-
-  let cart = [];
-  let currentProduct = null;
-
-  // Création de la grille (3 produits originaux répétés pour remplir si besoin)
-  const grid = document.getElementById('grid');
-  products.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.onclick = () => openModal(p);
-    card.innerHTML = `<img src="${p.img}" class="product-img"><div class="product-info"><h3>${p.name}</h3><p>${p.price} €</p></div>`;
-    grid.appendChild(card);
-  });
-
-  function openModal(p) {
-    currentProduct = p;
-    document.getElementById('modalImg').src = p.img;
-    document.getElementById('modalTitle').innerText = p.name;
-    document.getElementById('modalPrice').innerText = p.price + " €";
+  function openQuickView(type, price, img) {
+    currentSelection.type = type;
+    currentSelection.price = price;
+    document.getElementById('modalImg').src = img;
+    document.getElementById('modalTitle').innerText = type.toUpperCase();
+    document.getElementById('modalPrice').innerText = price + " €";
     document.getElementById('modal').classList.add('open');
   }
 
   function closeModal() { document.getElementById('modal').classList.remove('open'); }
 
   function select(btn, type) {
+    currentSelection[type] = btn.innerText;
     btn.parentElement.querySelectorAll('.btn-opt').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 
-  function toggleCart() { document.getElementById('cartDrawer').classList.toggle('open'); }
-
-  function addToCart() {
-    const size = document.querySelector('#sizes .active').innerText;
-    const color = document.querySelector('#colors .active').innerText;
-    const design = document.querySelector('#designs .active').innerText;
-
-    cart.push({ ...currentProduct, size, color, design });
-    updateCartUI();
+  function confirmAdd() {
+    // Appelle TA fonction addToCart du fichier boutique.js
+    addToCart(
+      currentSelection.type, 
+      currentSelection.price, 
+      currentSelection.size, 
+      currentSelection.color, 
+      currentSelection.design
+    );
     closeModal();
-    toggleCart();
+    openCart(); // Ouvre ton panier drawer
   }
 
-  function updateCartUI() {
-    document.getElementById('cartCount').innerText = cart.length;
-    const content = document.getElementById('cartContent');
-    let total = 0;
-    
-    content.innerHTML = cart.map((item, i) => {
-      total += item.price;
-      return `<div class="cart-item">
-        <strong>${item.name}</strong> - ${item.price}€<br>
-        Taille: ${item.size} | ${item.color}<br>
-        <small>${DESIGNS_TEXT[item.design]}</small>
-      </div>`;
-    }).join('');
-    
-    document.getElementById('totalPrice').innerText = total;
-  }
-
-  window.onclick = (e) => { if (e.target == document.getElementById('modal')) closeModal(); }
+  window.onclick = (e) => { if (e.target.id == 'modal') closeModal(); }
 </script>
 
 </body>
