@@ -41,7 +41,7 @@ export default async function handler(req, res) {
     const stripeRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.sk_test_51TH05TPmNVwHzquJ0IUCtMQkg70cKDVQbEEBXISfQzsIpYs29N3v5oEawZX3KJkP0PmIPnnn6teyHstAnAZ63c1s00iUR9vwfh}`,
+        'Authorization': `Bearer ${process.env.STRIPE_SECRET_KEY}`,
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: new URLSearchParams({
@@ -52,8 +52,8 @@ export default async function handler(req, res) {
         'line_items[0][price_data][unit_amount]': String(price * 100), // en centimes
         'line_items[0][quantity]': '1',
         'mode': 'payment',
-        'success_url': `${process.env.tradiscout-shop.vercel.app}/success.html`,
-        'cancel_url': `${process.env.tradiscout-shop.vercel.app}/`,
+        'success_url': `${process.env.BASE_URL}/success.html`,
+        'cancel_url': `${process.env.BASE_URL}/`,
         // Métadonnées pour retrouver la commande dans Stripe
         'metadata[type]': type,
         'metadata[size]': size,
