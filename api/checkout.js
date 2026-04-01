@@ -48,7 +48,7 @@ export default async function handler(req, res) {
 
   const lineItemsParams = {};
   Object.values(grouped).forEach((item, i) => {
-    const name = `${typeLabels[item.type]} Verso L'Alto`;
+    const name = `${typeLabels[item.type]} — ${designLabels[item.design]}`;
     const desc = `Couleur: ${item.color} | Taille: ${item.size} | Design 0${item.design}: ${designLabels[item.design]}`;
     lineItemsParams[`line_items[${i}][price_data][currency]`] = 'eur';
     lineItemsParams[`line_items[${i}][price_data][product_data][name]`] = name;
