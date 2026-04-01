@@ -452,7 +452,7 @@
     cart.push({
       id: Date.now(),
       type: lb.type, typeLabel: t.label,
-      design: lb.design, designLabel: d.label,
+      design: String(d.id), designLabel: d.label,
       color: lb.color, colorLabel: c.label,
       size: lb.size,
       price: t.price,
