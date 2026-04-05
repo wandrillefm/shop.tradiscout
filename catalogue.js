@@ -47,7 +47,7 @@ const DESIGNS = [
   { id: '3', key: 'deus-vult',       label: 'Deus Vult'         },
   { id: '4', key: 'verso-lalto',     label: "Verso l'Alto"      },
   { id: '5', key: 'christus-rex',    label: 'Christus Rex'      },
-  { id: '6', key: 'jpeuxpas',        label: "J'ai pas scout"    },
+  { id: '6', key: 'jpeuxpas',        label: "J'peux pas j'ai scout" },
   { id: '7', key: 'mode-scout',      label: 'Mode Scout'        },
   { id: '8', key: 'braises',         label: 'Braises Surgelées' },
 ];
