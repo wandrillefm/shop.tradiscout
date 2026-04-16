@@ -66,12 +66,12 @@
             display: flex; justify-content: space-between; align-items: flex-start; gap: 60px;
         }
         .info-text { text-align: left; flex: 1; }
-        .info-text p { font-size: 0.72rem; color: var(--navy); line-height: 2; margin-bottom: 15px; max-width: 500px; }
-        .info-links { display: flex; flex-direction: column; gap: 10px; text-align: right; }
-        .info-links a { font-size: 0.55rem; text-transform: uppercase; color: var(--navy); opacity: 0.5; text-decoration: none; letter-spacing: 0.1em; transition: 0.2s; }
+        .info-text p { font-size: 0.75rem; color: var(--navy); line-height: 2; margin-bottom: 15px; max-width: 550px; }
+        .info-links { display: flex; flex-direction: column; gap: 12px; text-align: right; }
+        .info-links a { font-size: 0.55rem; text-transform: uppercase; color: var(--navy); opacity: 0.5; text-decoration: none; letter-spacing: 0.12em; transition: 0.2s; }
         .info-links a:hover { opacity: 1; color: var(--or); }
 
-        /* --- GRILLE PRODUITS & HOVER --- */
+        /* --- GRILLE & HOVER X2 --- */
         .grid-wrap { max-width: 1100px; margin: 3rem auto; padding: 0 5% 6rem; }
         .grid { display: grid; gap: 1px; background: rgba(44,55,118,0.1); border: 1px solid rgba(44,55,118,0.1); }
         .grid-card { background: white; cursor: pointer; display: flex; flex-direction: column; transition: 0.2s; position: relative; overflow: hidden; }
@@ -82,14 +82,12 @@
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
             transition: transform 0.35s, filter 0.2s; 
         }
-        .grid-card:hover .grid-card-img-wrap img { 
-            transform: translate(-50%, -50%) scale(0.9); filter: blur(2px); 
-        }
+        .grid-card:hover .grid-card-img-wrap img { transform: translate(-50%, -50%) scale(0.9); filter: blur(2px); }
         .grid-card-info { padding: 1.5rem; border-top: 1px solid rgba(44,55,118,0.05); text-align: center; }
         .grid-card-name { font-family: 'Uncial Antiqua', serif; font-size: 0.85rem; }
         .grid-card-price { font-size: 0.7rem; color: var(--or); margin-top: 8px; }
 
-        /* --- LIGHTBOX (Design original restauré) --- */
+        /* --- LIGHTBOX --- */
         .lb-overlay { position: fixed; inset: 0; background: rgba(20,22,40,0.7); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 1.5rem; backdrop-filter: blur(4px); }
         .lb-overlay.open { display: flex; }
         .lb-modal { background: var(--bg); display: grid; grid-template-columns: 1fr 1fr; max-width: 780px; width: 100%; max-height: 90vh; overflow: hidden; position: relative; animation: lbIn 0.22s ease; }
@@ -103,24 +101,18 @@
         .opt-btn { border: 1px solid rgba(44,55,118,0.22); background: transparent; padding: 0.4rem 0.8rem; cursor: pointer; color: var(--navy); font-family: 'DM Mono'; font-size: 0.6rem; transition: 0.12s; }
         .opt-btn.sel { background: var(--navy); color: white; border-color: var(--navy); }
         .lb-add { width: 100%; padding: 1rem; background: var(--navy); color: white; border: none; font-family: 'Uncial Antiqua', serif; font-size: 1.1rem; cursor: pointer; margin-top: auto; }
-        .lb-add:disabled { opacity: 0.22; cursor: not-allowed; }
 
-        /* --- DRAWER PANIER --- */
-        .cart-drawer { position: fixed; top: 0; right: 0; width: 350px; height: 100%; background: white; z-index: 1100; transform: translateX(100%); transition: 0.35s; padding: 2.5rem; display: flex; flex-direction: column; border-left: 1px solid var(--navy); }
-        .cart-drawer.open { transform: translateX(0); }
-        .cart-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: none; z-index: 1050; }
-
-        /* --- FOOTER IDENTIQUE ACCUEIL --- */
+        /* --- FOOTER (STRICTEMENT COMME IMAGE 1) --- */
         footer { background: var(--navy); color: var(--bg); padding: 64px 5% 40px; }
         .footer-inner { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
-        .footer-col-title { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--or); margin-bottom: 20px; display: block; }
+        .footer-col-title { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--or); margin-bottom: 25px; display: block; }
         .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-        .footer-links li a { color: var(--bg); text-decoration: none; display: flex; flex-direction: column; gap: 2px; transition: opacity 0.2s; opacity: 0.7; }
-        .footer-links li a:hover { opacity: 1; }
-        .footer-links li a .fl-label { font-size: 0.46rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.5; }
-        .footer-links li a .fl-name { font-size: 0.62rem; letter-spacing: 0.05em; }
-        .footer-contact-text { font-size: 0.6rem; opacity: 0.5; line-height: 1.8; margin-bottom: 16px; }
-        .footer-email { color: var(--or); text-decoration: none; font-size: 0.62rem; letter-spacing: 0.06em; transition: opacity 0.2s; display: inline-block; }
+        .footer-links li a { color: var(--bg); text-decoration: none; display: flex; flex-direction: column; gap: 2px; transition: opacity 0.2s; opacity: 1; }
+        .footer-links li a:hover { opacity: 0.7; }
+        .footer-links li a .fl-label { font-size: 0.46rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.5; color: var(--bg); }
+        .footer-links li a .fl-name { font-size: 0.62rem; letter-spacing: 0.05em; color: var(--bg); }
+        .footer-contact-text { font-size: 0.6rem; opacity: 0.5; line-height: 1.8; margin-bottom: 16px; color: var(--bg); }
+        .footer-email { color: var(--or); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.06em; font-weight: 500; }
         .footer-bottom { max-width: 860px; margin: 48px auto 0; padding-top: 20px; border-top: 1px solid rgba(248,242,231,0.1); display: flex; justify-content: space-between; align-items: center; }
         .footer-bottom span { font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.35; }
 
@@ -133,8 +125,12 @@
             .grid { grid-template-columns: repeat(2, 1fr) !important; }
             .lb-modal { grid-template-columns: 1fr; overflow-y: auto; }
             .lb-config { border-left: none; border-top: 1px solid rgba(44,55,118,0.1); padding: 1.5rem; }
-            .cart-btn-fixed { bottom: 20px; right: 20px; padding: 0.8rem 1.2rem; }
+            .footer-inner { grid-template-columns: 1fr; gap: 36px; }
         }
+
+        .cart-drawer { position: fixed; top: 0; right: 0; width: 350px; height: 100%; background: white; z-index: 1100; transform: translateX(100%); transition: 0.35s; padding: 2.5rem; display: flex; flex-direction: column; border-left: 1px solid var(--navy); }
+        .cart-drawer.open { transform: translateX(0); }
+        .cart-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: none; z-index: 1050; }
     </style>
 </head>
 <body>
@@ -151,7 +147,7 @@
 <div class="top-info-bar">
     <div class="info-text">
         <p>Bienvenue sur la boutique Tradiscout. Nous vous proposons des vêtements de qualité pour porter votre engagement scout partout avec vous.</p>
-        <p><strong>La livraison et la TVA sont comprises dans les prix affichés.</strong> Aucun frais caché lors du paiement.</p>
+        <p><strong>La livraison et la TVA sont comprises dans les prix affichés.</strong> Aucun frais caché lors du paiement final.</p>
     </div>
     <div class="info-links">
         <a href="mailto:tradiscout@gmail.com">Nous contacter</a>
@@ -193,7 +189,7 @@
 <div class="cart-drawer" id="cartDrawer">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2.5rem;">
         <h2 style="font-family:'Uncial Antiqua'; font-size:1.6rem;">Mon Panier</h2>
-        <button onclick="closeCart()" style="background:none; border:none; font-size:1.8rem; cursor:pointer;">✕</button>
+        <button onclick="closeCart()" style="background:none; border:none; font-size:1.8rem; cursor:pointer; color: var(--navy);">✕</button>
     </div>
     <div id="cartItems" style="flex:1; overflow-y:auto;"></div>
     <div style="border-top:1px solid #eee; padding-top:1.5rem;">
@@ -202,27 +198,57 @@
     </div>
 </div>
 
-<!-- FOOTER (Identique à Accueil) -->
+<!-- FOOTER (STRICTEMENT COMME IMAGE 1) -->
 <footer>
     <div class="footer-inner">
         <div>
             <span class="footer-col-title">Réseaux</span>
             <ul class="footer-links">
-                <li><a href="https://instagram.com/tradiscout" target="_blank"><span class="fl-label">Instagram</span><span class="fl-name">@tradiscout · 4 200+</span></a></li>
-                <li><a href="https://www.tiktok.com/@tradiscout" target="_blank"><span class="fl-label">TikTok</span><span class="fl-name">@tradiscout</span></a></li>
-                <li><a href="https://www.facebook.com/tradiscout" target="_blank"><span class="fl-label">Facebook</span><span class="fl-name">Tradiscout</span></a></li>
-                <li><a href="https://pinterest.com/tradiscout" target="_blank"><span class="fl-label">Pinterest</span><span class="fl-name">Fonds d'écran</span></a></li>
-                <li><a href="https://instagram.com/channel/AbYQB1ZxjbUUhCE5" target="_blank"><span class="fl-label">Groupe de prière</span><span class="fl-name">Tous les vendredis</span></a></li>
+                <li><a href="https://instagram.com/tradiscout" target="_blank">
+                    <span class="fl-label">Instagram</span>
+                    <span class="fl-name">4 200+</span>
+                </a></li>
+                <li><a href="https://www.tiktok.com/@tradiscout" target="_blank">
+                    <span class="fl-label">TikTok</span>
+                    <span class="fl-name">20+ [Nouveau]</span>
+                </a></li>
+                <li><a href="https://www.facebook.com/tradiscout" target="_blank">
+                    <span class="fl-label">Facebook</span>
+                    <span class="fl-name">40+ [Nouveau]</span>
+                </a></li>
+                <li><a href="https://pinterest.com/tradiscout" target="_blank">
+                    <span class="fl-label">Pinterest</span>
+                    <span class="fl-name">Fonds d'écran</span>
+                </a></li>
             </ul>
         </div>
+
         <div>
             <span class="footer-col-title">Ressources</span>
             <ul class="footer-links">
-                <li><a href="https://code.tradiscout.com"><span class="fl-label">Transmission</span><span class="fl-name">Outils Morse & Sémaphore</span></a></li>
-                <li><a href="https://open.spotify.com/playlist/4dol5mUeugWo8hvZdXnvZ8" target="_blank"><span class="fl-label">Spotify</span><span class="fl-name">494 titres</span></a></li>
-                <li><a href="https://tradiscout.notion.site/Pr-parer-ses-activit-s-2ad8736dad9f80a3b259da56bb5a5615" target="_blank"><span class="fl-label">Notion</span><span class="fl-name">Ressources activités</span></a></li>
+                <li><a href="https://code.tradiscout.com">
+                    <span class="fl-label">Transmission</span>
+                    <span class="fl-name">Outils Morse & Sémaphore</span>
+                </a></li>
+                <li><a href="https://instagram.com/channel/AbYQB1ZxjbUUhCE5" target="_blank">
+                    <span class="fl-label">Groupe de prière</span>
+                    <span class="fl-name">Tous les vendredis</span>
+                </a></li>
+                <li><a href="https://open.spotify.com/playlist/4dol5mUeugWo8hvZdXnvZ8" target="_blank">
+                    <span class="fl-label">Playlist Spotify</span>
+                    <span class="fl-name">500 titres musique de grand jeu</span>
+                </a></li>
+                <li><a href="https://www.deezer.com/fr/playlist/13549630343" target="_blank">
+                    <span class="fl-label">Playlist Deezer</span>
+                    <span class="fl-name">500 titres musique de grand jeu</span>
+                </a></li>
+                <li><a href="https://tradiscout.notion.site/Pr-parer-ses-activit-s-2ad8736dad9f80a3b259da56bb5a5615" target="_blank">
+                    <span class="fl-label">Notion</span>
+                    <span class="fl-name">Ressources activités</span>
+                </a></li>
             </ul>
         </div>
+
         <div>
             <span class="footer-col-title">Contact</span>
             <p class="footer-contact-text">Une suggestion, une photo, ou rejoindre l'équipe ?</p>
@@ -235,75 +261,4 @@
     </div>
 </footer>
 
-<script src="catalogue.js"></script>
-<script>
-    function renderGrid() {
-        const grid = document.getElementById('grid');
-        const minPrice = Math.min(...TYPES.map(t => t.price));
-        grid.style.gridTemplateColumns = `repeat(${Math.min(DESIGNS.length, 4)}, 1fr)`;
-        grid.innerHTML = DESIGNS.map(d => `
-            <div class="grid-card" onclick="openLb('${GRID_DEFAULT_TYPE}', '${d.key}')">
-                <div class="grid-card-img-wrap">
-                    <img src="${imgSrc(GRID_DEFAULT_TYPE, GRID_DEFAULT_COLOR, d.key)}" alt="${d.label}" />
-                </div>
-                <div class="grid-card-info">
-                    <div class="grid-card-name">${d.label}</div>
-                    <div class="grid-card-price">dès ${minPrice} €</div>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    let lbState = { type: null, design: null, color: 'white', size: null };
-    function openLb(t, d) { lbState.type = t; lbState.design = d; lbState.size = null; renderLb(); document.getElementById('lbOverlay').classList.add('open'); }
-    function closeLb() { document.getElementById('lbOverlay').classList.remove('open'); }
-    function lbClickOutside(e) { if(e.target.id === 'lbOverlay') closeLb(); }
-
-    function renderLb() {
-        const type = TYPES.find(x => x.id === lbState.type);
-        const design = DESIGNS.find(x => x.key === lbState.design);
-        document.getElementById('lbTitle').textContent = type.label;
-        document.getElementById('lbDesignTag').textContent = "Design : " + design.label;
-        document.getElementById('lbPrice').textContent = type.price + ' €';
-        document.getElementById('lbImg').src = imgSrc(lbState.type, lbState.color, lbState.design);
-        
-        document.getElementById('lbTypes').innerHTML = TYPES.map(x => `<button class="opt-btn ${x.id===lbState.type?'sel':''}" onclick="setLb('type','${x.id}')">${x.label}</button>`).join('');
-        document.getElementById('lbColors').innerHTML = COLORS.map(x => `<button class="opt-btn ${x.id===lbState.color?'sel':''}" onclick="setLb('color','${x.id}')">${x.label}</button>`).join('');
-        document.getElementById('lbSizes').innerHTML = SIZES.map(x => `<button class="opt-btn ${x===lbState.size?'sel':''}" onclick="setLb('size','${x}')">${x}</button>`).join('');
-        document.getElementById('lbAdd').disabled = !(lbState.type && lbState.size);
-    }
-    function setLb(k, v) { lbState[k] = v; renderLb(); }
-
-    let cart = [];
-    function addToCart() {
-        const t = TYPES.find(x => x.id === lbState.type);
-        const d = DESIGNS.find(x => x.key === lbState.design);
-        cart.push({ ...lbState, typeLabel: t.label, designLabel: d.label, price: t.price });
-        updateCart(); closeLb(); openCart();
-    }
-    function updateCart() {
-        document.getElementById('cartCount').textContent = cart.length;
-        const total = cart.reduce((s, i) => s + i.price, 0);
-        document.getElementById('cartTotal').textContent = total + ' €';
-        document.getElementById('cartItems').innerHTML = cart.map((item, idx) => `
-            <div style="margin-bottom:1.5rem; font-size:0.75rem; border-bottom:1px solid #eee; padding-bottom:12px;">
-                <div style="display:flex; justify-content:space-between;"><b>${item.typeLabel}</b> <span style="color:var(--or);">${item.price}€</span></div>
-                <div style="opacity:0.6; font-size:0.65rem;">${item.designLabel} · ${item.color} · ${item.size}</div>
-                <button onclick="removeFromCart(${idx})" style="background:none; border:none; color:#b94040; font-size:0.55rem; cursor:pointer; margin-top:8px; text-transform:uppercase;">Supprimer</button>
-            </div>`).join('');
-    }
-    function removeFromCart(idx) { cart.splice(idx, 1); updateCart(); }
-    function openCart() { document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartBg').style.display='block'; }
-    function closeCart() { document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartBg').style.display='none'; }
-
-    async function goToCheckout() {
-        if(!cart.length) return;
-        try {
-            const res = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ items: cart }) });
-            const { url } = await res.json(); window.location.href = url;
-        } catch(e) { alert("Erreur de connexion au serveur."); }
-    }
-    renderGrid();
-</script>
-</body>
-</html>
+<script src="c
