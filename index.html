@@ -58,4 +58,135 @@
         .footer-links li a { color: var(--bg); text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
         .footer-links li a .fl-label { font-size: 0.46rem; text-transform: uppercase; opacity: 0.5; }
         .footer-links li a .fl-name { font-size: 0.62rem; }
-        .footer
+        .footer-contact-text { font-size: 0.6rem; opacity: 0.5; line-height: 1.8; margin-bottom: 16px; }
+        .footer-email { color: var(--or); text-decoration: none; font-size: 0.65rem; font-weight: 500; }
+        .footer-bottom { max-width: 860px; margin: 48px auto 0; padding-top: 20px; border-top: 1px solid rgba(248,242,231,0.1); display: flex; justify-content: space-between; font-size: 0.5rem; opacity: 0.35; text-transform: uppercase; }
+
+        .tab-bar { display: none; }
+
+        @media (max-width: 768px) {
+            header { justify-content: center; }
+            .main-nav { display: none; }
+            .grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+            .tab-bar { display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg); border-top: 1px solid rgba(44,55,118,0.13); z-index: 1000; padding-bottom: env(safe-area-inset-bottom, 0px); }
+            .tab-bar-btn { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px 0; text-decoration: none; color: var(--navy); opacity: 0.3; }
+            .tab-bar-btn.active { opacity: 1; }
+            .tab-bar-btn span { font-size: 0.65rem; text-transform: lowercase; }
+            footer { padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px)); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a class="logo" href="https://tradiscout.com">Tradiscout</a>
+    <nav class="main-nav">
+        <a href="https://tradiscout.com">accueil</a>
+        <a href="/" class="active">boutique</a>
+        <a href="https://code.tradiscout.com">code</a>
+    </nav>
+</header>
+
+<!-- RIDEAU VISIBLE PAR DÉFAUT -->
+<div id="shop-curtain">
+    <div class="curtain-content">
+        <div class="curtain-title">PROCHAIN DROP<br>LE 19/04/2026</div>
+        <div class="curtain-sub">La boutique est en cours de préparation</div>
+    </div>
+    
+    <div class="admin-unlock">
+        <input type="password" id="adminInput" placeholder="Code" onkeypress="handleCode(event)">
+        <span class="lock-icon" onclick="toggleAdminInput()">🔒</span>
+    </div>
+</div>
+
+<!-- CONTENU RÉEL DE LA BOUTIQUE -->
+<div id="shop-content">
+    <div class="top-info-bar">
+        <div class="info-text">
+            <p><strong>ESPACE ADMINISTRATEUR</strong> - La boutique est actuellement masquée pour les visiteurs.</p>
+        </div>
+    </div>
+
+    <div class="grid-wrap">
+        <div class="grid">
+            <div class="grid-card">Produit Test 1</div>
+            <div class="grid-card">Produit Test 2</div>
+            <div class="grid-card">Produit Test 3</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            <span class="footer-col-title">Réseaux</span>
+            <ul class="footer-links">
+                <li><a href="https://instagram.com/tradiscout" target="_blank"><span class="fl-label">Instagram</span><span class="fl-name">4 200+</span></a></li>
+                <li><a href="https://www.tiktok.com/@tradiscout" target="_blank"><span class="fl-label">TikTok</span><span class="fl-name">20+ [Nouveau]</span></a></li>
+                <li><a href="https://www.facebook.com/tradiscout" target="_blank"><span class="fl-label">Facebook</span><span class="fl-name">40+ [Nouveau]</span></a></li>
+                <li><a href="https://pinterest.com/tradiscout" target="_blank"><span class="fl-label">Pinterest</span><span class="fl-name">Fonds d'écran</span></a></li>
+            </ul>
+        </div>
+        <div>
+            <span class="footer-col-title">Ressources</span>
+            <ul class="footer-links">
+                <li><a href="https://instagram.com/channel/AbYQB1ZxjbUUhCE5" target="_blank"><span class="fl-label">Groupe de prière</span><span class="fl-name">Tous les vendredis</span></a></li>
+                <li><a href="https://open.spotify.com/playlist/4dol5mUeugWo8hvZdXnvZ8" target="_blank"><span class="fl-label">Playlist Spotify</span><span class="fl-name">500 titres musique de grand jeu</span></a></li>
+                <li><a href="https://www.deezer.com/fr/playlist/13549630343" target="_blank"><span class="fl-label">Playlist Deezer</span><span class="fl-name">500 titres musique de grand jeu</span></a></li>
+                <li><a href="https://tradiscout.notion.site/Pr-parer-ses-activit-s-2ad8736dad9f80a3b259da56bb5a5615" target="_blank"><span class="fl-label">Notion</span><span class="fl-name">Ressources activités</span></a></li>
+            </ul>
+        </div>
+        <div>
+            <span class="footer-col-title">Contact</span>
+            <p class="footer-contact-text">Une suggestion, une photo, ou rejoindre l'équipe ?</p>
+            <a href="mailto:tradiscout@gmail.com" class="footer-email">tradiscout@gmail.com</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Tradiscout</span>
+        <span>Verso l'Alto!</span>
+    </div>
+</footer>
+
+<nav class="tab-bar">
+    <a href="https://tradiscout.com" class="tab-bar-btn"><span>accueil</span></a>
+    <a href="/" class="tab-bar-btn active"><span>boutique</span></a>
+    <a href="https://code.tradiscout.com" class="tab-bar-btn"><span>code</span></a>
+</nav>
+
+<script>
+    function toggleAdminInput() {
+        const input = document.getElementById('adminInput');
+        input.style.display = (input.style.display === 'block') ? 'none' : 'block';
+        if(input.style.display === 'block') input.focus();
+    }
+
+    function handleCode(e) {
+        if (e.key === 'Enter') {
+            const val = document.getElementById('adminInput').value;
+            if (val === 'TRADI2026') {
+                unlockShop();
+            } else {
+                alert('Code erroné');
+                document.getElementById('adminInput').value = '';
+            }
+        }
+    }
+
+    function unlockShop() {
+        document.getElementById('shop-curtain').style.display = 'none';
+        document.getElementById('shop-content').style.display = 'block';
+        localStorage.setItem('shop_unlocked', 'true');
+    }
+
+    window.onload = function() {
+        if (localStorage.getItem('shop_unlocked') === 'true') {
+            unlockShop();
+        }
+    }
+</script>
+
+</body>
+</html>
