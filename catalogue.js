@@ -1,6 +1,6 @@
-// ════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
 // CATALOGUE TRADISCOUT — édite uniquement ce fichier pour gérer les produits
-// ════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
 
 // ── TYPES DE VÊTEMENTS ───────────────────────────────────────────────────
 // id    : identifiant interne (ne pas changer)
@@ -13,7 +13,7 @@ const TYPES = [
   { id: 'hoodie', label: 'Hoodie',  code: '3', price: 37 },
 ];
 
-// ── COULEURS ─────────────────────────────────────────────────────────────
+// ── COULEURS ───────────────────────────────────────────────────────────
 // id    : identifiant interne
 // label : nom affiché sur le site
 // code  : numéro utilisé dans le nom des fichiers image (Y dans X-Y-design.png)
@@ -22,10 +22,10 @@ const COLORS = [
   { id: 'bleu',  label: 'Marine', code: '2' },
 ];
 
-// ── TAILLES ──────────────────────────────────────────────────────────────
+// ── TAILLES ───────────────────────────────────────────────────────────
 const SIZES = ['S', 'M', 'L'];
 
-// ── DESIGNS ──────────────────────────────────────────────────────────────
+// ── DESIGNS ───────────────────────────────────────────────────────────
 // id    : identifiant envoyé au serveur (unique, ne pas changer après mise en prod)
 // key   : nom du design dans le nom des fichiers image (Z dans X-Y-Z.png)
 // label : nom affiché sur le site
@@ -57,9 +57,9 @@ const DESIGNS = [
 const GRID_DEFAULT_TYPE  = 'sweat';  // id du type
 const GRID_DEFAULT_COLOR = 'bleu';   // id de la couleur
 
-// ════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
 // NE PAS MODIFIER EN DESSOUS — logique interne
-// ════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
 
 function imgSrc(typeId, colorId, designKey) {
   const t = TYPES.find(x => x.id === typeId);
