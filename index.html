@@ -579,20 +579,22 @@
         /* ──────────────────────────────── CART BUTTON ────────────────────────────────── */
         .cart-btn-fixed {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 900;
             background: var(--navy);
             border: none;
             color: var(--bg);
-            padding: 0.6rem 1.2rem;
+            padding: 0.6rem 1.4rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             font-family: 'DM Mono', monospace;
             font-size: 0.68rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 16px rgba(44,55,118,0.25);
+            white-space: nowrap;
         }
 
         .cart-count {
@@ -909,9 +911,11 @@
                 width: 100%;
                 padding-bottom: 100px;
             }
-
+            
             .cart-btn-fixed {
-                bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+                bottom: 20px;
+                left: 20px;
+                transform: none;
             }
         }
     </style>
