@@ -950,16 +950,11 @@
                 <a href="/" class="active">boutique</a>
                 <a href="https://code.tradiscout.com">code</a>
                 <span style="width:1px;height:16px;background:rgba(44,55,118,0.2);display:inline-block;"></span>
-                <button class="cart-btn-nav" onclick="openCart()" id="cartBtnFixed" style="display:none">
-                    panier <span class="cart-count" id="cartCount">0</span>
-                </button>
             </nav>
+            <button class="cart-btn-nav" onclick="openCart()" id="cartBtnFixed" style="display:none">
+                panier <span class="cart-count" id="cartCount">0</span>
+            </button>
     </header>
-
-    <!-- BOUTON PANIER FIXE BAS GAUCHE -->
-    <button class="cart-btn-fixed" onclick="openCart()" style="display:none" id="cartBtnFixed">
-        Panier <span class="cart-count" id="cartCount">0</span>
-    </button>
 
     <div id="shop-curtain">
         <div class="curtain-content">
@@ -1105,6 +1100,7 @@
             document.getElementById('shop-curtain').style.display = 'none';
             document.getElementById('shop-content').style.display = 'block';
             document.getElementById('cartBtnFixed').style.display = 'flex';
+            document.getElementById('cartBtnDesktop').style.display = 'flex';
             sessionStorage.setItem('shop_unlocked', 'true');
             renderGrid();
             renderCart();
@@ -1223,6 +1219,7 @@
             const total     = cart.reduce((s, i) => s + (i.price - discount), 0);
             document.getElementById('cartCount').textContent = cart.length;
             document.getElementById('cartTotal').textContent = total + ' €';
+            document.getElementById('cartCountDesktop').textContent = cart.length;
             if (!cart.length) { container.innerHTML = '<p style="font-size:0.72rem;color:var(--gris)">Panier vide</p>'; return; }
             container.innerHTML = cart.map(item => {
                 const fp = item.price - discount;
