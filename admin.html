@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin — Tradiscout</title>
+<link rel="icon" href="FINAL.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root { --navy:#2C3776; --bg:#F8F2E7; --or:#c9a84c; --gris:#6b6b6b; --red:#b94040; --green:#2a7a2a; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--navy);font-family:'DM Mono',monospace;min-height:100vh;}
+
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(248,242,231,0.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(44,55,118,0.12);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;}
+.logo{font-family:'Uncial Antiqua',serif;text-transform:uppercase;letter-spacing:2px;font-size:1.4rem;color:var(--navy);text-decoration:none;}
+.badge{font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--or);border:1px solid var(--or);padding:3px 8px;}
+
+#curtain{display:flex;align-items:center;justify-content:center;min-height:100vh;}
+.curtain-box{border:1px solid var(--navy);padding:60px 48px;text-align:center;max-width:380px;}
+.curtain-title{font-family:'Uncial Antiqua',serif;font-size:1.8rem;margin-bottom:20px;}
+.curtain-input{width:100%;border:1px solid rgba(44,55,118,0.3);background:transparent;padding:10px 14px;font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--navy);outline:none;text-align:center;letter-spacing:0.12em;margin-bottom:12px;}
+.curtain-input:focus{border-color:var(--navy);}
+.curtain-btn{width:100%;padding:11px;background:var(--navy);color:white;border:none;font-family:'Uncial Antiqua',serif;font-size:1rem;cursor:pointer;}
+.curtain-err{font-size:0.6rem;color:var(--red);margin-top:8px;min-height:16px;}
+
+#admin{display:none;padding:100px 5% 80px;}
+.admin-inner{max-width:1000px;margin:0 auto;}
+
+.section-label{font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--or);margin-bottom:20px;display:block;}
+
+.design-table{width:100%;border-collapse:collapse;margin-bottom:60px;}
+.design-table th{font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gris);padding:8px 12px;border-bottom:1px solid rgba(44,55,118,0.12);text-align:left;}
+.design-table td{padding:12px;border-bottom:1px solid rgba(44,55,118,0.07);font-size:0.68rem;vertical-align:middle;}
+.design-table tr:hover td{background:rgba(44,55,118,0.03);}
+.td-id{color:var(--gris);font-size:0.58rem;width:40px;}
+.td-key{font-size:0.6rem;color:var(--gris);}
+.td-label{font-weight:500;}
+.tag{display:inline-block;border:1px solid rgba(44,55,118,0.2);font-size:0.5rem;padding:2px 7px;margin:2px;letter-spacing:0.06em;}
+.tag.type{color:var(--navy);}
+.tag.color{color:var(--gris);}
+.btn-del{background:none;border:1px solid rgba(185,64,64,0.3);color:var(--red);font-family:'DM Mono',monospace;font-size:0.55rem;padding:4px 10px;cursor:pointer;transition:0.15s;letter-spacing:0.06em;}
+.btn-del:hover{background:var(--red);color:white;border-color:var(--red);}
+.btn-edit{background:none;border:1px solid rgba(44,55,118,0.2);color:var(--navy);font-family:'DM Mono',monospace;font-size:0.55rem;padding:4px 10px;cursor:pointer;transition:0.15s;letter-spacing:0.06em;margin-right:4px;}
+.btn-edit:hover{background:var(--navy);color:white;}
+
+.form-wrap{border:1px solid rgba(44,55,118,0.15);padding:36px;margin-bottom:40px;}
+.form-title{font-family:'Uncial Antiqua',serif;font-size:1.2rem;margin-bottom:28px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
+.field{display:flex;flex-direction:column;gap:7px;}
+.field label{font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gris);}
+.field input{border:1px solid rgba(44,55,118,0.2);background:transparent;padding:9px 12px;font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--navy);outline:none;transition:border-color 0.15s;}
+.field input:focus{border-color:var(--navy);}
+.key-hint{font-size:0.55rem;color:var(--gris);margin-top:-4px;}
+.key-hint span{color:var(--navy);}
+.checkgroup{display:flex;flex-direction:column;gap:7px;}
+.checkgroup label{font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gris);}
+.checks{display:flex;flex-wrap:wrap;gap:8px;}
+.check-item{display:flex;align-items:center;gap:6px;cursor:pointer;}
+.check-item input[type=checkbox]{cursor:pointer;accent-color:var(--navy);}
+.check-item span{font-size:0.65rem;}
+.form-bottom{display:flex;align-items:center;gap:16px;margin-top:8px;}
+.btn-add{padding:11px 28px;background:var(--navy);color:white;border:none;font-family:'Uncial Antiqua',serif;font-size:0.95rem;cursor:pointer;transition:opacity 0.15s;}
+.btn-add:hover{opacity:0.85;}
+.btn-cancel{padding:11px 20px;background:transparent;color:var(--gris);border:1px solid rgba(44,55,118,0.2);font-family:'DM Mono',monospace;font-size:0.65rem;cursor:pointer;display:none;}
+.form-msg{font-size:0.6rem;min-height:16px;}
+.form-msg.ok{color:var(--green);}
+.form-msg.err{color:var(--red);}
+
+.export-wrap{border-top:1px solid rgba(44,55,118,0.12);padding-top:40px;display:flex;align-items:center;gap:16px;}
+.btn-export{padding:12px 32px;background:var(--or);color:white;border:none;font-family:'Uncial Antiqua',serif;font-size:1rem;cursor:pointer;transition:opacity 0.15s;letter-spacing:0.04em;}
+.btn-export:hover{opacity:0.85;}
+.export-hint{font-size:0.6rem;color:var(--gris);line-height:1.7;}
+
+.images-hint{background:rgba(44,55,118,0.04);border:1px solid rgba(44,55,118,0.1);padding:16px 20px;margin-top:32px;font-size:0.62rem;line-height:2;}
+.images-hint strong{display:block;font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--or);margin-bottom:8px;}
+.images-hint code{font-family:'DM Mono',monospace;color:var(--navy);}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="/">Tradiscout</a>
+  <span class="badge">Admin</span>
+</header>
+
+<div id="curtain">
+  <div class="curtain-box">
+    <div class="curtain-title">Administration</div>
+    <input class="curtain-input" type="password" id="pwdInput" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')unlock()"/>
+    <button class="curtain-btn" onclick="unlock()">Entrer</button>
+    <div class="curtain-err" id="pwdErr"></div>
+  </div>
+</div>
+
+<div id="admin">
+  <div class="admin-inner">
+
+    <span class="section-label">Catalogue — Designs</span>
+    <table class="design-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Label</th>
+          <th>Key</th>
+          <th>Types</th>
+          <th>Couleurs</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="designTable"></tbody>
+    </table>
+
+    <div class="form-wrap" id="formWrap">
+      <div class="form-title" id="formTitle">Ajouter un design</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>Nom affiché</label>
+          <input type="text" id="fLabel" placeholder="ex: Fleur de Lys" oninput="onLabelInput()"/>
+          <div class="key-hint">key : <span id="keyPreview">—</span></div>
+        </div>
+        <div class="field">
+          <label>Key (optionnel)</label>
+          <input type="text" id="fKey" placeholder="auto depuis le nom" oninput="customKey=true"/>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;">
+        <div class="checkgroup">
+          <label>Types disponibles</label>
+          <div class="checks" id="typeChecks"></div>
+        </div>
+        <div class="checkgroup">
+          <label>Couleurs disponibles</label>
+          <div class="checks" id="colorChecks"></div>
+        </div>
+      </div>
+      <div class="form-bottom">
+        <button class="btn-add" id="submitBtn" onclick="submitDesign()">+ Ajouter</button>
+        <button class="btn-cancel" id="cancelBtn" onclick="cancelEdit()">Annuler</button>
+        <div class="form-msg" id="formMsg"></div>
+      </div>
+    </div>
+
+    <div class="export-wrap">
+      <button class="btn-export" onclick="exportCatalogue()">Télécharger catalogue.js</button>
+      <div class="export-hint">
+        Télécharge le fichier mis à jour.<br>
+        Remplace l'ancien sur Vercel et redéploie.
+      </div>
+    </div>
+
+    <div class="images-hint" id="imagesHint" style="display:none">
+      <strong>Images à uploader pour le nouveau design</strong>
+      <div id="imagesList"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="catalogue.js"></script>
+<script>
+const ADMIN_PWD = 'wandrille';
+let designs = JSON.parse(JSON.stringify(DESIGNS));
+let editingId = null;
+let customKey = false;
+
+function unlock() {
+  const val = document.getElementById('pwdInput').value;
+  if (val === ADMIN_PWD) {
+    document.getElementById('curtain').style.display = 'none';
+    document.getElementById('admin').style.display = 'block';
+    renderAll();
+  } else {
+    document.getElementById('pwdErr').textContent = 'Mot de passe incorrect';
+  }
+}
+
+document.getElementById('pwdInput').addEventListener('keydown', e => { if(e.key==='Enter') unlock(); });
+
+function slugify(str) {
+  return str.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/'/g,'').replace(/[^a-z0-9]+/g,'-')
+    .replace(/^-+|-+$/g,'');
+}
+
+function onLabelInput() {
+  const val = slugify(document.getElementById('fLabel').value);
+  document.getElementById('keyPreview').textContent = val || '—';
+  if (!customKey) document.getElementById('fKey').placeholder = val || 'auto depuis le nom';
+  document.getElementById('imagesHint').style.display = 'none';
+}
+
+function renderAll() {
+  renderTable();
+  renderFormChecks();
+}
+
+function renderTable() {
+  const tbody = document.getElementById('designTable');
+  tbody.innerHTML = designs.map(d => `
+    <tr>
+      <td class="td-id">${d.id}</td>
+      <td class="td-label">${d.label}</td>
+      <td class="td-key">${d.key}</td>
+      <td>${d.types.map(t => `<span class="tag type">${t}</span>`).join('')}</td>
+      <td>${d.colors.map(c => `<span class="tag color">${c}</span>`).join('')}</td>
+      <td style="white-space:nowrap">
+        <button class="btn-edit" onclick="startEdit('${d.id}')">Modifier</button>
+        <button class="btn-del" onclick="deleteDesign('${d.id}')">Supprimer</button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function renderFormChecks(selectedTypes=[], selectedColors=[]) {
+  document.getElementById('typeChecks').innerHTML = TYPES.map(t => `
+    <label class="check-item">
+      <input type="checkbox" value="${t.id}" ${selectedTypes.includes(t.id)?'checked':''}/>
+      <span>${t.label}</span>
+    </label>
+  `).join('');
+  document.getElementById('colorChecks').innerHTML = COLORS.map(c => `
+    <label class="check-item">
+      <input type="checkbox" value="${c.id}" ${selectedColors.includes(c.id)?'checked':''}/>
+      <span>${c.label}</span>
+    </label>
+  `).join('');
+}
+
+function getChecked(containerId) {
+  return [...document.querySelectorAll(`#${containerId} input:checked`)].map(el => el.value);
+}
+
+function startEdit(id) {
+  const d = designs.find(x => x.id === id);
+  editingId = id;
+  customKey = true;
+  document.getElementById('fLabel').value = d.label;
+  document.getElementById('fKey').value = d.key;
+  document.getElementById('keyPreview').textContent = d.key;
+  document.getElementById('formTitle').textContent = 'Modifier le design';
+  document.getElementById('submitBtn').textContent = 'Enregistrer';
+  document.getElementById('cancelBtn').style.display = 'inline-block';
+  document.getElementById('formMsg').textContent = '';
+  renderFormChecks(d.types, d.colors);
+  document.getElementById('formWrap').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function cancelEdit() {
+  editingId = null;
+  customKey = false;
+  document.getElementById('fLabel').value = '';
+  document.getElementById('fKey').value = '';
+  document.getElementById('fKey').placeholder = 'auto depuis le nom';
+  document.getElementById('keyPreview').textContent = '—';
+  document.getElementById('formTitle').textContent = 'Ajouter un design';
+  document.getElementById('submitBtn').textContent = '+ Ajouter';
+  document.getElementById('cancelBtn').style.display = 'none';
+  document.getElementById('formMsg').textContent = '';
+  renderFormChecks();
+}
+
+function submitDesign() {
+  const label = document.getElementById('fLabel').value.trim();
+  const keyRaw = document.getElementById('fKey').value.trim();
+  const key = keyRaw ? slugify(keyRaw) : slugify(label);
+  const types = getChecked('typeChecks');
+  const colors = getChecked('colorChecks');
+  const msg = document.getElementById('formMsg');
+
+  if (!label) { msg.className='form-msg err'; msg.textContent='Nom requis'; return; }
+  if (!key)   { msg.className='form-msg err'; msg.textContent='Key invalide'; return; }
+  if (!types.length) { msg.className='form-msg err'; msg.textContent='Sélectionne au moins un type'; return; }
+  if (!colors.length){ msg.className='form-msg err'; msg.textContent='Sélectionne au moins une couleur'; return; }
+
+  const keyConflict = designs.find(d => d.key === key && d.id !== editingId);
+  if (keyConflict) { msg.className='form-msg err'; msg.textContent='Cette key existe déjà'; return; }
+
+  if (editingId) {
+    const idx = designs.findIndex(d => d.id === editingId);
+    designs[idx] = { ...designs[idx], label, key, types, colors };
+    msg.className='form-msg ok'; msg.textContent='✓ Design modifié';
+    cancelEdit();
+  } else {
+    const nextId = String(Math.max(...designs.map(d => parseInt(d.id)), 0) + 1);
+    designs.push({ id: nextId, key, label, types, colors });
+    msg.className='form-msg ok'; msg.textContent=`✓ Design #${nextId} ajouté`;
+    showImagesHint(key, types, colors);
+    cancelEdit();
+  }
+
+  renderTable();
+}
+
+function deleteDesign(id) {
+  if (!confirm('Supprimer ce design ?')) return;
+  designs = designs.filter(d => d.id !== id);
+  renderTable();
+}
+
+function showImagesHint(key, types, colors) {
+  const hint = document.getElementById('imagesHint');
+  const list = document.getElementById('imagesList');
+  const lines = [];
+  for (const tid of types) {
+    const t = TYPES.find(x => x.id === tid);
+    for (const cid of colors) {
+      const c = COLORS.find(x => x.id === cid);
+      lines.push(`<code>${t.code}-${c.code}-${key}.png</code>`);
+    }
+  }
+  list.innerHTML = lines.join('<br>');
+  hint.style.display = 'block';
+}
+
+function exportCatalogue() {
+  const typesStr = TYPES.map(t =>
+    `  { id: '${t.id}', label: '${t.label}', code: '${t.code}', price: ${t.price} },`
+  ).join('\n');
+
+  const colorsStr = COLORS.map(c =>
+    `  { id: '${c.id}', label: '${c.label}', code: '${c.code}' },`
+  ).join('\n');
+
+  const designsStr = designs.map(d => {
+    const types  = JSON.stringify(d.types);
+    const colors = JSON.stringify(d.colors);
+    return `  { id: '${d.id}', key: '${d.key}', label: '${d.label.replace(/'/g,"\\'")}', types: ${types}, colors: ${colors} },`;
+  }).join('\n');
+
+  const content = `const TYPES = [\n${typesStr}\n];\n\nconst COLORS = [\n${colorsStr}\n];\n\nconst SIZES = ['S', 'M', 'L'];\n\nconst DESIGNS = [\n${designsStr}\n];\n\nconst GRID_DEFAULT_TYPE  = '${GRID_DEFAULT_TYPE}';\nconst GRID_DEFAULT_COLOR = '${GRID_DEFAULT_COLOR}';\n\nfunction imgSrc(typeId, colorId, designKey) {\n  const t = TYPES.find(x => x.id === typeId);\n  const c = COLORS.find(x => x.id === colorId);\n  return \`\${t.code}-\${c.code}-\${designKey}.png\`;\n}\n\nif (typeof module !== 'undefined') module.exports = { TYPES, COLORS, SIZES, DESIGNS, imgSrc };\n`;
+
+  const blob = new Blob([content], { type: 'text/javascript' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'catalogue.js';
+  a.click();
+}
+</script>
+</body>
+</html>
