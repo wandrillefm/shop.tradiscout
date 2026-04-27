@@ -1,6 +1,4 @@
-// api/checkout.js
-// Gère un panier avec plusieurs articles + sauvegarde dans Supabase
-// Supporte les codes promo et les prix configurables via env vars Vercel
+const { DESIGNS, TYPES, COLORS, SIZES } = require('../catalogue.js');
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,18 +9,10 @@ export default async function handler(req, res) {
 
   const { items, promoCode } = req.body;
 
-  // ── Prix de base ──────────────────────────────────────────────────────
-  // Modifiables via env vars Vercel sans toucher au code.
-  // Exemple semaine -2€ : PRICE_TSHIRT=15, PRICE_SWEAT=31, PRICE_HOODIE=35
-  const basePrices = {
-    tshirt: parseInt(process.env.PRICE_TSHIRT  ?? '17'),
-    sweat:  parseInt(process.env.PRICE_SWEAT   ?? '33'),
-    hoodie: parseInt(process.env.PRICE_HOODIE  ?? '37'),
-  };
+  const basePrices = Object.fromEntries(
+    TYPES.map(t => [t.id, parseInt(process.env[`PRICE_${t.id.toUpperCase()}`] ?? t.price)])
+  );
 
-  // ── Codes promo ───────────────────────────────────────────────────────
-  // Env var PROMO_CODES format : "CODE1=remise,CODE2=remise"
-  // Exemple : "ETE2025=2,SCOUT10=10"
   const promoCodes = {};
   if (process.env.PROMO_CODES) {
     for (const entry of process.env.PROMO_CODES.split(',')) {
@@ -44,45 +34,23 @@ export default async function handler(req, res) {
     }
   }
 
-  // ── Validation ────────────────────────────────────────────────────────
-  // → Pour ajouter un design : ajoute son id dans validDesigns ET son label dans designLabels
-  const validTypes   = ['tshirt', 'sweat', 'hoodie'];
-  const validSizes   = ['S', 'M', 'L'];
-  const validColors  = ['blanc', 'bleu'];
-  const validDesigns = ['1', '2', '3', '4', '5', '6', '7', '8'];
-
   if (!Array.isArray(items) || items.length === 0)
     return res.status(400).json({ error: 'Panier vide' });
 
   for (const item of items) {
-    if (!validTypes.includes(item.type))     return res.status(400).json({ error: 'Type invalide' });
-    if (!validSizes.includes(item.size))     return res.status(400).json({ error: 'Taille invalide' });
-    if (!validColors.includes(item.color))   return res.status(400).json({ error: 'Couleur invalide' });
-    if (!validDesigns.includes(item.design)) return res.status(400).json({ error: 'Design invalide' });
-
+    const design = DESIGNS.find(d => d.id === item.design);
+    if (!design)                            return res.status(400).json({ error: 'Design invalide' });
+    if (!design.types.includes(item.type))  return res.status(400).json({ error: 'Type non disponible pour ce design' });
+    if (!design.colors.includes(item.color))return res.status(400).json({ error: 'Couleur non disponible pour ce design' });
+    if (!SIZES.includes(item.size))         return res.status(400).json({ error: 'Taille invalide' });
     const expectedPrice = basePrices[item.type] - discountPerItem;
     if (item.price !== expectedPrice)
       return res.status(400).json({ error: `Prix invalide pour ${item.type} (attendu: ${expectedPrice}€)` });
   }
 
-  // ── Labels ────────────────────────────────────────────────────────────
-  const typeLabels = {
-    tshirt: 'T-Shirt',
-    sweat:  'Sweat',
-    hoodie: 'Hoodie',
-  };
-  const designLabels = {
-    '1': 'Tradiscout',
-    '2': 'Double Croix',
-    '3': 'Deus Vult',
-    '4': "Verso l'Alto",
-    '5': 'Christus Rex',
-    '6': "J'peux pas j'ai scout",
-    '7': 'Mode Grand Jeu',
-    '8': 'Braises Surgelées',
-  };
+  const typeLabels   = Object.fromEntries(TYPES.map(t => [t.id, t.label]));
+  const designLabels = Object.fromEntries(DESIGNS.map(d => [d.id, d.label]));
 
-  // ── Construire les line_items Stripe ──────────────────────────────────
   const grouped = {};
   for (const item of items) {
     const key = `${item.type}-${item.size}-${item.color}-${item.design}`;
@@ -102,7 +70,6 @@ export default async function handler(req, res) {
     lineItemsParams[`line_items[${i}][quantity]`]                              = String(item.qty);
   });
 
-  // ── Créer session Stripe ──────────────────────────────────────────────
   let session;
   try {
     const stripeRes = await fetch('https://api.stripe.com/v1/checkout/sessions', {
@@ -131,7 +98,6 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Erreur lors de la création du paiement' });
   }
 
-  // ── Sauvegarder dans Supabase ─────────────────────────────────────────
   try {
     const total = items.reduce((s, i) => s + i.price, 0);
     const supabaseRes = await fetch(`${process.env.SUPABASE_URL}/rest/v1/commandes`, {
