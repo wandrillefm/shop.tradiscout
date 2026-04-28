@@ -110,7 +110,7 @@
             padding: 80px 5% 60px;
             position: relative;
             overflow: hidden;
-            background: url('images/backround.png') center center / cover no-repeat; /* ← ajoute ça */
+            background: url('images/backround.png') center center / cover no-repeat;
         }
         .hero::before {
             content: '';
@@ -144,10 +144,6 @@
             animation: fadeUp 0.7s ease 0.25s forwards;
             position: relative;
         }
-        .hero-title em {
-            font-style: normal;
-            color: var(--or);
-        }
         .hero-sub {
             font-size: 0.72rem;
             color: rgba(248, 242, 231, 0.8);
@@ -173,46 +169,12 @@
             position: relative;
         }
         .hero-cta:hover { background: white; color: var(--navy); }
-        .hero-divider {
-            position: absolute;
-            bottom: 0; left: 5%; right: 5%;
-            height: 1px;
-            background: rgba(44,55,118,0.1);
-        }
-        .hero-scroll {
-            position: absolute;
-            bottom: 28px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.48rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            opacity: 0;
-            animation: fadeUp 0.7s ease 0.7s forwards;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        .hero-scroll::after {
-            content: '';
-            width: 1px;
-            height: 32px;
-            background: white;
-            opacity: 0.4;
-            animation: scrollLine 1.6s ease-in-out infinite;
-        }
-        @keyframes scrollLine {
-            0%,100% { transform: scaleY(1); opacity: 0.4; }
-            50% { transform: scaleY(0.4); opacity: 0.1; }
-        }
+        
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(18px); }
             to   { opacity: 1; transform: translateY(0); }
         }
         
-        /* GRILLE — espacement */
         .grid { gap: 20px; background: transparent; border: none; }
         .grid-card { border: 1px solid rgba(44,55,118,0.1); }
         
@@ -225,24 +187,9 @@
             justify-content: space-between;
             border-top: 1px solid rgba(44,55,118,0.1);
         }
-        .section-header-title {
-            font-family: 'Uncial Antiqua', serif;
-            font-size: 1.6rem;
-        }
-        .section-header-sub {
-            font-size: 0.55rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--gris);
-        }
         
-        /* ──────────────────────────────── MAIN CONTENT PADDING ────────────────────────────────── */
-        #shop-curtain,
-        #shop-content {
-            margin-top: 64px;
-        }
+        #shop-curtain, #shop-content { margin-top: 64px; }
 
-        /* ──────────────────────────────── SHOP CURTAIN ────────────────────────────────── */
         #shop-curtain {
             flex: 1;
             display: flex;
@@ -261,673 +208,102 @@
             padding: 80px 40px;
         }
 
-        .curtain-title {
-            font-family: 'Uncial Antiqua', serif;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
+        .curtain-title { font-family: 'Uncial Antiqua', serif; font-size: 1.8rem; margin-bottom: 15px; }
 
-        .curtain-sub {
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            opacity: 0.6;
-            text-transform: uppercase;
-        }
+        .curtain-sub { font-size: 0.7rem; letter-spacing: 0.2em; opacity: 0.6; text-transform: uppercase; }
 
-        .admin-unlock {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            z-index: 900;
-        }
+        .admin-unlock { position: absolute; bottom: 15px; right: 15px; display: flex; align-items: center; gap: 8px; z-index: 900; }
 
-        #adminInput {
-            display: none;
-            padding: 6px 10px;
-            border: 1px solid var(--navy);
-            background: white;
-            font-family: 'DM Mono';
-            font-size: 0.65rem;
-            outline: none;
-            width: 110px;
-        }
+        #adminInput { display: none; padding: 6px 10px; border: 1px solid var(--navy); background: white; font-family: 'DM Mono'; font-size: 0.65rem; outline: none; width: 110px; }
 
-        .lock-icon {
-            cursor: pointer;
-            opacity: 0.2;
-            font-size: 1rem;
-            transition: 0.3s;
-            user-select: none;
-        }
+        .lock-icon { cursor: pointer; opacity: 0.2; font-size: 1rem; transition: 0.3s; }
 
-        .lock-icon:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
+        #shop-content { display: none; flex: 1; }
 
-        /* ──────────────────────────────── SHOP CONTENT ────────────────────────────────── */
-        #shop-content {
-            display: none;
-            flex: 1;
-        }
+        .grid-wrap { max-width: 1100px; margin: 2rem auto; padding: 0 5% 2rem; }
 
-        .subtitle {
-            font-size: 0.72rem;
-            color: var(--gris);
-            letter-spacing: 0.06em;
-            text-align: center;
-            margin: 0.5rem 0;
-        }
+        .grid { display: grid; gap: 1px; background: rgba(44, 55, 118, 0.1); border: 1px solid rgba(44, 55, 118, 0.1); grid-template-columns: repeat(4, 1fr); }
 
-        /* ──────────────────────────────── GRID ────────────────────────────────── */
-        .grid-wrap {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 5% 2rem;
-        }
+        .grid-card { background: white; cursor: pointer; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s; }
+        .grid-card:hover { box-shadow: 0 0 0 2px var(--navy) inset; z-index: 1; }
 
-        .grid {
-            display: grid;
-            gap: 1px;
-            background: rgba(44, 55, 118, 0.1);
-            border: 1px solid rgba(44, 55, 118, 0.1);
-            grid-template-columns: repeat(4, 1fr);
-        }
+        .grid-card-img-wrap { width: 100%; aspect-ratio: 1/1; overflow: hidden; position: relative; }
+        .grid-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: transform 0.35s, filter 0.2s; }
+        .grid-card:hover .grid-card-img-wrap img { transform: translate(-50%, -50%) scale(0.9); filter: blur(2px); }
 
-        .grid-card {
-            background: white;
-            cursor: pointer;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.2s;
-        }
-
-        .grid-card:hover {
-            box-shadow: 0 0 0 2px var(--navy) inset;
-            z-index: 1;
-        }
-
-        .grid-card-img-wrap {
-            width: 100%;
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .grid-card-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: transform 0.35s, filter 0.2s;
-        }
-
-        .grid-card:hover .grid-card-img-wrap img {
-            transform: translate(-50%, -50%) scale(0.9);
-            filter: blur(2px);
-        }
-
-        .grid-card-info {
-            padding: 0.7rem 0.8rem 0.75rem;
-            border-top: 1px solid rgba(44, 55, 118, 0.07);
-        }
-
-        .grid-card-name {
-            font-family: 'Uncial Antiqua', serif;
-            font-size: 0.75rem;
-        }
-
-        .grid-card-sub {
-            font-size: 0.52rem;
-            color: var(--gris);
-            margin-top: 2px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .grid-card-price {
-            font-size: 0.68rem;
-            color: var(--or);
-            margin-top: 4px;
-        }
-
-        /* ──────────────────────────────── LEGAL DOCS ────────────────────────────────── */
-        .legal-docs {
-            max-width: 1100px;
-            margin: 0 auto 4rem;
-            padding: 0 5%;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.55rem;
-            opacity: 0.7;
-        }
-
-        .legal-docs a {
-            color: var(--navy);
-            text-decoration: none;
-            border-bottom: 1px solid var(--navy);
-            transition: opacity 0.2s;
-        }
-
-        .legal-docs a:hover {
-            opacity: 1;
-        }
+        .grid-card-info { padding: 0.7rem 0.8rem 0.75rem; border-top: 1px solid rgba(44, 55, 118, 0.07); }
+        .grid-card-name { font-family: 'Uncial Antiqua', serif; font-size: 0.75rem; }
+        .grid-card-price { font-size: 0.68rem; color: var(--or); margin-top: 4px; }
 
         /* ──────────────────────────────── LIGHTBOX ────────────────────────────────── */
-        .lb-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(20, 22, 40, 0.65);
-            z-index: 300;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .lb-overlay.open {
-            display: flex;
-        }
-
-        .lb-modal {
-            background: var(--bg);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            max-width: 780px;
-            width: 100%;
-            max-height: 90vh;
-            overflow: hidden;
-            position: relative;
-            animation: lbIn 0.22s ease;
-        }
-
-        @keyframes lbIn {
-            from {
-                opacity: 0;
-                transform: scale(0.97);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .lb-img-wrap {
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            background: #e8e3d8;
-        }
-
-        .lb-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: opacity 0.2s, transform 0.3s, filter 0.2s;
-        }
-
-        .lb-img-wrap img.fade {
-            opacity: 0;
-            transform: scale(1.02);
-            filter: blur(8px);
-        }
-
-        .lb-config {
-            padding: 2rem 1.8rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.1rem;
-            overflow-y: auto;
-            border-left: 1px solid rgba(44, 55, 118, 0.1);
-        }
-
-        .lb-close {
-            position: absolute;
-            top: 0.8rem;
-            right: 0.9rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--navy);
-            font-size: 1.2rem;
-            opacity: 0.45;
-            transition: opacity 0.15s;
-            z-index: 10;
-        }
-
-        .lb-close:hover {
-            opacity: 1;
-        }
-
-        .lb-title {
-            font-family: 'Uncial Antiqua', serif;
-            font-size: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .lb-design-tag {
-            font-size: 0.55rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gris);
-        }
-
-        .lb-price {
-            font-size: 1rem;
-            color: var(--or);
-        }
-
-        .opt-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
-        .opt-label {
-            font-size: 0.52rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--gris);
-            border-bottom: 1px solid rgba(44, 55, 118, 0.08);
-            padding-bottom: 0.25rem;
-        }
-
-        .opt-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-        }
-
-        .opt-btn {
-            border: 1px solid rgba(44, 55, 118, 0.22);
-            background: transparent;
-            padding: 0.3rem 0.7rem;
-            cursor: pointer;
-            color: var(--navy);
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            transition: 0.12s;
-        }
-
-        .opt-btn:hover {
-            border-color: var(--navy);
-        }
-
-        .opt-btn.sel {
-            background: var(--navy);
-            color: white;
-            border-color: var(--navy);
-        }
-
-        .lb-add {
-            width: 100%;
-            padding: 0.85rem;
-            background: var(--navy);
-            color: white;
-            border: none;
-            font-family: 'Uncial Antiqua', serif;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: auto;
-            transition: opacity 0.2s;
-        }
-
-        .lb-add:disabled {
-            opacity: 0.22;
-            cursor: not-allowed;
-        }
-
-        .lb-msg {
-            font-size: 0.52rem;
-            color: var(--gris);
-            text-align: center;
-            min-height: 10px;
-        }
+        .lb-overlay { position: fixed; inset: 0; background: rgba(20, 22, 40, 0.65); z-index: 300; display: none; align-items: center; justify-content: center; padding: 1.5rem; }
+        .lb-overlay.open { display: flex; }
+        .lb-modal { background: var(--bg); display: grid; grid-template-columns: 1fr 1fr; max-width: 780px; width: 100%; max-height: 90vh; overflow: hidden; position: relative; animation: lbIn 0.22s ease; }
+        @keyframes lbIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+        .lb-img-wrap { aspect-ratio: 1/1; overflow: hidden; background: #e8e3d8; }
+        .lb-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.2s; }
+        .lb-config { padding: 2rem 1.8rem; display: flex; flex-direction: column; gap: 1.1rem; overflow-y: auto; border-left: 1px solid rgba(44, 55, 118, 0.1); }
+        .lb-close { position: absolute; top: 0.8rem; right: 0.9rem; background: none; border: none; cursor: pointer; color: var(--navy); font-size: 1.2rem; opacity: 0.45; z-index: 10; }
+        .lb-title { font-family: 'Uncial Antiqua', serif; font-size: 1.5rem; }
+        .opt-label { font-size: 0.52rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gris); border-bottom: 1px solid rgba(44, 55, 118, 0.08); padding-bottom: 0.25rem; }
+        .opt-row { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+        .opt-btn { border: 1px solid rgba(44, 55, 118, 0.22); background: transparent; padding: 0.3rem 0.7rem; cursor: pointer; font-family: inherit; font-size: 0.6rem; transition: 0.12s; }
+        .opt-btn.sel { background: var(--navy); color: white; border-color: var(--navy); }
+        .lb-add { width: 100%; padding: 0.85rem; background: var(--navy); color: white; border: none; font-family: 'Uncial Antiqua', serif; font-size: 1rem; cursor: pointer; margin-top: auto; }
+        .lb-add:disabled { opacity: 0.22; cursor: not-allowed; }
 
         /* ──────────────────────────────── CART BUTTONS ────────────────────────────────── */
-        .cart-btn-nav {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--navy);
-            font-family: 'DM Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.1em;
-            text-transform: lowercase;
-            opacity: 0.4;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 0;
-        }
+        .cart-btn-nav { background: none; border: none; cursor: pointer; color: var(--navy); font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: lowercase; opacity: 0.4; transition: 0.2s; display: flex; align-items: center; gap: 6px; padding: 0; }
         .cart-btn-nav:hover { opacity: 1; }
-
-        .cart-count {
-            background: var(--or);
-            color: white;
-            border-radius: 50%;
-            width: 17px;
-            height: 17px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.58rem;
-        }
+        .cart-count { background: var(--or); color: white; border-radius: 50%; width: 17px; height: 17px; display: flex; align-items: center; justify-content: center; font-size: 0.58rem; }
 
         /* ──────────────────────────────── CART DRAWER ────────────────────────────────── */
-        .cart-drawer {
-            position: fixed;
-            top: 64px;
-            right: 0;
-            width: 320px;
-            height: calc(100% - 64px);
-            background: white;
-            z-index: 2100;
-            transform: translateX(100%);
-            transition: 0.3s;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            border-left: 1px solid var(--navy);
-        }
+        .cart-drawer { position: fixed; top: 64px; right: 0; width: 320px; height: calc(100% - 64px); background: white; z-index: 2100; transform: translateX(100%); transition: 0.3s; padding: 2rem; display: flex; flex-direction: column; border-left: 1px solid var(--navy); }
+        .cart-drawer.open { transform: translateX(0); }
+        .cart-bg { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35); display: none; z-index: 350; }
+        .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
 
-        .cart-drawer.open {
-            transform: translateX(0);
-        }
+        /* Style des lignes produits dans le panier */
+        .cart-item-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 12px; }
+        .cart-item-remove { background: none; border: none; color: #b94040; cursor: pointer; font-size: 1.1rem; padding: 0; opacity: 0.5; transition: opacity 0.2s; margin-top: -2px; }
+        .cart-item-remove:hover { opacity: 1; }
+        .cart-item-info { flex: 1; }
 
-        .cart-bg {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.35);
-            display: none;
-            z-index: 350;
-        }
-
-        .drawer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .drawer-close {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--navy);
-            font-size: 1.3rem;
-            opacity: 0.45;
-            transition: opacity 0.15s;
-        }
-
-        .drawer-close:hover {
-            opacity: 1;
-        }
-
-        /* ──────────────────────────────── PROMO CODE ────────────────────────────────── */
-        .promo-wrap {
-            margin-bottom: 0.8rem;
-        }
-
-        .promo-row {
-            display: flex;
-            gap: 0.4rem;
-        }
-
-        .promo-input {
-            flex: 1;
-            border: 1px solid rgba(44, 55, 118, 0.22);
-            background: transparent;
-            padding: 0.45rem 0.6rem;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            color: var(--navy);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            outline: none;
-            transition: border-color 0.15s;
-        }
-
-        .promo-input:focus {
-            border-color: var(--navy);
-        }
-
-        .promo-input::placeholder {
-            text-transform: none;
-            letter-spacing: 0;
-            opacity: 0.45;
-        }
-
-        .promo-apply {
-            border: 1px solid var(--navy);
-            background: transparent;
-            color: var(--navy);
-            padding: 0.45rem 0.7rem;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.58rem;
-            cursor: pointer;
-            transition: 0.12s;
-            white-space: nowrap;
-        }
-
-        .promo-apply:hover {
-            background: var(--navy);
-            color: white;
-        }
-
-        .promo-msg {
-            font-size: 0.55rem;
-            margin-top: 0.35rem;
-            min-height: 14px;
-            letter-spacing: 0.04em;
-        }
-
-        .promo-msg.ok {
-            color: #2a7a2a;
-        }
-
-        .promo-msg.err {
-            color: #b94040;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            padding: 0.9rem;
-            background: var(--navy);
-            color: white;
-            border: none;
-            font-family: 'Uncial Antiqua', serif;
-            font-size: 0.95rem;
-            cursor: pointer;
-        }
+        /* PROMO */
+        .promo-wrap { margin-bottom: 0.8rem; }
+        .promo-row { display: flex; gap: 0.4rem; }
+        .promo-input { flex: 1; border: 1px solid rgba(44, 55, 118, 0.22); padding: 0.45rem 0.6rem; font-family: inherit; font-size: 0.6rem; text-transform: uppercase; outline: none; }
+        .promo-apply { border: 1px solid var(--navy); background: transparent; color: var(--navy); padding: 0.45rem 0.7rem; font-family: inherit; font-size: 0.58rem; cursor: pointer; transition: 0.12s; }
+        .promo-apply:hover { background: var(--navy); color: white; }
+        .promo-msg { font-size: 0.55rem; margin-top: 0.35rem; min-height: 14px; }
+        .promo-msg.ok { color: #2a7a2a; }
+        .promo-msg.err { color: #b94040; }
+        .checkout-btn { width: 100%; padding: 0.9rem; background: var(--navy); color: white; border: none; font-family: 'Uncial Antiqua', serif; font-size: 0.95rem; cursor: pointer; }
 
         /* ──────────────────────────────── FOOTER ────────────────────────────────── */
-        footer {
-            background: var(--navy);
-            color: var(--bg);
-            padding: 64px 5% 40px;
-            margin-top: auto;
-        }
+        footer { background: var(--navy); color: var(--bg); padding: 64px 5% 40px; margin-top: auto; }
+        .footer-inner { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+        .footer-col-title { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--or); margin-bottom: 25px; display: block; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .footer-links li a { color: var(--bg); text-decoration: none; display: flex; flex-direction: column; gap: 2px; transition: opacity 0.2s; font-size: 0.62rem; }
+        .footer-links li a:hover { opacity: 0.7; }
+        .footer-email { color: var(--or); text-decoration: none; font-size: 0.65rem; }
 
-        .footer-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 48px;
-        }
+        /* ──────────────────────────────── MOBILE NAV ────────────────────────────────── */
+        .tab-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg); border-top: 1px solid rgba(44, 55, 118, 0.13); z-index: 1000; padding-bottom: env(safe-area-inset-bottom, 0px); }
+        .tab-bar-btn { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px 0; text-decoration: none; color: var(--navy); opacity: 0.3; transition: 0.2s; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: lowercase; }
+        .tab-bar-btn.active { opacity: 1; }
 
-        .footer-col-title {
-            font-size: 0.52rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--or);
-            margin-bottom: 25px;
-            display: block;
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links li a {
-            color: var(--bg);
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            transition: opacity 0.2s;
-        }
-
-        .footer-links li a:hover {
-            opacity: 0.7;
-        }
-
-        .footer-links li a .fl-label {
-            font-size: 0.46rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            opacity: 0.5;
-            color: var(--bg);
-        }
-
-        .footer-links li a .fl-name {
-            font-size: 0.62rem;
-            letter-spacing: 0.05em;
-            color: var(--bg);
-        }
-
-        .footer-contact-text {
-            font-size: 0.6rem;
-            opacity: 0.5;
-            line-height: 1.8;
-            margin-bottom: 16px;
-            color: var(--bg);
-        }
-
-        .footer-email {
-            color: var(--or);
-            text-decoration: none;
-            font-size: 0.65rem;
-            letter-spacing: 0.06em;
-            font-weight: 500;
-        }
-
-        .footer-bottom {
-            max-width: 860px;
-            margin: 48px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(248, 242, 231, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-        }
-
-        .footer-bottom span {
-            font-size: 0.5rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            opacity: 0.35;
-        }
-
-        /* ──────────────────────────────── TAB BAR (Mobile) ────────────────────────────────── */
-        .tab-bar {
-            display: none;
-        }
-
-        /* ──────────────────────────────── RESPONSIVE ────────────────────────────────── */
         @media (max-width: 768px) {
-            header {
-                justify-content: center;
-            }
-
-            .main-nav {
-                display: none;
-            }
-
-            .grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-
-            .lb-modal {
-                grid-template-columns: 1fr;
-                max-height: 95vh;
-                overflow-y: auto;
-            }
-
-            .lb-img-wrap {
-                aspect-ratio: 1/1;
-            }
-
-            .lb-config {
-                border-left: none;
-                border-top: 1px solid rgba(44, 55, 118, 0.1);
-                padding: 1.2rem;
-            }
-
-            .tab-bar {
-                display: flex;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: var(--bg);
-                border-top: 1px solid rgba(44, 55, 118, 0.13);
-                z-index: 1000;
-                padding-bottom: env(safe-area-inset-bottom, 0px);
-            }
-
-            .tab-bar-btn {
-                flex: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px 0;
-                text-decoration: none;
-                color: var(--navy);
-                opacity: 0.3;
-                transition: 0.2s;
-            }
-
-            .tab-bar-btn.active {
-                opacity: 1;
-            }
-
-            .tab-bar-btn span {
-                font-size: 0.65rem;
-                letter-spacing: 0.1em;
-                text-transform: lowercase;
-            }
-
-            footer {
-                padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr;
-                gap: 36px;
-            }
-
-            .cart-drawer {
-                width: 100%;
-                padding-bottom: 100px;
-            }
+            header { justify-content: center; }
+            .main-nav { display: none; }
+            .grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .lb-modal { grid-template-columns: 1fr; max-height: 95vh; overflow-y: auto; }
+            .lb-config { border-left: none; border-top: 1px solid rgba(44, 55, 118, 0.1); padding: 1.2rem; }
+            .tab-bar { display: flex; }
+            .cart-drawer { width: 100%; padding-bottom: 100px; }
+            footer { padding-bottom: 120px; }
+            .footer-inner { grid-template-columns: 1fr; gap: 36px; }
         }
     </style>
 </head>
@@ -940,7 +316,6 @@
                 <a href="/" class="active">boutique</a>
                 <a href="https://code.tradiscout.com">code</a>
                 
-                <!-- Desktop Cart UI -->
                 <span id="nav-divider" style="width:1px;height:16px;background:rgba(44,55,118,0.2);display:none;"></span>
                 <button class="cart-btn-nav" onclick="openCart()" id="cartBtnDesktop" style="display:none">
                     panier <span class="cart-count" id="cartCountDesktop">0</span>
@@ -964,13 +339,8 @@
         <div class="hero">
             <div class="hero-eyebrow">verso l'alto - 2026</div>
             <div class="hero-title">Tradiscout</div>
-            <div class="hero-sub">
-                Pour les scouts qui portent leur foi
-            </div>
-            <a class="hero-cta" href="#catalogue" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'});return false;">
-                Voir la collection
-            </a>
-            <div class="hero-divider"></div>
+            <div class="hero-sub">Pour les scouts qui portent leur foi</div>
+            <a class="hero-cta" href="#catalogue" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'});return false;">Voir la collection</a>
         </div>
     
         <div id="catalogue">
@@ -987,7 +357,6 @@
             <a href="Politiques Commceriales et Clauses de Vente.pdf" target="_blank">Livraison</a>
             <a href="Protection des Données et conformité RGPD.pdf" target="_blank">Termes</a>
         </div>
-    
     </div>
 
     <!-- LIGHTBOX -->
@@ -1005,7 +374,7 @@
                 <div class="opt-group"><span class="opt-label">Couleur</span><div class="opt-row" id="lbColors"></div></div>
                 <div class="opt-group"><span class="opt-label">Taille</span><div class="opt-row" id="lbSizes"></div></div>
                 <button class="lb-add" id="lbAdd" disabled onclick="addToCart()">+ Ajouter au panier</button>
-                <div class="lb-msg" id="lbMsg">Sélectionnez tous les éléments</div>
+                <div class="lb-msg" id="lbMsg" style="font-size:0.5rem; color:gray; text-align:center;">Sélectionnez tous les éléments</div>
             </div>
         </div>
     </div>
@@ -1019,7 +388,7 @@
         </div>
         <div id="cartItems" style="flex:1;overflow-y:auto"></div>
         <div style="border-top:1px solid #eee;padding-top:1rem">
-            <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;font-size:1.05rem">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.8rem;font-size:1.05rem; align-items: center;" id="cartTotalContainer">
                 <span>Total</span><b id="cartTotal">0 €</b>
             </div>
             <div class="promo-wrap">
@@ -1038,34 +407,27 @@
             <div>
                 <span class="footer-col-title">Réseaux</span>
                 <ul class="footer-links">
-                    <li><a href="https://instagram.com/tradiscout" target="_blank"><span class="fl-label">Instagram</span><span class="fl-name">4 200+</span></a></li>
-                    <li><a href="https://www.tiktok.com/@tradiscout" target="_blank"><span class="fl-label">TikTok</span><span class="fl-name">20+ [Nouveau]</span></a></li>
-                    <li><a href="https://www.facebook.com/tradiscout" target="_blank"><span class="fl-label">Facebook</span><span class="fl-name">40+ [Nouveau]</span></a></li>
-                    <li><a href="https://pinterest.com/tradiscout" target="_blank"><span class="fl-label">Pinterest</span><span class="fl-name">Fonds d'écran</span></a></li>
+                    <li><a href="https://instagram.com/tradiscout" target="_blank">Instagram (4 200+)</a></li>
+                    <li><a href="https://www.tiktok.com/@tradiscout" target="_blank">TikTok [Nouveau]</a></li>
                 </ul>
             </div>
             <div>
                 <span class="footer-col-title">Ressources</span>
                 <ul class="footer-links">
-                    <li><a href="https://instagram.com/channel/AbYQB1ZxjbUUhCE5" target="_blank"><span class="fl-label">Groupe de prière</span><span class="fl-name">Tous les vendredis</span></a></li>
-                    <li><a href="https://open.spotify.com/playlist/4dol5mUeugWo8hvZdXnvZ8" target="_blank"><span class="fl-label">Playlist Spotify</span><span class="fl-name">500 titres musique de grand jeu</span></a></li>
-                    <li><a href="https://www.deezer.com/fr/playlist/13549630343" target="_blank"><span class="fl-label">Playlist Deezer</span><span class="fl-name">500 titres musique de grand jeu</span></a></li>
-                    <li><a href="https://tradiscout.notion.site/Pr-parer-ses-activit-s-2ad8736dad9f80a3b259da56bb5a5615" target="_blank"><span class="fl-label">Notion</span><span class="fl-name">Ressources</span></a></li>
+                    <li><a href="https://open.spotify.com/playlist/4dol5mUeugWo8hvZdXnvZ8" target="_blank">Playlist Spotify</a></li>
+                    <li><a href="https://tradiscout.notion.site/" target="_blank">Notion</a></li>
                 </ul>
             </div>
             <div>
                 <span class="footer-col-title">Contact</span>
-                <p class="footer-contact-text">Une suggestion, une photo, ou rejoindre l'équipe ?</p>
                 <a href="mailto:tradiscout@gmail.com" class="footer-email">tradiscout@gmail.com</a>
             </div>
         </div>
-        <div class="footer-bottom"><span>© 2026 Tradiscout</span><span>Verso l'Alto!</span></div>
     </footer>
 
     <nav class="tab-bar">
         <a href="https://tradiscout.com" class="tab-bar-btn"><span>accueil</span></a>
         
-        <!-- Mobile Toggle Shop/Cart -->
         <a href="/" class="tab-bar-btn active" id="tabBoutiqueLink"><span>boutique</span></a>
         <button class="tab-bar-btn active" id="tabCartBtn" onclick="openCart()" style="display:none; border:none; background:none; font-family:inherit; gap:5px;">
             <span>panier</span>
@@ -1086,37 +448,23 @@
         function handleCode(e) {
             if (e.key === 'Enter') {
                 const val = document.getElementById('adminInput').value;
-                if (val === 'wandrille') {
-                    unlockShop();
-                } else {
-                    alert('Code erroné');
-                    document.getElementById('adminInput').value = '';
-                }
+                if (val === 'wandrille') { unlockShop(); } else { alert('Code erroné'); }
             }
         }
 
         function unlockShop() {
             document.getElementById('shop-curtain').style.display = 'none';
             document.getElementById('shop-content').style.display = 'block';
-            
-            // Show Desktop UI
             document.getElementById('nav-divider').style.display = 'inline-block';
             document.getElementById('cartBtnDesktop').style.display = 'flex';
-            
-            // Show Mobile Cart & Hide Boutique link
             document.getElementById('tabBoutiqueLink').style.display = 'none';
             document.getElementById('tabCartBtn').style.display = 'flex';
-
             sessionStorage.setItem('shop_unlocked', 'true');
             renderGrid();
             renderCart();
         }
 
-        window.onload = function() {
-            if (sessionStorage.getItem('shop_unlocked') === 'true') {
-                unlockShop();
-            }
-        }
+        window.onload = function() { if (sessionStorage.getItem('shop_unlocked') === 'true') unlockShop(); }
     </script>
 
     <script src="catalogue.js"></script>
@@ -1125,19 +473,12 @@
         function renderGrid() {
             const grid = document.getElementById('grid');
             const minPrice = Math.min(...TYPES.map(t => t.price));
-            const cols = Math.min(DESIGNS.length, 4);
-            grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-
+            grid.style.gridTemplateColumns = `repeat(${Math.min(DESIGNS.length, 4)}, 1fr)`;
             grid.innerHTML = DESIGNS.map(d => `
                 <div class="grid-card" onclick="openLb('${GRID_DEFAULT_TYPE}', '${d.key}')">
-                    <div class="grid-card-img-wrap">
-                        <img src="images/${imgSrc(GRID_DEFAULT_TYPE, GRID_DEFAULT_COLOR, d.key)}"
-                             alt="${d.label}"
-                             onerror="this.style.opacity='0'" />
-                    </div>
+                    <div class="grid-card-img-wrap"><img src="images/${imgSrc(GRID_DEFAULT_TYPE, GRID_DEFAULT_COLOR, d.key)}" onerror="this.style.opacity='0'" /></div>
                     <div class="grid-card-info">
                         <div class="grid-card-name">${d.label}</div>
-                        <div class="grid-card-sub">T-shirt · Sweat · Hoodie</div>
                         <div class="grid-card-price">à partir de ${minPrice} €</div>
                     </div>
                 </div>
@@ -1159,47 +500,23 @@
         function renderLb() {
             const t = TYPES.find(x => x.id === lb.type);
             const d = DESIGNS.find(x => x.key === lb.design);
-            document.getElementById('lbTitle').textContent     = t.label;
+            document.getElementById('lbTitle').textContent = t.label;
             document.getElementById('lbDesignTag').textContent = d.label;
-            document.getElementById('lbPrice').textContent     = t.price + ' €';
+            document.getElementById('lbPrice').textContent = t.price + ' €';
             updateLbImage();
-            document.getElementById('lbTypes').innerHTML  = TYPES.map(x => `
-                <button class="opt-btn ${x.id === lb.type ? 'sel' : ''}" onclick="lbSet('type','${x.id}',this)">${x.label}</button>
-            `).join('');
-            document.getElementById('lbColors').innerHTML = COLORS.map(x => `
-                <button class="opt-btn ${x.id === lb.color ? 'sel' : ''}" onclick="lbSet('color','${x.id}',this)">${x.label}</button>
-            `).join('');
-            document.getElementById('lbSizes').innerHTML  = SIZES.map(s => `
-                <button class="opt-btn ${s === lb.size ? 'sel' : ''}" onclick="lbSet('size','${s}',this)">${s}</button>
-            `).join('');
-            updateLbCTA();
+            document.getElementById('lbTypes').innerHTML = TYPES.map(x => `<button class="opt-btn ${x.id === lb.type ? 'sel' : ''}" onclick="lbSet('type','${x.id}',this)">${x.label}</button>`).join('');
+            document.getElementById('lbColors').innerHTML = COLORS.map(x => `<button class="opt-btn ${x.id === lb.color ? 'sel' : ''}" onclick="lbSet('color','${x.id}',this)">${x.label}</button>`).join('');
+            document.getElementById('lbSizes').innerHTML = SIZES.map(s => `<button class="opt-btn ${s === lb.size ? 'sel' : ''}" onclick="lbSet('size','${s}',this)">${s}</button>`).join('');
+            document.getElementById('lbAdd').disabled = !(lb.type && lb.color && lb.size);
         }
 
-        function lbSet(cat, val, el) {
-            lb[cat] = val;
-            el.closest('.opt-row').querySelectorAll('.opt-btn').forEach(b => b.classList.remove('sel'));
-            el.classList.add('sel');
-            if (cat === 'type') {
-                const t = TYPES.find(x => x.id === val);
-                document.getElementById('lbTitle').textContent = t.label;
-                document.getElementById('lbPrice').textContent = t.price + ' €';
-            }
-            updateLbImage();
-            updateLbCTA();
-        }
-
+        function lbSet(cat, val, el) { lb[cat] = val; renderLb(); }
         function updateLbImage() {
             const img = document.getElementById('lbImg');
             const src = 'images/' + imgSrc(lb.type, lb.color || GRID_DEFAULT_COLOR, lb.design);
             if (img.src.endsWith(src)) return;
-            img.classList.add('fade');
-            setTimeout(() => { img.src = src; img.classList.remove('fade'); }, 180);
-        }
-
-        function updateLbCTA() {
-            const ok = lb.type && lb.color && lb.size;
-            document.getElementById('lbAdd').disabled = !ok;
-            document.getElementById('lbMsg').textContent = ok ? '' : 'Sélectionnez tous les éléments';
+            img.style.opacity = '0';
+            setTimeout(() => { img.src = src; img.style.opacity = '1'; }, 100);
         }
 
         // ── PANIER ──
@@ -1209,38 +526,43 @@
             const t = TYPES.find(x => x.id === lb.type);
             const d = DESIGNS.find(x => x.key === lb.design);
             const c = COLORS.find(x => x.id === lb.color);
-            cart.push({
-                id: Date.now(),
-                type: lb.type,   typeLabel: t.label,
-                design: d.id,    designLabel: d.label,
-                color: lb.color, colorLabel: c.label,
-                size: lb.size,   price: t.price,
-            });
+            cart.push({ id: Date.now(), type: lb.type, typeLabel: t.label, designLabel: d.label, colorLabel: c.label, size: lb.size, price: t.price });
             renderCart(); closeLb(); openCart();
+        }
+
+        function removeItem(id) {
+            cart = cart.filter(item => item.id !== id);
+            renderCart();
         }
 
         function renderCart() {
             const container = document.getElementById('cartItems');
-            const discount  = promoState.discountPerItem;
-            const total     = cart.reduce((s, i) => s + (i.price - discount), 0);
+            const totalOriginal = cart.reduce((s, i) => s + i.price, 0);
+            const discount = promoState.discountPerItem;
+            const totalDiscounted = cart.reduce((s, i) => s + (i.price - discount), 0);
             
-            // Sync all count labels
             document.getElementById('cartCountDesktop').textContent = cart.length;
             document.getElementById('cartCountMobile').textContent = cart.length;
             
-            document.getElementById('cartTotal').textContent = total + ' €';
+            // Affichage Total avec promo
+            const totalEl = document.getElementById('cartTotal');
+            if (discount > 0 && cart.length > 0) {
+                totalEl.innerHTML = `<span style="text-decoration:line-through; color:var(--gris); opacity:0.6; font-size:0.9rem; margin-right:8px; font-weight:normal;">${totalOriginal} €</span> <span>${totalDiscounted} €</span>`;
+            } else {
+                totalEl.textContent = totalOriginal + ' €';
+            }
+
             if (!cart.length) { container.innerHTML = '<p style="font-size:0.72rem;color:var(--gris)">Panier vide</p>'; return; }
-            container.innerHTML = cart.map(item => {
-                const fp = item.price - discount;
-                const priceHtml = discount > 0
-                    ? `<span style="text-decoration:line-through;color:var(--gris);font-size:0.72rem">${item.price}€</span> <span style="color:var(--or)">${fp}€</span>`
-                    : `<span>${item.price}€</span>`;
-                return `
-                    <div style="margin-bottom:1rem;border-bottom:1px solid #eee;padding-bottom:10px">
-                        <div style="display:flex;justify-content:space-between"><b>${item.typeLabel}</b>${priceHtml}</div>
+            
+            container.innerHTML = cart.map(item => `
+                <div class="cart-item-row">
+                    <button class="cart-item-remove" onclick="removeItem(${item.id})">✕</button>
+                    <div class="cart-item-info">
+                        <div style="display:flex;justify-content:space-between; font-size:0.75rem;"><b>${item.typeLabel}</b> <span>${item.price}€</span></div>
                         <div style="font-size:0.6rem;color:gray;margin-top:3px">${item.designLabel} · ${item.size} · ${item.colorLabel}</div>
-                    </div>`;
-            }).join('');
+                    </div>
+                </div>
+            `).join('');
         }
 
         function openCart() { document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartBg').style.display = 'block'; }
@@ -1252,13 +574,9 @@
         async function applyPromo() {
             const input = document.getElementById('promoInput');
             const msgEl = document.getElementById('promoMsg');
-            const code  = input.value.trim().toUpperCase();
-            if (!code) { msgEl.className = 'promo-msg err'; msgEl.textContent = 'Entrez un code promo'; return; }
-            if (promoState.validated && promoState.code !== code) {
-                promoState.code = null; promoState.discountPerItem = 0; promoState.validated = false;
-            }
-            msgEl.className = 'promo-msg'; msgEl.textContent = 'Vérification...';
-            input.disabled = true;
+            const code = input.value.trim().toUpperCase();
+            if (!code) return;
+            msgEl.textContent = 'Vérification...';
             try {
                 const res = await fetch('/api/validate-promo', {
                     method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -1267,28 +585,22 @@
                 if (res.ok) {
                     const data = await res.json();
                     promoState.code = code; promoState.discountPerItem = data.discountPerItem; promoState.validated = true;
-                    msgEl.className = 'promo-msg ok';
-                    msgEl.textContent = `✓ Code appliqué — ${data.discountPerItem}€ de remise par article`;
+                    msgEl.className = 'promo-msg ok'; msgEl.textContent = '✓ Code appliqué';
                     renderCart();
                 } else {
-                    const err = await res.json();
-                    promoState.code = null; promoState.discountPerItem = 0; promoState.validated = false;
-                    msgEl.className = 'promo-msg err';
-                    msgEl.textContent = err.error || 'Code invalide';
+                    promoState.discountPerItem = 0; promoState.validated = false;
+                    msgEl.className = 'promo-msg err'; msgEl.textContent = 'Code invalide';
                     renderCart();
                 }
-            } catch { msgEl.className = 'promo-msg err'; msgEl.textContent = 'Erreur de connexion'; }
-            input.disabled = false;
+            } catch { msgEl.textContent = 'Erreur'; }
         }
-
-        document.getElementById('promoInput').addEventListener('keydown', e => { if (e.key === 'Enter') applyPromo(); });
 
         // ── CHECKOUT ──
         async function goToCheckout() {
             if (!cart.length) return;
             const btn = document.getElementById('checkoutBtn');
             btn.innerText = 'Chargement...'; btn.disabled = true;
-            const discount    = promoState.discountPerItem;
+            const discount = promoState.discountPerItem;
             const itemsToSend = cart.map(i => ({ ...i, price: i.price - discount }));
             try {
                 const body = { items: itemsToSend };
@@ -1297,11 +609,10 @@
                     method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
                 });
-                if (!res.ok) { const e = await res.json(); throw new Error(e.error || 'Erreur serveur'); }
                 const { url } = await res.json();
                 window.location.href = url;
             } catch (e) {
-                alert('Erreur : ' + e.message);
+                alert('Erreur');
                 btn.innerText = 'Payer →'; btn.disabled = false;
             }
         }
