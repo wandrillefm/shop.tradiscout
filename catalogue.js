@@ -40,7 +40,7 @@ const DESIGNS = [
     description: 'Rien de plus basique',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-tradiscout.png', '1-2-tradiscout.png'],
+    images: ['1-1-tradiscout.png', '1-2-tradiscout.png', '2-1-tradiscout.png', '2-2-tradiscout.png', '3-1-tradiscout.png', '3-2-tradiscout.png'],
     collection: 'scouts',
   },
   {
@@ -48,7 +48,7 @@ const DESIGNS = [
     description: 'Variante',
     types:  ['tshirt', 'sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-double-croix.png', '1-2-double-croix.png', '2-1-double-croix.png'],
+    images: ['1-1-double-croix.png', '1-2-double-croix.png', '2-1-double-croix.png', '2-2-double-croix.png', '3-1-double-croix.png', '3-2-double-croix.png'],
     collection: 'scouts',
   },
   {
@@ -56,7 +56,7 @@ const DESIGNS = [
     description: 'Comme au temps des templiers',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-deus-vult.png', '1-2-deus-vult.png', '2-2-deus-vult.png'],
+    images: ['1-1-deus-vult.png', '1-2-deus-vult.png', '2-1-deus-vult.png', '2-2-deus-vult.png', '3-1-deus-vult.png', '3-2-deus-vult.png'],
     collection: 'scouts',
   },
   {
@@ -64,7 +64,7 @@ const DESIGNS = [
     description: 'Devise de Saint Pier Georgio Frassati',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-verso-lalto.png', '2-1-verso-lalto.png'],
+    images: ['1-1-verso-lalto.png', '1-2-verso-lalto.png', '2-1-verso-lalto.png', '2-2-verso-lalto.png', '3-1-verso-lalto.png', '3-2-verso-lalto.png'],
     collection: 'scouts',
   },
   {
@@ -72,7 +72,7 @@ const DESIGNS = [
     description: 'Hans Zimmer dans les oreilles et un foulard dans la ceinture',
     types:  ['tshirt'],
     colors: ['blanc', 'bleu'],
-    images: ['1-2-mode-grand-jeu.png'],
+    images: ['1-1-mode-grand-jeu.png', '1-2-mode-grand-jeu.png', '2-1-mode-grand-jeu.png', '2-2-mode-grand-jeu.png', '3-1-mode-grand-jeu.png', '3-2-mode-grand-jeu.png'],
     collection: 'humour',
   },
   {
@@ -80,7 +80,7 @@ const DESIGNS = [
     description: 'Le saint graal',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-braises.png', '2-1-braises.png'],
+    images: ['1-1-braises.png', '1-2-braises.png', '2-1-braises.png', '2-2-braises.png', '3-1-braises.png', '3-2-braises.png'],
     collection: 'humour',
   },
   {
@@ -88,7 +88,7 @@ const DESIGNS = [
     description: 'Mexique.',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-christus-rex.png', '1-2-christus-rex.png'],
+    images: ['1-1-christus-rex.png', '1-2-christus-rex.png', '2-1-christus-rex.png', '2-2-christus-rex.png', '3-1-christus-rex.png', '3-2-christus-rex.png'],
     collection: 'saints',
   },
   {
@@ -96,7 +96,7 @@ const DESIGNS = [
     description: 'Le goat',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-st-michel.png', '2-2-st-michel.png'],
+    images: ['1-1-st-michel.png', '1-2-st-michel.png', '2-1-st-michel.png', '2-2-st-michel.png', '3-1-st-michel.png', '3-2-st-michel.png'],
     collection: 'saints',
   },
   {
