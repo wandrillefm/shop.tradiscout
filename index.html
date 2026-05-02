@@ -369,6 +369,9 @@
         </div>
         <div id="cartItems" style="flex:1;overflow-y:auto"></div>
         <div style="border-top:1px solid #eee;padding-top:1rem">
+            <div id="cartDiscountRow" style="display:none;justify-content:space-between;margin-bottom:.5rem;font-size:.68rem;color:#2a7a2a;align-items:center;">
+                <span id="cartDiscountLabel"></span><span id="cartDiscountAmt"></span>
+            </div>
             <div style="display:flex;justify-content:space-between;margin-bottom:.8rem;font-size:1.05rem;align-items:center;">
                 <span>Total</span><b id="cartTotal">0 €</b>
             </div>
@@ -596,18 +599,25 @@
 
         function renderCart() {
             const container = document.getElementById('cartItems');
-            const discount  = promoState.discountPerItem;
-            const totalOrig = cart.reduce((s, i) => s + i.price, 0);
-            const totalDisc = cart.reduce((s, i) => s + (i.price - discount), 0);
+            const pct        = promoState.discountPercent || 0;
+            const totalOrig  = cart.reduce((s, i) => s + i.price, 0);
+            const discountAmt = pct > 0 ? Math.round(totalOrig * pct) : 0;
+            const totalFinal  = totalOrig - discountAmt;
 
             document.getElementById('cartCountDesktop').textContent = cart.length;
             document.getElementById('cartCountMobile').textContent  = cart.length;
 
-            const totalEl = document.getElementById('cartTotal');
-            if (discount > 0 && cart.length > 0) {
-                totalEl.innerHTML = `<span style="text-decoration:line-through;color:var(--gris);opacity:.6;font-size:.9rem;margin-right:8px;font-weight:normal;">${totalOrig} €</span><span>${totalDisc} €</span>`;
+            // Ligne de remise unique
+            const discountRow = document.getElementById('cartDiscountRow');
+            if (pct > 0 && cart.length > 0) {
+                discountRow.style.display = 'flex';
+                document.getElementById('cartDiscountLabel').textContent =
+                    `${promoState.code} (−${Math.round(pct * 100)}%)`;
+                document.getElementById('cartDiscountAmt').textContent = `−${discountAmt} €`;
+                document.getElementById('cartTotal').textContent = totalFinal + ' €';
             } else {
-                totalEl.textContent = totalOrig + ' €';
+                discountRow.style.display = 'none';
+                document.getElementById('cartTotal').textContent = totalOrig + ' €';
             }
 
             if (!cart.length) { container.innerHTML = '<p style="font-size:.72rem;color:var(--gris)">Panier vide</p>'; return; }
@@ -615,7 +625,7 @@
                 <div class="cart-item-row">
                     <button class="cart-item-remove" onclick="removeItem(${item.id})">✕</button>
                     <div class="cart-item-info">
-                        <div style="display:flex;justify-content:space-between;font-size:.75rem;"><b>${item.typeLabel}</b><span>${item.price}€</span></div>
+                        <div style="display:flex;justify-content:space-between;font-size:.75rem;"><b>${item.typeLabel}</b><span>${item.price} €</span></div>
                         <div style="font-size:.6rem;color:gray;margin-top:3px">${item.designLabel} · ${item.size} · ${item.colorLabel}</div>
                     </div>
                 </div>
@@ -626,7 +636,7 @@
         function closeCart() { document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartBg').style.display = 'none'; }
 
         // ── CODE PROMO ───────────────────────────────
-        const promoState = { code: null, discountPerItem: 0, validated: false };
+        const promoState = { code: null, discountPercent: 0, validated: false };
 
         async function applyPromo() {
             const input = document.getElementById('promoInput');
@@ -641,10 +651,10 @@
                 });
                 const data = await res.json();
                 if (res.ok) {
-                    promoState.code = code; promoState.discountPerItem = data.discountPerItem; promoState.validated = true;
-                    msgEl.className = 'promo-msg ok'; msgEl.textContent = '✓ Code appliqué';
+                    promoState.code = code; promoState.discountPercent = data.discountPercent; promoState.validated = true;
+                    msgEl.className = 'promo-msg ok'; msgEl.textContent = `✓ −${Math.round(data.discountPercent * 100)}% appliqué`;
                 } else {
-                    promoState.discountPerItem = 0; promoState.validated = false;
+                    promoState.discountPercent = 0; promoState.validated = false;
                     msgEl.className = 'promo-msg err'; msgEl.textContent = data.error || 'Code invalide';
                 }
                 renderCart();
@@ -656,8 +666,8 @@
             if (!cart.length) return;
             const btn = document.getElementById('checkoutBtn');
             btn.innerText = 'Chargement...'; btn.disabled = true;
-            const discount    = promoState.discountPerItem;
-            const itemsToSend = cart.map(i => ({ ...i, price: i.price - discount }));
+            const pct         = promoState.discountPercent || 0;
+            const itemsToSend = cart.map(i => ({ ...i, price: Math.round(i.price * (1 - pct)) }));
             try {
                 const body = { items: itemsToSend };
                 if (promoState.validated) body.promoCode = promoState.code;
