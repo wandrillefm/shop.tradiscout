@@ -96,7 +96,7 @@ const DESIGNS = [
     description: 'Le goat',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['StMichelB.png','StMichelW.png','image 15.png','image 16.png','image 19.png','image20.png'],
+    images: ['StMichelW.png','StMichelB.png','image 19.png','image20.png','image 15.png','image 16.png'],
     collection: 'saints',
   },
   {
@@ -104,7 +104,7 @@ const DESIGNS = [
     description: 'En esprit de sainteté',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['StVianneyB.png','StVianneyW.png','image 21.png','image 22.png','image 25.png','image 26.png'],
+    images: ['StVianneyW.png','StVianneyB.png','image 25.png','image 26.png','image 21.png','image 22.png'],
     collection: 'saints',
   },
   {
@@ -112,7 +112,7 @@ const DESIGNS = [
     description: 'St patron des éclaireurs',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['StGeorgeB.png','StGeorgeW.png','image 17.png','image 18.png','image 23.png','image 24.png'],
+    images: ['StGeorgeW.png','StGeorgeB.png','image 24.png','image 23.png','image 18.png','image 17.png'],
     collection: 'saints',
   },
   {
