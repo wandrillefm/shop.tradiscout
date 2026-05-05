@@ -96,7 +96,7 @@ const DESIGNS = [
     description: 'Le goat',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['StMichelB.png','StMichelW.png','image 15.png','image 16.png','image 19.png','image 20.png'],
+    images: ['StMichelB.png','StMichelW.png','image 15.png','image 16.png','image 19.png','image20.png'],
     collection: 'saints',
   },
   {
