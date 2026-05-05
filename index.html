@@ -456,9 +456,10 @@
             renderGrid();
             renderCart();
         }
-        window.onload = function() {
-            if (sessionStorage.getItem('shop_unlocked') === 'true') unlockShop();
-        };
+        //window.onload = function() {
+        //    if (sessionStorage.getItem('shop_unlocked') === 'true') unlockShop();
+        //};
+        window.onload = function() { unlockShop(); };
     </script>
 
     <script src="catalogue.js"></script>
