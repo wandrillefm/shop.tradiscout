@@ -96,7 +96,7 @@ const DESIGNS = [
     description: 'Le goat',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-st-michel.png', '1-2-st-michel.png', '2-1-st-michel.png', '2-2-st-michel.png', '3-1-st-michel.png', '3-2-st-michel.png'],
+    images: ['StMichelB.png','StMichelW.png','image 15.png','image 16.png','image 19.png','image 20.png'],
     collection: 'saints',
   },
   {
@@ -104,7 +104,7 @@ const DESIGNS = [
     description: 'En esprit de sainteté',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['2-1-st-jean-marie-vianney.png', '3-2-st-jean-marie-vianney.png'],
+    images: ['StVianneyB.png','StVianneyW.png','image 21.png','image 22.png','image 25.png','image 26.png'],
     collection: 'saints',
   },
   {
@@ -112,7 +112,7 @@ const DESIGNS = [
     description: 'St patron des éclaireurs',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-st-george.png', '2-1-st-george.png'],
+    images: ['StGeorgeB.png','StGeorgeW.png','image 17.png','image 18.png','image 23.png','image 24'],
     collection: 'saints',
   },
   {
@@ -120,7 +120,7 @@ const DESIGNS = [
     description: 'La seule excuse valable un samedi matin.',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-jpeuxpas.png', '1-2-jpeuxpas.png', '2-2-jpeuxpas.png'],
+    images: ['1-1-jpeuxpas.png', '1-2-jpeuxpas.png', '2-1-jpeuxpas.png', '2-2-jpeuxpas.png', '3-1-jpeuxpas.png', '3-2-jpeuxpas.png'],
     collection: 'humour',
   },
 ];
