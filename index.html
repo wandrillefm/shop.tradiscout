@@ -683,6 +683,11 @@
                     body: JSON.stringify(body)
                 });
                 const { url } = await res.json();
+                
+                // Sauvegarder le total pour GoAffPro
+                const totalAmount = itemsToSend.reduce((s, i) => s + i.price, 0);
+                sessionStorage.setItem('lastOrderTotal', totalAmount);
+                
                 window.location.href = url;
             } catch {
                 alert('Erreur lors du paiement');
