@@ -164,5 +164,15 @@
   </div>
 </footer>
 
+<script type="text/javascript">
+  window.goaffpro_order = {
+    number: `CMD-${Date.now()}`,
+    total: parseInt(sessionStorage.getItem('lastOrderTotal')) || 0
+  }
+  if(typeof window.goaffproTrackConversion !== "undefined"){
+    window.goaffproTrackConversion(window.goaffpro_order)
+  }
+</script>
+
 </body>
 </html>
