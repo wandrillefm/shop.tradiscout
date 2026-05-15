@@ -319,7 +319,117 @@
         padding: 60px 5% 40px;
     }
 }
-        
+
+
+/* ──────────────────────────────── CAGNOTTES ────────────────────────────────── */
+.cagnottes-section {
+    background: var(--navy);
+    color: var(--bg);
+    padding: 80px 5% 60px;
+}
+
+.cagnottes-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cagnottes-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cagnottes-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.cagnottes-subtitle {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(248, 242, 231, 0.6);
+}
+
+.cagnottes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.cagnotte-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    padding: 28px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.cagnotte-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--or);
+}
+
+.cagnotte-name {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.cagnotte-desc {
+    font-size: 0.62rem;
+    color: rgba(248, 242, 231, 0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.progress-wrapper {
+    margin-bottom: 12px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(201, 168, 76, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--or), #e6c456);
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.58rem;
+    color: rgba(248, 242, 231, 0.6);
+}
+
+.progress-percent {
+    text-align: right;
+    font-size: 0.72rem;
+    color: var(--or);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .cagnottes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .cagnottes-section {
+        padding: 60px 5% 40px;
+    }
+}
         @media (max-width: 768px) {
             header { justify-content:center; }
             .main-nav { display:none; }
