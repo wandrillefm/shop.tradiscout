@@ -257,6 +257,107 @@
         .tab-bar-btn { flex:1;display:flex;align-items:center;justify-content:center;padding:20px 0;text-decoration:none;color:var(--navy);opacity:.3;transition:.2s;font-size:.65rem;letter-spacing:.1em;text-transform:lowercase; }
         .tab-bar-btn.active { opacity:1; }
 
+
+/* ──────────────────────────────── PARTNERSHIP ────────────────────────────────── */
+.partnership-section {
+    background: var(--navy);
+    color: var(--bg);
+    padding: 80px 5% 60px;
+    margin-bottom: 0;
+}
+
+.partnership-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.partnership-eyebrow {
+    font-size: 0.5rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 16px;
+    opacity: 0.8;
+}
+
+.partnership-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.partnership-desc {
+    font-size: 0.72rem;
+    color: rgba(248, 242, 231, 0.85);
+    line-height: 1.9;
+    margin-bottom: 32px;
+}
+
+.partnership-cta {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 1px solid var(--or);
+    background: transparent;
+    color: var(--or);
+    text-decoration: none;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.partnership-cta:hover {
+    background: var(--or);
+    color: var(--navy);
+}
+
+.partnership-stats {
+    display: flex;
+    gap: 48px;
+    justify-content: flex-end;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 2.4rem;
+    color: var(--or);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(248, 242, 231, 0.6);
+}
+
+@media (max-width: 768px) {
+    .partnership-wrap {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .partnership-stats {
+        justify-content: center;
+        gap: 60px;
+    }
+    
+    .partnership-section {
+        padding: 60px 5% 40px;
+    }
+}
+
+        
         @media (max-width: 768px) {
             header { justify-content:center; }
             .main-nav { display:none; }
@@ -392,6 +493,33 @@
         </div>
     </div>
 
+    <!-- ── PARTNERSHIP SECTION ── -->
+    <section class="partnership-section">
+      <div class="partnership-wrap">
+        <div class="partnership-content">
+          <div class="partnership-eyebrow">Programme d'affiliation</div>
+          <h2 class="partnership-title">Devenez partenaire</h2>
+          <p class="partnership-desc">
+            Rejoignez notre programme et gagnez une commission sur chaque vente.<br>
+            Partagez nos produits avec votre communauté et développez vos revenus.
+          </p>
+          <a href="https://affilers.tradiscout.com/create-account" class="partnership-cta" target="_blank">
+            S'inscrire au programme →
+          </a>
+        </div>
+        <div class="partnership-stats">
+          <div class="stat">
+            <div class="stat-number">4,200+</div>
+            <div class="stat-label">Followers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Possibilités</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <footer>
         <div class="footer-inner">
             <div>
