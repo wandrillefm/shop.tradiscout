@@ -420,6 +420,32 @@
     font-weight: 500;
 }
 
+.progress-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.donate-btn {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--or);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.donate-btn:hover {
+    background: #e6c456;
+    transform: translateY(-1px);
+}
+        
 @media (max-width: 768px) {
     .cagnottes-grid {
         grid-template-columns: 1fr;
@@ -565,62 +591,71 @@
         </div>
     </div>
 
-    <!-- ── CAGNOTTES SECTION ── -->
-    <section class="cagnottes-section">
-      <div class="cagnottes-wrap">
-        <div class="cagnottes-header">
-          <h2 class="cagnottes-title">Nos collectes en cours</h2>
-          <p class="cagnottes-subtitle">(Lancées le 15 mai 2026)</p>
+<!-- ── CAGNOTTES SECTION ── -->
+<section class="cagnottes-section">
+  <div class="cagnottes-wrap">
+    <div class="cagnottes-header">
+      <h2 class="cagnottes-title">Nos collectes en cours</h2>
+      <p class="cagnottes-subtitle">(Lancées le 15 mai 2026)</p>
+    </div>
+    
+    <div class="cagnottes-grid">
+      <div class="cagnotte-card">
+        <div class="cagnotte-name">Pour les familles de scouts qui seraient en difficulté</div>
+        <div class="cagnotte-desc">Permettre à des jeunes de profiter du scoutisme sans souci financier</div>
+        <div class="progress-wrapper">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+          <div class="progress-text">
+            <span>0€</span>
+            <span>1 000 €</span>
+          </div>
         </div>
-        
-        <div class="cagnottes-grid">
-          <div class="cagnotte-card">
-            <div class="cagnotte-name">Pour les familles de scouts qui seraient en difficulté</div>
-            <div class="cagnotte-desc">Permettre à des jeunes de profiter du scoutisme sans souci financier</div>
-            <div class="progress-wrapper">
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 0%"></div>
-              </div>
-              <div class="progress-text">
-                <span>0€</span>
-                <span>1 000 €</span>
-              </div>
-            </div>
-            <div class="progress-percent">0%</div>
-          </div>
-            
-          <div class="cagnotte-card">
-            <div class="cagnotte-name">Payer les courses de Patrick et Carole</div>
-            <div class="cagnotte-desc">Aider des personnes sans-abris à se nourrir convenablement</div>
-            <div class="progress-wrapper">
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 3%"></div>
-              </div>
-              <div class="progress-text">
-                <span>30 €</span>
-                <span>1 000 €</span>
-              </div>
-            </div>
-            <div class="progress-percent">3%</div>
-          </div>
-
-          <div class="cagnotte-card">
-            <div class="cagnotte-name">Financer des petites soirées avec des personnes seules</div>
-            <div class="cagnotte-desc">Pour les étudiants, les personnes laissées à l'Ehpad et d'autres volontaires</div>
-            <div class="progress-wrapper">
-              <div class="progress-bar">
-                <div class="progress-fill" style="width: 0%"></div>
-              </div>
-              <div class="progress-text">
-                <span>0€</span>
-                <span>1 000 €</span>
-              </div>
-            </div>
-            <div class="progress-percent">0%</div>
-          </div>
+        <div class="progress-footer">
+          <div class="progress-percent">0%</div>
+          <a href="https://www.helloasso.com/..." class="donate-btn" target="_blank">Donner</a>
         </div>
       </div>
-    </section>
+        
+      <div class="cagnotte-card">
+        <div class="cagnotte-name">Payer les courses de Patrick et Carole</div>
+        <div class="cagnotte-desc">Aider des personnes sans-abris à se nourrir convenablement</div>
+        <div class="progress-wrapper">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 3%"></div>
+          </div>
+          <div class="progress-text">
+            <span>30 €</span>
+            <span>1 000 €</span>
+          </div>
+        </div>
+        <div class="progress-footer">
+          <div class="progress-percent">3%</div>
+          <a href="https://www.helloasso.com/..." class="donate-btn" target="_blank">Donner</a>
+        </div>
+      </div>
+
+      <div class="cagnotte-card">
+        <div class="cagnotte-name">Financer des petites soirées avec des personnes seules</div>
+        <div class="cagnotte-desc">Pour les étudiants, les personnes laissées à l'Ehpad et d'autres volontaires</div>
+        <div class="progress-wrapper">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+          <div class="progress-text">
+            <span>0€</span>
+            <span>1 000 €</span>
+          </div>
+        </div>
+        <div class="progress-footer">
+          <div class="progress-percent">0%</div>
+          <a href="https://www.helloasso.com/..." class="donate-btn" target="_blank">Donner</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     
     <!-- ── PARTNERSHIP SECTION ── -->
     <section class="partnership-section">
