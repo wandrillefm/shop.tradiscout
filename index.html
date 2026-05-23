@@ -128,7 +128,12 @@
         }
         #shop-curtain::before {
             content: ''; position: absolute; inset: 0;
-            background: linear-gradient(to bottom,rgba(44,55,118,0.55) 0%,rgba(20,25,60,0.7) 60%,rgba(44,55,118,0.85) 100%);
+            background: linear-gradient(
+                to bottom,
+                rgba(44,55,118,0.55) 0%,
+                rgba(20,25,60,0.7) 60%,
+                rgba(44,55,118,0.85) 100%
+            );
             pointer-events: none;
         }
         .curtain-content { max-width: 500px; border: 1px solid rgba(255,255,255,0.5); padding: 80px 40px; position: relative; z-index: 1; }
@@ -228,64 +233,211 @@
         .checkout-btn { width:100%;padding:.9rem;background:var(--navy);color:white;border:none;font-family:'Uncial Antiqua',serif;font-size:.95rem;cursor:pointer; }
 
         /* ──────────────────────────────── LEGAL PAGES MODAL ────────────────────────────────── */
-        .legal-modal { position:fixed;inset:0;background:rgba(20,22,40,.65);z-index:400;display:none;align-items:center;justify-content:center;padding:1.5rem;overflow-y:auto; }
-        .legal-modal.open { display:flex; }
-        .legal-modal-content { background:var(--bg);max-width:700px;width:100%;padding:2.5rem;position:relative;max-height:90vh;overflow-y:auto;animation:fadeIn 0.2s ease; }
-        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-        .legal-modal-close { position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;cursor:pointer;color:var(--navy);font-size:1.5rem;opacity:0.5;transition:opacity 0.2s; }
-        .legal-modal-close:hover { opacity:1; }
-        .legal-modal-title { font-family:'Uncial Antiqua',serif;font-size:2rem;color:var(--navy);margin-bottom:1.5rem;border-bottom:2px solid var(--or);padding-bottom:1rem; }
-        .legal-modal-body { font-size:0.72rem;color:var(--gris);line-height:1.8; }
-        .legal-modal-body h3 { font-family:'Uncial Antiqua',serif;font-size:1.1rem;color:var(--navy);margin-top:1.5rem;margin-bottom:0.8rem; }
-        .legal-modal-body p { margin-bottom:1rem; }
-        .legal-modal-body ul { margin-left:1.5rem;margin-bottom:1rem; }
-        .legal-modal-body li { margin-bottom:0.5rem; }
+        .legal-modal {
+            position: fixed; inset: 0;
+            background: rgba(20, 22, 40, 0.65);
+            z-index: 400; display: none;
+            align-items: center; justify-content: center;
+            padding: 1.5rem; overflow-y: auto;
+        }
+        .legal-modal.open { display: flex; }
+        .legal-modal-content {
+            background: var(--bg); max-width: 700px; width: 100%;
+            padding: 2.5rem; position: relative;
+            max-height: 90vh; overflow-y: auto;
+            animation: fadeIn 0.2s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .legal-modal-close {
+            position: absolute; top: 1.5rem; right: 1.5rem;
+            background: none; border: none; cursor: pointer;
+            color: var(--navy); font-size: 1.5rem; opacity: 0.5; transition: opacity 0.2s;
+        }
+        .legal-modal-close:hover { opacity: 1; }
+        .legal-modal-title {
+            font-family: 'Uncial Antiqua', serif; font-size: 2rem;
+            color: var(--navy); margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--or); padding-bottom: 1rem;
+        }
+        .legal-modal-body { font-size: 0.72rem; color: var(--gris); line-height: 1.8; }
+        .legal-modal-body h3 { font-family: 'Uncial Antiqua', serif; font-size: 1.1rem; color: var(--navy); margin-top: 1.5rem; margin-bottom: 0.8rem; }
+        .legal-modal-body p { margin-bottom: 1rem; }
+        .legal-modal-body ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .legal-modal-body li { margin-bottom: 0.5rem; }
 
         /* ──────────────────────────────── REVIEWS ────────────────────────────────── */
-        .reviews-section { background: var(--bg); color: var(--navy); padding: 80px 5% 60px; }
-        .reviews-wrap { max-width: 1100px; margin: 0 auto; }
-        .reviews-header { text-align: center; margin-bottom: 60px; }
-        .reviews-title { font-family: 'Uncial Antiqua', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 8px; color: var(--navy); }
-        .reviews-subtitle { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
-
-        .reviews-stage { display: flex; align-items: center; gap: 20px; max-width: 600px; margin: 0 auto; }
-        .reviews-nav-btn {
-            background: none; border: 1px solid rgba(44,55,118,0.3); color: var(--navy);
-            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
-            font-size: 1.4rem; display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; transition: background 0.2s; font-family: inherit;
+        .reviews-section {
+            background: var(--bg);
+            color: var(--navy);
+            padding: 80px 5% 60px;
         }
-        .reviews-nav-btn:hover { background: rgba(44,55,118,0.08); }
-        .reviews-track { flex: 1; overflow: hidden; }
+
+        .reviews-wrap {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reviews-title {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            line-height: 1.1;
+            margin-bottom: 8px;
+            color: var(--navy);
+        }
+
+        .reviews-subtitle {
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gris);
+        }
+
+        .reviews-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .reviews-viewport {
+            flex: 1;
+            overflow: hidden;
+            min-width: 0;
+        }
+
+        .reviews-grid {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .reviews-nav {
+            background: var(--navy);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .reviews-nav:hover {
+            background: var(--or);
+            color: var(--navy);
+            transform: scale(1.1);
+        }
+
         .review-card {
-            background: white; border: 1px solid rgba(44,55,118,0.1);
-            padding: 28px; display: flex; flex-direction: column; gap: 14px;
+            background: white;
+            border: 1px solid rgba(44, 55, 118, 0.1);
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-width: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            flex-shrink: 0;
         }
-        .rv-top { display: flex; justify-content: space-between; align-items: flex-start; }
-        .review-name { font-family: 'Uncial Antiqua', serif; font-size: 0.95rem; color: var(--navy); }
-        .review-date { font-size: 0.55rem; color: var(--gris); letter-spacing: 0.08em; text-transform: uppercase; }
-        .review-stars { font-size: 1rem; letter-spacing: 2px; color: var(--or); }
-        .review-text { font-size: 0.68rem; color: var(--gris); line-height: 1.7; }
 
-        .rv-dots { display: flex; justify-content: center; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
-        .rv-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(44,55,118,0.2); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
-        .rv-dot.active { background: var(--navy); }
+        .review-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .review-name {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .review-date {
+            font-size: 0.55rem;
+            color: var(--gris);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .review-stars {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            color: var(--or);
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .review-text {
+            font-size: 0.72rem;
+            color: var(--gris);
+            line-height: 1.8;
+        }
+
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 28px;
+        }
+
+        .reviews-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(44, 55, 118, 0.2);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            padding: 0;
+        }
+
+        .reviews-dot.active {
+            background: var(--navy);
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .reviews-wrap { max-width: 100%; }
+            .reviews-nav { width: 36px; height: 36px; font-size: 1.2rem; }
+            .reviews-container { gap: 10px; }
+            .reviews-section { padding: 60px 5% 40px; }
+            .review-card { padding: 24px 20px; }
+        }
 
         /* ──────────────────────────────── PARTNERSHIP ────────────────────────────────── */
-        .partnership-section { background: var(--bg); color: var(--navy); padding: 80px 5% 60px; margin-bottom: 0; }
+        .partnership-section {
+            background: var(--bg);
+            color: var(--navy);
+            padding: 80px 5% 60px;
+            margin-bottom: 0;
+        }
         .partnership-wrap { max-width: 600px; margin: 0 auto; text-align: center; }
         .partnership-eyebrow { font-size: 0.5rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--or); margin-bottom: 16px; opacity: 0.8; }
         .partnership-title { font-family: 'Uncial Antiqua', serif; font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.1; margin-bottom: 20px; color: var(--navy); }
         .partnership-desc { font-size: 0.72rem; color: var(--gris); line-height: 1.9; margin-bottom: 32px; }
         .partnership-cta { display: inline-block; padding: 14px 40px; border: 1px solid var(--navy); color: var(--navy); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; transition: 0.2s; }
         .partnership-cta:hover { background: var(--navy); color: var(--bg); }
+        @media (max-width: 768px) { .partnership-section { padding: 60px 5% 40px; } }
 
         /* ──────────────────────────────── CAGNOTTES ────────────────────────────────── */
         .cagnottes-section { background: var(--navy); color: var(--bg); padding: 80px 5% 60px; }
         .cagnottes-wrap { max-width: 1100px; margin: 0 auto; }
         .cagnottes-header { text-align: center; margin-bottom: 60px; }
         .cagnottes-title { font-family: 'Uncial Antiqua', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 12px; color: white; }
-        .cagnottes-subtitle { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(248,242,231,0.6); }
+        .cagnottes-subtitle { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(248, 242, 231, 0.6); }
         .cagnottes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
         .cagnotte-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.25); padding: 28px; border-radius: 4px; transition: all 0.3s; }
         .cagnotte-card:hover { background: rgba(255,255,255,0.08); border-color: var(--or); }
@@ -299,6 +451,10 @@
         .progress-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
         .donate-btn { display: inline-block; padding: 6px 16px; background: var(--or); color: var(--navy); text-decoration: none; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: all 0.2s; font-weight: 500; }
         .donate-btn:hover { background: #e6c456; transform: translateY(-1px); }
+        @media (max-width: 768px) {
+            .cagnottes-grid { grid-template-columns: 1fr; gap: 20px; }
+            .cagnottes-section { padding: 60px 5% 40px; }
+        }
 
         /* ──────────────────────────────── FOOTER ────────────────────────────────── */
         footer { background:var(--navy);color:var(--bg);padding:64px 5% 40px;margin-top:auto; }
@@ -320,11 +476,6 @@
         .tab-bar-btn.active { opacity:1; }
 
         @media (max-width: 768px) {
-            .reviews-stage { gap: 12px; }
-            .reviews-section { padding: 60px 5% 40px; }
-            .cagnottes-grid { grid-template-columns: 1fr; gap: 20px; }
-            .cagnottes-section { padding: 60px 5% 40px; }
-            .partnership-section { padding: 60px 5% 40px; }
             header { justify-content:center; }
             .main-nav { display:none; }
             .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
@@ -410,21 +561,16 @@
                     <h2 class="reviews-title">Avis clients</h2>
                     <p class="reviews-subtitle">Ce que nos clients pensent de nous</p>
                 </div>
-                <div class="reviews-stage">
-                    <button class="reviews-nav-btn" id="rvPrev">&#8249;</button>
-                    <div class="reviews-track">
-                        <div class="review-card" id="rvCard">
-                            <div class="rv-top">
-                                <div class="review-name" id="rvName"></div>
-                                <div class="review-date" id="rvDate"></div>
-                            </div>
-                            <div class="review-stars" id="rvStars"></div>
-                            <div class="review-text" id="rvText"></div>
-                        </div>
+
+                <div class="reviews-container">
+                    <button class="reviews-nav" onclick="reviewsSlide(-1)" aria-label="Avis précédent">‹</button>
+                    <div class="reviews-viewport">
+                        <div class="reviews-grid" id="reviewsGrid"></div>
                     </div>
-                    <button class="reviews-nav-btn" id="rvNext">&#8250;</button>
+                    <button class="reviews-nav" onclick="reviewsSlide(1)" aria-label="Avis suivant">›</button>
                 </div>
-                <div class="rv-dots" id="rvDots"></div>
+
+                <div class="reviews-dots" id="reviewsDots"></div>
             </div>
         </section>
 
@@ -495,7 +641,7 @@
                     <div class="cagnotte-name">Pour les familles de scouts qui seraient en difficulté</div>
                     <div class="cagnotte-desc">Permettre à des jeunes de profiter du scoutisme sans souci financier</div>
                     <div class="progress-wrapper">
-                        <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
                         <div class="progress-text"><span>0€</span><span>1 000 €</span></div>
                     </div>
                     <div class="progress-footer">
@@ -507,7 +653,7 @@
                     <div class="cagnotte-name">Payer les courses de Patrick et Carole</div>
                     <div class="cagnotte-desc">Aider des personnes sans-abris à se nourrir convenablement</div>
                     <div class="progress-wrapper">
-                        <div class="progress-bar"><div class="progress-fill" style="width:3%"></div></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 3%"></div></div>
                         <div class="progress-text"><span>30 €</span><span>1 000 €</span></div>
                     </div>
                     <div class="progress-footer">
@@ -519,7 +665,7 @@
                     <div class="cagnotte-name">Financer des petites soirées avec des personnes seules</div>
                     <div class="cagnotte-desc">Pour les étudiants, les personnes laissées à l'Ehpad et d'autres volontaires</div>
                     <div class="progress-wrapper">
-                        <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
                         <div class="progress-text"><span>0€</span><span>1 000 €</span></div>
                     </div>
                     <div class="progress-footer">
@@ -608,7 +754,7 @@
                     <h3>Zones de livraison</h3>
                     <p>Nous livrons en France métropolitaine, Corse, et dans les pays de l'Union Européenne. Pour les autres destinations, veuillez nous contacter à tradiscout@gmail.com</p>
                     <h3>Suivi de votre colis</h3>
-                    <p>Un numéro de suivi vous sera communiqué par email dès l'expédition de votre commande.</p>
+                    <p>Un numéro de suivi vous sera communiqué par email dès l'expédition de votre commande. Vous pourrez suivre votre colis en temps réel sur le site de La Poste ou Colissimo.</p>
                     <h3>Frais de port</h3>
                     <ul>
                         <li>Livraison gratuite à partir de 50€ d'achat (France métropolitaine)</li>
@@ -617,14 +763,14 @@
                         <li>Union Européenne : 15€</li>
                     </ul>
                     <h3>En cas de problème de livraison</h3>
-                    <p>Si votre colis n'arrive pas à la date prévue, contactez-nous à tradiscout@gmail.com avec votre numéro de commande.</p>
+                    <p>Si votre colis n'arrive pas à la date prévue, contactez-nous immédiatement à tradiscout@gmail.com avec votre numéro de commande et votre numéro de suivi. Nous investiguerons et trouverons une solution.</p>
                 `
             },
             retours: {
                 title: "Retours et Échanges",
                 content: `
                     <h3>Politique de retour</h3>
-                    <p>Vous avez <strong>14 jours</strong> à compter de la date de réception pour retourner vos articles.</p>
+                    <p>Vous avez <strong>14 jours</strong> à compter de la date de réception de votre commande pour retourner vos articles.</p>
                     <h3>Conditions de retour</h3>
                     <ul>
                         <li>Les articles doivent être dans leur état d'origine</li>
@@ -632,14 +778,15 @@
                         <li>Les articles doivent être retournés dans leur emballage d'origine si possible</li>
                     </ul>
                     <h3>Procédure de retour</h3>
-                    <ol style="margin-left:1.5rem;margin-bottom:1rem;">
+                    <p>Pour retourner un article :</p>
+                    <ol style="margin-left: 1.5rem; margin-bottom: 1rem;">
                         <li>Contactez-nous à tradiscout@gmail.com avec votre numéro de commande</li>
                         <li>Nous vous fournirons une étiquette de retour gratuite</li>
                         <li>Emballez l'article de manière sécurisée</li>
                         <li>Retournez le colis à l'adresse indiquée sur l'étiquette</li>
                     </ol>
                     <h3>Remboursement</h3>
-                    <p>Une fois votre retour reçu et contrôlé, nous procéderons à un remboursement dans un délai de <strong>14 jours</strong>.</p>
+                    <p>Une fois votre retour reçu et contrôlé, nous procéderons à un remboursement dans un délai de <strong>14 jours</strong>. Les frais de retour sont à votre charge, sauf cas de produit défectueux.</p>
                     <h3>Échanges</h3>
                     <p>Nous proposons également des échanges de taille ou de couleur gratuitement. Contactez-nous pour organiser votre échange.</p>
                 `
@@ -655,8 +802,12 @@
                         <li><strong>Livraison express :</strong> 1 à 2 jours ouvrables après expédition</li>
                         <li><strong>Retrait point relais :</strong> 4 à 6 jours ouvrables après expédition</li>
                     </ul>
+                    <h3>Horaires de traitement</h3>
+                    <p>Les commandes sont traitées du lundi au samedi. Les commandes passées le samedi seront traitées le lundi suivant.</p>
                     <h3>Commandes urgentes</h3>
-                    <p>Pour une commande urgente, utilisez l'option de livraison express et contactez-nous avant 14h. Les commandes passées avant 14h seront expédiées le jour même.</p>
+                    <p>Pour une commande urgente, veuillez utiliser l'option de livraison express et nous contacter avant 14h. Les commandes passées avant 14h seront expédiées le jour même.</p>
+                    <h3>À noter</h3>
+                    <p>En période de forte demande (soldes, occasions spéciales), les délais de traitement peuvent être prolongés jusqu'à 3 jours. Nous vous en informerons par email.</p>
                 `
             },
             tarifs: {
@@ -672,6 +823,8 @@
                         <li><strong>Corse :</strong> 12€</li>
                         <li><strong>Union Européenne :</strong> 15€</li>
                     </ul>
+                    <h3>Codes promotionnels</h3>
+                    <p>Les codes promotionnels sont appliqués automatiquement avant le paiement. Ils ne sont pas cumulables sauf mention contraire.</p>
                     <h3>Modes de paiement</h3>
                     <ul>
                         <li>Carte bancaire (Visa, Mastercard, American Express)</li>
@@ -679,23 +832,33 @@
                     </ul>
                     <h3>Frais de paiement</h3>
                     <p>Aucun frais de paiement ne vous sera facturé, quelle que soit votre méthode de paiement.</p>
+                    <h3>TVA</h3>
+                    <p>La TVA est calculée en fonction de votre adresse de livraison et est toujours incluse dans le prix final.</p>
                 `
             },
             cgv: {
                 title: "Conditions Générales de Ventes",
                 content: `
                     <h3>1. Champ d'application</h3>
-                    <p>Les présentes CGV régissent les relations entre Tradiscout et l'acheteur. Toute commande implique l'acceptation sans réserve de ces CGV.</p>
+                    <p>Les présentes conditions générales de vente (CGV) régissent les relations entre Tradiscout (ci-après « le Vendeur ») et l'acheteur (ci-après « l'Acheteur »). Toute commande implique l'acceptation sans réserve de ces CGV.</p>
                     <h3>2. Produits et tarifs</h3>
-                    <p>Les prix affichés sont en euros TTC. Tradiscout se réserve le droit de modifier les tarifs à tout moment.</p>
+                    <p>Les produits sont décrits avec la meilleure approximation possible. Les prix affichés sont en euros TTC. Tradiscout se réserve le droit de modifier les tarifs à tout moment. Cependant, les produits commandés seront facturés au prix affiché au moment de la commande.</p>
                     <h3>3. Disponibilité des produits</h3>
-                    <p>Les produits proposés sont disponibles en quantité limitée. En cas de rupture de stock, l'acheteur sera informé dans les meilleurs délais.</p>
-                    <h3>4. Droit de rétractation</h3>
-                    <p>Conformément à la loi, l'acheteur dispose d'un délai de <strong>14 jours</strong> à compter de la réception pour exercer son droit de rétractation.</p>
-                    <h3>5. Données personnelles</h3>
-                    <p>Les données personnelles collectées sont traitées conformément au RGPD et ne seront jamais cédées à des tiers sans consentement.</p>
-                    <h3>6. Litiges et droit applicable</h3>
-                    <p>Les présentes CGV sont régies par la loi française. En cas de litige non résolu, il sera soumis aux tribunaux compétents de Chambéry.</p>
+                    <p>Les produits proposés à la vente sont disponibles en quantité limitée. En cas de rupture de stock, l'Acheteur sera informé dans les meilleurs délais. Une annulation de commande sans frais sera proposée ou un remboursement sera effectué.</p>
+                    <h3>4. Commande et validation</h3>
+                    <p>La commande devient définitive après le paiement sécurisé. Un email de confirmation contenant tous les détails de la commande sera envoyé à l'Acheteur.</p>
+                    <h3>5. Droit de rétractation</h3>
+                    <p>Conformément à la loi, l'Acheteur dispose d'un délai de <strong>14 jours</strong> à compter de la réception de sa commande pour exercer son droit de rétractation sans justification. Les produits doivent être retournés dans leur état d'origine.</p>
+                    <h3>6. Responsabilité</h3>
+                    <p>Tradiscout n'est responsable que des défauts de conformité des produits livrés. En aucun cas, Tradiscout ne sera responsable des dommages indirects, pertes de données ou préjudices commerciaux.</p>
+                    <h3>7. Propriété intellectuelle</h3>
+                    <p>Tous les éléments du site (textes, images, logos, designs) sont la propriété exclusive de Tradiscout et protégés par les lois sur la propriété intellectuelle. Toute reproduction sans autorisation est interdite.</p>
+                    <h3>8. Données personnelles</h3>
+                    <p>Les données personnelles collectées lors d'une commande sont traitées conformément à notre politique de confidentialité et au RGPD. Elles ne seront jamais cédées à des tiers sans consentement.</p>
+                    <h3>9. Modification des CGV</h3>
+                    <p>Tradiscout se réserve le droit de modifier ces CGV à tout moment. Les modifications s'appliqueront aux commandes futures.</p>
+                    <h3>10. Litiges et droit applicable</h3>
+                    <p>Les présentes CGV sont régies par la loi française. En cas de litige, l'Acheteur peut contacter Tradiscout à tradiscout@gmail.com. Si le différend ne peut être résolu, il sera soumis aux tribunaux compétents de Chambéry.</p>
                 `
             },
             mentions: {
@@ -703,16 +866,28 @@
                 content: `
                     <h3>Éditeur du site</h3>
                     <p><strong>Tradiscout</strong><br>SIRET : [À remplir]<br>Forme juridique : [À remplir]<br>Adresse : [À remplir]</p>
+                    <h3>Directeur de publication</h3>
+                    <p>[À remplir]</p>
                     <h3>Coordonnées</h3>
-                    <p><strong>Email :</strong> tradiscout@gmail.com<br>
-                    <strong>Instagram :</strong> @tradiscout<br>
-                    <strong>TikTok :</strong> @tradiscout</p>
+                    <p><strong>Email :</strong> tradiscout@gmail.com<br><strong>Réseaux sociaux :</strong><br>- Instagram : @tradiscout<br>- TikTok : @tradiscout<br>- Facebook : tradiscout</p>
                     <h3>Hébergement</h3>
                     <p>[À remplir : nom et coordonnées de l'hébergeur]</p>
+                    <h3>Conformité légale</h3>
+                    <p>Le site Tradiscout est conforme à la loi pour la confiance dans l'économie numérique (LCEN) et à la loi Informatique et Libertés modifiée par le RGPD.</p>
                     <h3>Droit d'auteur</h3>
-                    <p>© 2026 Tradiscout. Tous droits réservés. La reproduction sans autorisation écrite préalable est interdite.</p>
+                    <p>© 2026 Tradiscout. Tous droits réservés. La reproduction, la distribution ou la transmission de tout contenu de ce site sans autorisation écrite préalable est interdite.</p>
+                    <h3>Limitation de responsabilité</h3>
+                    <p>Tradiscout décline toute responsabilité pour :</p>
+                    <ul>
+                        <li>Les erreurs ou omissions sur le site</li>
+                        <li>Les interruptions ou défaillances du service</li>
+                        <li>Les dommages causés par des virus ou logiciels malveillants</li>
+                        <li>L'accès non autorisé au serveur</li>
+                    </ul>
                     <h3>Protection des données</h3>
-                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Contactez tradiscout@gmail.com.</p>
+                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ces droits, contactez tradiscout@gmail.com.</p>
+                    <h3>Déclaration CNIL</h3>
+                    <p>Le traitement des données personnelles a été déclaré à la CNIL conformément à la réglementation en vigueur.</p>
                 `
             }
         };
@@ -724,109 +899,135 @@
             document.getElementById('legalBody').innerHTML = page.content;
             document.getElementById('legalModal').classList.add('open');
         }
+
         function closeLegalPage(event) {
             if (event && event.target !== document.getElementById('legalModal')) return;
             document.getElementById('legalModal').classList.remove('open');
         }
 
-        // ── REVIEWS ──────────────────────────────────
+        // ── REVIEWS DATA ──────────────────────────────
         const REVIEWS = [
-            { stars: 5, name: "Marie Dupont",      date: "20 mai 2026", text: "Produits de très bonne qualité ! Livraison rapide et équipe super réactive. Je recommande vivement !" },
-            { stars: 5, name: "Jean Moreau",        date: "18 mai 2026", text: "Excellent rapport qualité-prix. Les sweats sont confortables et durables. Parfait pour les scouts !" },
-            { stars: 5, name: "Sophie Martin",      date: "17 mai 2026", text: "J'ai commandé 3 articles, tous sont arrivés en parfait état. Les couleurs sont exactes et le confort au-delà de mes attentes !" },
-            { stars: 5, name: "Lucie Bernard",      date: "16 mai 2026", text: "Service client impeccable. Les produits sont magnifiques et correspondent exactement à mes attentes. Merci !" },
-            { stars: 4, name: "Thomas Renaud",      date: "15 mai 2026", text: "Très bonne qualité. Un petit bémol sur les délais de livraison mais le produit en vaut vraiment la peine." },
-            { stars: 5, name: "Anne Lefevre",       date: "14 mai 2026", text: "Commande reçue rapidement, bien emballée. Les sweats sont super confortables, ma famille adore !" },
-            { stars: 5, name: "Pierre Gauthier",    date: "13 mai 2026", text: "Tradiscout c'est du sérieux. Qualité premium, livraison express, communication top. Je reviens acheter !" },
-            { stars: 4, name: "Caroline Petit",     date: "12 mai 2026", text: "Très satisfaite de ma commande. Les couleurs sont fidèles aux photos. Serait parfait avec plus de choix de tailles." },
-            { stars: 5, name: "Marc Dubois",        date: "11 mai 2026", text: "Pour une association de scouts, c'est exactement ce qu'il nous fallait. Qualité et prix imbattables !" },
-            { stars: 4, name: "Isabelle Rousseau",  date: "10 mai 2026", text: "Beau produit, bon service. Livraison un peu lente mais ça reste correct. Je recommande." },
-            { stars: 5, name: "Christophe Martin",  date: "9 mai 2026",  text: "Excellent ! Vraiment ravi de ma commande. Les délais annoncés ont été respectés. A bientôt !" },
-            { stars: 4, name: "Nathalie Simon",     date: "8 mai 2026",  text: "Produit conforme à la description. Service client réactif. Un peu dommage qu'il n'y ait pas plus de coloris." },
-            { stars: 5, name: "Julien Leclerc",     date: "7 mai 2026",  text: "Les sweats Tradiscout sont mes préférés maintenant. Confort, qualité, design impeccable. Merci !" },
-            { stars: 4, name: "Véronique Gaudin",   date: "6 mai 2026",  text: "Très bonne expérience. Produit de qualité, prix juste. Juste un peu déçue par l'emballage un peu simple." },
-            { stars: 5, name: "Damien Favre",       date: "5 mai 2026",  text: "Commande impeccable ! Arrivée avant la date prévue. Les scouts de mon groupe sont ravis du résultat." },
-            { stars: 3, name: "Françoise Blanc",    date: "4 mai 2026",  text: "Produit correct. Un peu cher mais la qualité justifie le prix. Livraison respectée." },
-            { stars: 5, name: "Laurent Henry",      date: "3 mai 2026",  text: "Fantastique ! Exactement ce que je cherchais. La qualité, le design, le service. Bravo à toute l'équipe !" }
+            { stars: 5, name: "Marie Dupont", date: "20 mai 2026", text: "Produits de très bonne qualité ! Livraison rapide et équipe super réactive. Je recommande vivement !" },
+            { stars: 5, name: "Jean Moreau", date: "18 mai 2026", text: "Excellent rapport qualité-prix. Les sweats sont confortables et durables. Parfait pour les scouts !" },
+            { stars: 5, name: "Sophie Martin", date: "17 mai 2026", text: "J'ai commandé 3 articles, tous sont arrivés en parfait état. Les couleurs sont exactes et le confort au-delà de mes attentes !" },
+            { stars: 5, name: "Lucie Bernard", date: "16 mai 2026", text: "Service client impeccable. Les produits sont magnifiques et correspondent exactement à mes attentes. Merci !" },
+            { stars: 4, name: "Thomas Renaud", date: "15 mai 2026", text: "Très bonne qualité. Un petit bémol sur les délais de livraison mais le produit en vaut vraiment la peine." },
+            { stars: 5, name: "Anne Lefevre", date: "14 mai 2026", text: "Commande reçue rapidement, bien emballée. Les sweats sont super confortables, ma famille adore !" },
+            { stars: 5, name: "Pierre Gauthier", date: "13 mai 2026", text: "Tradiscout c'est du sérieux. Qualité premium, livraison express, communication top. Je reviens acheter !" },
+            { stars: 4, name: "Caroline Petit", date: "12 mai 2026", text: "Très satisfaite de ma commande. Les couleurs sont fidèles aux photos. Serait parfait avec plus de choix de tailles." },
+            { stars: 5, name: "Marc Dubois", date: "11 mai 2026", text: "Pour une association de scouts, c'est exactement ce qu'il nous fallait. Qualité et prix imbattables !" },
+            { stars: 4, name: "Isabelle Rousseau", date: "10 mai 2026", text: "Beau produit, bon service. Livraison un peu lente mais ça reste correct. Je recommande." },
+            { stars: 5, name: "Christophe Martin", date: "9 mai 2026", text: "Excellent ! Vraiment ravi de ma commande. Les délais annoncés ont été respectés. A bientôt !" },
+            { stars: 4, name: "Nathalie Simon", date: "8 mai 2026", text: "Produit conforme à la description. Service client réactif. Un peu dommage qu'il n'y ait pas plus de coloris." },
+            { stars: 5, name: "Julien Leclerc", date: "7 mai 2026", text: "Les sweats Tradiscout sont mes préférés maintenant. Confort, qualité, design impeccable. Merci !" },
+            { stars: 4, name: "Véronique Gaudin", date: "6 mai 2026", text: "Très bonne expérience. Produit de qualité, prix juste. Juste un peu déçue par l'emballage un peu simple." },
+            { stars: 5, name: "Damien Favre", date: "5 mai 2026", text: "Commande impeccable ! Arrivée avant la date prévue. Les scouts de mon groupe sont ravis du résultat." },
+            { stars: 3, name: "Francoise Blanc", date: "4 mai 2026", text: "Produit correct. Un peu cher mais la qualité justifie le prix. Livraison respectée." },
+            { stars: 5, name: "Laurent Henry", date: "3 mai 2026", text: "Fantastique ! Exactement ce que je cherchais. La qualité, le design, le service. Bravo à toute l'équipe !" }
         ];
 
+        // ── REVIEWS CAROUSEL ──────────────────────────
+        const reviewsCarousel = {
+            currentIndex: 0,
+            total: REVIEWS.length,
+            animating: false
+        };
+
         function renderReviews() {
-            const s = n => '★'.repeat(n) + '☆'.repeat(5 - n);
-            let idx = 0;
-            let isAnimating = false;
-            let autoTimer = null;
+            const grid = document.getElementById('reviewsGrid');
+            const dotsContainer = document.getElementById('reviewsDots');
+            const total = REVIEWS.length;
 
-            function renderDots() {
-                document.getElementById('rvDots').innerHTML = REVIEWS.map((_, i) =>
-                    `<button class="rv-dot ${i === idx ? 'active' : ''}" onclick="rvGoTo(${i})"></button>`
-                ).join('');
-            }
+            // Triple la liste pour défilement infini fluide
+            const allReviews = [...REVIEWS, ...REVIEWS, ...REVIEWS];
 
-            window.rvGoTo = function(i) {
-                const dir = i >= idx ? 1 : -1;
-                idx = i;
-                rvShow(dir);
-                resetAuto();
-            };
+            grid.innerHTML = allReviews.map(review => {
+                const stars = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+                return `
+                    <div class="review-card">
+                        <div class="review-header-row">
+                            <div>
+                                <div class="review-name">${review.name}</div>
+                                <div class="review-date">${review.date}</div>
+                            </div>
+                            <div class="review-stars">${stars}</div>
+                        </div>
+                        <div class="review-text">"${review.text}"</div>
+                    </div>
+                `;
+            }).join('');
 
-            function rvShow(dir) {
-                if (isAnimating) return;
-                isAnimating = true;
-                const card = document.getElementById('rvCard');
-                const outX = dir === 1 ? '-50px' : '50px';
-                const inX  = dir === 1 ?  '50px' : '-50px';
-                card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-                card.style.opacity = '0';
-                card.style.transform = `translateX(${outX})`;
-                setTimeout(() => {
-                    const r = REVIEWS[idx];
-                    document.getElementById('rvName').textContent  = r.name;
-                    document.getElementById('rvDate').textContent  = r.date;
-                    document.getElementById('rvStars').textContent = s(r.stars);
-                    document.getElementById('rvText').textContent  = '\u201C' + r.text + '\u201D';
-                    renderDots();
-                    card.style.transition = 'none';
-                    card.style.transform  = `translateX(${inX})`;
-                    card.style.opacity    = '0';
-                    requestAnimationFrame(() => {
-                        requestAnimationFrame(() => {
-                            card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-                            card.style.opacity    = '1';
-                            card.style.transform  = 'translateX(0)';
-                            setTimeout(() => { isAnimating = false; }, 220);
-                        });
-                    });
-                }, 210);
-            }
+            // Dots (sur les vraies reviews uniquement)
+            dotsContainer.innerHTML = REVIEWS.map((_, i) =>
+                `<button class="reviews-dot ${i === 0 ? 'active' : ''}" onclick="reviewsGoTo(${i})" aria-label="Avis ${i + 1}"></button>`
+            ).join('');
 
-            function resetAuto() {
-                clearInterval(autoTimer);
-                autoTimer = setInterval(() => {
-                    idx = (idx + 1) % REVIEWS.length;
-                    rvShow(1);
-                }, 5000);
-            }
-
-            document.getElementById('rvPrev').onclick = () => {
-                idx = (idx - 1 + REVIEWS.length) % REVIEWS.length;
-                rvShow(-1);
-                resetAuto();
-            };
-            document.getElementById('rvNext').onclick = () => {
-                idx = (idx + 1) % REVIEWS.length;
-                rvShow(1);
-                resetAuto();
-            };
-
-            // Init first card
-            const r0 = REVIEWS[0];
-            document.getElementById('rvName').textContent  = r0.name;
-            document.getElementById('rvDate').textContent  = r0.date;
-            document.getElementById('rvStars').textContent = s(r0.stars);
-            document.getElementById('rvText').textContent  = '\u201C' + r0.text + '\u201D';
-            renderDots();
-            resetAuto();
+            // Commence au bloc du milieu (index = total)
+            reviewsCarousel.total = total;
+            reviewsCarousel.currentIndex = total;
+            grid.style.transition = 'none';
+            grid.style.transform = `translateX(-${total * 100}%)`;
         }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.reviews-dot');
+            const realIndex = ((reviewsCarousel.currentIndex % reviewsCarousel.total) + reviewsCarousel.total) % reviewsCarousel.total;
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === realIndex));
+        }
+
+        function reviewsGoTo(index) {
+            if (reviewsCarousel.animating) return;
+            const grid = document.getElementById('reviewsGrid');
+            // On reste dans le bloc du milieu
+            reviewsCarousel.currentIndex = reviewsCarousel.total + index;
+            grid.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            grid.style.transform = `translateX(-${reviewsCarousel.currentIndex * 100}%)`;
+            updateDots();
+        }
+
+        function reviewsSlide(direction) {
+            if (reviewsCarousel.animating) return;
+            reviewsCarousel.animating = true;
+
+            const grid = document.getElementById('reviewsGrid');
+            reviewsCarousel.currentIndex += direction;
+
+            grid.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            grid.style.transform = `translateX(-${reviewsCarousel.currentIndex * 100}%)`;
+            updateDots();
+
+            setTimeout(() => {
+                // Téléportation invisible aux limites du tableau triple
+                if (reviewsCarousel.currentIndex >= reviewsCarousel.total * 2) {
+                    reviewsCarousel.currentIndex = reviewsCarousel.total;
+                    grid.style.transition = 'none';
+                    grid.style.transform = `translateX(-${reviewsCarousel.currentIndex * 100}%)`;
+                } else if (reviewsCarousel.currentIndex < reviewsCarousel.total) {
+                    reviewsCarousel.currentIndex = reviewsCarousel.total * 2 - 1;
+                    grid.style.transition = 'none';
+                    grid.style.transform = `translateX(-${reviewsCarousel.currentIndex * 100}%)`;
+                }
+                reviewsCarousel.animating = false;
+            }, 520);
+        }
+
+        // Défilement automatique toutes les 5 secondes
+        let autoSlideInterval;
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => reviewsSlide(1), 5000);
+        }
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Pause au survol
+        document.addEventListener('DOMContentLoaded', () => {
+            const section = document.querySelector('.reviews-section');
+            if (section) {
+                section.addEventListener('mouseenter', stopAutoSlide);
+                section.addEventListener('mouseleave', startAutoSlide);
+            }
+        });
 
         // ── ADMIN / CURTAIN ──────────────────────────
         function toggleAdminInput() {
@@ -852,6 +1053,7 @@
             renderGrid();
             renderCart();
             renderReviews();
+            startAutoSlide();
         }
         window.onload = function() { unlockShop(); };
     </script>
