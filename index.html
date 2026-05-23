@@ -861,55 +861,57 @@
         function openCart()  { document.getElementById('cartDrawer').classList.add('open');    document.getElementById('cartBg').style.display = 'block'; }
         function closeCart() { document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartBg').style.display = 'none'; }
 
-        /* ── CODE PROMO ──────────────────────────── */
-        const promoState = { code: null, discountPercent: 0, validated: false };
-
-        async function applyPromo() {
-            const input = document.getElementById('promoInput');
-            const msgEl = document.getElementById('promoMsg');
-            const code  = input.value.trim().toUpperCase();
-            if (!code) return;
-            msgEl.textContent = 'Vérification...';
-            try {
-                const res  = await fetch('/api/validate-promo', {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ promoCode: code })
-                });
-                const data = await res.json();
-                if (res.ok) {
-                    promoState.code = code; promoState.discountPercent = data.discountPercent; promoState.validated = true;
-                    msgEl.className = 'promo-msg ok'; msgEl.textContent = `✓ −${Math.round(data.discountPercent * 100)}% appliqué`;
-                } else {
-                    promoState.discountPercent = 0; promoState.validated = false;
-                    msgEl.className = 'promo-msg err'; msgEl.textContent = data.error || 'Code invalide';
-                }
-                renderCart();
-            } catch { msgEl.textContent = 'Erreur réseau'; }
+/* ── CODE PROMO ──────────────────────────── */
+const promoState = { code: null, discountPercent: 0, validated: false };
+async function applyPromo() {
+    const input = document.getElementById('promoInput');
+    const msgEl = document.getElementById('promoMsg');
+    const code  = input.value.trim().toUpperCase();
+    if (!code) return;
+    msgEl.textContent = 'Vérification...';
+    try {
+        const res  = await fetch('/api/validate-promo', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ promoCode: code })
+        });
+        const data = await res.json();
+        if (res.ok) {
+            promoState.code = code; promoState.discountPercent = data.discountPercent; promoState.validated = true;
+            msgEl.className = 'promo-msg ok'; msgEl.textContent = `✓ −${Math.round(data.discountPercent * 100)}% appliqué`;
+        } else {
+            promoState.discountPercent = 0; promoState.validated = false;
+            msgEl.className = 'promo-msg err'; msgEl.textContent = data.error || 'Code invalide';
         }
+        renderCart();
+    } catch { msgEl.textContent = 'Erreur réseau'; }
+}
 
-        /* ── CHECKOUT ────────────────────────────── */
-        async function goToCheckout() {
-            if (!cart.length) return;
-            const btn = document.getElementById('checkoutBtn');
-            btn.innerText = 'Chargement...'; btn.disabled = true;
-            const pct         = promoState.discountPercent || 0;
-            const itemsToSend = cart.map(i => ({ ...i, price: Math.round(i.price * (1 - pct)) }));
-            try {
-                const body = { items: itemsToSend };
-                if (promoState.validated) body.promoCode = promoState.code;
-                const res = await fetch('/api/checkout', {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(body)
-                });
-                const { url } = await res.json();
-                const totalAmount = itemsToSend.reduce((s, i) => s + i.price, 0);
-                sessionStorage.setItem('lastOrderTotal', totalAmount);
-                window.location.href = url;
-            } catch {
-                alert('Erreur lors du paiement');
-                btn.innerText = 'Payer →'; btn.disabled = false;
-            }
-        }
+/* ── CHECKOUT ────────────────────────────── */
+async function goToCheckout() {
+    if (!cart.length) return;
+    const btn = document.getElementById('checkoutBtn');
+    btn.innerText = 'Chargement...'; btn.disabled = true;
+    const pct         = promoState.discountPercent || 0;
+    const itemsToSend = cart.map(i => ({ ...i, price: Math.round(i.price * (1 - pct)) }));
+    try {
+        const body = { items: itemsToSend };
+        if (promoState.validated) body.promoCode = promoState.code;
+        const res = await fetch('/api/checkout', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+        const data = await res.json();
+        console.log('Réponse API checkout :', data);  // ← regarde ça dans F12
+        const { url } = data;
+        const totalAmount = itemsToSend.reduce((s, i) => s + i.price, 0);
+        sessionStorage.setItem('lastOrderTotal', totalAmount);
+        window.location.href = url;
+    } catch(err) {
+        console.error('Erreur checkout :', err);
+        alert('Erreur lors du paiement');
+        btn.innerText = 'Payer →'; btn.disabled = false;
+    }
+}
     </script>
 </body>
 </html>
