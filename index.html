@@ -356,49 +356,21 @@
             color: var(--gris);
         }
 
-        .reviews-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            position: relative;
-        }
-
         .reviews-grid {
             display: flex;
             gap: 28px;
             overflow: hidden;
-            flex: 1;
-            transition: transform 0.4s ease;
+            width: 100%;
+            animation: scroll-infinite 60s linear infinite;
         }
 
-        .reviews-nav {
-            background: var(--navy);
-            border: none;
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-
-        .reviews-nav:hover {
-            background: var(--or);
-            color: var(--navy);
-            transform: scale(1.1);
-        }
-
-        .reviews-nav-prev {
-            order: -1;
-        }
-
-        .reviews-nav-next {
-            order: 1;
+        @keyframes scroll-infinite {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .review-card {
@@ -476,20 +448,11 @@
         @media (max-width: 768px) {
             .reviews-grid {
                 gap: 16px;
+                animation: scroll-infinite 45s linear infinite;
             }
             
             .review-card {
                 min-width: 280px;
-            }
-
-            .reviews-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .reviews-container {
-                gap: 12px;
             }
             
             .reviews-section {
@@ -780,12 +743,8 @@
               <p class="reviews-subtitle">Ce que nos clients pensent de nous</p>
             </div>
             
-            <div class="reviews-container">
-              <button class="reviews-nav reviews-nav-prev" onclick="reviewsSlide(-1)">‹</button>
-              <div class="reviews-grid" id="reviewsGrid">
-                <!-- Reviews will be populated here by JavaScript -->
-              </div>
-              <button class="reviews-nav reviews-nav-next" onclick="reviewsSlide(1)">›</button>
+            <div class="reviews-grid" id="reviewsGrid">
+              <!-- Reviews will be populated here by JavaScript -->
             </div>
           </div>
         </section>
@@ -860,7 +819,7 @@
         
         <div class="cagnottes-grid">
           <div class="cagnotte-card">
-            <div class="cagnotte-name">Pour les familles de scouts qui seraient en difficulté</div>
+            <div class="cagnotte-name">Pour les familles de scouts</div>
             <div class="cagnotte-desc">Permettre à des jeunes de profiter du scoutisme sans souci financier</div>
             <div class="progress-wrapper">
               <div class="progress-bar">
@@ -987,13 +946,8 @@
             livraison: {
                 title: "Livraison",
                 content: `
-                    <h3>Modes de livraison</h3>
-                    <p>Nous proposons plusieurs options de livraison pour votre commande :</p>
-                    <ul>
-                        <li><strong>Livraison standard (La Poste) :</strong> 4 à 6 jours ouvrables - Offerte à partir de 50€</li>
-                        <li><strong>Livraison express (Colissimo) :</strong> 1 à 2 jours ouvrables - 12€</li>
-                        <li><strong>Retrait en point relais :</strong> 4 à 6 jours ouvrables - 6€</li>
-                    </ul>
+                    <h3>Livraison</h3>
+                    <p><strong>5 à 6 jours ouvrables </strong> - Offerte</p>
 
                     <h3>Zones de livraison</h3>
                     <p>Nous livrons en France métropolitaine, Corse, et dans les pays de l'Union Européenne. Pour les autres destinations, veuillez nous contacter à tradiscout@gmail.com</p>
@@ -1001,16 +955,8 @@
                     <h3>Suivi de votre colis</h3>
                     <p>Un numéro de suivi vous sera communiqué par email dès l'expédition de votre commande. Vous pourrez suivre votre colis en temps réel sur le site de La Poste ou Colissimo.</p>
 
-                    <h3>Frais de port</h3>
-                    <ul>
-                        <li>Livraison gratuite à partir de 50€ d'achat (France métropolitaine)</li>
-                        <li>France métropolitaine : 6€ en-dessous de 50€</li>
-                        <li>Corse : 12€</li>
-                        <li>Union Européenne : 15€</li>
-                    </ul>
-
                     <h3>En cas de problème de livraison</h3>
-                    <p>Si votre colis n'arrive pas à la date prévue, contactez-nous immédiatement à tradiscout@gmail.com avec votre numéro de commande et votre numéro de suivi. Nous investiguerons et trouverons une solution.</p>
+                    <p>Si votre colis n'arrive pas à la date prévue, contactez-nous immédiatement à tradiscout@gmail.com avec votre numéro de commande et votre numéro de suivi. Nous investiguerons et trouverons une solution avec les fournisseurs.</p>
                 `
             },
             retours: {
@@ -1022,18 +968,9 @@
                     <h3>Conditions de retour</h3>
                     <ul>
                         <li>Les articles doivent être dans leur état d'origine</li>
-                        <li>Les étiquettes doivent être intactes et le produit n'avoir jamais été porté</li>
+                        <li>Les produits doivent être intacts et n'avoir jamais été portés</li>
                         <li>Les articles doivent être retournés dans leur emballage d'origine si possible</li>
                     </ul>
-
-                    <h3>Procédure de retour</h3>
-                    <p>Pour retourner un article :</p>
-                    <ol style="margin-left: 1.5rem; margin-bottom: 1rem;">
-                        <li>Contactez-nous à tradiscout@gmail.com avec votre numéro de commande</li>
-                        <li>Nous vous fournirons une étiquette de retour gratuite</li>
-                        <li>Emballez l'article de manière sécurisée</li>
-                        <li>Retournez le colis à l'adresse indiquée sur l'étiquette</li>
-                    </ol>
 
                     <h3>Remboursement</h3>
                     <p>Une fois votre retour reçu et contrôlé, nous procéderons à un remboursement dans un délai de <strong>14 jours</strong>. Les frais de retour sont à votre charge, sauf cas de produit défectueux.</p>
@@ -1046,17 +983,7 @@
                 title: "Délais de Traitement",
                 content: `
                     <h3>Traitement des commandes</h3>
-                    <p>Les commandes sont traitées dans un délai de <strong>1 à 2 jours ouvrables</strong> (lundi au vendredi, hors jours fériés).</p>
-
-                    <h3>Délai total de réception</h3>
-                    <ul>
-                        <li><strong>Livraison standard :</strong> 4 à 6 jours ouvrables après expédition</li>
-                        <li><strong>Livraison express :</strong> 1 à 2 jours ouvrables après expédition</li>
-                        <li><strong>Retrait point relais :</strong> 4 à 6 jours ouvrables après expédition</li>
-                    </ul>
-
-                    <h3>Horaires de traitement</h3>
-                    <p>Les commandes sont traitées du lundi au samedi. Les commandes passées le samedi seront traitées le lundi suivant.</p>
+                    <p>Les commandes sont traitées dans un délai de <strong>1 à 2 jours ouvrables</strong>.</p>
 
                     <h3>Commandes urgentes</h3>
                     <p>Pour une commande urgente, veuillez utiliser l'option de livraison express et nous contacter avant 14h. Les commandes passées avant 14h seront expédiées le jour même.</p>
@@ -1073,20 +1000,17 @@
 
                     <h3>Frais de port</h3>
                     <ul>
-                        <li><strong>Livraison standard (France métropolitaine) :</strong> 6€ - Offerte à partir de 50€</li>
-                        <li><strong>Livraison express (Colissimo) :</strong> 12€</li>
-                        <li><strong>Retrait point relais :</strong> 6€</li>
-                        <li><strong>Corse :</strong> 12€</li>
-                        <li><strong>Union Européenne :</strong> 15€</li>
+                        <li><strong>Livraison standard (France métropolitaine) :</strong>Offerte (Comprise dans le prix)</li>
                     </ul>
 
                     <h3>Codes promotionnels</h3>
                     <p>Les codes promotionnels sont appliqués automatiquement avant le paiement. Ils ne sont pas cumulables sauf mention contraire.</p>
 
                     <h3>Modes de paiement</h3>
+                    <p>Payements sécurisés avec Stripe:</p>
                     <ul>
                         <li>Carte bancaire (Visa, Mastercard, American Express)</li>
-                        <li>PayPal</li>
+                        <li>Link, Stripe</li>
                     </ul>
 
                     <h3>Frais de paiement</h3>
@@ -1106,7 +1030,7 @@
                     <p>Les produits sont décrits avec la meilleure approximation possible. Les prix affichés sont en euros TTC. Tradiscout se réserve le droit de modifier les tarifs à tout moment. Cependant, les produits commandés seront facturés au prix affiché au moment de la commande.</p>
 
                     <h3>3. Disponibilité des produits</h3>
-                    <p>Les produits proposés à la vente sont disponibles en quantité limitée. En cas de rupture de stock, l'Acheteur sera informé dans les meilleurs délais. Une annulation de commande sans frais sera proposée ou un remboursement sera effectué.</p>
+                    <p>Les produits proposés à la vente sont disponibles en quantité illimitée. L'impression se faire sur commande.</p>
 
                     <h3>4. Commande et validation</h3>
                     <p>La commande devient définitive après le paiement sécurisé. Un email de confirmation contenant tous les détails de la commande sera envoyé à l'Acheteur.</p>
@@ -1123,11 +1047,8 @@
                     <h3>8. Données personnelles</h3>
                     <p>Les données personnelles collectées lors d'une commande sont traitées conformément à notre politique de confidentialité et au RGPD. Elles ne seront jamais cédées à des tiers sans consentement.</p>
 
-                    <h3>9. Modification des CGV</h3>
-                    <p>Tradiscout se réserve le droit de modifier ces CGV à tout moment. Les modifications s'appliqueront aux commandes futures.</p>
-
                     <h3>10. Litiges et droit applicable</h3>
-                    <p>Les présentes CGV sont régies par la loi française. En cas de litige, l'Acheteur peut contacter Tradiscout à tradiscout@gmail.com. Si le différend ne peut être résolu, il sera soumis aux tribunaux compétents de Chambéry.</p>
+                    <p>Les présentes CGV sont régies par la loi française. En cas de litige, l'Acheteur peut contacter Tradiscout à tradiscout@gmail.com.</p>
                 `
             },
             mentions: {
@@ -1135,12 +1056,11 @@
                 content: `
                     <h3>Éditeur du site</h3>
                     <p><strong>Tradiscout</strong><br>
-                    SIRET : [À remplir]<br>
-                    Forme juridique : [À remplir]<br>
-                    Adresse : [À remplir]</p>
+                    SIRET : Particulier<br>
+                    Forme juridique : Entreprise individuelle</p>
 
                     <h3>Directeur de publication</h3>
-                    <p>[À remplir]</p>
+                    <p>Wandrille Fernex de Mongex</p>
 
                     <h3>Coordonnées</h3>
                     <p><strong>Email :</strong> tradiscout@gmail.com<br>
@@ -1150,7 +1070,7 @@
                     - Facebook : tradiscout</p>
 
                     <h3>Hébergement</h3>
-                    <p>[À remplir : nom et coordonnées de l'hébergeur]</p>
+                    <p>Vercel Inc.</p>
 
                     <h3>Conformité légale</h3>
                     <p>Le site Tradiscout est conforme à la loi pour la confiance dans l'économie numérique (LCEN) et à la loi Informatique et Libertés modifiée par le RGPD.</p>
@@ -1161,7 +1081,6 @@
                     <h3>Limitation de responsabilité</h3>
                     <p>Tradiscout décline toute responsabilité pour :</p>
                     <ul>
-                        <li>Les erreurs ou omissions sur le site</li>
                         <li>Les interruptions ou défaillances du service</li>
                         <li>Les dommages causés par des virus ou logiciels malveillants</li>
                         <li>L'accès non autorisé au serveur</li>
@@ -1169,9 +1088,6 @@
 
                     <h3>Protection des données</h3>
                     <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ces droits, contactez tradiscout@gmail.com.</p>
-
-                    <h3>Déclaration CNIL</h3>
-                    <p>Le traitement des données personnelles a été déclaré à la CNIL conformément à la réglementation en vigueur.</p>
                 `
             }
         };
@@ -1194,15 +1110,15 @@
         const REVIEWS = [
             {
                 stars: 5,
-                name: "Marie Dupont",
+                name: "Manon Cappalesso",
                 date: "20 mai 2026",
-                text: "Produits de très bonne qualité ! Livraison rapide et équipe super réactive. Je recommande vivement !"
+                text: "Le sweat est trop confortable, par contre j'aurais du prendre la taille d'en dessous. Je recommande vivement !"
             },
             {
                 stars: 5,
                 name: "Jean Moreau",
                 date: "18 mai 2026",
-                text: "Excellent rapport qualité-prix. Les sweats sont confortables et durables. Parfait pour les scouts !"
+                text: "Excellent rapport qualité-prix. Les tshirts sont confortables et durables. Parfait pour les scouts !"
             },
             {
                 stars: 5,
@@ -1313,33 +1229,6 @@
             }).join('');
             // Duplicate for infinite scroll effect
             grid.innerHTML = reviewsHTML + reviewsHTML;
-            // Initialize carousel
-            reviewsCarousel.currentIndex = 0;
-            reviewsCarousel.cardWidth = 320 + 28; // card width + gap
-        }
-
-        // Carousel state
-        const reviewsCarousel = {
-            currentIndex: 0,
-            cardWidth: 348, // 320px card + 28px gap
-            totalCards: 17
-        };
-
-        function reviewsSlide(direction) {
-            const grid = document.getElementById('reviewsGrid');
-            reviewsCarousel.currentIndex += direction;
-            
-            // Infinite loop effect
-            if (reviewsCarousel.currentIndex >= reviewsCarousel.totalCards) {
-                // When we reach the duplicate section, reset to beginning invisibly
-                reviewsCarousel.currentIndex = 0;
-            } else if (reviewsCarousel.currentIndex < 0) {
-                // When going backwards past the beginning, jump to the duplicate section
-                reviewsCarousel.currentIndex = reviewsCarousel.totalCards - 1;
-            }
-            
-            const translateValue = -(reviewsCarousel.currentIndex * reviewsCarousel.cardWidth);
-            grid.style.transform = `translateX(${translateValue}px)`;
         }
 
         // ── ADMIN / CURTAIN ──────────────────────────
