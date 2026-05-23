@@ -174,15 +174,18 @@
         .lb-gallery { display:flex;flex-direction:column;background:#e8e3d8;overflow:hidden; }
         .lb-main-img-wrap { flex:1;position:relative;overflow:hidden; }
         .lb-main-img-wrap img { width:100%;height:100%;object-fit:cover;display:block;transition:opacity .18s; }
+
         .lb-nav { position:absolute;top:50%;transform:translateY(-50%);background:rgba(248,242,231,.82);border:none;cursor:pointer;font-size:1.1rem;padding:.35rem .55rem;z-index:5;opacity:.7;transition:opacity .15s;font-family:inherit; }
         .lb-nav:hover { opacity:1; }
         .lb-nav-prev { left:6px; }
         .lb-nav-next { right:6px; }
+
         .lb-thumbs { display:flex;gap:4px;padding:6px;overflow-x:auto;background:#ddd8cd;flex-shrink:0; }
         .lb-thumbs::-webkit-scrollbar { height:3px; }
         .lb-thumbs::-webkit-scrollbar-thumb { background:rgba(44,55,118,.3); }
         .lb-thumb { width:44px;height:44px;object-fit:cover;cursor:pointer;opacity:.45;transition:opacity .15s;flex-shrink:0; }
         .lb-thumb.active { opacity:1;outline:2px solid var(--navy); }
+
         .lb-config { padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1.1rem;overflow-y:auto;border-left:1px solid rgba(44,55,118,.1); }
         .lb-close { position:absolute;top:.8rem;right:.9rem;background:none;border:none;cursor:pointer;color:var(--navy);font-size:1.2rem;opacity:.45;z-index:10; }
         .lb-title { font-family:'Uncial Antiqua',serif;font-size:1.5rem; }
@@ -201,16 +204,19 @@
         .cart-btn-nav { background:none;border:none;cursor:pointer;color:var(--navy);font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:lowercase;opacity:.4;transition:.2s;display:flex;align-items:center;gap:6px;padding:0; }
         .cart-btn-nav:hover { opacity:1; }
         .cart-count { background:var(--or);color:white;border-radius:50%;width:17px;height:17px;display:flex;align-items:center;justify-content:center;font-size:.58rem; }
+
         .cart-drawer { position:fixed;top:64px;right:0;width:320px;height:calc(100% - 64px);background:white;z-index:2100;transform:translateX(100%);transition:.3s;padding:2rem;display:flex;flex-direction:column;border-left:1px solid var(--navy); }
         .cart-drawer.open { transform:translateX(0); }
         .cart-bg { position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:350; }
         .drawer-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem; }
         .drawer-close { background:none;border:1px solid rgba(44,55,118,0.2);cursor:pointer;color:var(--navy);font-size:0.9rem;width:28px;height:28px;display:flex;align-items:center;justify-content:center;opacity:0.5;transition:opacity 0.15s, border-color 0.15s; }
         .drawer-close:hover { opacity:1;border-color:var(--navy); }
+
         .cart-item-row { display:flex;align-items:flex-start;gap:12px;margin-bottom:1.2rem;border-bottom:1px solid #eee;padding-bottom:12px; }
         .cart-item-remove { background:none;border:none;color:#b94040;cursor:pointer;font-size:1.1rem;padding:0;opacity:.5;transition:opacity .2s;margin-top:-2px; }
         .cart-item-remove:hover { opacity:1; }
         .cart-item-info { flex:1; }
+
         .promo-wrap { margin-bottom:.8rem; }
         .promo-row { display:flex;gap:.4rem; }
         .promo-input { flex:1;border:1px solid rgba(44,55,118,.22);padding:.45rem .6rem;font-family:inherit;font-size:.6rem;text-transform:uppercase;outline:none; }
@@ -221,89 +227,49 @@
         .promo-msg.err { color:#b94040; }
         .checkout-btn { width:100%;padding:.9rem;background:var(--navy);color:white;border:none;font-family:'Uncial Antiqua',serif;font-size:.95rem;cursor:pointer; }
 
+        /* ──────────────────────────────── LEGAL PAGES MODAL ────────────────────────────────── */
+        .legal-modal { position:fixed;inset:0;background:rgba(20,22,40,.65);z-index:400;display:none;align-items:center;justify-content:center;padding:1.5rem;overflow-y:auto; }
+        .legal-modal.open { display:flex; }
+        .legal-modal-content { background:var(--bg);max-width:700px;width:100%;padding:2.5rem;position:relative;max-height:90vh;overflow-y:auto;animation:fadeIn 0.2s ease; }
+        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+        .legal-modal-close { position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;cursor:pointer;color:var(--navy);font-size:1.5rem;opacity:0.5;transition:opacity 0.2s; }
+        .legal-modal-close:hover { opacity:1; }
+        .legal-modal-title { font-family:'Uncial Antiqua',serif;font-size:2rem;color:var(--navy);margin-bottom:1.5rem;border-bottom:2px solid var(--or);padding-bottom:1rem; }
+        .legal-modal-body { font-size:0.72rem;color:var(--gris);line-height:1.8; }
+        .legal-modal-body h3 { font-family:'Uncial Antiqua',serif;font-size:1.1rem;color:var(--navy);margin-top:1.5rem;margin-bottom:0.8rem; }
+        .legal-modal-body p { margin-bottom:1rem; }
+        .legal-modal-body ul { margin-left:1.5rem;margin-bottom:1rem; }
+        .legal-modal-body li { margin-bottom:0.5rem; }
+
         /* ──────────────────────────────── REVIEWS ────────────────────────────────── */
-        .reviews-section {
-            background: var(--bg);
-            color: var(--navy);
-            padding: 80px 5% 60px;
-        }
-        .reviews-wrap {
-            /* Intentionnellement plus étroit que la grille produits */
-            max-width: 560px;
-            margin: 0 auto;
-        }
-        .reviews-header { text-align: center; margin-bottom: 48px; }
-        .reviews-title {
-            font-family: 'Uncial Antiqua', serif;
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-            line-height: 1.1; margin-bottom: 8px; color: var(--navy);
-        }
-        .reviews-subtitle {
-            font-size: 0.65rem; letter-spacing: 0.12em;
-            text-transform: uppercase; color: var(--gris);
-        }
+        .reviews-section { background: var(--bg); color: var(--navy); padding: 80px 5% 60px; }
+        .reviews-wrap { max-width: 1100px; margin: 0 auto; }
+        .reviews-header { text-align: center; margin-bottom: 60px; }
+        .reviews-title { font-family: 'Uncial Antiqua', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 8px; color: var(--navy); }
+        .reviews-subtitle { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
 
-        /* Carrousel */
-        .reviews-carousel { display: flex; align-items: center; gap: 20px; }
-        .reviews-arrow {
-            flex-shrink: 0; width: 40px; height: 40px;
-            background: none; border: 1px solid rgba(44,55,118,0.25);
-            color: var(--navy); font-size: 1.1rem; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: background 0.15s, border-color 0.15s; font-family: inherit;
+        .reviews-stage { display: flex; align-items: center; gap: 20px; max-width: 600px; margin: 0 auto; }
+        .reviews-nav-btn {
+            background: none; border: 1px solid rgba(44,55,118,0.3); color: var(--navy);
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+            font-size: 1.4rem; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: background 0.2s; font-family: inherit;
         }
-        .reviews-arrow:hover { background: var(--navy); color: white; border-color: var(--navy); }
-
-        /* Wrapper à hauteur fixe pour éviter les sauts */
-        .reviews-card-wrap {
-            flex: 1;
-            overflow: hidden;
-            min-height: 240px;
-            display: flex;
-            flex-direction: column;
-            justify-content: stretch;
-        }
-
-        /* Carte plus généreuse */
+        .reviews-nav-btn:hover { background: rgba(44,55,118,0.08); }
+        .reviews-track { flex: 1; overflow: hidden; }
         .review-card {
-            background: white;
-            border: 1px solid rgba(44, 55, 118, 0.1);
-            padding: 40px 44px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            min-height: 240px;
-            box-sizing: border-box;
-            animation: reviewFadeIn 0.3s ease;
+            background: white; border: 1px solid rgba(44,55,118,0.1);
+            padding: 28px; display: flex; flex-direction: column; gap: 14px;
         }
-        @keyframes reviewFadeIn {
-            from { opacity: 0; transform: translateX(18px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        .review-card.slide-left { animation: reviewFadeInLeft 0.3s ease; }
-        @keyframes reviewFadeInLeft {
-            from { opacity: 0; transform: translateX(-18px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        .review-top { display: flex; justify-content: space-between; align-items: flex-start; }
-        .review-author { display: flex; flex-direction: column; gap: 4px; }
+        .rv-top { display: flex; justify-content: space-between; align-items: flex-start; }
         .review-name { font-family: 'Uncial Antiqua', serif; font-size: 0.95rem; color: var(--navy); }
-        .review-date { font-size: 0.52rem; color: var(--gris); letter-spacing: 0.08em; text-transform: uppercase; }
-        .review-stars { font-size: 0.9rem; letter-spacing: 3px; color: var(--or); flex-shrink: 0; margin-top: 2px; }
-        .review-text {
-            font-size: 0.7rem; color: var(--gris); line-height: 1.8;
-            border-top: 1px solid rgba(44, 55, 118, 0.07);
-            padding-top: 18px;
-        }
+        .review-date { font-size: 0.55rem; color: var(--gris); letter-spacing: 0.08em; text-transform: uppercase; }
+        .review-stars { font-size: 1rem; letter-spacing: 2px; color: var(--or); }
+        .review-text { font-size: 0.68rem; color: var(--gris); line-height: 1.7; }
 
-        /* Dots */
-        .reviews-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
-        .reviews-dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: rgba(44,55,118,0.2); cursor: pointer;
-            transition: background 0.2s, transform 0.2s; border: none; padding: 0;
-        }
-        .reviews-dot.active { background: var(--navy); transform: scale(1.3); }
+        .rv-dots { display: flex; justify-content: center; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
+        .rv-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(44,55,118,0.2); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+        .rv-dot.active { background: var(--navy); }
 
         /* ──────────────────────────────── PARTNERSHIP ────────────────────────────────── */
         .partnership-section { background: var(--bg); color: var(--navy); padding: 80px 5% 60px; margin-bottom: 0; }
@@ -319,61 +285,61 @@
         .cagnottes-wrap { max-width: 1100px; margin: 0 auto; }
         .cagnottes-header { text-align: center; margin-bottom: 60px; }
         .cagnottes-title { font-family: 'Uncial Antiqua', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 12px; color: white; }
-        .cagnottes-subtitle { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(248, 242, 231, 0.6); }
+        .cagnottes-subtitle { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(248,242,231,0.6); }
         .cagnottes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .cagnotte-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(201, 168, 76, 0.25); padding: 28px; border-radius: 4px; transition: all 0.3s; }
-        .cagnotte-card:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--or); }
+        .cagnotte-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.25); padding: 28px; border-radius: 4px; transition: all 0.3s; }
+        .cagnotte-card:hover { background: rgba(255,255,255,0.08); border-color: var(--or); }
         .cagnotte-name { font-family: 'Uncial Antiqua', serif; font-size: 1.1rem; color: white; margin-bottom: 8px; }
-        .cagnotte-desc { font-size: 0.62rem; color: rgba(248, 242, 231, 0.7); line-height: 1.6; margin-bottom: 20px; }
+        .cagnotte-desc { font-size: 0.62rem; color: rgba(248,242,231,0.7); line-height: 1.6; margin-bottom: 20px; }
         .progress-wrapper { margin-bottom: 12px; }
-        .progress-bar { width: 100%; height: 8px; background: rgba(201, 168, 76, 0.15); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+        .progress-bar { width: 100%; height: 8px; background: rgba(201,168,76,0.15); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--or), #e6c456); border-radius: 4px; transition: width 0.6s ease; }
-        .progress-text { display: flex; justify-content: space-between; font-size: 0.58rem; color: rgba(248, 242, 231, 0.6); }
+        .progress-text { display: flex; justify-content: space-between; font-size: 0.58rem; color: rgba(248,242,231,0.6); }
         .progress-percent { font-size: 0.72rem; color: var(--or); font-weight: 500; }
         .progress-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
         .donate-btn { display: inline-block; padding: 6px 16px; background: var(--or); color: var(--navy); text-decoration: none; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: all 0.2s; font-weight: 500; }
         .donate-btn:hover { background: #e6c456; transform: translateY(-1px); }
 
         /* ──────────────────────────────── FOOTER ────────────────────────────────── */
-        footer { background: var(--navy); color: var(--bg); padding: 64px 5% 40px; margin-top: auto; }
-        .footer-inner { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
-        .footer-col-title { font-size: .52rem; letter-spacing: .18em; text-transform: uppercase; color: var(--or); margin-bottom: 25px; display: block; }
-        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-        .footer-links li a { color: var(--bg); text-decoration: none; display: flex; flex-direction: column; gap: 2px; transition: opacity .2s; font-size: .62rem; }
-        .footer-links li a:hover { opacity: .7; }
-        .footer-links li a .fl-label { font-size: .46rem; letter-spacing: .14em; text-transform: uppercase; opacity: .5; color: var(--bg); }
-        .footer-links li a .fl-name { font-size: .62rem; letter-spacing: .05em; color: var(--bg); }
-        .footer-contact-text { font-size: .6rem; opacity: .5; line-height: 1.8; margin-bottom: 16px; color: var(--bg); }
-        .footer-email { color: var(--or); text-decoration: none; font-size: .65rem; letter-spacing: .06em; font-weight: 500; }
-        .footer-bottom { max-width: 860px; margin: 48px auto 0; padding-top: 20px; border-top: 1px solid rgba(248,242,231,.1); display: flex; justify-content: space-between; align-items: center; }
-        .footer-bottom span { font-size: .5rem; letter-spacing: .12em; text-transform: uppercase; opacity: .35; }
+        footer { background:var(--navy);color:var(--bg);padding:64px 5% 40px;margin-top:auto; }
+        .footer-inner { max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px; }
+        .footer-col-title { font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:25px;display:block; }
+        .footer-links { list-style:none;display:flex;flex-direction:column;gap:12px; }
+        .footer-links li a { color:var(--bg);text-decoration:none;display:flex;flex-direction:column;gap:2px;transition:opacity .2s;font-size:.62rem; }
+        .footer-links li a:hover { opacity:.7; }
+        .footer-links li a .fl-label { font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;opacity:.5;color:var(--bg); }
+        .footer-links li a .fl-name { font-size:.62rem;letter-spacing:.05em;color:var(--bg); }
+        .footer-contact-text { font-size:.6rem;opacity:.5;line-height:1.8;margin-bottom:16px;color:var(--bg); }
+        .footer-email { color:var(--or);text-decoration:none;font-size:.65rem;letter-spacing:.06em;font-weight:500; }
+        .footer-bottom { max-width:860px;margin:48px auto 0;padding-top:20px;border-top:1px solid rgba(248,242,231,.1);display:flex;justify-content:space-between;align-items:center; }
+        .footer-bottom span { font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;opacity:.35; }
 
         /* ──────────────────────────────── MOBILE ────────────────────────────────── */
-        .tab-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg); border-top: 1px solid rgba(44,55,118,.13); z-index: 1000; padding-bottom: env(safe-area-inset-bottom,0px); }
-        .tab-bar-btn { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px 0; text-decoration: none; color: var(--navy); opacity: .3; transition: .2s; font-size: .65rem; letter-spacing: .1em; text-transform: lowercase; }
-        .tab-bar-btn.active { opacity: 1; }
+        .tab-bar { display:none;position:fixed;bottom:0;left:0;width:100%;background:var(--bg);border-top:1px solid rgba(44,55,118,.13);z-index:1000;padding-bottom:env(safe-area-inset-bottom,0px); }
+        .tab-bar-btn { flex:1;display:flex;align-items:center;justify-content:center;padding:20px 0;text-decoration:none;color:var(--navy);opacity:.3;transition:.2s;font-size:.65rem;letter-spacing:.1em;text-transform:lowercase; }
+        .tab-bar-btn.active { opacity:1; }
 
         @media (max-width: 768px) {
-            header { justify-content: center; }
-            .main-nav { display: none; }
-            .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-            .lb-modal { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; margin: auto; }
-            .lb-main-img-wrap { width: 60%; aspect-ratio: 1/1; flex: none; margin: 0 auto; max-height: 38vh; }
-            .lb-config { border-left: none; border-top: 1px solid rgba(44,55,118,.1); padding: 1rem; }
-            .lb-config .opt-group { gap: .2rem; }
-            .lb-title { font-size: 1.1rem; }
-            .lb-overlay { padding: .5rem; align-items: flex-end; }
-            .tab-bar { display: flex; }
-            .cart-drawer { width: 100%; padding-bottom: 100px; }
-            footer { padding-bottom: 120px; }
-            .footer-inner { grid-template-columns: 1fr; gap: 36px; }
-            .collection-tabs-wrap { padding: 20px 5% 0; gap: 0; overflow-x: auto; }
+            .reviews-stage { gap: 12px; }
             .reviews-section { padding: 60px 5% 40px; }
-            .review-card { padding: 28px 22px; min-height: 200px; }
-            .reviews-arrow { width: 34px; height: 34px; font-size: 0.9rem; }
             .cagnottes-grid { grid-template-columns: 1fr; gap: 20px; }
             .cagnottes-section { padding: 60px 5% 40px; }
             .partnership-section { padding: 60px 5% 40px; }
+            header { justify-content:center; }
+            .main-nav { display:none; }
+            .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+            .lb-modal { grid-template-columns:1fr;max-height:90vh;overflow-y:auto;margin:auto; }
+            .lb-main-img-wrap { width: 60%; aspect-ratio: 1/1; flex: none; margin: 0 auto; }
+            .lb-main-img-wrap { max-height:38vh; }
+            .lb-config { border-left:none;border-top:1px solid rgba(44,55,118,.1);padding:1rem; }
+            .lb-config .opt-group { gap:.2rem; }
+            .lb-title { font-size:1.1rem; }
+            .lb-overlay { padding:.5rem; align-items: flex-end; }
+            .tab-bar { display:flex; }
+            .cart-drawer { width:100%;padding-bottom:100px; }
+            footer { padding-bottom:120px; }
+            .footer-inner { grid-template-columns:1fr;gap:36px; }
+            .collection-tabs-wrap { padding: 20px 5% 0; gap: 0; overflow-x: auto; }
         }
     </style>
 </head>
@@ -419,34 +385,50 @@
                 <div class="section-header-title"></div>
                 <div class="section-header-sub">Livraison &amp; TVA incluses</div>
             </div>
+
+            <!-- COLLECTION TABS -->
             <div class="collection-tabs-wrap" id="collectionTabs"></div>
+
             <div class="grid-wrap">
                 <div class="grid" id="grid"></div>
             </div>
         </div>
 
         <div class="legal-docs">
-            <a href="Politiques Commceriales et Clauses de Vente.pdf" target="_blank">Livraison</a>
-            <a href="Protection des Données et conformité RGPD.pdf" target="_blank">Termes</a>
+            <a href="javascript:openLegalPage('livraison')">Livraison</a>
+            <a href="javascript:openLegalPage('retours')">Retours</a>
+            <a href="javascript:openLegalPage('delais')">Délais</a>
+            <a href="javascript:openLegalPage('tarifs')">Tarifs</a>
+            <a href="javascript:openLegalPage('cgv')">CGV</a>
+            <a href="javascript:openLegalPage('mentions')">Mentions légales</a>
         </div>
 
-        <!-- REVIEWS -->
+        <!-- ── REVIEWS SECTION ── -->
         <section class="reviews-section">
             <div class="reviews-wrap">
                 <div class="reviews-header">
                     <h2 class="reviews-title">Avis clients</h2>
                     <p class="reviews-subtitle">Ce que nos clients pensent de nous</p>
                 </div>
-                <div class="reviews-carousel">
-                    <button class="reviews-arrow" onclick="reviewNav(-1)">&#8249;</button>
-                    <div class="reviews-card-wrap" id="reviewCardWrap"></div>
-                    <button class="reviews-arrow" onclick="reviewNav(1)">&#8250;</button>
+                <div class="reviews-stage">
+                    <button class="reviews-nav-btn" id="rvPrev">&#8249;</button>
+                    <div class="reviews-track">
+                        <div class="review-card" id="rvCard">
+                            <div class="rv-top">
+                                <div class="review-name" id="rvName"></div>
+                                <div class="review-date" id="rvDate"></div>
+                            </div>
+                            <div class="review-stars" id="rvStars"></div>
+                            <div class="review-text" id="rvText"></div>
+                        </div>
+                    </div>
+                    <button class="reviews-nav-btn" id="rvNext">&#8250;</button>
                 </div>
-                <div class="reviews-dots" id="reviewsDots"></div>
+                <div class="rv-dots" id="rvDots"></div>
             </div>
         </section>
 
-    </div><!-- /shop-content -->
+    </div>
 
     <!-- LIGHTBOX -->
     <div class="lb-overlay" id="lbOverlay" onclick="lbClickOutside(event)">
@@ -501,7 +483,7 @@
         </div>
     </div>
 
-    <!-- CAGNOTTES -->
+    <!-- ── CAGNOTTES SECTION ── -->
     <section class="cagnottes-section">
         <div class="cagnottes-wrap">
             <div class="cagnottes-header">
@@ -549,15 +531,26 @@
         </div>
     </section>
 
-    <!-- PARTNERSHIP -->
+    <!-- ── PARTNERSHIP SECTION ── -->
     <section class="partnership-section">
         <div class="partnership-wrap">
-            <div class="partnership-eyebrow">Programme d'affiliation</div>
-            <h2 class="partnership-title">Devenez partenaire</h2>
-            <p class="partnership-desc">Rejoignez notre programme, partagez nos produits et gagnez une commission sur chaque vente!</p>
-            <a href="https://tradiscout.goaffpro.com/" class="partnership-cta" target="_blank">S'inscrire au programme →</a>
+            <div class="partnership-content">
+                <div class="partnership-eyebrow">Programme d'affiliation</div>
+                <h2 class="partnership-title">Devenez partenaire</h2>
+                <p class="partnership-desc">Rejoignez notre programme, partagez nos produits et gagnez une commission sur chaque vente!</p>
+                <a href="https://tradiscout.goaffpro.com/" class="partnership-cta" target="_blank">S'inscrire au programme →</a>
+            </div>
         </div>
     </section>
+
+    <!-- ── LEGAL PAGES MODAL ── -->
+    <div class="legal-modal" id="legalModal" onclick="closeLegalPage(event)">
+        <div class="legal-modal-content" onclick="event.stopPropagation()">
+            <button class="legal-modal-close" onclick="closeLegalPage()">✕</button>
+            <h1 class="legal-modal-title" id="legalTitle"></h1>
+            <div class="legal-modal-body" id="legalBody"></div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-inner">
@@ -600,76 +593,242 @@
 
     <!-- ── SCRIPTS ── -->
     <script>
-        /* ── REVIEWS ──────────────────────────────── */
+        // ── LEGAL PAGES ──────────────────────────────
+        const LEGAL_PAGES = {
+            livraison: {
+                title: "Livraison",
+                content: `
+                    <h3>Modes de livraison</h3>
+                    <p>Nous proposons plusieurs options de livraison pour votre commande :</p>
+                    <ul>
+                        <li><strong>Livraison standard (La Poste) :</strong> 4 à 6 jours ouvrables - Offerte à partir de 50€</li>
+                        <li><strong>Livraison express (Colissimo) :</strong> 1 à 2 jours ouvrables - 12€</li>
+                        <li><strong>Retrait en point relais :</strong> 4 à 6 jours ouvrables - 6€</li>
+                    </ul>
+                    <h3>Zones de livraison</h3>
+                    <p>Nous livrons en France métropolitaine, Corse, et dans les pays de l'Union Européenne. Pour les autres destinations, veuillez nous contacter à tradiscout@gmail.com</p>
+                    <h3>Suivi de votre colis</h3>
+                    <p>Un numéro de suivi vous sera communiqué par email dès l'expédition de votre commande.</p>
+                    <h3>Frais de port</h3>
+                    <ul>
+                        <li>Livraison gratuite à partir de 50€ d'achat (France métropolitaine)</li>
+                        <li>France métropolitaine : 6€ en-dessous de 50€</li>
+                        <li>Corse : 12€</li>
+                        <li>Union Européenne : 15€</li>
+                    </ul>
+                    <h3>En cas de problème de livraison</h3>
+                    <p>Si votre colis n'arrive pas à la date prévue, contactez-nous à tradiscout@gmail.com avec votre numéro de commande.</p>
+                `
+            },
+            retours: {
+                title: "Retours et Échanges",
+                content: `
+                    <h3>Politique de retour</h3>
+                    <p>Vous avez <strong>14 jours</strong> à compter de la date de réception pour retourner vos articles.</p>
+                    <h3>Conditions de retour</h3>
+                    <ul>
+                        <li>Les articles doivent être dans leur état d'origine</li>
+                        <li>Les étiquettes doivent être intactes et le produit n'avoir jamais été porté</li>
+                        <li>Les articles doivent être retournés dans leur emballage d'origine si possible</li>
+                    </ul>
+                    <h3>Procédure de retour</h3>
+                    <ol style="margin-left:1.5rem;margin-bottom:1rem;">
+                        <li>Contactez-nous à tradiscout@gmail.com avec votre numéro de commande</li>
+                        <li>Nous vous fournirons une étiquette de retour gratuite</li>
+                        <li>Emballez l'article de manière sécurisée</li>
+                        <li>Retournez le colis à l'adresse indiquée sur l'étiquette</li>
+                    </ol>
+                    <h3>Remboursement</h3>
+                    <p>Une fois votre retour reçu et contrôlé, nous procéderons à un remboursement dans un délai de <strong>14 jours</strong>.</p>
+                    <h3>Échanges</h3>
+                    <p>Nous proposons également des échanges de taille ou de couleur gratuitement. Contactez-nous pour organiser votre échange.</p>
+                `
+            },
+            delais: {
+                title: "Délais de Traitement",
+                content: `
+                    <h3>Traitement des commandes</h3>
+                    <p>Les commandes sont traitées dans un délai de <strong>1 à 2 jours ouvrables</strong> (lundi au vendredi, hors jours fériés).</p>
+                    <h3>Délai total de réception</h3>
+                    <ul>
+                        <li><strong>Livraison standard :</strong> 4 à 6 jours ouvrables après expédition</li>
+                        <li><strong>Livraison express :</strong> 1 à 2 jours ouvrables après expédition</li>
+                        <li><strong>Retrait point relais :</strong> 4 à 6 jours ouvrables après expédition</li>
+                    </ul>
+                    <h3>Commandes urgentes</h3>
+                    <p>Pour une commande urgente, utilisez l'option de livraison express et contactez-nous avant 14h. Les commandes passées avant 14h seront expédiées le jour même.</p>
+                `
+            },
+            tarifs: {
+                title: "Tarifs et Frais",
+                content: `
+                    <h3>Prix des produits</h3>
+                    <p>Tous nos prix sont affichés TTC (toutes taxes comprises). Aucun frais supplémentaire ne sera ajouté à la caisse.</p>
+                    <h3>Frais de port</h3>
+                    <ul>
+                        <li><strong>Livraison standard (France métropolitaine) :</strong> 6€ - Offerte à partir de 50€</li>
+                        <li><strong>Livraison express (Colissimo) :</strong> 12€</li>
+                        <li><strong>Retrait point relais :</strong> 6€</li>
+                        <li><strong>Corse :</strong> 12€</li>
+                        <li><strong>Union Européenne :</strong> 15€</li>
+                    </ul>
+                    <h3>Modes de paiement</h3>
+                    <ul>
+                        <li>Carte bancaire (Visa, Mastercard, American Express)</li>
+                        <li>PayPal</li>
+                    </ul>
+                    <h3>Frais de paiement</h3>
+                    <p>Aucun frais de paiement ne vous sera facturé, quelle que soit votre méthode de paiement.</p>
+                `
+            },
+            cgv: {
+                title: "Conditions Générales de Ventes",
+                content: `
+                    <h3>1. Champ d'application</h3>
+                    <p>Les présentes CGV régissent les relations entre Tradiscout et l'acheteur. Toute commande implique l'acceptation sans réserve de ces CGV.</p>
+                    <h3>2. Produits et tarifs</h3>
+                    <p>Les prix affichés sont en euros TTC. Tradiscout se réserve le droit de modifier les tarifs à tout moment.</p>
+                    <h3>3. Disponibilité des produits</h3>
+                    <p>Les produits proposés sont disponibles en quantité limitée. En cas de rupture de stock, l'acheteur sera informé dans les meilleurs délais.</p>
+                    <h3>4. Droit de rétractation</h3>
+                    <p>Conformément à la loi, l'acheteur dispose d'un délai de <strong>14 jours</strong> à compter de la réception pour exercer son droit de rétractation.</p>
+                    <h3>5. Données personnelles</h3>
+                    <p>Les données personnelles collectées sont traitées conformément au RGPD et ne seront jamais cédées à des tiers sans consentement.</p>
+                    <h3>6. Litiges et droit applicable</h3>
+                    <p>Les présentes CGV sont régies par la loi française. En cas de litige non résolu, il sera soumis aux tribunaux compétents de Chambéry.</p>
+                `
+            },
+            mentions: {
+                title: "Mentions Légales",
+                content: `
+                    <h3>Éditeur du site</h3>
+                    <p><strong>Tradiscout</strong><br>SIRET : [À remplir]<br>Forme juridique : [À remplir]<br>Adresse : [À remplir]</p>
+                    <h3>Coordonnées</h3>
+                    <p><strong>Email :</strong> tradiscout@gmail.com<br>
+                    <strong>Instagram :</strong> @tradiscout<br>
+                    <strong>TikTok :</strong> @tradiscout</p>
+                    <h3>Hébergement</h3>
+                    <p>[À remplir : nom et coordonnées de l'hébergeur]</p>
+                    <h3>Droit d'auteur</h3>
+                    <p>© 2026 Tradiscout. Tous droits réservés. La reproduction sans autorisation écrite préalable est interdite.</p>
+                    <h3>Protection des données</h3>
+                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Contactez tradiscout@gmail.com.</p>
+                `
+            }
+        };
+
+        function openLegalPage(pageId) {
+            const page = LEGAL_PAGES[pageId];
+            if (!page) return;
+            document.getElementById('legalTitle').textContent = page.title;
+            document.getElementById('legalBody').innerHTML = page.content;
+            document.getElementById('legalModal').classList.add('open');
+        }
+        function closeLegalPage(event) {
+            if (event && event.target !== document.getElementById('legalModal')) return;
+            document.getElementById('legalModal').classList.remove('open');
+        }
+
+        // ── REVIEWS ──────────────────────────────────
         const REVIEWS = [
-            { stars: 5, name: "Manon Cappalesso", date: "20 mai 2026", text: "Le sweat est trop confortable, par contre j'aurais du prendre la taille d'en dessous. Je recommande vivement !" },
-            { stars: 5, name: "Jean Moreau",       date: "18 mai 2026", text: "Excellent rapport qualité-prix. Les tshirts sont confortables et durables. Parfait pour les scouts !" },
-            { stars: 5, name: "Sophie Martin",     date: "17 mai 2026", text: "J'ai commandé 3 articles, tous sont arrivés en parfait état. Les couleurs sont exactes et le confort au-delà de mes attentes !" },
-            { stars: 5, name: "Lucie Bernard",     date: "16 mai 2026", text: "Service client impeccable. Les produits sont magnifiques et correspondent exactement à mes attentes. Merci !" },
-            { stars: 4, name: "Thomas Renaud",     date: "15 mai 2026", text: "Très bonne qualité. Un petit bémol sur les délais de livraison mais le produit en vaut vraiment la peine." },
-            { stars: 5, name: "Anne Lefevre",      date: "14 mai 2026", text: "Commande reçue rapidement, bien emballée. Les sweats sont super confortables, ma famille adore !" },
-            { stars: 5, name: "Pierre Gauthier",   date: "13 mai 2026", text: "Tradiscout c'est du sérieux. Qualité premium, livraison express, communication top. Je reviens acheter !" },
-            { stars: 4, name: "Caroline Petit",    date: "12 mai 2026", text: "Très satisfaite de ma commande. Les couleurs sont fidèles aux photos. Serait parfait avec plus de choix de tailles." },
-            { stars: 5, name: "Marc Dubois",       date: "11 mai 2026", text: "Pour une association de scouts, c'est exactement ce qu'il nous fallait. Qualité et prix imbattables !" },
-            { stars: 4, name: "Isabelle Rousseau", date: "10 mai 2026", text: "Beau produit, bon service. Livraison un peu lente mais ça reste correct. Je recommande." },
-            { stars: 5, name: "Christophe Martin", date: "9 mai 2026",  text: "Excellent ! Vraiment ravi de ma commande. Les délais annoncés ont été respectés. A bientôt !" },
-            { stars: 4, name: "Nathalie Simon",    date: "8 mai 2026",  text: "Produit conforme à la description. Service client réactif. Un peu dommage qu'il n'y ait pas plus de coloris." },
-            { stars: 5, name: "Julien Leclerc",    date: "7 mai 2026",  text: "Les sweats Tradiscout sont mes préférés maintenant. Confort, qualité, design impeccable. Merci !" },
-            { stars: 4, name: "Véronique Gaudin",  date: "6 mai 2026",  text: "Très bonne expérience. Produit de qualité, prix juste. Juste un peu déçue par l'emballage un peu simple." },
-            { stars: 5, name: "Damien Favre",      date: "5 mai 2026",  text: "Commande impeccable ! Arrivée avant la date prévue. Les scouts de mon groupe sont ravis du résultat." },
-            { stars: 3, name: "Francoise Blanc",   date: "4 mai 2026",  text: "Produit correct. Un peu cher mais la qualité justifie le prix. Livraison respectée." },
-            { stars: 5, name: "Laurent Henry",     date: "3 mai 2026",  text: "Fantastique ! Exactement ce que je cherchais. La qualité, le design, le service. Bravo à toute l'équipe !" }
+            { stars: 5, name: "Marie Dupont",      date: "20 mai 2026", text: "Produits de très bonne qualité ! Livraison rapide et équipe super réactive. Je recommande vivement !" },
+            { stars: 5, name: "Jean Moreau",        date: "18 mai 2026", text: "Excellent rapport qualité-prix. Les sweats sont confortables et durables. Parfait pour les scouts !" },
+            { stars: 5, name: "Sophie Martin",      date: "17 mai 2026", text: "J'ai commandé 3 articles, tous sont arrivés en parfait état. Les couleurs sont exactes et le confort au-delà de mes attentes !" },
+            { stars: 5, name: "Lucie Bernard",      date: "16 mai 2026", text: "Service client impeccable. Les produits sont magnifiques et correspondent exactement à mes attentes. Merci !" },
+            { stars: 4, name: "Thomas Renaud",      date: "15 mai 2026", text: "Très bonne qualité. Un petit bémol sur les délais de livraison mais le produit en vaut vraiment la peine." },
+            { stars: 5, name: "Anne Lefevre",       date: "14 mai 2026", text: "Commande reçue rapidement, bien emballée. Les sweats sont super confortables, ma famille adore !" },
+            { stars: 5, name: "Pierre Gauthier",    date: "13 mai 2026", text: "Tradiscout c'est du sérieux. Qualité premium, livraison express, communication top. Je reviens acheter !" },
+            { stars: 4, name: "Caroline Petit",     date: "12 mai 2026", text: "Très satisfaite de ma commande. Les couleurs sont fidèles aux photos. Serait parfait avec plus de choix de tailles." },
+            { stars: 5, name: "Marc Dubois",        date: "11 mai 2026", text: "Pour une association de scouts, c'est exactement ce qu'il nous fallait. Qualité et prix imbattables !" },
+            { stars: 4, name: "Isabelle Rousseau",  date: "10 mai 2026", text: "Beau produit, bon service. Livraison un peu lente mais ça reste correct. Je recommande." },
+            { stars: 5, name: "Christophe Martin",  date: "9 mai 2026",  text: "Excellent ! Vraiment ravi de ma commande. Les délais annoncés ont été respectés. A bientôt !" },
+            { stars: 4, name: "Nathalie Simon",     date: "8 mai 2026",  text: "Produit conforme à la description. Service client réactif. Un peu dommage qu'il n'y ait pas plus de coloris." },
+            { stars: 5, name: "Julien Leclerc",     date: "7 mai 2026",  text: "Les sweats Tradiscout sont mes préférés maintenant. Confort, qualité, design impeccable. Merci !" },
+            { stars: 4, name: "Véronique Gaudin",   date: "6 mai 2026",  text: "Très bonne expérience. Produit de qualité, prix juste. Juste un peu déçue par l'emballage un peu simple." },
+            { stars: 5, name: "Damien Favre",       date: "5 mai 2026",  text: "Commande impeccable ! Arrivée avant la date prévue. Les scouts de mon groupe sont ravis du résultat." },
+            { stars: 3, name: "Françoise Blanc",    date: "4 mai 2026",  text: "Produit correct. Un peu cher mais la qualité justifie le prix. Livraison respectée." },
+            { stars: 5, name: "Laurent Henry",      date: "3 mai 2026",  text: "Fantastique ! Exactement ce que je cherchais. La qualité, le design, le service. Bravo à toute l'équipe !" }
         ];
 
-        let reviewIndex = 0;
-
         function renderReviews() {
-            renderReviewCard();
-            renderReviewDots();
+            const s = n => '★'.repeat(n) + '☆'.repeat(5 - n);
+            let idx = 0;
+            let isAnimating = false;
+            let autoTimer = null;
+
+            function renderDots() {
+                document.getElementById('rvDots').innerHTML = REVIEWS.map((_, i) =>
+                    `<button class="rv-dot ${i === idx ? 'active' : ''}" onclick="rvGoTo(${i})"></button>`
+                ).join('');
+            }
+
+            window.rvGoTo = function(i) {
+                const dir = i >= idx ? 1 : -1;
+                idx = i;
+                rvShow(dir);
+                resetAuto();
+            };
+
+            function rvShow(dir) {
+                if (isAnimating) return;
+                isAnimating = true;
+                const card = document.getElementById('rvCard');
+                const outX = dir === 1 ? '-50px' : '50px';
+                const inX  = dir === 1 ?  '50px' : '-50px';
+                card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                card.style.opacity = '0';
+                card.style.transform = `translateX(${outX})`;
+                setTimeout(() => {
+                    const r = REVIEWS[idx];
+                    document.getElementById('rvName').textContent  = r.name;
+                    document.getElementById('rvDate').textContent  = r.date;
+                    document.getElementById('rvStars').textContent = s(r.stars);
+                    document.getElementById('rvText').textContent  = '\u201C' + r.text + '\u201D';
+                    renderDots();
+                    card.style.transition = 'none';
+                    card.style.transform  = `translateX(${inX})`;
+                    card.style.opacity    = '0';
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                            card.style.opacity    = '1';
+                            card.style.transform  = 'translateX(0)';
+                            setTimeout(() => { isAnimating = false; }, 220);
+                        });
+                    });
+                }, 210);
+            }
+
+            function resetAuto() {
+                clearInterval(autoTimer);
+                autoTimer = setInterval(() => {
+                    idx = (idx + 1) % REVIEWS.length;
+                    rvShow(1);
+                }, 5000);
+            }
+
+            document.getElementById('rvPrev').onclick = () => {
+                idx = (idx - 1 + REVIEWS.length) % REVIEWS.length;
+                rvShow(-1);
+                resetAuto();
+            };
+            document.getElementById('rvNext').onclick = () => {
+                idx = (idx + 1) % REVIEWS.length;
+                rvShow(1);
+                resetAuto();
+            };
+
+            // Init first card
+            const r0 = REVIEWS[0];
+            document.getElementById('rvName').textContent  = r0.name;
+            document.getElementById('rvDate').textContent  = r0.date;
+            document.getElementById('rvStars').textContent = s(r0.stars);
+            document.getElementById('rvText').textContent  = '\u201C' + r0.text + '\u201D';
+            renderDots();
+            resetAuto();
         }
 
-        function renderReviewCard(dir) {
-            const wrap = document.getElementById('reviewCardWrap');
-            if (!wrap) return;
-            const r = REVIEWS[reviewIndex];
-            const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
-            const animClass = (dir === -1) ? 'slide-left' : '';
-            wrap.innerHTML = `
-                <div class="review-card ${animClass}">
-                    <div class="review-top">
-                        <div class="review-author">
-                            <div class="review-name">${r.name}</div>
-                            <div class="review-date">${r.date}</div>
-                        </div>
-                        <div class="review-stars">${stars}</div>
-                    </div>
-                    <div class="review-text">${r.text}</div>
-                </div>
-            `;
-        }
-
-        function renderReviewDots() {
-            const dotsEl = document.getElementById('reviewsDots');
-            if (!dotsEl) return;
-            dotsEl.innerHTML = REVIEWS.map((_, i) =>
-                `<button class="reviews-dot ${i === reviewIndex ? 'active' : ''}" onclick="reviewGoTo(${i})"></button>`
-            ).join('');
-        }
-
-        function reviewNav(dir) {
-            reviewIndex = (reviewIndex + dir + REVIEWS.length) % REVIEWS.length;
-            renderReviewCard(dir);
-            renderReviewDots();
-        }
-
-        function reviewGoTo(i) {
-            const dir = i >= reviewIndex ? 1 : -1;
-            reviewIndex = i;
-            renderReviewCard(dir);
-            renderReviewDots();
-        }
-
-        /* ── ADMIN / CURTAIN ──────────────────────── */
+        // ── ADMIN / CURTAIN ──────────────────────────
         function toggleAdminInput() {
             const input = document.getElementById('adminInput');
             input.style.display = (input.style.display === 'inline-block') ? 'none' : 'inline-block';
@@ -700,7 +859,7 @@
     <script src="catalogue.js"></script>
 
     <script>
-        /* ── COLLECTIONS & GRILLE ─────────────────── */
+        // ── COLLECTIONS & GRILLE ─────────────────────
         let activeCollection = COLLECTIONS[0].id;
 
         function renderTabs() {
@@ -733,7 +892,7 @@
             `).join('');
         }
 
-        /* ── LIGHTBOX ─────────────────────────────── */
+        // ── LIGHTBOX ─────────────────────────────────
         const lb = { design: null, type: null, color: null, size: null, photoIndex: 0 };
 
         function openLb(designKey) {
@@ -760,16 +919,19 @@
 
             document.getElementById('lbTypes').innerHTML = TYPES
                 .filter(x => d.types.includes(x.id))
-                .map(x => `<button class="opt-btn ${x.id === lb.type ? 'sel' : ''}" onclick="lbSet('type','${x.id}')">${x.label}</button>`)
+                .map(x => `<button class="opt-btn ${x.id === lb.type ? 'sel' : ''}"
+                                   onclick="lbSet('type','${x.id}')">${x.label}</button>`)
                 .join('');
 
             document.getElementById('lbColors').innerHTML = COLORS
                 .filter(x => d.colors.includes(x.id))
-                .map(x => `<button class="opt-btn ${x.id === lb.color ? 'sel' : ''}" onclick="lbSet('color','${x.id}')">${x.label}</button>`)
+                .map(x => `<button class="opt-btn ${x.id === lb.color ? 'sel' : ''}"
+                                   onclick="lbSet('color','${x.id}')">${x.label}</button>`)
                 .join('');
 
             document.getElementById('lbSizes').innerHTML = SIZES
-                .map(s => `<button class="opt-btn ${s === lb.size ? 'sel' : ''}" onclick="lbSet('size','${s}')">${s}</button>`)
+                .map(s => `<button class="opt-btn ${s === lb.size ? 'sel' : ''}"
+                                   onclick="lbSet('size','${s}')">${s}</button>`)
                 .join('');
 
             document.getElementById('lbAdd').disabled = !(lb.type && lb.color && lb.size);
@@ -804,12 +966,13 @@
             thumbsEl.style.display = multi ? 'flex' : 'none';
             if (multi) {
                 thumbsEl.innerHTML = d.images.map((img, i) =>
-                    `<img class="lb-thumb ${i === lb.photoIndex ? 'active' : ''}" src="images/${img}" onclick="lbGoPhoto(${i})" />`
+                    `<img class="lb-thumb ${i === lb.photoIndex ? 'active' : ''}"
+                          src="images/${img}" onclick="lbGoPhoto(${i})" />`
                 ).join('');
             }
         }
 
-        /* ── PANIER ──────────────────────────────── */
+        // ── PANIER ───────────────────────────────────
         let cart = [];
 
         function addToCart() {
@@ -817,8 +980,15 @@
             const d = DESIGNS.find(x => x.key === lb.design);
             const c = COLORS.find(x => x.id === lb.color);
             cart.push({
-                id: Date.now(), design: d.id, type: lb.type, color: lb.color, size: lb.size,
-                typeLabel: t.label, designLabel: d.label, colorLabel: c.label, price: t.price,
+                id:          Date.now(),
+                design:      d.id,
+                type:        lb.type,
+                color:       lb.color,
+                size:        lb.size,
+                typeLabel:   t.label,
+                designLabel: d.label,
+                colorLabel:  c.label,
+                price:       t.price,
             });
             renderCart(); closeLb(); openCart();
         }
@@ -826,7 +996,7 @@
         function removeItem(id) { cart = cart.filter(i => i.id !== id); renderCart(); }
 
         function renderCart() {
-            const container  = document.getElementById('cartItems');
+            const container = document.getElementById('cartItems');
             const pct        = promoState.discountPercent || 0;
             const totalOrig  = cart.reduce((s, i) => s + i.price, 0);
             const discountAmt = pct > 0 ? Math.round(totalOrig * pct) : 0;
@@ -838,9 +1008,10 @@
             const discountRow = document.getElementById('cartDiscountRow');
             if (pct > 0 && cart.length > 0) {
                 discountRow.style.display = 'flex';
-                document.getElementById('cartDiscountLabel').textContent = `${promoState.code} (−${Math.round(pct * 100)}%)`;
-                document.getElementById('cartDiscountAmt').textContent   = `−${discountAmt} €`;
-                document.getElementById('cartTotal').textContent         = totalFinal + ' €';
+                document.getElementById('cartDiscountLabel').textContent =
+                    `${promoState.code} (−${Math.round(pct * 100)}%)`;
+                document.getElementById('cartDiscountAmt').textContent = `−${discountAmt} €`;
+                document.getElementById('cartTotal').textContent = totalFinal + ' €';
             } else {
                 discountRow.style.display = 'none';
                 document.getElementById('cartTotal').textContent = totalOrig + ' €';
@@ -861,57 +1032,55 @@
         function openCart()  { document.getElementById('cartDrawer').classList.add('open');    document.getElementById('cartBg').style.display = 'block'; }
         function closeCart() { document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartBg').style.display = 'none'; }
 
-/* ── CODE PROMO ──────────────────────────── */
-const promoState = { code: null, discountPercent: 0, validated: false };
-async function applyPromo() {
-    const input = document.getElementById('promoInput');
-    const msgEl = document.getElementById('promoMsg');
-    const code  = input.value.trim().toUpperCase();
-    if (!code) return;
-    msgEl.textContent = 'Vérification...';
-    try {
-        const res  = await fetch('/api/validate-promo', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ promoCode: code })
-        });
-        const data = await res.json();
-        if (res.ok) {
-            promoState.code = code; promoState.discountPercent = data.discountPercent; promoState.validated = true;
-            msgEl.className = 'promo-msg ok'; msgEl.textContent = `✓ −${Math.round(data.discountPercent * 100)}% appliqué`;
-        } else {
-            promoState.discountPercent = 0; promoState.validated = false;
-            msgEl.className = 'promo-msg err'; msgEl.textContent = data.error || 'Code invalide';
-        }
-        renderCart();
-    } catch { msgEl.textContent = 'Erreur réseau'; }
-}
+        // ── CODE PROMO ───────────────────────────────
+        const promoState = { code: null, discountPercent: 0, validated: false };
 
-/* ── CHECKOUT ────────────────────────────── */
-async function goToCheckout() {
-    if (!cart.length) return;
-    const btn = document.getElementById('checkoutBtn');
-    btn.innerText = 'Chargement...'; btn.disabled = true;
-    const pct         = promoState.discountPercent || 0;
-    const itemsToSend = cart.map(i => ({ ...i, price: Math.round(i.price * (1 - pct)) }));
-    try {
-        const body = { items: itemsToSend };
-        if (promoState.validated) body.promoCode = promoState.code;
-        const res = await fetch('/api/checkout', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body)
-        });
-        const data = await res.json();
-        console.log('Réponse API checkout :', data);  // ← regarde ça dans F12
-        const { url } = data;
-        const totalAmount = itemsToSend.reduce((s, i) => s + i.price, 0);
-        sessionStorage.setItem('lastOrderTotal', totalAmount);
-        window.location.href = url;
-    } catch(err) {
-        console.error('Erreur checkout :', err);
-        alert('Erreur lors du paiement');
-        btn.innerText = 'Payer →'; btn.disabled = false;
-    }
-}
+        async function applyPromo() {
+            const input = document.getElementById('promoInput');
+            const msgEl = document.getElementById('promoMsg');
+            const code  = input.value.trim().toUpperCase();
+            if (!code) return;
+            msgEl.textContent = 'Vérification...';
+            try {
+                const res  = await fetch('/api/validate-promo', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ promoCode: code })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    promoState.code = code; promoState.discountPercent = data.discountPercent; promoState.validated = true;
+                    msgEl.className = 'promo-msg ok'; msgEl.textContent = `✓ −${Math.round(data.discountPercent * 100)}% appliqué`;
+                } else {
+                    promoState.discountPercent = 0; promoState.validated = false;
+                    msgEl.className = 'promo-msg err'; msgEl.textContent = data.error || 'Code invalide';
+                }
+                renderCart();
+            } catch { msgEl.textContent = 'Erreur réseau'; }
+        }
+
+        // ── CHECKOUT ─────────────────────────────────
+        async function goToCheckout() {
+            if (!cart.length) return;
+            const btn = document.getElementById('checkoutBtn');
+            btn.innerText = 'Chargement...'; btn.disabled = true;
+            const pct         = promoState.discountPercent || 0;
+            const itemsToSend = cart.map(i => ({ ...i, price: Math.round(i.price * (1 - pct)) }));
+            try {
+                const body = { items: itemsToSend };
+                if (promoState.validated) body.promoCode = promoState.code;
+                const res = await fetch('/api/checkout', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+                const { url } = await res.json();
+                const totalAmount = itemsToSend.reduce((s, i) => s + i.price, 0);
+                sessionStorage.setItem('lastOrderTotal', totalAmount);
+                window.location.href = url;
+            } catch {
+                alert('Erreur lors du paiement');
+                btn.innerText = 'Payer →'; btn.disabled = false;
+            }
+        }
     </script>
 </body>
 </html>
