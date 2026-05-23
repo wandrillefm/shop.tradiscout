@@ -18,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
     <style>
-        /* ──────────────────────────────── VARIABLES & RESET ────────────────────────────────── */
         :root {
             --navy: #2C3776;
             --bg: #F8F2E7;
@@ -37,7 +36,7 @@
             flex-direction: column;
         }
 
-        /* ──────────────────────────────── HEADER ────────────────────────────────── */
+        /* ── HEADER ── */
         header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             background: rgba(248, 242, 231, 0.96);
@@ -46,13 +45,11 @@
             display: flex; align-items: center; justify-content: space-between;
             padding: 0 5%; height: 64px;
         }
-
         .logo {
             font-family: 'Uncial Antiqua', serif;
             text-transform: uppercase; letter-spacing: 2px; font-size: 1.6rem;
             color: var(--navy); text-decoration: none;
         }
-
         .main-nav { display: flex; gap: 32px; align-items: center; }
         .main-nav a {
             text-decoration: none; color: var(--navy); font-size: 0.72rem;
@@ -65,7 +62,7 @@
             width: 100%; height: 1px; background: var(--navy);
         }
 
-        /* ──────────────────────────────── HERO ────────────────────────────────── */
+        /* ── HERO ── */
         .hero {
             min-height: 88vh; display: flex; flex-direction: column;
             align-items: center; justify-content: center;
@@ -83,10 +80,9 @@
         .hero-sub { font-size:.72rem;color:rgba(248,242,231,.8);line-height:1.9;max-width:460px;opacity:0;animation:fadeUp .7s ease .4s forwards;margin-bottom:48px;position:relative; }
         .hero-cta { display:inline-block;padding:14px 40px;border:1px solid white;color:white;text-decoration:none;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;transition:.2s;opacity:0;animation:fadeUp .7s ease .55s forwards;position:relative; }
         .hero-cta:hover { background:white;color:var(--navy); }
-
         @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 
-        /* ──────────────────────────────── SECTION HEADER ────────────────────────────────── */
+        /* ── SECTION HEADER ── */
         .section-header {
             max-width: 1100px; margin: 0 auto 0; padding: 72px 5% 0;
             display: flex; align-items: baseline; justify-content: space-between;
@@ -95,7 +91,7 @@
         .section-header-title { font-family: 'Uncial Antiqua', serif; font-size: 1.6rem; }
         .section-header-sub { font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); }
 
-        /* ──────────────────────────────── COLLECTION TABS ────────────────────────────────── */
+        /* ── COLLECTION TABS ── */
         .collection-tabs-wrap {
             max-width: 1100px; margin: 0 auto; padding: 28px 5% 0;
             display: flex; gap: 0;
@@ -116,9 +112,8 @@
             width: calc(100% - 20px); height: 2px; background: var(--navy);
         }
 
-        /* ──────────────────────────────── CURTAIN ────────────────────────────────── */
+        /* ── CURTAIN ── */
         #shop-curtain, #shop-content { margin-top: 64px; }
-
         #shop-curtain {
             flex: 1; display: flex; flex-direction: column;
             align-items: center; justify-content: center;
@@ -138,9 +133,8 @@
         #adminInput { display: none; padding: 6px 10px; border: 1px solid var(--navy); background: white; font-family: 'DM Mono'; font-size: 0.65rem; outline: none; width: 110px; }
         .lock-icon { cursor: pointer; opacity: 0.2; font-size: 1rem; transition: 0.3s; }
 
-        /* ──────────────────────────────── GRID ────────────────────────────────── */
+        /* ── GRID ── */
         #shop-content { display: none; flex: 1; }
-
         .grid-wrap { max-width: 1100px; margin: 2rem auto; padding: 0 5% 2rem; }
         .grid {
             display: grid; gap: 16px;
@@ -156,7 +150,7 @@
         .grid-card-name { font-family: 'Uncial Antiqua', serif; font-size: 0.75rem; }
         .grid-card-price { font-size: 0.68rem; color: var(--or); margin-top: 4px; }
 
-        /* ──────────────────────────────── LEGAL DOCS ────────────────────────────────── */
+        /* ── LEGAL DOCS ── */
         .legal-docs {
             max-width: 1100px; margin: 0 auto 4rem; padding: 0 5%;
             display: flex; justify-content: center; gap: 20px;
@@ -165,27 +159,23 @@
         .legal-docs a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--navy); transition: opacity 0.2s; }
         .legal-docs a:hover { opacity: 1; }
 
-        /* ──────────────────────────────── LIGHTBOX ────────────────────────────────── */
+        /* ── LIGHTBOX ── */
         .lb-overlay { position:fixed;inset:0;background:rgba(20,22,40,.65);z-index:300;display:none;align-items:center;justify-content:center;padding:1.5rem; }
         .lb-overlay.open { display:flex; }
         .lb-modal { background:var(--bg);display:grid;grid-template-columns:1fr 1fr;max-width:820px;width:100%;max-height:90vh;overflow:hidden;position:relative;animation:lbIn .22s ease; }
         @keyframes lbIn { from{opacity:0;transform:scale(.97)} to{opacity:1;transform:scale(1)} }
-
         .lb-gallery { display:flex;flex-direction:column;background:#e8e3d8;overflow:hidden; }
         .lb-main-img-wrap { flex:1;position:relative;overflow:hidden; }
         .lb-main-img-wrap img { width:100%;height:100%;object-fit:cover;display:block;transition:opacity .18s; }
-
         .lb-nav { position:absolute;top:50%;transform:translateY(-50%);background:rgba(248,242,231,.82);border:none;cursor:pointer;font-size:1.1rem;padding:.35rem .55rem;z-index:5;opacity:.7;transition:opacity .15s;font-family:inherit; }
         .lb-nav:hover { opacity:1; }
         .lb-nav-prev { left:6px; }
         .lb-nav-next { right:6px; }
-
         .lb-thumbs { display:flex;gap:4px;padding:6px;overflow-x:auto;background:#ddd8cd;flex-shrink:0; }
         .lb-thumbs::-webkit-scrollbar { height:3px; }
         .lb-thumbs::-webkit-scrollbar-thumb { background:rgba(44,55,118,.3); }
         .lb-thumb { width:44px;height:44px;object-fit:cover;cursor:pointer;opacity:.45;transition:opacity .15s;flex-shrink:0; }
         .lb-thumb.active { opacity:1;outline:2px solid var(--navy); }
-
         .lb-config { padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1.1rem;overflow-y:auto;border-left:1px solid rgba(44,55,118,.1); }
         .lb-close { position:absolute;top:.8rem;right:.9rem;background:none;border:none;cursor:pointer;color:var(--navy);font-size:1.2rem;opacity:.45;z-index:10; }
         .lb-title { font-family:'Uncial Antiqua',serif;font-size:1.5rem; }
@@ -200,23 +190,20 @@
         .lb-add:disabled { opacity:.22;cursor:not-allowed; }
         .lb-msg { font-size:.5rem;color:gray;text-align:center; }
 
-        /* ──────────────────────────────── CART ────────────────────────────────── */
+        /* ── CART ── */
         .cart-btn-nav { background:none;border:none;cursor:pointer;color:var(--navy);font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:lowercase;opacity:.4;transition:.2s;display:flex;align-items:center;gap:6px;padding:0; }
         .cart-btn-nav:hover { opacity:1; }
         .cart-count { background:var(--or);color:white;border-radius:50%;width:17px;height:17px;display:flex;align-items:center;justify-content:center;font-size:.58rem; }
-
         .cart-drawer { position:fixed;top:64px;right:0;width:320px;height:calc(100% - 64px);background:white;z-index:2100;transform:translateX(100%);transition:.3s;padding:2rem;display:flex;flex-direction:column;border-left:1px solid var(--navy); }
         .cart-drawer.open { transform:translateX(0); }
         .cart-bg { position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;z-index:350; }
         .drawer-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem; }
         .drawer-close { background:none;border:1px solid rgba(44,55,118,0.2);cursor:pointer;color:var(--navy);font-size:0.9rem;width:28px;height:28px;display:flex;align-items:center;justify-content:center;opacity:0.5;transition:opacity 0.15s, border-color 0.15s; }
         .drawer-close:hover { opacity:1;border-color:var(--navy); }
-
         .cart-item-row { display:flex;align-items:flex-start;gap:12px;margin-bottom:1.2rem;border-bottom:1px solid #eee;padding-bottom:12px; }
         .cart-item-remove { background:none;border:none;color:#b94040;cursor:pointer;font-size:1.1rem;padding:0;opacity:.5;transition:opacity .2s;margin-top:-2px; }
         .cart-item-remove:hover { opacity:1; }
         .cart-item-info { flex:1; }
-
         .promo-wrap { margin-bottom:.8rem; }
         .promo-row { display:flex;gap:.4rem; }
         .promo-input { flex:1;border:1px solid rgba(44,55,118,.22);padding:.45rem .6rem;font-family:inherit;font-size:.6rem;text-transform:uppercase;outline:none; }
@@ -227,8 +214,8 @@
         .promo-msg.err { color:#b94040; }
         .checkout-btn { width:100%;padding:.9rem;background:var(--navy);color:white;border:none;font-family:'Uncial Antiqua',serif;font-size:.95rem;cursor:pointer; }
 
-        /* ──────────────────────────────── LEGAL PAGES MODAL ────────────────────────────────── */
-        .legal-modal { position:fixed;inset:0;background:rgba(20,22,40,.65);z-index:400;display:none;align-items:center;justify-content:center;padding:1.5rem;overflow-y:auto; }
+        /* ── LEGAL MODAL ── */
+        .legal-modal { position:fixed;inset:0;background:rgba(20,22,40,0.65);z-index:400;display:none;align-items:center;justify-content:center;padding:1.5rem;overflow-y:auto; }
         .legal-modal.open { display:flex; }
         .legal-modal-content { background:var(--bg);max-width:700px;width:100%;padding:2.5rem;position:relative;max-height:90vh;overflow-y:auto;animation:fadeIn 0.2s ease; }
         @keyframes fadeIn { from{opacity:0} to{opacity:1} }
@@ -241,66 +228,160 @@
         .legal-modal-body ul { margin-left:1.5rem;margin-bottom:1rem; }
         .legal-modal-body li { margin-bottom:0.5rem; }
 
-        /* ──────────────────────────────── REVIEWS ────────────────────────────────── */
-        .reviews-section { background: var(--bg); color: var(--navy); padding: 80px 5% 60px; }
-        .reviews-wrap { max-width: 1100px; margin: 0 auto; }
-        .reviews-header { text-align: center; margin-bottom: 60px; }
-        .reviews-title { font-family: 'Uncial Antiqua', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 8px; color: var(--navy); }
-        .reviews-subtitle { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
-
-        .reviews-stage { display: flex; align-items: center; gap: 20px; max-width: 600px; margin: 0 auto; }
-        .reviews-nav-btn {
-            background: none; border: 1px solid rgba(44,55,118,0.3); color: var(--navy);
-            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
-            font-size: 1.4rem; display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0; transition: background 0.2s; font-family: inherit;
+        /* ── REVIEWS ── */
+        .reviews-section {
+            background: var(--bg);
+            color: var(--navy);
+            padding: 80px 5% 60px;
         }
-        .reviews-nav-btn:hover { background: rgba(44,55,118,0.08); }
-        .reviews-track { flex: 1; overflow: hidden; }
+        .reviews-wrap { max-width: 560px; margin: 0 auto; }
+        .reviews-header { text-align: center; margin-bottom: 48px; }
+        .reviews-title {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            line-height: 1.1; margin-bottom: 8px; color: var(--navy);
+        }
+        .reviews-subtitle {
+            font-size: 0.65rem; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--gris);
+        }
+
+        /* Carrousel */
+        .reviews-carousel {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .reviews-arrow {
+            flex-shrink: 0;
+            width: 40px; height: 40px;
+            background: none;
+            border: 1px solid rgba(44,55,118,0.25);
+            color: var(--navy);
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.15s, border-color 0.15s;
+            font-family: inherit;
+        }
+        .reviews-arrow:hover {
+            background: var(--navy);
+            color: white;
+            border-color: var(--navy);
+        }
+        .reviews-card-wrap {
+            flex: 1;
+            overflow: hidden;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+        }
         .review-card {
-            background: white; border: 1px solid rgba(44,55,118,0.1);
-            padding: 28px; display: flex; flex-direction: column; gap: 14px;
+            background: white;
+            border: 1px solid rgba(44, 55, 118, 0.1);
+            padding: 40px 44px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: reviewFadeIn 0.3s ease;
+            min-height: 220px;
+            box-sizing: border-box;
         }
-        .rv-top { display: flex; justify-content: space-between; align-items: flex-start; }
-        .review-name { font-family: 'Uncial Antiqua', serif; font-size: 0.95rem; color: var(--navy); }
-        .review-date { font-size: 0.55rem; color: var(--gris); letter-spacing: 0.08em; text-transform: uppercase; }
-        .review-stars { font-size: 1rem; letter-spacing: 2px; color: var(--or); }
-        .review-text { font-size: 0.68rem; color: var(--gris); line-height: 1.7; }
+        @keyframes reviewFadeIn {
+            from { opacity: 0; transform: translateX(18px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        .review-card.slide-left {
+            animation: reviewFadeInLeft 0.3s ease;
+        }
+        @keyframes reviewFadeInLeft {
+            from { opacity: 0; transform: translateX(-18px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        .review-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .review-author { display: flex; flex-direction: column; gap: 4px; }
+        .review-name {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 0.95rem; color: var(--navy);
+        }
+        .review-date {
+            font-size: 0.52rem; color: var(--gris);
+            letter-spacing: 0.08em; text-transform: uppercase;
+        }
+        .review-stars {
+            font-size: 0.9rem; letter-spacing: 3px;
+            color: var(--or); flex-shrink: 0; margin-top: 2px;
+        }
+        .review-text {
+            font-size: 0.7rem; color: var(--gris); line-height: 1.8;
+            border-top: 1px solid rgba(44, 55, 118, 0.07);
+            padding-top: 18px;
+        }
 
-        .rv-dots { display: flex; justify-content: center; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
-        .rv-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(44,55,118,0.2); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
-        .rv-dot.active { background: var(--navy); }
+        /* Dots */
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        .reviews-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: rgba(44,55,118,0.2);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            border: none;
+            padding: 0;
+        }
+        .reviews-dot.active {
+            background: var(--navy);
+            transform: scale(1.3);
+        }
 
-        /* ──────────────────────────────── PARTNERSHIP ────────────────────────────────── */
-        .partnership-section { background: var(--bg); color: var(--navy); padding: 80px 5% 60px; margin-bottom: 0; }
-        .partnership-wrap { max-width: 600px; margin: 0 auto; text-align: center; }
-        .partnership-eyebrow { font-size: 0.5rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--or); margin-bottom: 16px; opacity: 0.8; }
-        .partnership-title { font-family: 'Uncial Antiqua', serif; font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.1; margin-bottom: 20px; color: var(--navy); }
-        .partnership-desc { font-size: 0.72rem; color: var(--gris); line-height: 1.9; margin-bottom: 32px; }
-        .partnership-cta { display: inline-block; padding: 14px 40px; border: 1px solid var(--navy); color: var(--navy); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; transition: 0.2s; }
-        .partnership-cta:hover { background: var(--navy); color: var(--bg); }
+        @media (max-width: 768px) {
+            .reviews-section { padding: 60px 5% 40px; }
+            .review-card { padding: 28px 22px; min-height: 200px; }
+            .reviews-arrow { width: 34px; height: 34px; font-size: 0.9rem; }
+        }
 
-        /* ──────────────────────────────── CAGNOTTES ────────────────────────────────── */
-        .cagnottes-section { background: var(--navy); color: var(--bg); padding: 80px 5% 60px; }
-        .cagnottes-wrap { max-width: 1100px; margin: 0 auto; }
-        .cagnottes-header { text-align: center; margin-bottom: 60px; }
-        .cagnottes-title { font-family: 'Uncial Antiqua', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 12px; color: white; }
-        .cagnottes-subtitle { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(248,242,231,0.6); }
-        .cagnottes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .cagnotte-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.25); padding: 28px; border-radius: 4px; transition: all 0.3s; }
-        .cagnotte-card:hover { background: rgba(255,255,255,0.08); border-color: var(--or); }
-        .cagnotte-name { font-family: 'Uncial Antiqua', serif; font-size: 1.1rem; color: white; margin-bottom: 8px; }
-        .cagnotte-desc { font-size: 0.62rem; color: rgba(248,242,231,0.7); line-height: 1.6; margin-bottom: 20px; }
-        .progress-wrapper { margin-bottom: 12px; }
-        .progress-bar { width: 100%; height: 8px; background: rgba(201,168,76,0.15); border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--or), #e6c456); border-radius: 4px; transition: width 0.6s ease; }
-        .progress-text { display: flex; justify-content: space-between; font-size: 0.58rem; color: rgba(248,242,231,0.6); }
-        .progress-percent { font-size: 0.72rem; color: var(--or); font-weight: 500; }
-        .progress-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
-        .donate-btn { display: inline-block; padding: 6px 16px; background: var(--or); color: var(--navy); text-decoration: none; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: all 0.2s; font-weight: 500; }
-        .donate-btn:hover { background: #e6c456; transform: translateY(-1px); }
+        /* ── PARTNERSHIP ── */
+        .partnership-section { background:var(--bg);color:var(--navy);padding:80px 5% 60px;margin-bottom:0; }
+        .partnership-wrap { max-width:600px;margin:0 auto;text-align:center; }
+        .partnership-eyebrow { font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--or);margin-bottom:16px;opacity:0.8; }
+        .partnership-title { font-family:'Uncial Antiqua',serif;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.1;margin-bottom:20px;color:var(--navy); }
+        .partnership-desc { font-size:0.72rem;color:var(--gris);line-height:1.9;margin-bottom:32px; }
+        .partnership-cta { display:inline-block;padding:14px 40px;border:1px solid var(--navy);color:var(--navy);text-decoration:none;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;transition:0.2s; }
+        .partnership-cta:hover { background:var(--navy);color:var(--bg); }
+        @media (max-width:768px) { .partnership-section { padding:60px 5% 40px; } }
 
-        /* ──────────────────────────────── FOOTER ────────────────────────────────── */
+        /* ── CAGNOTTES ── */
+        .cagnottes-section { background:var(--navy);color:var(--bg);padding:80px 5% 60px; }
+        .cagnottes-wrap { max-width:1100px;margin:0 auto; }
+        .cagnottes-header { text-align:center;margin-bottom:60px; }
+        .cagnottes-title { font-family:'Uncial Antiqua',serif;font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.1;margin-bottom:12px;color:white; }
+        .cagnottes-subtitle { font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(248,242,231,0.6); }
+        .cagnottes-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:32px; }
+        .cagnotte-card { background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.25);padding:28px;border-radius:4px;transition:all 0.3s; }
+        .cagnotte-card:hover { background:rgba(255,255,255,0.08);border-color:var(--or); }
+        .cagnotte-name { font-family:'Uncial Antiqua',serif;font-size:1.1rem;color:white;margin-bottom:8px; }
+        .cagnotte-desc { font-size:0.62rem;color:rgba(248,242,231,0.7);line-height:1.6;margin-bottom:20px; }
+        .progress-wrapper { margin-bottom:12px; }
+        .progress-bar { width:100%;height:8px;background:rgba(201,168,76,0.15);border-radius:4px;overflow:hidden;margin-bottom:8px; }
+        .progress-fill { height:100%;background:linear-gradient(90deg,var(--or),#e6c456);border-radius:4px;transition:width 0.6s ease; }
+        .progress-text { display:flex;justify-content:space-between;font-size:0.58rem;color:rgba(248,242,231,0.6); }
+        .progress-percent { font-size:0.72rem;color:var(--or);font-weight:500; }
+        .progress-footer { display:flex;justify-content:space-between;align-items:center;margin-top:12px; }
+        .donate-btn { display:inline-block;padding:6px 16px;background:var(--or);color:var(--navy);text-decoration:none;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;transition:all 0.2s;font-weight:500; }
+        .donate-btn:hover { background:#e6c456;transform:translateY(-1px); }
+        @media (max-width:768px) { .cagnottes-grid{grid-template-columns:1fr;gap:20px;} .cagnottes-section{padding:60px 5% 40px;} }
+
+        /* ── FOOTER ── */
         footer { background:var(--navy);color:var(--bg);padding:64px 5% 40px;margin-top:auto; }
         .footer-inner { max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px; }
         .footer-col-title { font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:25px;display:block; }
@@ -314,32 +395,26 @@
         .footer-bottom { max-width:860px;margin:48px auto 0;padding-top:20px;border-top:1px solid rgba(248,242,231,.1);display:flex;justify-content:space-between;align-items:center; }
         .footer-bottom span { font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;opacity:.35; }
 
-        /* ──────────────────────────────── MOBILE ────────────────────────────────── */
+        /* ── MOBILE ── */
         .tab-bar { display:none;position:fixed;bottom:0;left:0;width:100%;background:var(--bg);border-top:1px solid rgba(44,55,118,.13);z-index:1000;padding-bottom:env(safe-area-inset-bottom,0px); }
         .tab-bar-btn { flex:1;display:flex;align-items:center;justify-content:center;padding:20px 0;text-decoration:none;color:var(--navy);opacity:.3;transition:.2s;font-size:.65rem;letter-spacing:.1em;text-transform:lowercase; }
         .tab-bar-btn.active { opacity:1; }
 
         @media (max-width: 768px) {
-            .reviews-stage { gap: 12px; }
-            .reviews-section { padding: 60px 5% 40px; }
-            .cagnottes-grid { grid-template-columns: 1fr; gap: 20px; }
-            .cagnottes-section { padding: 60px 5% 40px; }
-            .partnership-section { padding: 60px 5% 40px; }
             header { justify-content:center; }
             .main-nav { display:none; }
             .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
             .lb-modal { grid-template-columns:1fr;max-height:90vh;overflow-y:auto;margin:auto; }
-            .lb-main-img-wrap { width: 60%; aspect-ratio: 1/1; flex: none; margin: 0 auto; }
-            .lb-main-img-wrap { max-height:38vh; }
+            .lb-main-img-wrap { width:60%;aspect-ratio:1/1;flex:none;margin:0 auto;max-height:38vh; }
             .lb-config { border-left:none;border-top:1px solid rgba(44,55,118,.1);padding:1rem; }
             .lb-config .opt-group { gap:.2rem; }
             .lb-title { font-size:1.1rem; }
-            .lb-overlay { padding:.5rem; align-items: flex-end; }
+            .lb-overlay { padding:.5rem;align-items:flex-end; }
             .tab-bar { display:flex; }
             .cart-drawer { width:100%;padding-bottom:100px; }
             footer { padding-bottom:120px; }
             .footer-inner { grid-template-columns:1fr;gap:36px; }
-            .collection-tabs-wrap { padding: 20px 5% 0; gap: 0; overflow-x: auto; }
+            .collection-tabs-wrap { padding:20px 5% 0;gap:0;overflow-x:auto; }
         }
     </style>
 </head>
@@ -385,10 +460,7 @@
                 <div class="section-header-title"></div>
                 <div class="section-header-sub">Livraison &amp; TVA incluses</div>
             </div>
-
-            <!-- COLLECTION TABS -->
             <div class="collection-tabs-wrap" id="collectionTabs"></div>
-
             <div class="grid-wrap">
                 <div class="grid" id="grid"></div>
             </div>
@@ -403,28 +475,19 @@
             <a href="javascript:openLegalPage('mentions')">Mentions légales</a>
         </div>
 
-        <!-- ── REVIEWS SECTION ── -->
+        <!-- REVIEWS -->
         <section class="reviews-section">
             <div class="reviews-wrap">
                 <div class="reviews-header">
                     <h2 class="reviews-title">Avis clients</h2>
                     <p class="reviews-subtitle">Ce que nos clients pensent de nous</p>
                 </div>
-                <div class="reviews-stage">
-                    <button class="reviews-nav-btn" id="rvPrev">&#8249;</button>
-                    <div class="reviews-track">
-                        <div class="review-card" id="rvCard">
-                            <div class="rv-top">
-                                <div class="review-name" id="rvName"></div>
-                                <div class="review-date" id="rvDate"></div>
-                            </div>
-                            <div class="review-stars" id="rvStars"></div>
-                            <div class="review-text" id="rvText"></div>
-                        </div>
-                    </div>
-                    <button class="reviews-nav-btn" id="rvNext">&#8250;</button>
+                <div class="reviews-carousel">
+                    <button class="reviews-arrow" onclick="reviewNav(-1)">&#8249;</button>
+                    <div class="reviews-card-wrap" id="reviewCardWrap"></div>
+                    <button class="reviews-arrow" onclick="reviewNav(1)">&#8250;</button>
                 </div>
-                <div class="rv-dots" id="rvDots"></div>
+                <div class="reviews-dots" id="reviewsDots"></div>
             </div>
         </section>
 
@@ -436,8 +499,8 @@
             <div class="lb-gallery">
                 <div class="lb-main-img-wrap">
                     <img id="lbImg" src="" alt="" />
-                    <button class="lb-nav lb-nav-prev" id="lbPrev" onclick="lbNavPhoto(-1)">‹</button>
-                    <button class="lb-nav lb-nav-next" id="lbNext" onclick="lbNavPhoto(1)">›</button>
+                    <button class="lb-nav lb-nav-prev" id="lbPrev" onclick="lbNavPhoto(-1)">&#8249;</button>
+                    <button class="lb-nav lb-nav-next" id="lbNext" onclick="lbNavPhoto(1)">&#8250;</button>
                 </div>
                 <div class="lb-thumbs" id="lbThumbs"></div>
             </div>
@@ -483,7 +546,7 @@
         </div>
     </div>
 
-    <!-- ── CAGNOTTES SECTION ── -->
+    <!-- CAGNOTTES -->
     <section class="cagnottes-section">
         <div class="cagnottes-wrap">
             <div class="cagnottes-header">
@@ -492,7 +555,7 @@
             </div>
             <div class="cagnottes-grid">
                 <div class="cagnotte-card">
-                    <div class="cagnotte-name">Pour les familles de scouts qui seraient en difficulté</div>
+                    <div class="cagnotte-name">Pour les familles de scouts</div>
                     <div class="cagnotte-desc">Permettre à des jeunes de profiter du scoutisme sans souci financier</div>
                     <div class="progress-wrapper">
                         <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
@@ -531,7 +594,7 @@
         </div>
     </section>
 
-    <!-- ── PARTNERSHIP SECTION ── -->
+    <!-- PARTNERSHIP -->
     <section class="partnership-section">
         <div class="partnership-wrap">
             <div class="partnership-content">
@@ -543,7 +606,7 @@
         </div>
     </section>
 
-    <!-- ── LEGAL PAGES MODAL ── -->
+    <!-- LEGAL MODAL -->
     <div class="legal-modal" id="legalModal" onclick="closeLegalPage(event)">
         <div class="legal-modal-content" onclick="event.stopPropagation()">
             <button class="legal-modal-close" onclick="closeLegalPage()">✕</button>
@@ -591,55 +654,35 @@
         <a href="https://code.tradiscout.com" class="tab-bar-btn"><span>code</span></a>
     </nav>
 
-    <!-- ── SCRIPTS ── -->
     <script>
-        // ── LEGAL PAGES ──────────────────────────────
+        /* ── LEGAL PAGES ── */
         const LEGAL_PAGES = {
             livraison: {
                 title: "Livraison",
                 content: `
-                    <h3>Modes de livraison</h3>
-                    <p>Nous proposons plusieurs options de livraison pour votre commande :</p>
-                    <ul>
-                        <li><strong>Livraison standard (La Poste) :</strong> 4 à 6 jours ouvrables - Offerte à partir de 50€</li>
-                        <li><strong>Livraison express (Colissimo) :</strong> 1 à 2 jours ouvrables - 12€</li>
-                        <li><strong>Retrait en point relais :</strong> 4 à 6 jours ouvrables - 6€</li>
-                    </ul>
+                    <h3>Livraison</h3>
+                    <p><strong>5 à 6 jours ouvrables</strong> - Offerte</p>
                     <h3>Zones de livraison</h3>
                     <p>Nous livrons en France métropolitaine, Corse, et dans les pays de l'Union Européenne. Pour les autres destinations, veuillez nous contacter à tradiscout@gmail.com</p>
                     <h3>Suivi de votre colis</h3>
-                    <p>Un numéro de suivi vous sera communiqué par email dès l'expédition de votre commande.</p>
-                    <h3>Frais de port</h3>
-                    <ul>
-                        <li>Livraison gratuite à partir de 50€ d'achat (France métropolitaine)</li>
-                        <li>France métropolitaine : 6€ en-dessous de 50€</li>
-                        <li>Corse : 12€</li>
-                        <li>Union Européenne : 15€</li>
-                    </ul>
+                    <p>Un numéro de suivi vous sera communiqué par email dès l'expédition de votre commande. Vous pourrez suivre votre colis en temps réel sur le site de La Poste ou Colissimo.</p>
                     <h3>En cas de problème de livraison</h3>
-                    <p>Si votre colis n'arrive pas à la date prévue, contactez-nous à tradiscout@gmail.com avec votre numéro de commande.</p>
+                    <p>Si votre colis n'arrive pas à la date prévue, contactez-nous immédiatement à tradiscout@gmail.com avec votre numéro de commande et votre numéro de suivi.</p>
                 `
             },
             retours: {
                 title: "Retours et Échanges",
                 content: `
                     <h3>Politique de retour</h3>
-                    <p>Vous avez <strong>14 jours</strong> à compter de la date de réception pour retourner vos articles.</p>
+                    <p>Vous avez <strong>14 jours</strong> à compter de la date de réception de votre commande pour retourner vos articles.</p>
                     <h3>Conditions de retour</h3>
                     <ul>
                         <li>Les articles doivent être dans leur état d'origine</li>
-                        <li>Les étiquettes doivent être intactes et le produit n'avoir jamais été porté</li>
+                        <li>Les produits doivent être intacts et n'avoir jamais été portés</li>
                         <li>Les articles doivent être retournés dans leur emballage d'origine si possible</li>
                     </ul>
-                    <h3>Procédure de retour</h3>
-                    <ol style="margin-left:1.5rem;margin-bottom:1rem;">
-                        <li>Contactez-nous à tradiscout@gmail.com avec votre numéro de commande</li>
-                        <li>Nous vous fournirons une étiquette de retour gratuite</li>
-                        <li>Emballez l'article de manière sécurisée</li>
-                        <li>Retournez le colis à l'adresse indiquée sur l'étiquette</li>
-                    </ol>
                     <h3>Remboursement</h3>
-                    <p>Une fois votre retour reçu et contrôlé, nous procéderons à un remboursement dans un délai de <strong>14 jours</strong>.</p>
+                    <p>Une fois votre retour reçu et contrôlé, nous procéderons à un remboursement dans un délai de <strong>14 jours</strong>. Les frais de retour sont à votre charge, sauf cas de produit défectueux.</p>
                     <h3>Échanges</h3>
                     <p>Nous proposons également des échanges de taille ou de couleur gratuitement. Contactez-nous pour organiser votre échange.</p>
                 `
@@ -648,15 +691,11 @@
                 title: "Délais de Traitement",
                 content: `
                     <h3>Traitement des commandes</h3>
-                    <p>Les commandes sont traitées dans un délai de <strong>1 à 2 jours ouvrables</strong> (lundi au vendredi, hors jours fériés).</p>
-                    <h3>Délai total de réception</h3>
-                    <ul>
-                        <li><strong>Livraison standard :</strong> 4 à 6 jours ouvrables après expédition</li>
-                        <li><strong>Livraison express :</strong> 1 à 2 jours ouvrables après expédition</li>
-                        <li><strong>Retrait point relais :</strong> 4 à 6 jours ouvrables après expédition</li>
-                    </ul>
+                    <p>Les commandes sont traitées dans un délai de <strong>1 à 2 jours ouvrables</strong>.</p>
                     <h3>Commandes urgentes</h3>
-                    <p>Pour une commande urgente, utilisez l'option de livraison express et contactez-nous avant 14h. Les commandes passées avant 14h seront expédiées le jour même.</p>
+                    <p>Pour une commande urgente, veuillez utiliser l'option de livraison express et nous contacter avant 14h.</p>
+                    <h3>À noter</h3>
+                    <p>En période de forte demande (soldes, occasions spéciales), les délais de traitement peuvent être prolongés jusqu'à 3 jours.</p>
                 `
             },
             tarifs: {
@@ -665,20 +704,15 @@
                     <h3>Prix des produits</h3>
                     <p>Tous nos prix sont affichés TTC (toutes taxes comprises). Aucun frais supplémentaire ne sera ajouté à la caisse.</p>
                     <h3>Frais de port</h3>
-                    <ul>
-                        <li><strong>Livraison standard (France métropolitaine) :</strong> 6€ - Offerte à partir de 50€</li>
-                        <li><strong>Livraison express (Colissimo) :</strong> 12€</li>
-                        <li><strong>Retrait point relais :</strong> 6€</li>
-                        <li><strong>Corse :</strong> 12€</li>
-                        <li><strong>Union Européenne :</strong> 15€</li>
-                    </ul>
+                    <ul><li><strong>Livraison standard (France métropolitaine) :</strong> Offerte (Comprise dans le prix)</li></ul>
                     <h3>Modes de paiement</h3>
+                    <p>Payements sécurisés avec Stripe :</p>
                     <ul>
                         <li>Carte bancaire (Visa, Mastercard, American Express)</li>
-                        <li>PayPal</li>
+                        <li>Link, Stripe</li>
                     </ul>
-                    <h3>Frais de paiement</h3>
-                    <p>Aucun frais de paiement ne vous sera facturé, quelle que soit votre méthode de paiement.</p>
+                    <h3>TVA</h3>
+                    <p>La TVA est calculée en fonction de votre adresse de livraison et est toujours incluse dans le prix final.</p>
                 `
             },
             cgv: {
@@ -689,30 +723,36 @@
                     <h3>2. Produits et tarifs</h3>
                     <p>Les prix affichés sont en euros TTC. Tradiscout se réserve le droit de modifier les tarifs à tout moment.</p>
                     <h3>3. Disponibilité des produits</h3>
-                    <p>Les produits proposés sont disponibles en quantité limitée. En cas de rupture de stock, l'acheteur sera informé dans les meilleurs délais.</p>
-                    <h3>4. Droit de rétractation</h3>
+                    <p>Les produits proposés à la vente sont disponibles en quantité illimitée. L'impression se fait sur commande.</p>
+                    <h3>4. Commande et validation</h3>
+                    <p>La commande devient définitive après le paiement sécurisé. Un email de confirmation sera envoyé à l'acheteur.</p>
+                    <h3>5. Droit de rétractation</h3>
                     <p>Conformément à la loi, l'acheteur dispose d'un délai de <strong>14 jours</strong> à compter de la réception pour exercer son droit de rétractation.</p>
-                    <h3>5. Données personnelles</h3>
-                    <p>Les données personnelles collectées sont traitées conformément au RGPD et ne seront jamais cédées à des tiers sans consentement.</p>
-                    <h3>6. Litiges et droit applicable</h3>
-                    <p>Les présentes CGV sont régies par la loi française. En cas de litige non résolu, il sera soumis aux tribunaux compétents de Chambéry.</p>
+                    <h3>6. Responsabilité</h3>
+                    <p>Tradiscout n'est responsable que des défauts de conformité des produits livrés.</p>
+                    <h3>7. Propriété intellectuelle</h3>
+                    <p>Tous les éléments du site sont la propriété exclusive de Tradiscout. Toute reproduction sans autorisation est interdite.</p>
+                    <h3>8. Données personnelles</h3>
+                    <p>Les données personnelles sont traitées conformément au RGPD. Elles ne seront jamais cédées à des tiers sans consentement.</p>
+                    <h3>10. Litiges et droit applicable</h3>
+                    <p>Les présentes CGV sont régies par la loi française. En cas de litige, contactez tradiscout@gmail.com.</p>
                 `
             },
             mentions: {
                 title: "Mentions Légales",
                 content: `
                     <h3>Éditeur du site</h3>
-                    <p><strong>Tradiscout</strong><br>SIRET : [À remplir]<br>Forme juridique : [À remplir]<br>Adresse : [À remplir]</p>
+                    <p><strong>Tradiscout</strong><br>SIRET : Particulier<br>Forme juridique : Entreprise individuelle</p>
+                    <h3>Directeur de publication</h3>
+                    <p>Wandrille Fernex de Mongex</p>
                     <h3>Coordonnées</h3>
-                    <p><strong>Email :</strong> tradiscout@gmail.com<br>
-                    <strong>Instagram :</strong> @tradiscout<br>
-                    <strong>TikTok :</strong> @tradiscout</p>
+                    <p><strong>Email :</strong> tradiscout@gmail.com</p>
                     <h3>Hébergement</h3>
-                    <p>[À remplir : nom et coordonnées de l'hébergeur]</p>
+                    <p>Vercel Inc.</p>
                     <h3>Droit d'auteur</h3>
-                    <p>© 2026 Tradiscout. Tous droits réservés. La reproduction sans autorisation écrite préalable est interdite.</p>
+                    <p>© 2026 Tradiscout. Tous droits réservés.</p>
                     <h3>Protection des données</h3>
-                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Contactez tradiscout@gmail.com.</p>
+                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Contactez tradiscout@gmail.com.</p>
                 `
             }
         };
@@ -729,106 +769,76 @@
             document.getElementById('legalModal').classList.remove('open');
         }
 
-        // ── REVIEWS ──────────────────────────────────
+        /* ── REVIEWS CAROUSEL ── */
         const REVIEWS = [
-            { stars: 5, name: "Marie Dupont",      date: "20 mai 2026", text: "Produits de très bonne qualité ! Livraison rapide et équipe super réactive. Je recommande vivement !" },
-            { stars: 5, name: "Jean Moreau",        date: "18 mai 2026", text: "Excellent rapport qualité-prix. Les sweats sont confortables et durables. Parfait pour les scouts !" },
-            { stars: 5, name: "Sophie Martin",      date: "17 mai 2026", text: "J'ai commandé 3 articles, tous sont arrivés en parfait état. Les couleurs sont exactes et le confort au-delà de mes attentes !" },
-            { stars: 5, name: "Lucie Bernard",      date: "16 mai 2026", text: "Service client impeccable. Les produits sont magnifiques et correspondent exactement à mes attentes. Merci !" },
-            { stars: 4, name: "Thomas Renaud",      date: "15 mai 2026", text: "Très bonne qualité. Un petit bémol sur les délais de livraison mais le produit en vaut vraiment la peine." },
-            { stars: 5, name: "Anne Lefevre",       date: "14 mai 2026", text: "Commande reçue rapidement, bien emballée. Les sweats sont super confortables, ma famille adore !" },
-            { stars: 5, name: "Pierre Gauthier",    date: "13 mai 2026", text: "Tradiscout c'est du sérieux. Qualité premium, livraison express, communication top. Je reviens acheter !" },
-            { stars: 4, name: "Caroline Petit",     date: "12 mai 2026", text: "Très satisfaite de ma commande. Les couleurs sont fidèles aux photos. Serait parfait avec plus de choix de tailles." },
-            { stars: 5, name: "Marc Dubois",        date: "11 mai 2026", text: "Pour une association de scouts, c'est exactement ce qu'il nous fallait. Qualité et prix imbattables !" },
-            { stars: 4, name: "Isabelle Rousseau",  date: "10 mai 2026", text: "Beau produit, bon service. Livraison un peu lente mais ça reste correct. Je recommande." },
-            { stars: 5, name: "Christophe Martin",  date: "9 mai 2026",  text: "Excellent ! Vraiment ravi de ma commande. Les délais annoncés ont été respectés. A bientôt !" },
-            { stars: 4, name: "Nathalie Simon",     date: "8 mai 2026",  text: "Produit conforme à la description. Service client réactif. Un peu dommage qu'il n'y ait pas plus de coloris." },
-            { stars: 5, name: "Julien Leclerc",     date: "7 mai 2026",  text: "Les sweats Tradiscout sont mes préférés maintenant. Confort, qualité, design impeccable. Merci !" },
-            { stars: 4, name: "Véronique Gaudin",   date: "6 mai 2026",  text: "Très bonne expérience. Produit de qualité, prix juste. Juste un peu déçue par l'emballage un peu simple." },
-            { stars: 5, name: "Damien Favre",       date: "5 mai 2026",  text: "Commande impeccable ! Arrivée avant la date prévue. Les scouts de mon groupe sont ravis du résultat." },
-            { stars: 3, name: "Françoise Blanc",    date: "4 mai 2026",  text: "Produit correct. Un peu cher mais la qualité justifie le prix. Livraison respectée." },
-            { stars: 5, name: "Laurent Henry",      date: "3 mai 2026",  text: "Fantastique ! Exactement ce que je cherchais. La qualité, le design, le service. Bravo à toute l'équipe !" }
+            { stars: 5, name: "Manon Cappalesso", date: "20 mai 2026", text: "Le sweat est trop confortable, par contre j'aurais du prendre la taille d'en dessous. Je recommande vivement !" },
+            { stars: 5, name: "Jean Moreau",       date: "18 mai 2026", text: "Excellent rapport qualité-prix. Les tshirts sont confortables et durables. Parfait pour les scouts !" },
+            { stars: 5, name: "Sophie Martin",     date: "17 mai 2026", text: "J'ai commandé 3 articles, tous sont arrivés en parfait état. Les couleurs sont exactes et le confort au-delà de mes attentes !" },
+            { stars: 5, name: "Lucie Bernard",     date: "16 mai 2026", text: "Service client impeccable. Les produits sont magnifiques et correspondent exactement à mes attentes. Merci !" },
+            { stars: 4, name: "Thomas Renaud",     date: "15 mai 2026", text: "Très bonne qualité. Un petit bémol sur les délais de livraison mais le produit en vaut vraiment la peine." },
+            { stars: 5, name: "Anne Lefevre",      date: "14 mai 2026", text: "Commande reçue rapidement, bien emballée. Les sweats sont super confortables, ma famille adore !" },
+            { stars: 5, name: "Pierre Gauthier",   date: "13 mai 2026", text: "Tradiscout c'est du sérieux. Qualité premium, livraison express, communication top. Je reviens acheter !" },
+            { stars: 4, name: "Caroline Petit",    date: "12 mai 2026", text: "Très satisfaite de ma commande. Les couleurs sont fidèles aux photos. Serait parfait avec plus de choix de tailles." },
+            { stars: 5, name: "Marc Dubois",       date: "11 mai 2026", text: "Pour une association de scouts, c'est exactement ce qu'il nous fallait. Qualité et prix imbattables !" },
+            { stars: 4, name: "Isabelle Rousseau", date: "10 mai 2026", text: "Beau produit, bon service. Livraison un peu lente mais ça reste correct. Je recommande." },
+            { stars: 5, name: "Christophe Martin", date: "9 mai 2026",  text: "Excellent ! Vraiment ravi de ma commande. Les délais annoncés ont été respectés. A bientôt !" },
+            { stars: 4, name: "Nathalie Simon",    date: "8 mai 2026",  text: "Produit conforme à la description. Service client réactif. Un peu dommage qu'il n'y ait pas plus de coloris." },
+            { stars: 5, name: "Julien Leclerc",    date: "7 mai 2026",  text: "Les sweats Tradiscout sont mes préférés maintenant. Confort, qualité, design impeccable. Merci !" },
+            { stars: 4, name: "Véronique Gaudin",  date: "6 mai 2026",  text: "Très bonne expérience. Produit de qualité, prix juste. Juste un peu déçue par l'emballage un peu simple." },
+            { stars: 5, name: "Damien Favre",      date: "5 mai 2026",  text: "Commande impeccable ! Arrivée avant la date prévue. Les scouts de mon groupe sont ravis du résultat." },
+            { stars: 3, name: "Francoise Blanc",   date: "4 mai 2026",  text: "Produit correct. Un peu cher mais la qualité justifie le prix. Livraison respectée." },
+            { stars: 5, name: "Laurent Henry",     date: "3 mai 2026",  text: "Fantastique ! Exactement ce que je cherchais. La qualité, le design, le service. Bravo à toute l'équipe !" }
         ];
 
+        let reviewIndex = 0;
+        let reviewDir = 1; // 1 = droite, -1 = gauche
+
         function renderReviews() {
-            const s = n => '★'.repeat(n) + '☆'.repeat(5 - n);
-            let idx = 0;
-            let isAnimating = false;
-            let autoTimer = null;
-
-            function renderDots() {
-                document.getElementById('rvDots').innerHTML = REVIEWS.map((_, i) =>
-                    `<button class="rv-dot ${i === idx ? 'active' : ''}" onclick="rvGoTo(${i})"></button>`
-                ).join('');
-            }
-
-            window.rvGoTo = function(i) {
-                const dir = i >= idx ? 1 : -1;
-                idx = i;
-                rvShow(dir);
-                resetAuto();
-            };
-
-            function rvShow(dir) {
-                if (isAnimating) return;
-                isAnimating = true;
-                const card = document.getElementById('rvCard');
-                const outX = dir === 1 ? '-50px' : '50px';
-                const inX  = dir === 1 ?  '50px' : '-50px';
-                card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-                card.style.opacity = '0';
-                card.style.transform = `translateX(${outX})`;
-                setTimeout(() => {
-                    const r = REVIEWS[idx];
-                    document.getElementById('rvName').textContent  = r.name;
-                    document.getElementById('rvDate').textContent  = r.date;
-                    document.getElementById('rvStars').textContent = s(r.stars);
-                    document.getElementById('rvText').textContent  = '\u201C' + r.text + '\u201D';
-                    renderDots();
-                    card.style.transition = 'none';
-                    card.style.transform  = `translateX(${inX})`;
-                    card.style.opacity    = '0';
-                    requestAnimationFrame(() => {
-                        requestAnimationFrame(() => {
-                            card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-                            card.style.opacity    = '1';
-                            card.style.transform  = 'translateX(0)';
-                            setTimeout(() => { isAnimating = false; }, 220);
-                        });
-                    });
-                }, 210);
-            }
-
-            function resetAuto() {
-                clearInterval(autoTimer);
-                autoTimer = setInterval(() => {
-                    idx = (idx + 1) % REVIEWS.length;
-                    rvShow(1);
-                }, 5000);
-            }
-
-            document.getElementById('rvPrev').onclick = () => {
-                idx = (idx - 1 + REVIEWS.length) % REVIEWS.length;
-                rvShow(-1);
-                resetAuto();
-            };
-            document.getElementById('rvNext').onclick = () => {
-                idx = (idx + 1) % REVIEWS.length;
-                rvShow(1);
-                resetAuto();
-            };
-
-            // Init first card
-            const r0 = REVIEWS[0];
-            document.getElementById('rvName').textContent  = r0.name;
-            document.getElementById('rvDate').textContent  = r0.date;
-            document.getElementById('rvStars').textContent = s(r0.stars);
-            document.getElementById('rvText').textContent  = '\u201C' + r0.text + '\u201D';
-            renderDots();
-            resetAuto();
+            renderReviewCard();
+            renderReviewDots();
         }
 
-        // ── ADMIN / CURTAIN ──────────────────────────
+        function renderReviewCard(dir) {
+            const wrap = document.getElementById('reviewCardWrap');
+            const r = REVIEWS[reviewIndex];
+            const stars = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+            const animClass = (dir === -1) ? 'slide-left' : '';
+
+            wrap.innerHTML = `
+                <div class="review-card ${animClass}">
+                    <div class="review-top">
+                        <div class="review-author">
+                            <div class="review-name">${r.name}</div>
+                            <div class="review-date">${r.date}</div>
+                        </div>
+                        <div class="review-stars">${stars}</div>
+                    </div>
+                    <div class="review-text">${r.text}</div>
+                </div>
+            `;
+        }
+
+        function renderReviewDots() {
+            const dotsEl = document.getElementById('reviewsDots');
+            dotsEl.innerHTML = REVIEWS.map((_, i) =>
+                `<button class="reviews-dot ${i === reviewIndex ? 'active' : ''}" onclick="reviewGoTo(${i})"></button>`
+            ).join('');
+        }
+
+        function reviewNav(dir) {
+            reviewIndex = (reviewIndex + dir + REVIEWS.length) % REVIEWS.length;
+            renderReviewCard(dir);
+            renderReviewDots();
+        }
+
+        function reviewGoTo(i) {
+            const dir = i >= reviewIndex ? 1 : -1;
+            reviewIndex = i;
+            renderReviewCard(dir);
+            renderReviewDots();
+        }
+
+        /* ── ADMIN / CURTAIN ── */
         function toggleAdminInput() {
             const input = document.getElementById('adminInput');
             input.style.display = (input.style.display === 'inline-block') ? 'none' : 'inline-block';
@@ -859,7 +869,7 @@
     <script src="catalogue.js"></script>
 
     <script>
-        // ── COLLECTIONS & GRILLE ─────────────────────
+        /* ── COLLECTIONS & GRILLE ── */
         let activeCollection = COLLECTIONS[0].id;
 
         function renderTabs() {
@@ -892,7 +902,7 @@
             `).join('');
         }
 
-        // ── LIGHTBOX ─────────────────────────────────
+        /* ── LIGHTBOX ── */
         const lb = { design: null, type: null, color: null, size: null, photoIndex: 0 };
 
         function openLb(designKey) {
@@ -919,19 +929,16 @@
 
             document.getElementById('lbTypes').innerHTML = TYPES
                 .filter(x => d.types.includes(x.id))
-                .map(x => `<button class="opt-btn ${x.id === lb.type ? 'sel' : ''}"
-                                   onclick="lbSet('type','${x.id}')">${x.label}</button>`)
+                .map(x => `<button class="opt-btn ${x.id === lb.type ? 'sel' : ''}" onclick="lbSet('type','${x.id}')">${x.label}</button>`)
                 .join('');
 
             document.getElementById('lbColors').innerHTML = COLORS
                 .filter(x => d.colors.includes(x.id))
-                .map(x => `<button class="opt-btn ${x.id === lb.color ? 'sel' : ''}"
-                                   onclick="lbSet('color','${x.id}')">${x.label}</button>`)
+                .map(x => `<button class="opt-btn ${x.id === lb.color ? 'sel' : ''}" onclick="lbSet('color','${x.id}')">${x.label}</button>`)
                 .join('');
 
             document.getElementById('lbSizes').innerHTML = SIZES
-                .map(s => `<button class="opt-btn ${s === lb.size ? 'sel' : ''}"
-                                   onclick="lbSet('size','${s}')">${s}</button>`)
+                .map(s => `<button class="opt-btn ${s === lb.size ? 'sel' : ''}" onclick="lbSet('size','${s}')">${s}</button>`)
                 .join('');
 
             document.getElementById('lbAdd').disabled = !(lb.type && lb.color && lb.size);
@@ -966,13 +973,12 @@
             thumbsEl.style.display = multi ? 'flex' : 'none';
             if (multi) {
                 thumbsEl.innerHTML = d.images.map((img, i) =>
-                    `<img class="lb-thumb ${i === lb.photoIndex ? 'active' : ''}"
-                          src="images/${img}" onclick="lbGoPhoto(${i})" />`
+                    `<img class="lb-thumb ${i === lb.photoIndex ? 'active' : ''}" src="images/${img}" onclick="lbGoPhoto(${i})" />`
                 ).join('');
             }
         }
 
-        // ── PANIER ───────────────────────────────────
+        /* ── PANIER ── */
         let cart = [];
 
         function addToCart() {
@@ -980,15 +986,8 @@
             const d = DESIGNS.find(x => x.key === lb.design);
             const c = COLORS.find(x => x.id === lb.color);
             cart.push({
-                id:          Date.now(),
-                design:      d.id,
-                type:        lb.type,
-                color:       lb.color,
-                size:        lb.size,
-                typeLabel:   t.label,
-                designLabel: d.label,
-                colorLabel:  c.label,
-                price:       t.price,
+                id: Date.now(), design: d.id, type: lb.type, color: lb.color, size: lb.size,
+                typeLabel: t.label, designLabel: d.label, colorLabel: c.label, price: t.price,
             });
             renderCart(); closeLb(); openCart();
         }
@@ -996,7 +995,7 @@
         function removeItem(id) { cart = cart.filter(i => i.id !== id); renderCart(); }
 
         function renderCart() {
-            const container = document.getElementById('cartItems');
+            const container  = document.getElementById('cartItems');
             const pct        = promoState.discountPercent || 0;
             const totalOrig  = cart.reduce((s, i) => s + i.price, 0);
             const discountAmt = pct > 0 ? Math.round(totalOrig * pct) : 0;
@@ -1008,10 +1007,9 @@
             const discountRow = document.getElementById('cartDiscountRow');
             if (pct > 0 && cart.length > 0) {
                 discountRow.style.display = 'flex';
-                document.getElementById('cartDiscountLabel').textContent =
-                    `${promoState.code} (−${Math.round(pct * 100)}%)`;
-                document.getElementById('cartDiscountAmt').textContent = `−${discountAmt} €`;
-                document.getElementById('cartTotal').textContent = totalFinal + ' €';
+                document.getElementById('cartDiscountLabel').textContent = `${promoState.code} (−${Math.round(pct * 100)}%)`;
+                document.getElementById('cartDiscountAmt').textContent   = `−${discountAmt} €`;
+                document.getElementById('cartTotal').textContent         = totalFinal + ' €';
             } else {
                 discountRow.style.display = 'none';
                 document.getElementById('cartTotal').textContent = totalOrig + ' €';
@@ -1032,7 +1030,7 @@
         function openCart()  { document.getElementById('cartDrawer').classList.add('open');    document.getElementById('cartBg').style.display = 'block'; }
         function closeCart() { document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartBg').style.display = 'none'; }
 
-        // ── CODE PROMO ───────────────────────────────
+        /* ── CODE PROMO ── */
         const promoState = { code: null, discountPercent: 0, validated: false };
 
         async function applyPromo() {
@@ -1058,7 +1056,7 @@
             } catch { msgEl.textContent = 'Erreur réseau'; }
         }
 
-        // ── CHECKOUT ─────────────────────────────────
+        /* ── CHECKOUT ── */
         async function goToCheckout() {
             if (!cart.length) return;
             const btn = document.getElementById('checkoutBtn');
