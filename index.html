@@ -1093,12 +1093,11 @@
     position: fixed;
     bottom: 0; left: 0; right: 0;
     z-index: 9999;
-    background: rgba(248, 242, 231, 0.97);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(44, 55, 118, 0.15);
-    padding: 18px 5%;
+    background: #F8F2E7;
+    border-top: 1px solid rgba(44, 55, 118, 0.18);
+    padding: 22px 5%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 32px;
     animation: cookieSlideUp 0.4s ease;
@@ -1106,9 +1105,8 @@
   @media (max-width: 768px) {
     #cookie-banner {
       flex-direction: column;
-      align-items: stretch;
-      gap: 12px;
-      padding: 18px 6%;
+      gap: 14px;
+      padding: 20px 6%;
       bottom: 64px;
     }
   }
@@ -1123,63 +1121,74 @@
   #cookie-banner.hide {
     animation: cookieSlideDown 0.35s ease forwards;
   }
-  .cookie-text {
+  .ck-text { flex: 1; min-width: 0; }
+  .ck-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #2C3776;
+    margin-bottom: 6px;
+  }
+  .ck-desc {
     font-family: 'DM Mono', monospace;
     font-size: 0.6rem;
-    color: var(--gris);
+    color: #6b6b6b;
     line-height: 1.75;
-    flex: 1;
   }
-  .cookie-text strong {
-    font-family: 'Uncial Antiqua', serif;
-    font-size: 0.85rem;
-    color: var(--navy);
-    display: block;
-    margin-bottom: 4px;
+  .ck-desc a {
+    color: #2C3776;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
-  .cookie-actions {
+  .ck-actions {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
+    padding-top: 2px;
   }
   @media (max-width: 768px) {
-    .cookie-actions { flex-direction: column; gap: 8px; }
-    .cookie-actions button { width: 100%; text-align: center; }
+    .ck-actions {
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+    .ck-actions button { width: 100%; }
   }
-  .cookie-btn {
+  .ck-btn {
     font-family: 'DM Mono', monospace;
     font-size: 0.6rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 10px 24px;
+    padding: 10px 22px;
     cursor: pointer;
-    transition: 0.18s;
+    transition: 0.15s;
     white-space: nowrap;
   }
-  .cookie-btn-refuse {
+  .ck-refuse {
     background: transparent;
     border: 1px solid rgba(44, 55, 118, 0.35);
-    color: var(--navy);
+    color: #2C3776;
   }
-  .cookie-btn-refuse:hover { border-color: var(--navy); background: rgba(44,55,118,0.05); }
-  .cookie-btn-accept {
-    background: var(--navy);
-    border: 1px solid var(--navy);
-    color: var(--bg);
+  .ck-refuse:hover { border-color: #2C3776; background: rgba(44,55,118,0.05); }
+  .ck-accept {
+    background: #2C3776;
+    border: 1px solid #2C3776;
+    color: #F8F2E7;
   }
-  .cookie-btn-accept:hover { background: #1e2755; border-color: #1e2755; }
+  .ck-accept:hover { background: #1e2755; border-color: #1e2755; }
 </style>
 
 <div id="cookie-banner" style="display:none">
-  <div class="cookie-text">
-    <strong>Confidentialité</strong>
-    Nous n'utilisons pas de cookies par respect de votre vie privée.
-    Chaque visite est enregistrée pour mesurer notre audience, mais non partagée.
+  <div class="ck-text">
+    <div class="ck-title">Consentement aux cookies</div>
+    <div class="ck-desc">
+        Nous utilisons un cookie: le nombre de visites du site par mois.<br>Et c'est tout. Bonne visite!
+    </div>
   </div>
-  <div class="cookie-actions">
-    <button class="cookie-btn cookie-btn-refuse" onclick="cookieChoice(false)">Refuser</button>
-    <button class="cookie-btn cookie-btn-accept" onclick="cookieChoice(true)">Accepter</button>
+  <div class="ck-actions">
+    <button class="ck-btn ck-refuse" onclick="cookieChoice(false)">Refuser</button>
+    <button class="ck-btn ck-accept" onclick="cookieChoice(true)">Accepter</button>
   </div>
 </div>
 
