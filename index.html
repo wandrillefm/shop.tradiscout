@@ -1080,5 +1080,129 @@
             }
         }
     </script>
+
+
+
+<!-- ═══════════════════════════════════════════
+     COOKIE BANNER TRADISCOUT
+     À coller juste avant </body>
+════════════════════════════════════════════ -->
+
+<style>
+  #cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: rgba(248, 242, 231, 0.97);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(44, 55, 118, 0.15);
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    animation: cookieSlideUp 0.4s ease;
+  }
+  @media (max-width: 768px) {
+    #cookie-banner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      padding: 18px 6%;
+      bottom: 64px;
+    }
+  }
+  @keyframes cookieSlideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  @keyframes cookieSlideDown {
+    from { transform: translateY(0);    opacity: 1; }
+    to   { transform: translateY(100%); opacity: 0; }
+  }
+  #cookie-banner.hide {
+    animation: cookieSlideDown 0.35s ease forwards;
+  }
+  .cookie-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--gris);
+    line-height: 1.75;
+    flex: 1;
+  }
+  .cookie-text strong {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 0.85rem;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .cookie-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .cookie-actions { flex-direction: column; gap: 8px; }
+    .cookie-actions button { width: 100%; text-align: center; }
+  }
+  .cookie-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: 0.18s;
+    white-space: nowrap;
+  }
+  .cookie-btn-refuse {
+    background: transparent;
+    border: 1px solid rgba(44, 55, 118, 0.35);
+    color: var(--navy);
+  }
+  .cookie-btn-refuse:hover { border-color: var(--navy); background: rgba(44,55,118,0.05); }
+  .cookie-btn-accept {
+    background: var(--navy);
+    border: 1px solid var(--navy);
+    color: var(--bg);
+  }
+  .cookie-btn-accept:hover { background: #1e2755; border-color: #1e2755; }
+</style>
+
+<div id="cookie-banner" style="display:none">
+  <div class="cookie-text">
+    <strong>Confidentialité</strong>
+    Nous n'utilisons pas de cookies par respect de votre vie privée.
+    Chaque visite est enregistrée pour mesurer notre audience, mais non partagée.
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-btn-refuse" onclick="cookieChoice(false)">Refuser</button>
+    <button class="cookie-btn cookie-btn-accept" onclick="cookieChoice(true)">Accepter</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var KEY = 'tradiscout_cookie_consent';
+    function dismiss() {
+      var b = document.getElementById('cookie-banner');
+      b.classList.add('hide');
+      setTimeout(function() { b.style.display = 'none'; }, 380);
+    }
+    window.cookieChoice = function(accepted) {
+      localStorage.setItem(KEY, accepted ? '1' : '0');
+      dismiss();
+    };
+    document.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem(KEY) === null) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+      }
+    });
+  })();
+</script>
+
+    
 </body>
 </html>
