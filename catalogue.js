@@ -40,7 +40,7 @@ const DESIGNS = [
     description: 'Rien de plus basique',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-tradiscout.png', '1-2-tradiscout.png', '2-1-tradiscout.png', '2-2-tradiscout.png', '3-1-tradiscout.png', '3-2-tradiscout.png'],
+    images: ['1-1-tradiscout.jpg', '1-2-tradiscout.png', '2-1-tradiscout.jpg', '2-2-tradiscout.png', '3-1-tradiscout.jpg', '3-2-tradiscout.png'],
     collection: 'scouts',
   },
   {
@@ -48,7 +48,7 @@ const DESIGNS = [
     description: 'Variante',
     types:  ['tshirt', 'sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-double-croix.png', '1-2-double-croix.png', '2-1-double-croix.png', '2-2-double-croix.png', '3-1-double-croix.png', '3-2-double-croix.png'],
+    images: ['1-1-double-croix.jpg', '1-2-double-croix.png', '2-1-double-croix.jpg', '2-2-double-croix.png', '3-1-double-croix.jpg', '3-2-double-croix.png'],
     collection: 'scouts',
   },
   {
@@ -56,7 +56,7 @@ const DESIGNS = [
     description: 'Comme au temps des templiers',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-deus-vult.png', '1-2-deus-vult.png', '2-1-deus-vult.png', '2-2-deus-vult.png'],
+    images: ['1-1-deus-vult.jpg', '1-2-deus-vult.png', '2-1-deus-vult.jpg', '2-2-deus-vult.png'],
     collection: 'scouts',
   },
   {
@@ -64,7 +64,7 @@ const DESIGNS = [
     description: 'Devise de Saint Pier Georgio Frassati',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-verso-lalto.png', '1-2-verso-lalto.png', '2-1-verso-lalto.png', '2-2-verso-lalto.png'],
+    images: ['1-1-verso-lalto.jpg', '1-2-verso-lalto.png', '2-1-verso-lalto.jpg', '2-2-verso-lalto.png'],
     collection: 'scouts',
   },
   {
@@ -72,7 +72,7 @@ const DESIGNS = [
     description: 'Hans Zimmer dans les oreilles et un foulard dans la ceinture',
     types:  ['tshirt'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-mode-grand-jeu.png', '1-2-mode-grand-jeu.png'],
+    images: ['1-1-mode-grand-jeu.jpg', '1-2-mode-grand-jeu.png'],
     collection: 'humour',
   },
   {
@@ -80,7 +80,7 @@ const DESIGNS = [
     description: 'Le saint graal',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-braises.png', '1-2-braises.png', '2-1-braises.png', '2-2-braises.png', '3-1-braises.png', '3-2-braises.png'],
+    images: ['1-1-braises.jpg', '1-2-braises.png', '2-1-braises.jpg', '2-2-braises.png', '3-1-braises.jpg', '3-2-braises.png'],
     collection: 'humour',
   },
   {
@@ -88,7 +88,7 @@ const DESIGNS = [
     description: 'Mexique.',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-christus-rex.png', '1-2-christus-rex.png', '2-1-christus-rex.png', '2-2-christus-rex.png', '3-1-christus-rex.png', '3-2-christus-rex.png'],
+    images: ['1-1-christus-rex.jpg', '1-2-christus-rex.png', '2-1-christus-rex.jpg', '2-2-christus-rex.png', '3-1-christus-rex.jpg', '3-2-christus-rex.png'],
     collection: 'saints',
   },
   {
@@ -96,7 +96,7 @@ const DESIGNS = [
     description: 'Le goat',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['StMichelW.png','StMichelB.png','image 19.png','image20.png','image 15.png','image 16.png'],
+    images: ['StMichelW.jpg','StMichelB.png','image 19.jpg','image20.png','image 15.jpg','image 16.png'],
     collection: 'saints',
   },
   {
@@ -104,7 +104,7 @@ const DESIGNS = [
     description: 'En esprit de sainteté',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['StVianneyW.png','StVianneyB.png','image 25.png','image 26.png','image 21.png','image 22.png'],
+    images: ['StVianneyW.jpg','StVianneyB.png','image 25.jpg','image 26.png','image 21.jpg','image 22.png'],
     collection: 'saints',
   },
   {
@@ -112,7 +112,7 @@ const DESIGNS = [
     description: 'St patron des éclaireurs',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['StGeorgeW.png','StGeorgeB.png','image 24.png','image 23.png','image 18.png','image 17.png'],
+    images: ['StGeorgeW.jpg','StGeorgeB.png','image 24.jpg','image 23.png','image 18.jpg','image 17.png'],
     collection: 'saints',
   },
   {
@@ -120,7 +120,7 @@ const DESIGNS = [
     description: 'La seule excuse valable un samedi matin.',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['1-1-jpeuxpas.png', '1-2-jpeuxpas.png', '2-1-jpeuxpas.png', '2-2-jpeuxpas.png', '3-1-jpeuxpas.png', '3-2-jpeuxpas.png'],
+    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
     collection: 'humour',
   },
 ];
