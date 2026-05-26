@@ -313,24 +313,7 @@
             min-height: 220px;
         }
         .reviews-arrow {
-            flex-shrink: 0;
-            width: 40px; 
-            height: 40px;
-            background: none;
-            border: 1px solid rgba(248,242,231,0.35);
-            color: var(--bg);
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            transition: background 0.15s, border-color 0.15s;
-            font-family: inherit;
-            margin-top: 0;
-        }
-        .reviews-arrow:hover {
-            background: rgba(248,242,231,0.1);
-            border-color: var(--bg);
+            display: none !important;
         }
         .reviews-card-wrap {
             flex: 1;
@@ -419,7 +402,6 @@
         @media (max-width: 768px) {
             .reviews-section { padding: 60px 5% 40px; }
             .review-card { padding: 28px 22px; }
-            .reviews-arrow { display: none !important; }
             .reviews-dots { display: none !important; }
             .reviews-carousel { min-height: auto; gap: 0; }
             .reviews-avg-stars { gap: 12px; margin-bottom: 20px; }
@@ -816,19 +798,13 @@
             return parseFloat(avg);
         }
 
-        function isMobileView() {
-            return window.innerWidth <= 768;
-        }
-
         function autoScrollReviews() {
-            if (!isMobileView()) return;
             reviewIndex = (reviewIndex + 1) % REVIEWS.length;
             renderReviewCard(1);
             renderReviewDots();
         }
 
         function startAutoScroll() {
-            if (!isMobileView()) return;
             clearInterval(autoScrollTimer);
             autoScrollTimer = setInterval(autoScrollReviews, 5000); // Change review every 5 seconds
         }
