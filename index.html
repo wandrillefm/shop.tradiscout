@@ -230,77 +230,126 @@
 
         /* ── REVIEWS ── */
         .reviews-section {
-            background: var(--bg);
-            color: var(--navy);
+            background: var(--navy);
+            color: var(--bg);
             padding: 80px 5% 60px;
-            height: 520px;  /* ← Hauteur fixe de la section */
+            height: auto;
             display: flex;
             flex-direction: column;
         }
-.reviews-wrap { 
-    max-width: 620px; 
-    margin: 0 auto;
-    flex: 1;  /* ← Prend l'espace disponible */
-    display: flex;
-    flex-direction: column;
-}
-.reviews-header { 
-    text-align: center; 
-    margin-bottom: 48px;
-    flex-shrink: 0;  /* ← Ne rétrécit pas */
-}
+        .reviews-wrap { 
+            max-width: 700px; 
+            margin: 0 auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .reviews-header { 
+            text-align: center; 
+            margin-bottom: 48px;
+            flex-shrink: 0;
+        }
         .reviews-title {
             font-family: 'Uncial Antiqua', serif;
             font-size: clamp(1.8rem, 4vw, 2.4rem);
-            line-height: 1.1; margin-bottom: 8px; color: var(--navy);
+            line-height: 1.1; 
+            margin-bottom: 16px; 
+            color: white;
         }
         .reviews-subtitle {
-            font-size: 0.65rem; letter-spacing: 0.12em;
-            text-transform: uppercase; color: var(--gris);
+            font-size: 0.65rem; 
+            letter-spacing: 0.12em;
+            text-transform: uppercase; 
+            color: rgba(248,242,231,0.7);
+        }
+        
+        /* Moyenne des étoiles */
+        .reviews-avg-stars {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+            margin-bottom: 28px;
+        }
+        .reviews-avg-number {
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 2.4rem;
+            color: white;
+            font-weight: bold;
+        }
+        .reviews-avg-stars-display {
+            position: relative;
+            width: 140px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+        }
+        .reviews-stars-bg {
+            position: absolute;
+            font-size: 1.6rem;
+            letter-spacing: 4px;
+            color: rgba(248,242,231,0.3);
+            user-select: none;
+            pointer-events: none;
+        }
+        .reviews-stars-fill {
+            position: absolute;
+            font-size: 1.6rem;
+            letter-spacing: 4px;
+            color: var(--or);
+            overflow: hidden;
+            user-select: none;
+            pointer-events: none;
+            width: 0%;
+            transition: width 0.5s ease;
         }
 
         /* Carrousel */
         .reviews-carousel {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 20px;
+            min-height: 220px;
         }
         .reviews-arrow {
             flex-shrink: 0;
-            width: 40px; height: 40px;
+            width: 40px; 
+            height: 40px;
             background: none;
-            border: 1px solid rgba(44,55,118,0.25);
-            color: var(--navy);
+            border: 1px solid rgba(248,242,231,0.35);
+            color: var(--bg);
             font-size: 1.1rem;
             cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
             transition: background 0.15s, border-color 0.15s;
             font-family: inherit;
+            margin-top: 0;
         }
         .reviews-arrow:hover {
-            background: var(--navy);
-            color: white;
-            border-color: var(--navy);
+            background: rgba(248,242,231,0.1);
+            border-color: var(--bg);
         }
         .reviews-card-wrap {
             flex: 1;
             overflow: hidden;
-            min-height: 150px;
             display: flex;
             flex-direction: column;
             justify-content: stretch;
         }
-.review-card {
-    background: white;
-    border: 1px solid rgba(44, 55, 118, 0.1);
-    padding: 40px 44px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    animation: reviewFadeIn 0.3s ease;
-    height: auto;  /* ← S'adapte au contenu */
-    box-sizing: border-box;
-}
+        .review-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(248,242,231,0.15);
+            padding: 40px 44px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: reviewFadeIn 0.3s ease;
+            height: auto;
+            box-sizing: border-box;
+        }
         @keyframes reviewFadeIn {
             from { opacity: 0; transform: translateX(18px); }
             to   { opacity: 1; transform: translateX(0); }
@@ -320,48 +369,63 @@
         .review-author { display: flex; flex-direction: column; gap: 4px; }
         .review-name {
             font-family: 'Uncial Antiqua', serif;
-            font-size: 0.95rem; color: var(--navy);
+            font-size: 0.95rem; 
+            color: white;
         }
         .review-date {
-            font-size: 0.52rem; color: var(--gris);
-            letter-spacing: 0.08em; text-transform: uppercase;
+            font-size: 0.52rem; 
+            color: rgba(248,242,231,0.6);
+            letter-spacing: 0.08em; 
+            text-transform: uppercase;
         }
         .review-stars {
-            font-size: 0.9rem; letter-spacing: 3px;
-            color: var(--or); flex-shrink: 0; margin-top: 2px;
+            font-size: 0.9rem; 
+            letter-spacing: 3px;
+            color: var(--or); 
+            flex-shrink: 0; 
+            margin-top: 2px;
         }
         .review-text {
-            font-size: 0.7rem; color: var(--gris); line-height: 1.8;
-            border-top: 1px solid rgba(44, 55, 118, 0.07);
+            font-size: 0.7rem; 
+            color: rgba(248,242,231,0.8); 
+            line-height: 1.8;
+            border-top: 1px solid rgba(248,242,231,0.1);
             padding-top: 18px;
         }
 
         /* Dots */
-.reviews-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: auto;  /* ← Pousse vers le bas */
-    flex-shrink: 0;
-}
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
+            flex-shrink: 0;
+        }
         .reviews-dot {
-            width: 6px; height: 6px;
+            width: 6px; 
+            height: 6px;
             border-radius: 50%;
-            background: rgba(44,55,118,0.2);
+            background: rgba(248,242,231,0.25);
             cursor: pointer;
             transition: background 0.2s, transform 0.2s;
             border: none;
             padding: 0;
         }
         .reviews-dot.active {
-            background: var(--navy);
+            background: var(--or);
             transform: scale(1.3);
         }
 
         @media (max-width: 768px) {
             .reviews-section { padding: 60px 5% 40px; }
-            .review-card { padding: 28px 22px; min-height: 200px; }
-            .reviews-arrow { width: 34px; height: 34px; font-size: 0.9rem; }
+            .review-card { padding: 28px 22px; }
+            .reviews-arrow { display: none !important; }
+            .reviews-dots { display: none !important; }
+            .reviews-carousel { min-height: auto; gap: 0; }
+            .reviews-avg-stars { gap: 12px; margin-bottom: 20px; }
+            .reviews-avg-number { font-size: 1.8rem; }
+            .reviews-avg-stars-display { width: 100px; height: 20px; }
+            .reviews-stars-bg, .reviews-stars-fill { font-size: 1.2rem; letter-spacing: 3px; }
         }
 
         /* ── PARTNERSHIP ── */
@@ -373,27 +437,6 @@
         .partnership-cta { display:inline-block;padding:14px 40px;border:1px solid var(--navy);color:var(--navy);text-decoration:none;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;transition:0.2s; }
         .partnership-cta:hover { background:var(--navy);color:var(--bg); }
         @media (max-width:768px) { .partnership-section { padding:60px 5% 40px; } }
-
-        /* ── CAGNOTTES ── */
-        .cagnottes-section { background:var(--navy);color:var(--bg);padding:80px 5% 60px; }
-        .cagnottes-wrap { max-width:1100px;margin:0 auto; }
-        .cagnottes-header { text-align:center;margin-bottom:60px; }
-        .cagnottes-title { font-family:'Uncial Antiqua',serif;font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.1;margin-bottom:12px;color:white; }
-        .cagnottes-subtitle { font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(248,242,231,0.6); }
-        .cagnottes-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:32px; }
-        .cagnotte-card { background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.25);padding:28px;border-radius:4px;transition:all 0.3s; }
-        .cagnotte-card:hover { background:rgba(255,255,255,0.08);border-color:var(--or); }
-        .cagnotte-name { font-family:'Uncial Antiqua',serif;font-size:1.1rem;color:white;margin-bottom:8px; }
-        .cagnotte-desc { font-size:0.62rem;color:rgba(248,242,231,0.7);line-height:1.6;margin-bottom:20px; }
-        .progress-wrapper { margin-bottom:12px; }
-        .progress-bar { width:100%;height:8px;background:rgba(201,168,76,0.15);border-radius:4px;overflow:hidden;margin-bottom:8px; }
-        .progress-fill { height:100%;background:linear-gradient(90deg,var(--or),#e6c456);border-radius:4px;transition:width 0.6s ease; }
-        .progress-text { display:flex;justify-content:space-between;font-size:0.58rem;color:rgba(248,242,231,0.6); }
-        .progress-percent { font-size:0.72rem;color:var(--or);font-weight:500; }
-        .progress-footer { display:flex;justify-content:space-between;align-items:center;margin-top:12px; }
-        .donate-btn { display:inline-block;padding:6px 16px;background:var(--or);color:var(--navy);text-decoration:none;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;transition:all 0.2s;font-weight:500; }
-        .donate-btn:hover { background:#e6c456;transform:translateY(-1px); }
-        @media (max-width:768px) { .cagnottes-grid{grid-template-columns:1fr;gap:20px;} .cagnottes-section{padding:60px 5% 40px;} }
 
         /* ── FOOTER ── */
         footer { background:var(--navy);color:var(--bg);padding:64px 5% 40px;margin-top:auto; }
@@ -495,6 +538,13 @@
                 <div class="reviews-header">
                     <h2 class="reviews-title">Avis clients</h2>
                     <p class="reviews-subtitle">Ce que nos clients pensent de nous</p>
+                    <div class="reviews-avg-stars">
+                        <div class="reviews-avg-number" id="avgRating">4.8</div>
+                        <div class="reviews-avg-stars-display">
+                            <div class="reviews-stars-bg">★★★★★</div>
+                            <div class="reviews-stars-fill" id="starsFill">★★★★★</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="reviews-carousel">
                     <button class="reviews-arrow" onclick="reviewNav(-1)">&#8249;</button>
@@ -559,30 +609,6 @@
             <button class="checkout-btn" id="checkoutBtn" onclick="goToCheckout()">Payer →</button>
         </div>
     </div>
-
-    <!-- CAGNOTTES -->
-    <section class="cagnottes-section">
-        <div class="cagnottes-wrap">
-            <div class="cagnottes-header">
-                <h2 class="cagnottes-title">Nos collectes en cours</h2>
-                <p class="cagnottes-subtitle">(Lancées le 15 mai 2026)</p>
-            </div>
-            <div class="cagnottes-grid">
-                <div class="cagnotte-card">
-                    <div class="cagnotte-name">Payer les courses de Patrick et Carole</div>
-                    <div class="cagnotte-desc">Aider des personnes sans-abris à se nourrir convenablement</div>
-                    <div class="progress-wrapper">
-                        <div class="progress-bar"><div class="progress-fill" style="width:3%"></div></div>
-                        <div class="progress-text"><span>37 €</span><span>1 000 €</span></div>
-                    </div>
-                    <div class="progress-footer">
-                        <div class="progress-percent">3%</div>
-                        <a href="https://www.leetchi.com/fr/c/payer-les-courses-de-patrick-et-carole-1677516?utm_source=copylink&utm_medium=social_sharing" class="donate-btn" target="_blank">Contribuer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- PARTNERSHIP -->
     <section class="partnership-section">
@@ -781,11 +807,47 @@
         ];
 
         let reviewIndex = 0;
-        let reviewDir = 1; // 1 = droite, -1 = gauche
+        let reviewDir = 1;
+        let autoScrollTimer = null;
+
+        function calculateAverageRating() {
+            const sum = REVIEWS.reduce((acc, r) => acc + r.stars, 0);
+            const avg = (sum / REVIEWS.length).toFixed(1);
+            return parseFloat(avg);
+        }
+
+        function isMobileView() {
+            return window.innerWidth <= 768;
+        }
+
+        function autoScrollReviews() {
+            if (!isMobileView()) return;
+            reviewIndex = (reviewIndex + 1) % REVIEWS.length;
+            renderReviewCard(1);
+            renderReviewDots();
+        }
+
+        function startAutoScroll() {
+            if (!isMobileView()) return;
+            clearInterval(autoScrollTimer);
+            autoScrollTimer = setInterval(autoScrollReviews, 5000); // Change review every 5 seconds
+        }
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollTimer);
+        }
 
         function renderReviews() {
+            const avg = calculateAverageRating();
+            document.getElementById('avgRating').textContent = avg;
+            
+            // Calculer le pourcentage de remplissage (5 étoiles = 100%)
+            const fillPercent = (avg / 5) * 100;
+            document.getElementById('starsFill').style.width = fillPercent + '%';
+            
             renderReviewCard();
             renderReviewDots();
+            startAutoScroll();
         }
 
         function renderReviewCard(dir) {
@@ -816,16 +878,20 @@
         }
 
         function reviewNav(dir) {
+            stopAutoScroll();
             reviewIndex = (reviewIndex + dir + REVIEWS.length) % REVIEWS.length;
             renderReviewCard(dir);
             renderReviewDots();
+            startAutoScroll();
         }
 
         function reviewGoTo(i) {
+            stopAutoScroll();
             const dir = i >= reviewIndex ? 1 : -1;
             reviewIndex = i;
             renderReviewCard(dir);
             renderReviewDots();
+            startAutoScroll();
         }
 
         /* ── ADMIN / CURTAIN ── */
@@ -853,7 +919,13 @@
             renderCart();
             renderReviews();
         }
-        window.onload = function() { unlockShop(); };
+        window.onload = function() { 
+            unlockShop();
+            // Restart auto-scroll on resize
+            window.addEventListener('resize', function() {
+                renderReviews();
+            });
+        };
     </script>
 
     <script src="catalogue.js"></script>
@@ -1070,8 +1142,6 @@
             }
         }
     </script>
-
-
 
 <!-- ═══════════════════════════════════════════
      COOKIE BANNER TRADISCOUT
