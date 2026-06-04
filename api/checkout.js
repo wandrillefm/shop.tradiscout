@@ -87,6 +87,7 @@ export default async function handler(req, res) {
         'success_url': `${process.env.BASE_URL}/success.html`,
         'cancel_url': `${process.env.BASE_URL}/`,
         'shipping_address_collection[allowed_countries][]': 'FR',
+        'phone_number_collection[enabled]': 'true',
       }).toString()
     });
     if (!stripeRes.ok) {
