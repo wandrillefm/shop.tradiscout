@@ -11,7 +11,7 @@ const COLLECTIONS = [
 
 const TYPES = [
   { id: 'tshirt', label: 'T-Shirt', code: '1', price: 25 },
-  { id: 'sweat',  label: 'Sweat',   code: '2', price: 44 },
+  { id: 'sweat',  label: 'Sweat',   code: '2', price: 45 },
   { id: 'hoodie', label: 'Hoodie',  code: '3', price: 49 },
 ];
 
