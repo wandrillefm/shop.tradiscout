@@ -4,9 +4,7 @@
 // ─────────────────────────────────────────────
 
 const COLLECTIONS = [
-  { id: 'scouts',  label: 'Classiques'  },
-  { id: 'saints',  label: 'Chretien'  },
-  { id: 'humour',  label: '2nd deg'  },
+  { id: 'scouts',  label: 'Classiques'  }
 ];
 
 const TYPES = [
@@ -44,14 +42,6 @@ const DESIGNS = [
     collection: 'scouts',
   },
   {
-    id: '2', key: 'double-croix', label: 'Double Croix',
-    description: 'Variante',
-    types:  ['tshirt', 'sweat','hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['1-1-double-croix.jpg', '1-2-double-croix.png', '2-1-double-croix.jpg', '2-2-double-croix.png', '3-1-double-croix.jpg', '3-2-double-croix.png'],
-    collection: 'scouts',
-  },
-  {
     id: '3', key: 'deus-vult', label: 'Deus Vult',
     description: 'Comme au temps des templiers',
     types:  ['tshirt', 'sweat'],
@@ -68,28 +58,12 @@ const DESIGNS = [
     collection: 'scouts',
   },
   {
-    id: '5', key: 'mode-grand-jeu', label: 'Mode Grand Jeu',
-    description: 'Hans Zimmer dans les oreilles et un foulard dans la ceinture',
-    types:  ['tshirt'],
-    colors: ['blanc', 'bleu'],
-    images: ['1-1-mode-grand-jeu.jpg', '1-2-mode-grand-jeu.png'],
-    collection: 'humour',
-  },
-  {
-    id: '6', key: 'braises', label: 'Braises Surgelées',
-    description: 'Le saint graal',
-    types:  ['tshirt','sweat','hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['1-1-braises.jpg', '1-2-braises.png', '2-1-braises.jpg', '2-2-braises.png', '3-1-braises.jpg', '3-2-braises.png'],
-    collection: 'humour',
-  },
-  {
     id: '7', key: 'christus-rex', label: 'Christus Rex',
     description: 'Mexique.',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['1-1-christus-rex.jpg', '1-2-christus-rex.png', '2-1-christus-rex.jpg', '2-2-christus-rex.png', '3-1-christus-rex.jpg', '3-2-christus-rex.png'],
-    collection: 'saints',
+    collection: 'scouts',
   },
   {
     id: '8', key: 'st-michel', label: 'St Michel',
@@ -97,7 +71,7 @@ const DESIGNS = [
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['StMichelW.jpg','StMichelB.png','image 19.jpg','image20.png','image 15.jpg','image 16.png'],
-    collection: 'saints',
+    collection: 'scouts',
   },
   {
     id: '9', key: 'st-jean-marie-vianney', label: 'St Jean-Marie Vianney',
@@ -105,7 +79,7 @@ const DESIGNS = [
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['StVianneyW.jpg','StVianneyB.png','image 25.jpg','image 26.png','image 21.jpg','image 22.png'],
-    collection: 'saints',
+    collection: 'scouts',
   },
   {
     id: '10', key: 'st-george', label: 'St George',
@@ -113,7 +87,7 @@ const DESIGNS = [
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['StGeorgeW.jpg','StGeorgeB.png','image 24.jpg','image 23.png','image 18.jpg','image 17.png'],
-    collection: 'saints',
+    collection: 'scouts',
   },
   {
     id: '11', key: 'jpeuxpas', label: 'J\'peux pas j\'ai scout',
@@ -121,7 +95,7 @@ const DESIGNS = [
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
-    collection: 'humour',
+    collection: 'scouts',
   },
 ];
 
