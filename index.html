@@ -399,6 +399,73 @@
             transform: scale(1.3);
         }
 
+
+
+/* ── FEATURE CARDS ── */
+.features-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 5% 48px;
+    border-top: 1px solid rgba(44,55,118,0.1);
+}
+.features-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.feature-card {
+    background: white;
+    border: 1px solid rgba(44,55,118,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+}
+.feature-card:hover { box-shadow: 0 0 0 2px var(--navy) inset; }
+.feature-card-img-wrap {
+    width: 100%;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(44,55,118,0.08), rgba(201,168,76,0.1));
+}
+.feature-card-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.35s, filter 0.2s;
+}
+.feature-card:hover .feature-card-img-wrap img {
+    transform: scale(0.94);
+    filter: brightness(0.93);
+}
+.feature-card-body {
+    padding: 1.1rem 1.1rem 1.3rem;
+    border-top: 1px solid rgba(44,55,118,0.07);
+    display: flex; flex-direction: column; gap: 7px;
+}
+.feature-card-eyebrow {
+    font-size: 0.48rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--or);
+}
+.feature-card-title {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1rem; color: var(--navy);
+}
+.feature-card-text {
+    font-size: 0.61rem; color: var(--gris);
+    line-height: 1.8; margin-top: 2px;
+}
+@media (max-width: 768px) {
+    .features-section { padding: 48px 5% 32px; }
+    .features-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+        
         @media (max-width: 768px) {
             .reviews-section { padding: 60px 5% 40px; }
             .review-card { padding: 28px 22px; }
@@ -494,6 +561,56 @@
             <a class="hero-cta" href="#catalogue" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'});return false;">Voir les collections</a>
         </div>
 
+
+<!-- FEATURE CARDS -->
+<div class="features-section">
+    <div class="features-header">
+        <div class="section-header-title">L'esprit Tradiscout</div>
+        <div class="section-header-sub">Vers le haut</div>
+    </div>
+    <div class="features-grid">
+
+        <div class="feature-card">
+            <div class="feature-card-img-wrap">
+                <img src="images/feature-qualite.jpg" alt="Qualité"
+                     onerror="this.style.display='none'" />
+            </div>
+            <div class="feature-card-body">
+                <div class="feature-card-eyebrow">Artisanat</div>
+                <div class="feature-card-title">Fabriqué dans les Pyrénées</div>
+                <div class="feature-card-text">Chaque pièce sort d'un atelier pyrénéen, avec des matières sélectionnées pour leur tenue et leur confort. Rien de moins.</div>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-card-img-wrap">
+                <img src="images/feature-mission.jpg" alt="Mission"
+                     onerror="this.style.display='none'" />
+            </div>
+            <div class="feature-card-body">
+                <div class="feature-card-eyebrow">Mission</div>
+                <div class="feature-card-title">Verso l'Alto</div>
+                <div class="feature-card-text">Porter l'identité catholique et scoute avec fierté. Tradiscout, c'est une communauté qui vit sa foi sur le terrain et au-delà.</div>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-card-img-wrap">
+                <img src="images/feature-communaute.jpg" alt="Communauté"
+                     onerror="this.style.display='none'" />
+            </div>
+            <div class="feature-card-body">
+                <div class="feature-card-eyebrow">Communauté</div>
+                <div class="feature-card-title">Une famille scoute</div>
+                <div class="feature-card-text">Chaque achat soutient les projets de la communauté. Rejoins les vaillants qui portent les couleurs Tradiscout.</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+        
         <div id="catalogue">
             <div class="section-header">
                 <div class="section-header-title"></div>
