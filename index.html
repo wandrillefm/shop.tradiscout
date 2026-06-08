@@ -400,7 +400,6 @@
         }
 
 
-
 /* ── FEATURE CARDS ── */
 .features-section {
     max-width: 1100px;
@@ -416,7 +415,7 @@
 }
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;   /* ← colonne unique partout */
     gap: 16px;
 }
 .feature-card {
@@ -424,12 +423,14 @@
     border: 1px solid rgba(44,55,118,0.1);
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;          /* ← image gauche, texte droite */
+    min-height: 220px;
     transition: box-shadow 0.2s;
 }
+.feature-card:hover { box-shadow: 0 0 0 2px var(--navy) inset; }
 .feature-card-img-wrap {
-    width: 100%;
-    aspect-ratio: 3/2;
+    width: 36%;
+    flex-shrink: 0;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(44,55,118,0.08), rgba(201,168,76,0.1));
 }
@@ -438,10 +439,16 @@
     object-fit: cover; display: block;
     transition: transform 0.35s, filter 0.2s;
 }
+.feature-card:hover .feature-card-img-wrap img {
+    transform: scale(0.94);
+    filter: brightness(0.92);
+}
 .feature-card-body {
-    padding: 1.1rem 1.1rem 1.3rem;
-    border-top: 1px solid rgba(44,55,118,0.07);
-    display: flex; flex-direction: column; gap: 7px;
+    flex: 1;
+    padding: 1.8rem 2rem;
+    border-left: 1px solid rgba(44,55,118,0.07);
+    display: flex; flex-direction: column;
+    gap: 8px; justify-content: center;
 }
 .feature-card-eyebrow {
     font-size: 0.48rem; letter-spacing: 0.2em;
@@ -449,7 +456,7 @@
 }
 .feature-card-title {
     font-family: 'Uncial Antiqua', serif;
-    font-size: 1rem; color: var(--navy);
+    font-size: 1.05rem; color: var(--navy);
 }
 .feature-card-text {
     font-size: 0.61rem; color: var(--gris);
@@ -457,7 +464,13 @@
 }
 @media (max-width: 768px) {
     .features-section { padding: 48px 5% 32px; }
-    .features-grid { grid-template-columns: 1fr; gap: 12px; }
+    .feature-card { flex-direction: column; min-height: unset; }
+    .feature-card-img-wrap { width: 100%; aspect-ratio: 3/2; }
+    .feature-card-body {
+        border-left: none;
+        border-top: 1px solid rgba(44,55,118,0.07);
+        padding: 1.1rem;
+    }
 }
 
         
