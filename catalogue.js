@@ -8,14 +8,15 @@ const COLLECTIONS = [
 ];
 
 const TYPES = [
-  { id: 'tshirt', label: 'T-Shirt', code: '1', price: 25 },
-  { id: 'sweat',  label: 'Sweat',   code: '2', price: 45 },
-  { id: 'hoodie', label: 'Hoodie',  code: '3', price: 49 },
+  { id: 'tshirt', label: 'T-Shirt', code: '1', price: 26.5 },
+  { id: 'sweat',  label: 'Sweat',   code: '2', price: 45.7 },
+  { id: 'hoodie', label: 'Hoodie',  code: '3', price: 49.7 },
 ];
 
 const COLORS = [
   { id: 'blanc', label: 'Blanc',  code: '1' },
   { id: 'bleu',  label: 'Marine', code: '2' },
+  { id: 'rouge',  label: 'Cardinal', code: '3' },
 ];
 
 const SIZES = ['S', 'M', 'L', 'XL'];
@@ -37,7 +38,7 @@ const DESIGNS = [
     id: '1', key: 'tradiscout', label: 'Tradiscout',
     description: 'Rien de plus basique',
     types:  ['tshirt','sweat','hoodie'],
-    colors: ['blanc', 'bleu'],
+    colors: ['blanc', 'bleu', 'rouge'],
     images: ['1-1-tradiscout.jpg', '1-2-tradiscout.png', '2-1-tradiscout.jpg', '2-2-tradiscout.png', '3-1-tradiscout.jpg', '3-2-tradiscout.png'],
     collection: 'scouts',
   },
@@ -45,7 +46,7 @@ const DESIGNS = [
     id: '3', key: 'deus-vult', label: 'Deus Vult',
     description: 'Comme au temps des templiers',
     types:  ['tshirt', 'sweat'],
-    colors: ['blanc', 'bleu'],
+    colors: ['blanc', 'bleu', 'rouge'],
     images: ['1-1-deus-vult.jpg', '1-2-deus-vult.png', '2-1-deus-vult.jpg', '2-2-deus-vult.png'],
     collection: 'scouts',
   },
@@ -53,7 +54,7 @@ const DESIGNS = [
     id: '4', key: 'verso-lalto', label: 'Verso l\'Alto',
     description: 'Devise de Saint Pier Georgio Frassati',
     types:  ['tshirt', 'sweat'],
-    colors: ['blanc', 'bleu'],
+    colors: ['blanc', 'bleu', 'rouge'],
     images: ['1-1-verso-lalto.jpg', '1-2-verso-lalto.png', '2-1-verso-lalto.jpg', '2-2-verso-lalto.png'],
     collection: 'scouts',
   },
@@ -61,7 +62,7 @@ const DESIGNS = [
     id: '7', key: 'christus-rex', label: 'Christus Rex',
     description: 'Mexique.',
     types:  ['tshirt','sweat','hoodie'],
-    colors: ['blanc', 'bleu'],
+    colors: ['blanc', 'bleu', 'rouge'],
     images: ['1-1-christus-rex.jpg', '1-2-christus-rex.png', '2-1-christus-rex.jpg', '2-2-christus-rex.png', '3-1-christus-rex.jpg', '3-2-christus-rex.png'],
     collection: 'scouts',
   },
@@ -69,7 +70,7 @@ const DESIGNS = [
     id: '8', key: 'st-michel', label: 'St Michel',
     description: 'Le goat',
     types:  ['tshirt','sweat','hoodie'],
-    colors: ['blanc', 'bleu'],
+    colors: ['blanc', 'bleu, 'rouge''],
     images: ['StMichelW.jpg','StMichelB.png','image 19.jpg','image20.png','image 15.jpg','image 16.png'],
     collection: 'scouts',
   },
@@ -77,7 +78,7 @@ const DESIGNS = [
     id: '9', key: 'st-jean-marie-vianney', label: 'St Jean-Marie Vianney',
     description: 'En esprit de sainteté',
     types:  ['tshirt','sweat','hoodie'],
-    colors: ['blanc', 'bleu'],
+    colors: ['blanc', 'bleu', 'rouge'],
     images: ['StVianneyW.jpg','StVianneyB.png','image 25.jpg','image 26.png','image 21.jpg','image 22.png'],
     collection: 'scouts',
   },
@@ -85,7 +86,7 @@ const DESIGNS = [
     id: '10', key: 'st-george', label: 'St George',
     description: 'St patron des éclaireurs',
     types:  ['tshirt', 'sweat', 'hoodie'],
-    colors: ['blanc', 'bleu'],
+    colors: ['blanc', 'bleu', 'rouge'],
     images: ['StGeorgeW.jpg','StGeorgeB.png','image 24.jpg','image 23.png','image 18.jpg','image 17.png'],
     collection: 'scouts',
   },
@@ -93,7 +94,7 @@ const DESIGNS = [
     id: '11', key: 'jpeuxpas', label: 'J\'peux pas j\'ai scout',
     description: 'La seule excuse valable un samedi matin.',
     types:  ['tshirt', 'sweat', 'hoodie'],
-    colors: ['blanc', 'bleu'],
+    colors: ['blanc', 'bleu', 'rouge'],
     images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
     collection: 'scouts',
   },
