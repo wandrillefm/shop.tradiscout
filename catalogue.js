@@ -18,7 +18,7 @@ const COLORS = [
   { id: 'bleu',  label: 'Marine', code: '2' },
 ];
 
-const SIZES = ['S', 'M', 'L'];
+const SIZES = ['S', 'M', 'L', 'XL'];
 
 // ─── DESIGNS ───────────────────────────────
 // Chaque produit :
