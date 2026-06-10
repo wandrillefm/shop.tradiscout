@@ -127,7 +127,7 @@ const DESIGNS = [
     description: 'Saint patron des éclaireurs',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
-    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
+    images: ['image 48.png', 'image 49.png', 'image 50.png', 'image 51.png', 'image 52.png', 'image 53.png', 'image 54.png', 'image 55.png', 'image 56.png'],
     collection: 'premium',
   },
   {
@@ -135,7 +135,7 @@ const DESIGNS = [
     description: 'Saint patron des para',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
-    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
+    images: ['image 39.png', 'image 40.png', 'image 41.png', 'image 42.png', 'image 43.png', 'image 44.png', 'image 45.png', 'image 46.png', 'image 47.png'],
     collection: 'premium',
   },
   {
@@ -143,7 +143,7 @@ const DESIGNS = [
     description: 'Roi de France',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
-    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
+    images: ['image 57.png', 'image 58.png', 'image 59.png', 'image 60.png', 'image 61.png', 'image 62.png', 'image 63.png', 'image 64.png', 'image 65.png'],
     collection: 'premium',
   },
 ];
