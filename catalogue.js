@@ -70,7 +70,7 @@ const DESIGNS = [
     id: '8', key: 'st-michel', label: 'St Michel',
     description: 'Le goat',
     types:  ['tshirt','sweat','hoodie'],
-    colors: ['blanc', 'bleu, 'rouge''],
+    colors: ['blanc', 'bleu', 'rouge'],
     images: ['StMichelW.jpg','StMichelB.png','image 19.jpg','image20.png','image 15.jpg','image 16.png'],
     collection: 'scouts',
   },
