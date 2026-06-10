@@ -98,6 +98,38 @@ const DESIGNS = [
     images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
     collection: 'scouts',
   },
+  {
+    id: '11', key: 'croixnika', label: 'Croix Ni Ka',
+    description: 'La seule excuse valable un samedi matin.',
+    types:  ['tshirt', 'sweat', 'hoodie'],
+    colors: ['blanc', 'bleu', 'rouge'],
+    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
+    collection: 'premium',
+  },
+  {
+    id: '11', key: 'georgesdor', label: 'Saint Georges Or',
+    description: 'Saint patron des éclaireurs',
+    types:  ['tshirt', 'sweat', 'hoodie'],
+    colors: ['blanc', 'bleu', 'rouge'],
+    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
+    collection: 'premium',
+  },
+  {
+    id: '11', key: 'micheldor', label: 'Saint Michel Or',
+    description: 'Saint patron des para',
+    types:  ['tshirt', 'sweat', 'hoodie'],
+    colors: ['blanc', 'bleu', 'rouge'],
+    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
+    collection: 'premium',
+  },
+  {
+    id: '11', key: 'louisdor', label: 'Saint Louis Or',
+    description: 'Roi de France',
+    types:  ['tshirt', 'sweat', 'hoodie'],
+    colors: ['blanc', 'bleu', 'rouge'],
+    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
+    collection: 'premium',
+  },
 ];
 
 // ─── HELPERS ───────────────────────────────
