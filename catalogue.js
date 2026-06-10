@@ -4,13 +4,29 @@
 // ─────────────────────────────────────────────
 
 const COLLECTIONS = [
-  { id: 'scouts',  label: 'Classiques'  }
+  { id: 'scouts',  label: 'Classiques'  },
+  { id: 'premium', label: 'Premium'    }
 ];
 
 const TYPES = [
-  { id: 'tshirt', label: 'T-Shirt', code: '1', price: 26 },
-  { id: 'sweat',  label: 'Sweat',   code: '2', price: 47 },
-  { id: 'hoodie', label: 'Hoodie',  code: '3', price: 49 }
+  { 
+    id: 'tshirt', 
+    label: 'T-Shirt', 
+    code: '1', 
+    price: { scouts: 25, premium: 29 }
+  },
+  { 
+    id: 'sweat',  
+    label: 'Sweat',  
+    code: '2', 
+    price: { scouts: 45, premium: 49 } 
+  },
+  { 
+    id: 'hoodie', 
+    label: 'Hoodie', 
+    code: '3', 
+    price: { scouts: 49, premium: 54 } 
+  }
 ];
 
 const COLORS = [
@@ -99,7 +115,7 @@ const DESIGNS = [
     collection: 'scouts',
   },
   {
-    id: '11', key: 'croixnika', label: 'Croix Ni Ka',
+    id: '12', key: 'croixnika', label: 'Croix Ni Ka',
     description: 'La seule excuse valable un samedi matin.',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
@@ -107,7 +123,7 @@ const DESIGNS = [
     collection: 'premium',
   },
   {
-    id: '11', key: 'georgesdor', label: 'Saint Georges Or',
+    id: '13', key: 'georgesdor', label: 'Saint Georges Or',
     description: 'Saint patron des éclaireurs',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
@@ -115,7 +131,7 @@ const DESIGNS = [
     collection: 'premium',
   },
   {
-    id: '11', key: 'micheldor', label: 'Saint Michel Or',
+    id: '14', key: 'micheldor', label: 'Saint Michel Or',
     description: 'Saint patron des para',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
@@ -123,7 +139,7 @@ const DESIGNS = [
     collection: 'premium',
   },
   {
-    id: '11', key: 'louisdor', label: 'Saint Louis Or',
+    id: '15', key: 'louisdor', label: 'Saint Louis Or',
     description: 'Roi de France',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
