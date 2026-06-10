@@ -19,7 +19,7 @@ const COLORS = [
   { id: 'rouge',  label: 'Cardinal', code: '3' }
 ];
 
-const SIZES = ['S', 'M', 'L', 'XL'];
+const SIZES = ['S', 'M', 'L'];
 
 // ─── DESIGNS ───────────────────────────────
 // Chaque produit :
