@@ -156,6 +156,22 @@ function coverImg(designKey) {
   return d && d.images.length ? d.images[0] : 'placeholder.png';
 }
 
+/**
+ * Récupère le prix d'un produit selon son type et sa collection
+ * @param {string} designKey - Le slug du design (ex: 'tradiscout' ou 'croixnika')
+ * @param {string} typeId - Le type de vêtement (ex: 'tshirt', 'sweat')
+ * @returns {number} Le prix correspondant ou 0 si non trouvé
+ */
+function getProductPrice(designKey, typeId) {
+  const design = DESIGNS.find(d => d.key === designKey);
+  const type = TYPES.find(t => t.id === typeId);
+  
+  if (!design || !type) return 0;
+  
+  // Récupère le prix de la collection du design, ou un fallback s'il y a un souci
+  return type.price[design.collection] || 0;
+}
+
 if (typeof module !== 'undefined') {
-  module.exports = { COLLECTIONS, TYPES, COLORS, SIZES, DESIGNS, coverImg };
+  module.exports = { COLLECTIONS, TYPES, COLORS, SIZES, DESIGNS, coverImg, getProductPrice };
 }
