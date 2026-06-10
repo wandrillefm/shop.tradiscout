@@ -8,9 +8,9 @@ const COLLECTIONS = [
 ];
 
 const TYPES = [
-  { id: 'tshirt', label: 'T-Shirt', code: '1', price: 26.5 },
-  { id: 'sweat',  label: 'Sweat',   code: '2', price: 45.7 },
-  { id: 'hoodie', label: 'Hoodie',  code: '3', price: 49.7 }
+  { id: 'tshirt', label: 'T-Shirt', code: '1', price: 26 },
+  { id: 'sweat',  label: 'Sweat',   code: '2', price: 47 },
+  { id: 'hoodie', label: 'Hoodie',  code: '3', price: 49 }
 ];
 
 const COLORS = [
