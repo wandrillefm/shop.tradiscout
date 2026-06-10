@@ -119,7 +119,7 @@ const DESIGNS = [
     description: 'La seule excuse valable un samedi matin.',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
-    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
+    images: ['image 33.png', 'image 34.png', 'image 35.png', 'image 36.png', 'image 37.png', 'image 38.png', 'image 29.png', 'image 30.png', 'image 31.png'],
     collection: 'premium',
   },
   {
