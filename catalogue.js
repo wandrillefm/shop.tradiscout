@@ -10,13 +10,13 @@ const COLLECTIONS = [
 const TYPES = [
   { id: 'tshirt', label: 'T-Shirt', code: '1', price: 26.5 },
   { id: 'sweat',  label: 'Sweat',   code: '2', price: 45.7 },
-  { id: 'hoodie', label: 'Hoodie',  code: '3', price: 49.7 },
+  { id: 'hoodie', label: 'Hoodie',  code: '3', price: 49.7 }
 ];
 
 const COLORS = [
   { id: 'blanc', label: 'Blanc',  code: '1' },
   { id: 'bleu',  label: 'Marine', code: '2' },
-  { id: 'rouge',  label: 'Cardinal', code: '3' },
+  { id: 'rouge',  label: 'Cardinal', code: '3' }
 ];
 
 const SIZES = ['S', 'M', 'L', 'XL'];
