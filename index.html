@@ -962,18 +962,21 @@
         function renderGrid() {
             const grid = document.getElementById('grid');
             const filtered = DESIGNS.filter(d => d.collection === activeCollection);
-            const minPrice = Math.min(...TYPES.map(t => getProductPrice()));
-            grid.innerHTML = filtered.map(d => `
-                <div class="grid-card" onclick="openLb('${d.key}')">
-                    <div class="grid-card-img-wrap">
-                        <img src="images/${d.images[0]}" onerror="this.style.opacity='0'" />
+        
+            grid.innerHTML = filtered.map(d => {
+                const minPrice = Math.min(...d.types.map(typeId => getProductPrice(d.key, typeId)));
+                return `
+                    <div class="grid-card" onclick="openLb('${d.key}')">
+                        <div class="grid-card-img-wrap">
+                            <img src="images/${d.images[0]}" onerror="this.style.opacity='0'" />
+                        </div>
+                        <div class="grid-card-info">
+                            <div class="grid-card-name">${d.label}</div>
+                            <div class="grid-card-price">à partir de ${minPrice} €</div>
+                        </div>
                     </div>
-                    <div class="grid-card-info">
-                        <div class="grid-card-name">${d.label}</div>
-                        <div class="grid-card-price">à partir de ${minPrice} €</div>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         /* ── LIGHTBOX ── */
@@ -996,11 +999,12 @@
         function renderLb() {
             const d = DESIGNS.find(x => x.key === lb.design);
             const t = TYPES.find(x => x.id === lb.type);
-
+            const price = getProductPrice(lb.design, lb.type);  // ← plus t.price
+        
             document.getElementById('lbTitle').textContent = d.label;
             document.getElementById('lbDesc').textContent  = d.description;
-            document.getElementById('lbPrice').textContent = t ? getProductPrice() + ' €' : '';
-
+            document.getElementById('lbPrice').textContent = price ? price + ' €' : '';
+            
             document.getElementById('lbTypes').innerHTML = TYPES
                 .filter(x => d.types.includes(x.id))
                 .map(x => `<button class="opt-btn ${x.id === lb.type ? 'sel' : ''}" onclick="lbSet('type','${x.id}')">${x.label}</button>`)
@@ -1059,9 +1063,11 @@
             const t = TYPES.find(x => x.id === lb.type);
             const d = DESIGNS.find(x => x.key === lb.design);
             const c = COLORS.find(x => x.id === lb.color);
+            const price = getProductPrice(lb.design, lb.type);  // ← plus t.price
             cart.push({
                 id: Date.now(), design: d.id, type: lb.type, color: lb.color, size: lb.size,
-                typeLabel: t.label, designLabel: d.label, colorLabel: c.label, price: getProductPrice(),
+                typeLabel: t.label, designLabel: d.label, colorLabel: c.label,
+                price: price,
             });
             renderCart(); closeLb(); openCart();
         }
