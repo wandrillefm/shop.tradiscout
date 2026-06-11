@@ -1,4 +1,4 @@
-const { DESIGNS, TYPES, COLORS, SIZES } = require('../catalogue.js');
+const { DESIGNS, TYPES, COLORS, SIZES, getProductPrice } = require('../catalogue.js');
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -8,10 +8,6 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Méthode non autorisée' });
 
   const { items, promoCode } = req.body;
-
-  const basePrices = Object.fromEntries(
-    TYPES.map(t => [t.id, parseInt(process.env[`PRICE_${t.id.toUpperCase()}`] ?? t.price)])
-  );
 
   // Format : "TRASCO=0.2,SCOUT10=0.1"  (fraction, 0.2 = 20%)
   const promoCodes = {};
@@ -44,8 +40,12 @@ export default async function handler(req, res) {
     if (!design.types.includes(item.type))   return res.status(400).json({ error: 'Type non disponible pour ce design' });
     if (!design.colors.includes(item.color)) return res.status(400).json({ error: 'Couleur non disponible pour ce design' });
     if (!SIZES.includes(item.size))          return res.status(400).json({ error: 'Taille invalide' });
-    const expectedPrice = Math.round(basePrices[item.type] * (1 - discountPercent));
-    if (item.price !== expectedPrice)
+    
+    const envPrice = process.env[`PRICE_${item.type.toUpperCase()}`];
+    const initialPrice = envPrice ? parseInt(envPrice) : getProductPrice(design.key, item.type);
+    
+    const expectedPrice = Math.round(initialPrice * (1 - discountPercent));    if (item.price !== expectedPrice)
+      
       return res.status(400).json({ error: `Prix invalide pour ${item.type} (attendu: ${expectedPrice}€)` });
   }
 
