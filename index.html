@@ -962,7 +962,7 @@
         function renderGrid() {
             const grid = document.getElementById('grid');
             const filtered = DESIGNS.filter(d => d.collection === activeCollection);
-            const minPrice = Math.min(...TYPES.map(t => t.price));
+            const minPrice = Math.min(...TYPES.map(t => getProductPrice()));
             grid.innerHTML = filtered.map(d => `
                 <div class="grid-card" onclick="openLb('${d.key}')">
                     <div class="grid-card-img-wrap">
@@ -999,7 +999,7 @@
 
             document.getElementById('lbTitle').textContent = d.label;
             document.getElementById('lbDesc').textContent  = d.description;
-            document.getElementById('lbPrice').textContent = t ? t.price + ' €' : '';
+            document.getElementById('lbPrice').textContent = t ? getProductPrice() + ' €' : '';
 
             document.getElementById('lbTypes').innerHTML = TYPES
                 .filter(x => d.types.includes(x.id))
@@ -1061,7 +1061,7 @@
             const c = COLORS.find(x => x.id === lb.color);
             cart.push({
                 id: Date.now(), design: d.id, type: lb.type, color: lb.color, size: lb.size,
-                typeLabel: t.label, designLabel: d.label, colorLabel: c.label, price: t.price,
+                typeLabel: t.label, designLabel: d.label, colorLabel: c.label, price: getProductPrice(),
             });
             renderCart(); closeLb(); openCart();
         }
