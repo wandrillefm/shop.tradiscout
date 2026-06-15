@@ -127,7 +127,7 @@ const DESIGNS = [
     description: 'Saint patron des éclaireurs',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu', 'rouge'],
-    images: ['image 48.png', 'image 49.png', 'image 50.png', 'image 51.png', 'image 52.png', 'image 53.png', 'image 54.png', 'image 55.png', 'image 56.png'],
+    images: ['image 49.png', 'image 48.png', 'image 50.png', 'image 51.png', 'image 52.png', 'image 53.png', 'image 54.png', 'image 55.png', 'image 56.png'],
     collection: 'premium',
   },
   {
