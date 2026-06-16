@@ -44,7 +44,8 @@ export default async function handler(req, res) {
     const envPrice = process.env[`PRICE_${item.type.toUpperCase()}`];
     const initialPrice = envPrice ? parseInt(envPrice) : getProductPrice(design.key, item.type);
     
-    const expectedPrice = Math.round(initialPrice * (1 - discountPercent));    if (item.price !== expectedPrice)
+    const expectedPrice = Math.round(initialPrice * (1 - discountPercent) * 10) / 10;
+    if (item.price !== expectedPrice)
       
       return res.status(400).json({ error: `Prix invalide pour ${item.type} (attendu: ${expectedPrice}€)` });
   }
@@ -68,7 +69,7 @@ export default async function handler(req, res) {
     lineItemsParams[`line_items[${i}][price_data][currency]`]                  = 'eur';
     lineItemsParams[`line_items[${i}][price_data][product_data][name]`]        = name;
     lineItemsParams[`line_items[${i}][price_data][product_data][description]`] = desc;
-    lineItemsParams[`line_items[${i}][price_data][unit_amount]`]               = String(item.price * 100);
+    lineItemsParams[`line_items[${i}][price_data][unit_amount]`]               = String(Math.round(item.price * 100));
     lineItemsParams[`line_items[${i}][quantity]`]                              = String(item.qty);
   });
 
