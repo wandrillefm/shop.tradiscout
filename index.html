@@ -1271,6 +1271,8 @@
             btn.innerText = 'Chargement...'; btn.disabled = true;
             const pct         = promoState.discountPercent || 0;
             const itemsToSend = cart.map(i => ({ ...i, price: Math.round(i.price * (1 - pct)) }));
+            console.log('itemsToSend:', JSON.stringify(itemsToSend));
+
             try {
                 const body = { items: itemsToSend };
                 if (promoState.validated) body.promoCode = promoState.code;
