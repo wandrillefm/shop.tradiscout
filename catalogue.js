@@ -106,7 +106,7 @@ const DESIGNS = [
     collection: 'scouts',
   },
   {
-    id: '15', key: 'lys', label: 'Cinq Lys',
+    id: '16', key: 'lys', label: 'Cinq Lys',
     description: 'Symbole de royauté',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
@@ -114,7 +114,7 @@ const DESIGNS = [
     collection: 'premium',
   },
   {
-    id: '15', key: 'rose', label: 'Rose à Marie',
+    id: '17', key: 'rose', label: 'Rose à Marie',
     description: 'Rose mystique',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
@@ -122,6 +122,7 @@ const DESIGNS = [
     collection: 'premium',
   }
 ];
+// ATTENTION A L'ID IL FAUT QU'IL SOIT UNIQUE POUR CHAQUE PRODUIT
 
 // ─── HELPERS ───────────────────────────────
 
