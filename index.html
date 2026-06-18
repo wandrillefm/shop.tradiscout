@@ -471,22 +471,27 @@
 .faq-answer{
     max-height:0;
     overflow:hidden;
-    padding:0 24px;
-    font-size:.65rem;
-    color:var(--gris);
-    line-height:1.8;
-    transition:max-height .3s ease, padding .3s ease;
+    opacity:0;
+    transition:max-height .35s ease, opacity .25s ease, padding .35s ease;
 }
 
 .faq-item.active .faq-answer{
-    max-height:200px;
-    padding:0 24px 20px;
+    max-height:180px;
+    opacity:1;
+    padding:0 24px 22px;
 }
 
 .faq-item.active .faq-question span{
     transform:rotate(45deg);
 }
+        
+.faq-item{
+    transition:.2s;
+}
 
+.faq-item:hover{
+    box-shadow:0 0 0 2px var(--navy) inset;
+}
         
     </style>
 </head>
