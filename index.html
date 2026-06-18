@@ -429,6 +429,65 @@
             .footer-inner { grid-template-columns:1fr;gap:36px; }
             .collection-tabs-wrap { padding:20px 5% 0;gap:0;overflow-x:auto; }
         }
+
+
+/* ── FAQ ── */
+.faq-section{
+    max-width:1100px;
+    margin:0 auto;
+    padding:72px 5%;
+}
+
+.faq-wrap{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.faq-item{
+    border:1px solid rgba(44,55,118,.12);
+    background:#fff;
+}
+
+.faq-question{
+    width:100%;
+    padding:20px 24px;
+    background:none;
+    border:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    font-family:'DM Mono', monospace;
+    font-size:.72rem;
+    color:var(--navy);
+}
+
+.faq-question span{
+    font-size:1.1rem;
+    transition:.25s;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    padding:0 24px;
+    font-size:.65rem;
+    color:var(--gris);
+    line-height:1.8;
+    transition:max-height .3s ease, padding .3s ease;
+}
+
+.faq-item.active .faq-answer{
+    max-height:200px;
+    padding:0 24px 20px;
+}
+
+.faq-item.active .faq-question span{
+    transform:rotate(45deg);
+}
+
+        
     </style>
 </head>
 
@@ -637,6 +696,45 @@
         </div>
     </div>
 
+    <section class="faq-section">
+    <div class="faq-wrap">
+        <div class="section-header">
+            <div class="section-header-title">FAQ</div>
+            <div class="section-header-sub">Questions fréquentes</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Quels sont les délais de livraison ?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Les commandes sont expédiées sous 1 à 2 jours ouvrés puis livrées en moyenne sous 5 à 6 jours ouvrés.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Puis-je retourner un article ?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Oui. Vous disposez de 14 jours après réception pour demander un retour ou un échange.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Où sont fabriqués les vêtements ?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Nos vêtements sont conçus en Savoie et fabriqués dans les Pyrénées avec des matériaux sélectionnés pour leur qualité.
+            </div>
+        </div>
+    </div>
+</section>
+    
     <!-- PARTNERSHIP -->
     <section class="partnership-section">
         <div class="partnership-wrap">
@@ -1292,6 +1390,14 @@
       }
     });
   })();
+
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('active');
+    });
+});
 </script>
 
     
