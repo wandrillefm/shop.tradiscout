@@ -4,8 +4,8 @@
 // ─────────────────────────────────────────────
 
 const COLLECTIONS = [
-  { id: 'scouts',  label: 'Classiques'  },
-  { id: 'premium', label: 'Premium'    }
+  { id: 'premium', label: 'Premium'    },
+  { id: 'scouts',  label: 'Classiques'  }
 ];
 
 const TYPES = [
@@ -50,38 +50,6 @@ const SIZES = ['S', 'M', 'L', 'XL'];
 
 const DESIGNS = [
   {
-    id: '1', key: 'tradiscout', label: 'Tradiscout',
-    description: 'Rien de plus basique',
-    types:  ['tshirt','sweat','hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['1-1-tradiscout.jpg', '1-2-tradiscout.png', '2-1-tradiscout.jpg', '2-2-tradiscout.png', '3-1-tradiscout.jpg', '3-2-tradiscout.png'],
-    collection: 'scouts',
-  },
-  {
-    id: '3', key: 'deus-vult', label: 'Deus Vult',
-    description: 'Comme au temps des templiers',
-    types:  ['tshirt', 'sweat'],
-    colors: ['blanc', 'bleu'],
-    images: ['1-1-deus-vult.jpg', '1-2-deus-vult.png', '2-1-deus-vult.jpg', '2-2-deus-vult.png'],
-    collection: 'scouts',
-  },
-  {
-    id: '4', key: 'verso-lalto', label: 'Verso l\'Alto',
-    description: 'Devise de Saint Pier Georgio Frassati',
-    types:  ['tshirt', 'sweat'],
-    colors: ['blanc', 'bleu'],
-    images: ['1-1-verso-lalto.jpg', '1-2-verso-lalto.png', '2-1-verso-lalto.jpg', '2-2-verso-lalto.png'],
-    collection: 'scouts',
-  },
-  {
-    id: '7', key: 'christus-rex', label: 'Christus Rex',
-    description: 'Mexique.',
-    types:  ['tshirt','sweat','hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['1-1-christus-rex.jpg', '1-2-christus-rex.png', '2-1-christus-rex.jpg', '2-2-christus-rex.png', '3-1-christus-rex.jpg', '3-2-christus-rex.png'],
-    collection: 'scouts',
-  },
-  {
     id: '8', key: 'st-michel', label: 'St Michel',
     description: 'Le goat',
     types:  ['tshirt','sweat','hoodie'],
@@ -91,7 +59,7 @@ const DESIGNS = [
   },
   {
     id: '9', key: 'st-jean-marie-vianney', label: 'St Jean-Marie Vianney',
-    description: 'En esprit de sainteté',
+    description: 'En odeur de sainteté',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['StVianneyW.jpg','StVianneyB.png','image 25.jpg','image 26.png','image 21.jpg','image 22.png'],
@@ -106,20 +74,12 @@ const DESIGNS = [
     collection: 'scouts',
   },
   {
-    id: '11', key: 'jpeuxpas', label: 'J\'peux pas j\'ai scout',
-    description: 'La seule excuse valable un samedi matin.',
-    types:  ['tshirt', 'sweat', 'hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['1-1-jpeuxpas.jpg', '1-2-jpeuxpas.png', '2-1-jpeuxpas.jpg', '2-2-jpeuxpas.png', '3-1-jpeuxpas.jpg', '3-2-jpeuxpas.png'],
-    collection: 'scouts',
-  },
-  {
     id: '12', key: 'croixnika', label: 'Croix Ni Ka',
     description: 'La seule excuse valable un samedi matin.',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['image 33.png', 'image 35.png', 'image 37.png', 'image 38.png', 'image 30.png', 'image 31.png'],
-    collection: 'premium',
+    collection: 'scouts',
   },
   {
     id: '13', key: 'georgesdor', label: 'Saint Georges Or',
@@ -127,7 +87,7 @@ const DESIGNS = [
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['image 49.png', 'image 50.png', 'image 51.png', 'image 53.png', 'image 55.png', 'image 56.png'],
-    collection: 'premium',
+    collection: 'scouts',
   },
   {
     id: '14', key: 'micheldor', label: 'Saint Michel Or',
@@ -135,7 +95,7 @@ const DESIGNS = [
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['image 39.png', 'image 40.png', 'image 41.png', 'image 42.png', 'image 43.png', 'image 45.png', 'image 47.png'],
-    collection: 'premium',
+    collection: 'scouts',
   },
   {
     id: '15', key: 'louisdor', label: 'Saint Louis Or',
@@ -143,8 +103,24 @@ const DESIGNS = [
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['image 57.png', 'image 58.png', 'image 59.png', 'image 60.png', 'image 61.png', 'image 62.png', 'image 63.png', 'image 64.png', 'image 65.png'],
+    collection: 'scouts',
+  },
+  {
+    id: '15', key: 'lys', label: 'Cinq Lys',
+    description: 'Symbole de royauté',
+    types:  ['tshirt', 'sweat'],
+    colors: ['blanc', 'bleu'],
+    images: ['image 57.png', 'image 58.png', 'image 59.png', 'image 60.png', 'image 61.png', 'image 62.png', 'image 63.png', 'image 64.png', 'image 65.png'],
     collection: 'premium',
   },
+  {
+    id: '15', key: 'rose', label: 'Rose à Marie',
+    description: 'Rose mystique',
+    types:  ['tshirt', 'sweat'],
+    colors: ['blanc', 'bleu'],
+    images: ['image 57.png', 'image 58.png', 'image 59.png', 'image 60.png', 'image 61.png', 'image 62.png', 'image 63.png', 'image 64.png', 'image 65.png'],
+    collection: 'premium',
+  }
 ];
 
 // ─── HELPERS ───────────────────────────────
