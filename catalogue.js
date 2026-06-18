@@ -110,7 +110,7 @@ const DESIGNS = [
     description: 'Symbole de royauté',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
-    images: ['image 57.png', 'image 58.png', 'image 59.png', 'image 60.png', 'image 61.png', 'image 62.png', 'image 63.png', 'image 64.png', 'image 65.png'],
+    images: ['image 79.png', 'image 80.png', 'image 83.png', 'image 81.png'],
     collection: 'premium',
   },
   {
@@ -118,7 +118,7 @@ const DESIGNS = [
     description: 'Rose mystique',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
-    images: ['image 57.png', 'image 58.png', 'image 59.png', 'image 60.png', 'image 61.png', 'image 62.png', 'image 63.png', 'image 64.png', 'image 65.png'],
+    images: ['image 90.png', 'image 89.png', 'image 85.png', 'image 86.png'],
     collection: 'premium',
   }
 ];
