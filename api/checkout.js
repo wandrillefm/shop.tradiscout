@@ -42,7 +42,7 @@ export default async function handler(req, res) {
     if (!SIZES.includes(item.size))          return res.status(400).json({ error: 'Taille invalide' });
     
     const envPrice = process.env[`PRICE_${item.type.toUpperCase()}`];
-    const initialPrice = envPrice ? parseInt(envPrice) : getProductPrice(design.key, item.type);
+    const initialPrice = envPrice ? parseFloat(envPrice) : getProductPrice(design.key, item.type);
     
     const expectedPrice = Math.round(initialPrice * (1 - discountPercent) * 100) / 100;
     if (item.price !== expectedPrice)
