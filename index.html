@@ -1278,10 +1278,15 @@
                     method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
                 });
-                const { url } = await res.json();
-                const totalAmount = itemsToSend.reduce((s, i) => s + i.price, 0);
-                sessionStorage.setItem('lastOrderTotal', totalAmount);
-                window.location.href = url;
+                    const data = await res.json();
+                    if (!res.ok) {
+                        alert(data.error || 'Erreur lors du paiement');
+                        btn.innerText = 'Payer →'; btn.disabled = false;
+                        return;
+                    }
+                    const totalAmount = itemsToSend.reduce((s, i) => s + i.price, 0);
+                    sessionStorage.setItem('lastOrderTotal', totalAmount);
+                    window.location.href = data.url;
             } catch {
                 alert('Erreur lors du paiement');
                 btn.innerText = 'Payer →'; btn.disabled = false;
