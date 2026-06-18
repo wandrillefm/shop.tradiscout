@@ -1114,8 +1114,8 @@
             const d = DESIGNS.find(x => x.key === designKey);
             lb.design     = designKey;
             lb.photoIndex = 0;
-            lb.type  = d.types.includes('sweat') ? 'sweat' : d.types[0];
-            lb.color = d.colors.includes('bleu') ? 'bleu' : d.colors[0];
+            lb.type  = d.types.includes('tshirt') ? 'tshirt' : d.types[0];
+            lb.color = d.colors.includes('blanc') ? 'blanc' : d.colors[0];
             lb.size  = null;
             renderLb();
             document.getElementById('lbOverlay').classList.add('open');
