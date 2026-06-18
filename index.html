@@ -1270,7 +1270,7 @@
             const btn = document.getElementById('checkoutBtn');
             btn.innerText = 'Chargement...'; btn.disabled = true;
             const pct         = promoState.discountPercent || 0;
-            const itemsToSend = cart.map(i => ({ ...i, price: Math.round(i.price * (1 - pct)) }));
+            const itemsToSend = cart.map(i => ({ ...i, price: Math.round(i.price * (1 - pct) * 100) / 100 }));
             console.log('itemsToSend:', JSON.stringify(itemsToSend));
 
             try {
