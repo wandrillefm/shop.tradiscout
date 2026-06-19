@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     const envPrice = process.env[`PRICE_${item.type.toUpperCase()}`];
     const initialPrice = envPrice ? parseFloat(envPrice) : getProductPrice(design.key, item.type);
     
-    const expectedPrice = Math.round(initialPrice * (1 - discountPercent) * 100) / 100;
+    const expectedPrice = Math.round(initialPrice * (1 - discountPercent) * 10) / 10;
     if (item.price !== expectedPrice)
       
       return res.status(400).json({ error: `Prix invalide pour ${item.type} (attendu: ${expectedPrice}€)` });
