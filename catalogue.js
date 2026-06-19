@@ -120,6 +120,22 @@ const DESIGNS = [
     colors: ['blanc', 'bleu'],
     images: ['image 90.png', 'image 89.png', 'image 85.png', 'image 86.png'],
     collection: 'premium',
+  },
+  {
+    id: '18', key: 'corsacrum', label: 'Cor Sacrum Jesu',
+    description: 'In te confido',
+    types:  ['tshirt', 'sweat'],
+    colors: ['blanc', 'bleu'],
+    images: ['image 94.png', 'image 95.png', 'image 98.png', 'image 99.png'],
+    collection: 'premium',
+  },
+  {
+    id: '19', key: 'sacrecoeur', label: 'Sacré-Cœur de Jésus',
+    description: "J'ai confiance en vous",
+    types:  ['tshirt'],
+    colors: ['blanc', 'bleu'],
+    images: ['image 96.png', 'image 97.png'],
+    collection: 'premium',
   }
 ];
 // ATTENTION A L'ID IL FAUT QU'IL SOIT UNIQUE POUR CHAQUE PRODUIT
