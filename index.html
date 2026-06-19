@@ -1209,8 +1209,8 @@
             const container  = document.getElementById('cartItems');
             const pct        = promoState.discountPercent || 0;
             const totalOrig  = cart.reduce((s, i) => s + i.price, 0);
-            const discountAmt = pct > 0 ? Math.round(totalOrig * pct) : 0;
-            const totalFinal  = totalOrig - discountAmt;
+            const discountAmt = pct > 0 ? Math.round(totalOrig * pct * 10) / 10 : 0;
+            const totalFinal  = Math.round((totalOrig - discountAmt) * 10) / 10;
 
             document.getElementById('cartCountDesktop').textContent = cart.length;
             document.getElementById('cartCountMobile').textContent  = cart.length;
@@ -1219,11 +1219,11 @@
             if (pct > 0 && cart.length > 0) {
                 discountRow.style.display = 'flex';
                 document.getElementById('cartDiscountLabel').textContent = `${promoState.code} (−${Math.round(pct * 100)}%)`;
-                document.getElementById('cartDiscountAmt').textContent   = `−${discountAmt} €`;
-                document.getElementById('cartTotal').textContent         = totalFinal + ' €';
+                document.getElementById('cartDiscountAmt').textContent = `−${discountAmt.toFixed(1)} €`;
+                document.getElementById('cartTotal').textContent       = totalFinal.toFixed(1) + ' €';
             } else {
                 discountRow.style.display = 'none';
-                document.getElementById('cartTotal').textContent = totalOrig + ' €';
+                document.getElementById('cartTotal').textContent = totalOrig.toFixed(1) + ' €';
             }
 
             if (!cart.length) { container.innerHTML = '<p style="font-size:.72rem;color:var(--gris)">Panier vide</p>'; return; }
