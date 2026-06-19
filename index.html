@@ -1168,7 +1168,8 @@
             const img = document.getElementById('lbImg');
             const src = 'images/' + d.images[lb.photoIndex];
 
-            if (!img.src.endsWith(src)) {
+            const currentSrc = img.getAttribute('src');
+            if (currentSrc !== src) {
                 img.style.opacity = '0';
                 setTimeout(() => { img.src = src; img.style.opacity = '1'; }, 120);
             }
