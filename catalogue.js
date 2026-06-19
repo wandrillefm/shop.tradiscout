@@ -51,7 +51,7 @@ const SIZES = ['S', 'M', 'L', 'XL'];
 const DESIGNS = [
   {
     id: '8', key: 'st-michel', label: 'St Michel',
-    description: 'Le goat',
+    description: 'Saint patron des para - Dos',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['StMichelW.jpg','StMichelB.png','image 19.jpg','image20.png','image 15.jpg','image 16.png'],
@@ -59,7 +59,7 @@ const DESIGNS = [
   },
   {
     id: '9', key: 'st-jean-marie-vianney', label: 'St Jean-Marie Vianney',
-    description: 'En odeur de sainteté',
+    description: 'Saint patron des prêtres - Dos',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['StVianneyW.jpg','StVianneyB.png','image 25.jpg','image 26.png','image 21.jpg','image 22.png'],
@@ -67,46 +67,14 @@ const DESIGNS = [
   },
   {
     id: '10', key: 'st-george', label: 'St George',
-    description: 'St patron des éclaireurs',
+    description: 'St patron des éclaireurs - Dos',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
     images: ['StGeorgeW.jpg','StGeorgeB.png','image 24.jpg','image 23.png','image 18.jpg','image 17.png'],
     collection: 'scouts',
   },
   {
-    id: '12', key: 'croixnika', label: 'Croix Ni Ka',
-    description: 'La seule excuse valable un samedi matin.',
-    types:  ['tshirt', 'sweat', 'hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['image 33.png', 'image 35.png', 'image 37.png', 'image 38.png', 'image 30.png', 'image 31.png'],
-    collection: 'scouts',
-  },
-  {
-    id: '13', key: 'georgesdor', label: 'Saint Georges Or',
-    description: 'Saint patron des éclaireurs',
-    types:  ['tshirt', 'sweat', 'hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['image 49.png', 'image 50.png', 'image 51.png', 'image 53.png', 'image 55.png', 'image 56.png'],
-    collection: 'scouts',
-  },
-  {
-    id: '14', key: 'micheldor', label: 'Saint Michel Or',
-    description: 'Saint patron des para',
-    types:  ['tshirt', 'sweat', 'hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['image 39.png', 'image 40.png', 'image 41.png', 'image 42.png', 'image 43.png', 'image 45.png', 'image 47.png'],
-    collection: 'scouts',
-  },
-  {
-    id: '15', key: 'louisdor', label: 'Saint Louis Or',
-    description: 'Roi de France',
-    types:  ['tshirt', 'sweat', 'hoodie'],
-    colors: ['blanc', 'bleu'],
-    images: ['image 57.png', 'image 58.png', 'image 59.png', 'image 60.png', 'image 61.png', 'image 62.png', 'image 63.png', 'image 64.png', 'image 65.png'],
-    collection: 'scouts',
-  },
-  {
-    id: '16', key: 'lys', label: 'Cinq Lys',
+    id: '11', key: 'lys', label: 'Cinq Lys',
     description: 'Symbole de royauté',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
@@ -114,7 +82,7 @@ const DESIGNS = [
     collection: 'premium',
   },
   {
-    id: '17', key: 'rose', label: 'Rose à Marie',
+    id: '12', key: 'rose', label: 'Rose à Marie',
     description: 'Rose mystique',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
@@ -122,7 +90,7 @@ const DESIGNS = [
     collection: 'premium',
   },
   {
-    id: '18', key: 'corsacrum', label: 'Cor Sacrum Jesu',
+    id: '13', key: 'corsacrum', label: 'Cor Sacrum Jesu',
     description: 'In te confido',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'bleu'],
@@ -130,11 +98,11 @@ const DESIGNS = [
     collection: 'premium',
   },
   {
-    id: '19', key: 'sacrecoeur', label: 'Sacré-Cœur de Jésus',
+    id: '14', key: 'sacrecoeur', label: 'Sacré-Cœur de Jésus',
     description: "J'ai confiance en vous",
     types:  ['tshirt'],
     colors: ['blanc', 'bleu'],
-    images: ['image 96.png', 'image 97.png'],
+    images: ['image 97.png', 'image 96.png'],
     collection: 'premium',
   }
 ];
