@@ -1111,6 +1111,10 @@
         
             grid.innerHTML = filtered.map(d => {
                 const minPrice = Math.min(...d.types.map(typeId => getProductPrice(d.key, typeId)));
+                const typeLabels = d.types.map(typeId => {
+                    const typeObj = TYPES.find(t => t.id === typeId);
+                    return typeObj ? typeObj.label : typeId;
+                });
                 return `
                     <div class="grid-card" onclick="openLb('${d.key}')">
                         <div class="grid-card-img-wrap">
