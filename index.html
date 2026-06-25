@@ -1117,8 +1117,13 @@
                             <img src="images/${d.images[0]}" onerror="this.style.opacity='0'" />
                         </div>
                         <div class="grid-card-info">
+                            <div class="grid-card-name-row">
                             <div class="grid-card-name">${d.label}</div>
-                            <div class="grid-card-price">à partir de ${minPrice} €</div>
+                            <div class="grid-card-price">${minPrice} €</div>
+                            </div>
+                            <div class="grid-card-types">
+                                ${typeLabels.map(label => `<div class="grid-card-type-badge">${label}</div>`).join('')}
+                            </div>
                         </div>
                     </div>
                 `;
