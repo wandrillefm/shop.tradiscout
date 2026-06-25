@@ -145,7 +145,7 @@
         .grid-card:hover { box-shadow: 0 0 0 2px var(--navy) inset; z-index: 1; }
         .grid-card-img-wrap { width: 100%; aspect-ratio: 1/1; overflow: hidden; position: relative; }
         .grid-card-img-wrap img { width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .35s, filter .2s; }
-        .grid-card:hover .grid-card-img-wrap img { transform:translate(-50%,-50%); scale:0.95; filter:blur(0px); }
+        .grid-card:hover .grid-card-img-wrap img { position: absolute; top: 50%; left: 50%; transform:translate(-50%,-50%); scale:0.95; filter:blur(0px); }
         .grid-card-info { padding: 0.7rem 0.8rem 0.75rem; border-top: 1px solid rgba(44,55,118,0.07); }
         .grid-card-name-row { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; }
         .grid-card-name { font-family: 'Uncial Antiqua', serif; font-size: 0.75rem; }
