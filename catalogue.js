@@ -100,9 +100,9 @@ const DESIGNS = [
   {
     id: '14', key: 'sacrecoeur', label: 'Sacré-Cœur de Jésus',
     description: "J'ai confiance en vous",
-    types:  ['tshirt'],
+    types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['image 97.png', 'image 96.png'],
+    images: ['image 97.png', 'image 96.png', 'img1', 'img2', 'img3', 'img4'],
     collection: 'premium',
   }
 ];
