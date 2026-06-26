@@ -102,7 +102,7 @@ const DESIGNS = [
     description: "J'ai confiance en vous",
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'bleu'],
-    images: ['image 97.png', 'image 96.png', 'img1', 'img2', 'img3', 'img4'],
+    images: ['image 97.png', 'image 96.png', 'img1.jpeg', 'img2.jpeg', 'img3.jpeg', 'img4.jpeg'],
     collection: 'premium',
   }
 ];
