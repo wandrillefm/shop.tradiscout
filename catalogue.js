@@ -112,7 +112,7 @@ const DESIGNS = [
   },
   // PRECOMMANDES
   {
-    id: '15', key: 'corsacrum', label: 'Rosa Mystica',
+    id: '15', key: 'grosrosamytica', label: 'Rosa Mystica',
     description: 'DOS et DEVANT - Marie, la rose sans épines',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'clair', 'fonce'],
