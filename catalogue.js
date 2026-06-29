@@ -132,7 +132,7 @@ const DESIGNS = [
     description: 'DOS et DEVANT - Jean 16:13',
     types:  ['tshirt'],
     colors: ['blanc', 'clair'],
-    images: ['espritst.jpeg','95ba067a-3525-426d-ae92-edaa4019e351.jpeg'],
+    images: ['espirtst.jpeg','95ba067a-3525-426d-ae92-edaa4019e351.jpeg'],
     collection: 'preco',
   },
   {
