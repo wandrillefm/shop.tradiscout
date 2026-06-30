@@ -116,7 +116,7 @@ const DESIGNS = [
     description: 'DOS et DEVANT - Marie, la rose sans épines',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'clair', 'fonce'],
-    images: ['fb8e315b-b76f-41b3-8a02-db8cead80e5a.jpeg', '742bf474-78b8-4ef1-bafc-ac115d1afbf0.jpeg', '4edbe0bc-f6cd-4ada-ad4a-894d1c3d452c.jpeg', '033ca4e5-fd66-4a05-aeca-c213ba241c98.jpeg'],
+    images: ['Group 30.png', 'Group 32.png', 'Group 34.png', 'Group 36.png'],
     collection: 'preco',
   },
   {
@@ -124,7 +124,7 @@ const DESIGNS = [
     description: 'DOS et DEVANT - Dévotion datant du XVIIe',
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'clair', 'fonce'],
-    images: ['742bf474-78b8-4ef1-bafc-ac115d1afbf0.jpeg', '26cf96e3-e484-4800-87fa-7fd791c2ddd4.jpeg', '262e8b12-d9fc-47ae-b735-dce021bb2532.jpeg', '402efe22-cde9-4c6f-89cb-730e08f59363.jpeg', 'fa68d24d-19a6-4eaa-b376-32d27e41cdd1.jpeg', 'b8731303-bb52-49da-a801-81f3a4aa9585.jpeg', 'b86a3823-1e31-4714-863a-b46f140c99f3.jpeg'],
+    images: ['Group 30.png', 'Group 29.png', 'Group 34.png', 'Group 33.png'],
     collection: 'preco',
   },
   {
@@ -132,7 +132,7 @@ const DESIGNS = [
     description: 'DOS et DEVANT - Jean 16:13',
     types:  ['tshirt'],
     colors: ['blanc', 'clair'],
-    images: ['espirtst.jpeg','95ba067a-3525-426d-ae92-edaa4019e351.jpeg'],
+    images: ['image 137.png', 'image 139.png', 'Group 38.png'],
     collection: 'preco',
   },
   {
@@ -140,7 +140,7 @@ const DESIGNS = [
     description: 'DOS et DEVANT - Fort dans la foi',
     types:  ['tshirt'],
     colors: ['blanc', 'clair'],
-    images: ['sportsclub.jpeg','95ba067a-3525-426d-ae92-edaa4019e351.jpeg'],
+    images: ['image 137.png', 'image 127.png', 'Group 37.png'],
     collection: 'preco',
   },
 ];
