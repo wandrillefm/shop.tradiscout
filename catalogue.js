@@ -105,7 +105,7 @@ const DESIGNS = [
   {
     id: '14', key: 'sacrecoeur', label: 'Sacré-Cœur de Jésus',
     description: 'DOS - Depuis la fin du XVIIe siècle',
-    types:  ['tshirt'],
+    types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'fonce'],
     images: ['image 97.png', 'image 96.png', 'img1.jpeg', 'img2.jpeg', 'img3.jpeg', 'img4.jpeg'],
     collection: 'premium',
