@@ -5,8 +5,8 @@
 
 const COLLECTIONS = [
   { id: 'premium', label: 'Premium'    },
-  { id: 'scouts',  label: 'Classiques'  },
-  { id: 'preco', label: 'Precomande'    }
+  { id: 'scouts',  label: 'Classique'  },
+  { id: 'ete2026', label: 'Été 2026'    }
 
 ];
 
@@ -15,19 +15,19 @@ const TYPES = [
     id: 'tshirt', 
     label: 'T-Shirt', 
     code: '1', 
-    price: { scouts: 20.25, premium: 25.2 , preco: 29.8 }
+    price: { scouts: 20.25, premium: 25.2 , ete2026: 29.8 }
   },
   { 
     id: 'sweat',  
     label: 'Sweat',  
     code: '2', 
-    price: { scouts: 43.5, premium: 45.7, preco: 52.8 } 
+    price: { scouts: 43.5, premium: 45.7, ete2026: 52.8 } 
   },
   { 
     id: 'hoodie', 
     label: 'Hoodie', 
     code: '3', 
-    price: { scouts: 49.5, premium: 52.9, preco: 60 } 
+    price: { scouts: 49.5, premium: 52.9, ete2026: 60 } 
   }
 ];
 
@@ -117,7 +117,7 @@ const DESIGNS = [
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'clair', 'fonce'],
     images: ['Group 30.png', 'Group 32.png', 'Group 34.png', 'Group 36.png'],
-    collection: 'preco',
+    collection: 'ete2026',
   },
   {
     id: '16', key: 'grossacrumjesu', label: 'Cor Sacrum Jesu',
@@ -125,7 +125,7 @@ const DESIGNS = [
     types:  ['tshirt', 'sweat'],
     colors: ['blanc', 'clair', 'fonce'],
     images: ['Group 30.png', 'Group 29.png', 'Group 34.png', 'Group 33.png'],
-    collection: 'preco',
+    collection: 'ete2026',
   },
   {
     id: '17', key: 'espritsaint', label: "Poussé par l'Esprit Saint",
@@ -133,7 +133,7 @@ const DESIGNS = [
     types:  ['tshirt'],
     colors: ['blanc', 'clair'],
     images: ['image 137.png', 'image 139.png', 'Group 38.png'],
-    collection: 'preco',
+    collection: 'ete2026',
   },
   {
     id: '18', key: 'sportsclub', label: 'Sports Club',
@@ -141,7 +141,7 @@ const DESIGNS = [
     types:  ['tshirt'],
     colors: ['blanc', 'clair'],
     images: ['image 137.png', 'image 127.png', 'Group 37.png'],
-    collection: 'preco',
+    collection: 'ete2026',
   },
 ];
 // ATTENTION A L'ID IL FAUT QU'IL SOIT UNIQUE POUR CHAQUE PRODUIT
