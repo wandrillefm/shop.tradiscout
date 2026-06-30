@@ -61,6 +61,10 @@ export default async function handler(req, res) {
     grouped[key].qty++;
   }
 
+  // Calcul des frais de livraison
+  const totalCommande  = items.reduce((s, i) => s + i.price, 0);
+  const fraisLivraison = totalCommande > 125 ? 0 : items.length * 5;
+
   const promoLabel = appliedPromo ? ` [${appliedPromo} −${Math.round(discountPercent * 100)}%]` : '';
   const lineItemsParams = {};
   Object.values(grouped).forEach((item, i) => {
@@ -72,6 +76,22 @@ export default async function handler(req, res) {
     lineItemsParams[`line_items[${i}][price_data][unit_amount]`]               = String(Math.round(item.price * 100));
     lineItemsParams[`line_items[${i}][quantity]`]                              = String(item.qty);
   });
+
+  // Ligne de livraison
+  const nbLignesProduits = Object.keys(grouped).length;
+  if (fraisLivraison > 0) {
+    lineItemsParams[`line_items[${nbLignesProduits}][price_data][currency]`]                  = 'eur';
+    lineItemsParams[`line_items[${nbLignesProduits}][price_data][product_data][name]`]        = 'Livraison';
+    lineItemsParams[`line_items[${nbLignesProduits}][price_data][product_data][description]`] = `${items.length} article(s) × 5€`;
+    lineItemsParams[`line_items[${nbLignesProduits}][price_data][unit_amount]`]               = String(Math.round(fraisLivraison * 100));
+    lineItemsParams[`line_items[${nbLignesProduits}][quantity]`]                              = '1';
+  } else {
+    lineItemsParams[`line_items[${nbLignesProduits}][price_data][currency]`]                  = 'eur';
+    lineItemsParams[`line_items[${nbLignesProduits}][price_data][product_data][name]`]        = 'Livraison offerte';
+    lineItemsParams[`line_items[${nbLignesProduits}][price_data][product_data][description]`] = 'Commande ≥ 125€';
+    lineItemsParams[`line_items[${nbLignesProduits}][price_data][unit_amount]`]               = '0';
+    lineItemsParams[`line_items[${nbLignesProduits}][quantity]`]                              = '1';
+  }
 
   let session;
   try {
@@ -103,8 +123,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const totalFull     = items.reduce((s, i) => s + Math.round(i.price / (1 - discountPercent)), 0);
-    const totalFacturé  = items.reduce((s, i) => s + i.price, 0);
+    const totalFacturé  = items.reduce((s, i) => s + i.price, 0) + fraisLivraison;
     const supabaseRes = await fetch(`${process.env.SUPABASE_URL}/rest/v1/commandes`, {
       method: 'POST',
       headers: {
@@ -123,6 +142,7 @@ export default async function handler(req, res) {
           prix:    i.price,
         })),
         total:               totalFacturé,
+        frais_livraison:     fraisLivraison,
         nb_articles:         items.length,
         statut:              'en_attente',
         code_promo:          appliedPromo ?? null,
