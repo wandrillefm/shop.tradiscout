@@ -55,7 +55,7 @@ const DESIGNS = [
   //CLASSIQUES
   {
     id: '8', key: 'st-michel', label: 'St Michel',
-    description: 'DOS - Saint patron des para',
+    description: 'DOS - Saint patron des para<br>Hoodie = sweat avec capuche',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'fonce'],
     images: ['StMichelW.jpg','StMichelB.png','image 19.jpg','image20.png','image 15.jpg','image 16.png'],
@@ -63,7 +63,7 @@ const DESIGNS = [
   },
   {
     id: '9', key: 'st-jean-marie-vianney', label: 'St Jean-Marie Vianney',
-    description: 'DOS - Saint patron des prêtres',
+    description: 'DOS - Saint patron des prêtres<br>Hoodie = sweat avec capuche',
     types:  ['tshirt','sweat','hoodie'],
     colors: ['blanc', 'fonce'],
     images: ['StVianneyW.jpg','StVianneyB.png','image 25.jpg','image 26.png','image 21.jpg','image 22.png'],
@@ -71,7 +71,7 @@ const DESIGNS = [
   },
   {
     id: '10', key: 'st-george', label: 'St George',
-    description: 'DOS - Saint patron des scouts',
+    description: 'DOS - Saint patron des scouts<br>Hoodie = sweat avec capuche',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'fonce'],
     images: ['StGeorgeW.jpg','StGeorgeB.png','image 24.jpg','image 23.png','image 18.jpg','image 17.png'],
@@ -104,7 +104,7 @@ const DESIGNS = [
   },
   {
     id: '14', key: 'sacrecoeur', label: 'Sacré-Cœur de Jésus',
-    description: 'DOS - Depuis la fin du XVIIe siècle',
+    description: 'DOS - Depuis la fin du XVIIe siècle<br>Hoodie = sweat avec capuche',
     types:  ['tshirt', 'sweat', 'hoodie'],
     colors: ['blanc', 'fonce'],
     images: ['image 97.png', 'image 96.png', 'img1.jpeg', 'img2.jpeg', 'img3.jpeg', 'img4.jpeg'],
