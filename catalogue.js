@@ -15,13 +15,13 @@ const TYPES = [
     id: 'tshirt', 
     label: 'T-Shirt', 
     code: '1', 
-    price: { scouts: 20.25, premium: 25.2 , ete2026: 26.8 }
+    price: { scouts: 17.2, premium: 17.2 , ete2026: 21.8 }
   },
   { 
     id: 'sweat',  
     label: 'Sweat',  
     code: '2', 
-    price: { scouts: 43.5, premium: 45.7, ete2026: 49.8 } 
+    price: { scouts: 39.5, premium: 39.7, ete2026: 42.8 } 
   },
   { 
     id: 'hoodie', 
